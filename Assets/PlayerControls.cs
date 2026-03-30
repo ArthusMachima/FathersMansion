@@ -22,7 +22,7 @@ public class PlayerControls : MonoBehaviour
     public KeyCode MoveDown        = KeyCode.S;
     public KeyCode MoveRight       = KeyCode.D;
     public KeyCode ActionPrimary   = KeyCode.F;           // Interaction, ect
-    public KeyCode ActionSecondary = KeyCode.LeftShift;   // Run, ect
+    public KeyCode ActionSecondary = KeyCode.LeftShift;   // Run, Fast-forward dialogue, ect
     public KeyCode ActionThird     = KeyCode.Space;       // Pause, ect
 
     //Singleton
