@@ -10,6 +10,7 @@ public class PlayerControls : MonoBehaviour
     Rigidbody2D body;
     public bool doMove = true;
     public bool doInteract = true;
+    [SerializeField] LayerMask excludeMask;
     [SerializeField] float speed;
     [SerializeField] LayerMask excludePlayer;
     bool up, left, down, right;
@@ -52,12 +53,16 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetKeyDown(ActionPrimary) && doInteract)
         {
-            // Interactive object detection
-            if (Physics2D.Raycast(transform.position, facingDirection, 1, ~excludePlayer) is RaycastHit2D hit && hit.collider != null) 
+            var hits = Physics2D.RaycastAll(transform.position, facingDirection, 1, ~excludePlayer);
+
+            foreach (var hit in hits)
             {
+                if (hit.collider == null || ((excludeMask.value & (1 << hit.collider.gameObject.layer)) != 0)) continue;
+
                 if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
                 {
                     interactable.Interact();
+                    break;
                 }
             }
         }
