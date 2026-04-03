@@ -52,7 +52,6 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetKeyDown(ActionPrimary) && doInteract)
         {
-
             // Interactive object detection
             if (Physics2D.Raycast(transform.position, facingDirection, 1, ~excludePlayer) is RaycastHit2D hit && hit.collider != null) 
             {
@@ -65,7 +64,7 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetKeyDown(ActionSecondary))
         {
-            Debug.Log("Secondary Action");
+
         }
 
         if (Input.GetKeyDown(ActionThird))
@@ -95,8 +94,6 @@ public class PlayerControls : MonoBehaviour
                 if (exists == false) UIManager.Instance.CloseExamineGui(null);
             }
         }
-
-
     }
 
 
@@ -114,7 +111,10 @@ public class PlayerControls : MonoBehaviour
         if (up || left || down || right)
         {
             facingDirection = direction.normalized;
-            body.AddForce(direction.normalized * speed * 10);
+            if (Input.GetKey(ActionSecondary))
+                body.AddForce(direction.normalized * speed*2 * 10);
+            else
+                body.AddForce(direction.normalized * speed * 10);
         }
     }
 
