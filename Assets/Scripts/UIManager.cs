@@ -33,8 +33,7 @@ public class UIManager : MonoBehaviour
 
     IEnumerator Dialogue()
     {
-        PlayerControls.Instance.doMove = false;
-        PlayerControls.Instance.doInteract = false;
+        PlayerControls.Instance.doPlayerControls = false;
 
         while (pendingDialogue.Count > 0)
         {
@@ -58,8 +57,7 @@ public class UIManager : MonoBehaviour
         }
         ShowDialoguePanel(false);
 
-        PlayerControls.Instance.doMove = true;
-        PlayerControls.Instance.doInteract = true;
+        PlayerControls.Instance.doPlayerControls = true;
     }
 
 
@@ -114,8 +112,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenExamineGui(GameObject panel) //Examine UI Animation
     {
-        PlayerControls.Instance.doMove = false;
-        PlayerControls.Instance.doInteract = false;
+        PlayerControls.Instance.doPlayerControls = false;
 
         if (isExaminePanelShown) return;
         LeanTween.cancel(ExaminePanel); // reset animation
@@ -144,8 +141,7 @@ public class UIManager : MonoBehaviour
             }
             else panel.SetActive(false);
             ExaminePanel.SetActive(false);
-            PlayerControls.Instance.doMove = true;
-            PlayerControls.Instance.doInteract = true;
+            PlayerControls.Instance.doPlayerControls = true;
         });
         isExaminePanelShown = false;
     }

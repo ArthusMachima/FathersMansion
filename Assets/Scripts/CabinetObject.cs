@@ -10,8 +10,4 @@ public class CabinetObject : MonoBehaviour, IInteractable
 
 
 
-    void OpenDoor()
-    {
-        gameObject.SetActive(false);
-    }
 }
