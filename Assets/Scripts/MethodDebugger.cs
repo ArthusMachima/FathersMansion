@@ -13,7 +13,7 @@ public class MethodDebugger : MonoBehaviour
         public UnityEvent methodEvent;
     }
 
-    public List<MethodEvent> methodEvents = new List<MethodEvent>();
+    public List<MethodEvent> methodEvents = new();
 
     private void Update()
     {

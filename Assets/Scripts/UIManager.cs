@@ -3,21 +3,34 @@ using System.Collections.Generic;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] float animationTime = 0.5f;
 
-    public GameObject ExaminePanel;
-    public GameObject ExamineDoorPanel;
-    public GameObject ExamineCabinetPanel;
-    public bool isExaminePanelShown;
-
-    public GameObject DialoguePanel;
-    public Queue<string> pendingDialogue = new();
+    [Header("Dialogue Properties")]
+    public GameObject DialoguePanelTop;
+    public GameObject DialoguePanelBottom;
+    public Queue<Dialogue> pendingDialogue = new();
     public float textSpeed;
     public TextMeshProUGUI dialogueText;
+    public GameObject dialogueConfirmSprite;
 
+    [Header("Cutscene Panel")]
+    [SerializeField] bool isCutscenePanelShown;
+    [SerializeField] CanvasGroup CutscenePanel;
+    [SerializeField] Image CutsceneImage;
+
+    [Header("Cabinet Panel")]
+    public GameObject CabinetPanel;
+    [SerializeField] Transform CabinetItemSlotList;
+    [SerializeField] ItemSlot[] CabinetItemSlot;
+
+    private void Start()
+    {
+        CabinetItemSlot = CabinetItemSlotList.GetComponentsInChildren<ItemSlot>();
+    }
 
 
 
@@ -33,27 +46,57 @@ public class UIManager : MonoBehaviour
 
     IEnumerator Dialogue()
     {
-        PlayerControls.Instance.doPlayerControls = false;
-
         while (pendingDialogue.Count > 0)
         {
             dialogueText.text = "";
-            //a.dialogue.clip = a.sfx_dialogue;    *insert sound effects*
-            foreach (char chars in pendingDialogue.Peek())
+            //a.dialogue.clip = a.sfx_dialogue;    *insert audio source*
+
+            if (pendingDialogue.Peek().cutsceneImage != null && !isCutscenePanelShown)
+            {
+                Debug.Log("cutscene detected");
+
+                isCutscenePanelShown = true;
+                CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
+                LeanTween.value(CutscenePanel.gameObject, 0f, 1, 0.5f)
+                    .setOnUpdate(val => CutscenePanel.alpha = val);
+                yield return new WaitForSeconds(0.5f);
+            }
+            else if (isCutscenePanelShown)
+            {
+                LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
+                .setOnUpdate(val => CutscenePanel.alpha = val);
+                yield return new WaitForSeconds(0.5f);
+                isCutscenePanelShown = false;
+                CutsceneImage.sprite = null;
+            }
+
+            foreach (char chars in pendingDialogue.Peek().sentence)
             {
                 dialogueText.text += chars;
-                //if (!a.dialogue.isPlaying) { a.dialogue.Play(); }
-                if (Input.GetKey(PlayerControls.Instance.ActionSecondary))
+                //if (!a.dialogue.isPlaying) { a.dialogue.Play(); } *insert sound effects*
+                if (Input.GetKey(PlayerControls.Instance.ActionSecondary)) //Fast forward function
                     yield return null;
-                else if (chars == ',' || chars == '.' || chars == '?' || chars == '!' || chars == ':' || chars == '-')
+                else if (chars == ',' || chars == '.' || chars == '?' || chars == '!' || chars == ':' || chars == '-')  //Text delays
                     yield return new WaitForSeconds(0.5f);
                 else
                     yield return new WaitForSeconds(textSpeed);
             }
+
+            dialogueConfirmSprite.SetActive(true);
             yield return new WaitUntil(()=>
             Input.GetKeyDown(PlayerControls.Instance.ActionPrimary) || 
                 Input.GetKey(PlayerControls.Instance.ActionSecondary));
             pendingDialogue.Dequeue();
+            dialogueConfirmSprite.SetActive(false);
+        }
+
+        if (isCutscenePanelShown)
+        {
+            LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
+                .setOnUpdate(val => CutscenePanel.alpha = val);
+            yield return new WaitForSeconds(0.5f);
+            isCutscenePanelShown = false;
+            CutsceneImage.sprite = null;
         }
         ShowDialoguePanel(false);
 
@@ -62,7 +105,7 @@ public class UIManager : MonoBehaviour
 
 
 
-    public void LoadDialogue(string[] dialogueData)
+    public void LoadDialogue(Dialogue[] dialogueData)
     {
         pendingDialogue.Clear();
         for (int i = 0; i < dialogueData.Length; i++)
@@ -76,10 +119,13 @@ public class UIManager : MonoBehaviour
 
     public void ShowDialoguePanel(bool show)
     {
-        LeanTween.cancel(DialoguePanel);
+        LeanTween.cancel(DialoguePanelTop);
+        LeanTween.cancel(DialoguePanelBottom);
         if (show)
         {
-            DialoguePanel.LeanMoveY(0, animationTime).setEaseOutQuint().setOnComplete(() =>
+            PlayerControls.Instance.doPlayerControls = false;
+            DialoguePanelTop   .LeanMoveY(Screen.height, animationTime).setEaseOutQuint();
+            DialoguePanelBottom.LeanMoveY(0, animationTime).setEaseOutQuint().setOnComplete(() =>
             {
                 dialogueText.gameObject.SetActive(true);
                 StartCoroutine(Dialogue());
@@ -87,62 +133,45 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            PlayerControls.Instance.doPlayerControls = true;
             dialogueText.gameObject.SetActive(false);
-            DialoguePanel.LeanMoveY(-Screen.height + Screen.height - Screen.height / 3, animationTime).setEaseOutQuint();
+
+            DialoguePanelTop   .LeanMoveY( 150+Screen.height, animationTime).setEaseOutQuint();
+            DialoguePanelBottom.LeanMoveY(-150, animationTime).setEaseOutQuint();
         }
     }
 
 
 
-    public void ShowExamineDoor(bool show)
+    public void ShowCabinet(bool show, List<ItemClass> items)
     {
-        if (show) OpenExamineGui(ExamineDoorPanel);
-        else     CloseExamineGui(ExamineDoorPanel);
-    }
-
-
-
-    public void ShowExamineCabinet(bool show)
-    {
-        if (show) OpenExamineGui(ExamineCabinetPanel);
-        else     CloseExamineGui(ExamineCabinetPanel);
-    }
-
-
-
-    public void OpenExamineGui(GameObject panel) //Examine UI Animation
-    {
-        PlayerControls.Instance.doPlayerControls = false;
-
-        if (isExaminePanelShown) return;
-        LeanTween.cancel(ExaminePanel); // reset animation
-
-        ExaminePanel.transform.LeanScale(new(0, 0, 0), 0).setOnComplete(() =>
+        if (show)
         {
-            panel.SetActive(true);
-            ExaminePanel.SetActive(true);
-            ExaminePanel.transform.LeanScale(new(1, 1, 1), animationTime).setEaseOutQuint();
-        });
-        isExaminePanelShown = true;
-    }
-
-
-
-    public void CloseExamineGui(GameObject panel) //Examine UI Animation
-    {
-        if (!isExaminePanelShown) return;
-        LeanTween.cancel(ExaminePanel);
-
-        ExaminePanel.transform.LeanScale(new(0, 0, 0), animationTime).setEaseOutQuint().setOnComplete(() =>
-        {
-            if (panel==null)
+            CabinetPanel.SetActive(true);
+            for (int i=0; i<items.Count; i++)
             {
-                foreach (Transform child in ExaminePanel.transform) child.gameObject.SetActive(false);
+                if (items.Count>4)
+                {
+                    Debug.LogError("CABINET SHOULD ONLY HAVE FOUR ITEMS");
+                    return;
+                }
+
+                if (items[i]!=null) CabinetItemSlot[i].PlaceItem(items[i]);
+                else CabinetItemSlot[i].TakeItem();
             }
-            else panel.SetActive(false);
-            ExaminePanel.SetActive(false);
-            PlayerControls.Instance.doPlayerControls = true;
-        });
-        isExaminePanelShown = false;
+        }
+        else
+        {
+            items.Clear();
+            for (int i = 0; i < CabinetItemSlot.Length; i++)
+            {
+                if (CabinetItemSlot[i].HasItem()) items.Add(CabinetItemSlot[i].TakeItem());
+            }
+            PlayerControls.Instance.interactedObject = null;
+            CabinetPanel.SetActive(false);
+        }
     }
+
+
+
 }

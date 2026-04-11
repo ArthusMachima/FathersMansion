@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
-    public ItemClass storedItem;
+    [SerializeField] ItemClass storedItem;
     [SerializeField] Image slotIcon;
 
     private void Start()
@@ -25,6 +25,31 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             slotIcon.enabled = false;
         }
+    }
+
+    public bool HasItem()
+    {
+        return storedItem!=null;
+    }
+
+    public void PlaceItem(ItemClass item)
+    {
+        storedItem = item;
+        slotIcon.enabled = true;
+        slotIcon.sprite = storedItem.itemIcon;
+    }
+
+    public void InsertItem(ItemClass item)
+    {
+        storedItem = item;
+    }
+
+    public ItemClass TakeItem()
+    {
+        slotIcon.enabled = false;
+        ItemClass item = storedItem;
+        storedItem = null;
+        return item;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

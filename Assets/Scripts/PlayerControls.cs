@@ -22,10 +22,10 @@ public class PlayerControls : MonoBehaviour
     Vector3 facingDirection = new(0, -1);
     [SerializeField] LayerMask excludeMask;
     [SerializeField] LayerMask excludePlayer;
+    public IInteractable interactedObject;
 
     [Header("Inventory")]
     [SerializeField] GameObject InventoryPanel;
-    [SerializeField] bool isInvertoryOpened = false;
     [SerializeField] GameObject List;
     [SerializeField] ItemSlot[] items;
 
@@ -34,6 +34,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] Image draggedItem;
     [SerializeField] Canvas mainCanvas;
     [SerializeField] RectTransform canvasRectTransform;
+    public ItemSlot prevSlot;
     public ItemSlot hoveredSlot;
 
 
@@ -51,7 +52,7 @@ public class PlayerControls : MonoBehaviour
     public KeyCode MoveRight       = KeyCode.D;
     public KeyCode ActionPrimary   = KeyCode.F;           // Interaction, ect
     public KeyCode ActionSecondary = KeyCode.LeftShift;   // Run, Fast-forward dialogue, ect
-    public KeyCode OpenInventory   = KeyCode.E;
+    public KeyCode ActionInventory = KeyCode.E;
 
 
 
@@ -77,29 +78,14 @@ public class PlayerControls : MonoBehaviour
 
     private void Update()
     {
-
-        if (Input.GetKeyDown(OpenInventory))
-        {
-            if (!isInvertoryOpened)
-            {
-                InventoryPanel.SetActive(true);
-                gameControlState = GameControlState.InventoryPanel;
-                RefreshInventoryPanel();
-                isInvertoryOpened = true;
-                up = false; left = false; down = false; right = false;
-            }
-            else
-            {
-                InventoryPanel.SetActive(false);
-                gameControlState = GameControlState.TopDownControls;
-                isInvertoryOpened = false;
-            }
-        }
-
-
-
+        if (!doPlayerControls) return;
         if (gameControlState == GameControlState.TopDownControls)
         {
+            if (Input.GetKeyDown(ActionInventory) && !up && !left && !down && !right)
+            {
+                OpenInventory(true);
+                up = false; left = false; down = false; right = false;
+            }
 
             //Keyboard Controls
             if (body != null)
@@ -108,18 +94,21 @@ public class PlayerControls : MonoBehaviour
                 if (Input.GetKey(MoveLeft))  left =true; else left =false;
                 if (Input.GetKey(MoveDown))  down =true; else down =false;
                 if (Input.GetKey(MoveRight)) right=true; else right=false;
-            }
+            } //Movement
 
-            if (Input.GetKeyDown(ActionPrimary) && doPlayerControls)
+            if (Input.GetKeyDown(ActionPrimary))
             {
                 var hits = Physics2D.RaycastAll(transform.position, facingDirection, 1, ~excludePlayer);
 
                 foreach (var hit in hits)
                 {
-                    if (hit.collider == null || ((excludeMask.value & (1 << hit.collider.gameObject.layer)) != 0)) continue;
+                    //Ignore if it's not interactable
+                    if (hit.collider == null || ((excludeMask.value & (1 << hit.collider.gameObject.layer)) != 0)) continue; 
 
+                    //If interactable
                     if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
                     {
+                        interactedObject = interactable;
                         interactable.Interact();
                         break;
                     }
@@ -129,7 +118,7 @@ public class PlayerControls : MonoBehaviour
             if (Input.GetKeyDown(ActionSecondary))
             {
 
-            }
+            } //empty
 
             //Cursor Controls
             if (Input.GetMouseButtonDown(0))
@@ -137,7 +126,7 @@ public class PlayerControls : MonoBehaviour
 
 
 
-
+                /*
                 // Exiting ExaminePanel by pressing anywhere outside the panel
                 if (UIManager.Instance.isExaminePanelShown)
                 {
@@ -149,6 +138,7 @@ public class PlayerControls : MonoBehaviour
                     foreach (RaycastResult result in results) if (result.gameObject == UIManager.Instance.ExaminePanel) exists = true;
                     if (exists == false) UIManager.Instance.CloseExamineGui(null);
                 }
+                */
             }
 
 
@@ -156,14 +146,29 @@ public class PlayerControls : MonoBehaviour
         }
         else if (gameControlState == GameControlState.InventoryPanel)
         {
+            if (Input.GetKeyDown(ActionInventory))
+            {
+                OpenInventory(false);
+                if (interactedObject is CabinetObject openedCabinet && interactedObject!=null)
+                {
+                    UIManager.Instance.ShowCabinet(false, openedCabinet.storedItems);
+                }
+            }
+
+            if (Input.GetKeyDown(MoveUp)   ||
+                Input.GetKeyDown(MoveLeft) ||
+                Input.GetKeyDown(MoveDown) ||
+                Input.GetKeyDown(MoveRight))
+            {
+                OpenInventory(false);
+                if (interactedObject is CabinetObject openedCabinet && interactedObject != null)
+                {
+                    UIManager.Instance.ShowCabinet(false, openedCabinet.storedItems);
+                }
+            }
+
 
         }
-
-
-
-
-
-
 
 
     }
@@ -193,6 +198,21 @@ public class PlayerControls : MonoBehaviour
 
 
     //Inventory
+    public void OpenInventory(bool open)
+    {
+        if (open)
+        {
+            InventoryPanel.SetActive(true);
+            gameControlState = GameControlState.InventoryPanel;
+            RefreshInventoryPanel();
+        }
+        else
+        {
+            InventoryPanel.SetActive(false);
+            gameControlState = GameControlState.TopDownControls;
+        }
+    }
+
     void RefreshInventoryPanel()
     {
         foreach (ItemSlot slot in items) slot.RefreshSlot();
@@ -202,9 +222,9 @@ public class PlayerControls : MonoBehaviour
     {
         foreach (ItemSlot slot in items)
         {
-            if (slot.storedItem == null)
+            if (!slot.HasItem())
             {
-                slot.storedItem = item.item;
+                slot.InsertItem(item.item);
                 Destroy(item.gameObject);
                 break;
             }
@@ -213,9 +233,10 @@ public class PlayerControls : MonoBehaviour
 
     public void StartDragItem(ItemClass dragItem)
     {
+        prevSlot = hoveredSlot;
         heldItem = dragItem;
         draggedItem.gameObject.SetActive(true);
-        draggedItem.sprite = heldItem.itemIcon; //line 232
+        draggedItem.sprite = heldItem.itemIcon;
         StartCoroutine(DragItem());
     }
 
@@ -228,22 +249,24 @@ public class PlayerControls : MonoBehaviour
         }
 
         draggedItem.gameObject.SetActive(false);
-        yield return null;
-        hoveredSlot.storedItem = heldItem;
-        hoveredSlot.RefreshSlot();
-        yield return null;
+        if (hoveredSlot.HasItem()) prevSlot.PlaceItem(heldItem);
+        else hoveredSlot.PlaceItem(heldItem);
         heldItem = null;
     }
+
+
+
+
+    //Utility
 
     public Vector2 GetCursorPositionOnCanvas()
     {
         Vector2 screenPosition = Input.mousePosition;
-        Vector2 localPosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvasRectTransform,
             screenPosition,
             mainCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : Camera.main,
-            out localPosition
+            out Vector2 localPosition
         );
         return localPosition;
     }

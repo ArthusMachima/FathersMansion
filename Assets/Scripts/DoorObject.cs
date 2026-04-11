@@ -4,7 +4,7 @@ public class DoorObject : MonoBehaviour, IInteractable
 {
     public void Interact()
     {
-        UIManager.Instance.ShowExamineDoor(true);
+        //UIManager.Instance.ShowExamineDoor(true);
     }
 
 
