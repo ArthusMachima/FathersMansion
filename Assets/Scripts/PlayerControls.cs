@@ -1,8 +1,10 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -25,15 +27,21 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] GameObject InventoryPanel;
     [SerializeField] bool isInvertoryOpened = false;
     [SerializeField] GameObject List;
-    [SerializeField] TextMeshProUGUI[] ItemText;
-    [SerializeField] int inventoryPanelIndex;
-    [SerializeField] GameObject SelectionMark;
-    [SerializeField] List<ItemClass> items = new();
+    [SerializeField] ItemSlot[] items;
+
+    [Header("Item Drag")]
+    [SerializeField] ItemClass heldItem;
+    [SerializeField] Image draggedItem;
+    [SerializeField] Canvas mainCanvas;
+    [SerializeField] RectTransform canvasRectTransform;
+    public ItemSlot hoveredSlot;
+
 
     public enum GameControlState
     {
         TopDownControls,
-        InventoryPanel
+        InventoryPanel,
+        DraggingItem
     }
 
     [Header("Player Controls")]
@@ -58,9 +66,11 @@ public class PlayerControls : MonoBehaviour
 
     private void Start()
     {
+        items = List.GetComponentsInChildren<ItemSlot>();
         body = GetComponent<Rigidbody2D>();
-        ItemText = List.GetComponentsInChildren<TextMeshProUGUI>();
         InventoryPanel.SetActive(false);
+        canvasRectTransform = mainCanvas.GetComponent<RectTransform>();
+        draggedItem.gameObject.SetActive(false);
     }
 
 
@@ -72,14 +82,15 @@ public class PlayerControls : MonoBehaviour
         {
             if (!isInvertoryOpened)
             {
-                InventoryPanel.gameObject.SetActive(true);
+                InventoryPanel.SetActive(true);
                 gameControlState = GameControlState.InventoryPanel;
                 RefreshInventoryPanel();
                 isInvertoryOpened = true;
+                up = false; left = false; down = false; right = false;
             }
             else
             {
-                InventoryPanel.gameObject.SetActive(false);
+                InventoryPanel.SetActive(false);
                 gameControlState = GameControlState.TopDownControls;
                 isInvertoryOpened = false;
             }
@@ -93,10 +104,10 @@ public class PlayerControls : MonoBehaviour
             //Keyboard Controls
             if (body != null)
             {
-                up = Input.GetKey(MoveUp);
-                left = Input.GetKey(MoveLeft);
-                down = Input.GetKey(MoveDown);
-                right = Input.GetKey(MoveRight);
+                if (Input.GetKey(MoveUp))    up   =true; else up   =false;
+                if (Input.GetKey(MoveLeft))  left =true; else left =false;
+                if (Input.GetKey(MoveDown))  down =true; else down =false;
+                if (Input.GetKey(MoveRight)) right=true; else right=false;
             }
 
             if (Input.GetKeyDown(ActionPrimary) && doPlayerControls)
@@ -130,8 +141,8 @@ public class PlayerControls : MonoBehaviour
                 // Exiting ExaminePanel by pressing anywhere outside the panel
                 if (UIManager.Instance.isExaminePanelShown)
                 {
-                    PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = Input.mousePosition };
-                    List<RaycastResult> results = new List<RaycastResult>();
+                    PointerEventData pointerData = new(EventSystem.current) { position = Input.mousePosition };
+                    List<RaycastResult> results = new();
                     EventSystem.current.RaycastAll(pointerData, results);
 
                     bool exists = false;
@@ -145,23 +156,6 @@ public class PlayerControls : MonoBehaviour
         }
         else if (gameControlState == GameControlState.InventoryPanel)
         {
-
-            if (Input.GetKeyDown(MoveUp))
-            {
-                MoveInventorySelection(MoveUp);
-            }
-            else 
-            if (Input.GetKeyDown(MoveDown))
-            {
-                MoveInventorySelection(MoveDown);
-            }
-
-            if (Input.GetKeyDown(ActionPrimary))
-            {
-                items[inventoryPanelIndex].UseItem();
-                items.Remove(items[inventoryPanelIndex]);
-                RefreshInventoryPanel();
-            }
 
         }
 
@@ -190,54 +184,73 @@ public class PlayerControls : MonoBehaviour
         {
             facingDirection = direction.normalized;
             if (Input.GetKey(ActionSecondary))
-                body.AddForce(direction.normalized * speed* 2 * 10);
+                body.AddForce(10 * 2 * speed * direction.normalized);
             else
-                body.AddForce(direction.normalized * speed* 10);
+                body.AddForce(10 * speed * direction.normalized);
         }
     }
 
 
 
-    void MoveInventorySelection(KeyCode key)
-    {
-        if (key == MoveUp)
-        {
-            if (inventoryPanelIndex > 0)
-            {
-                inventoryPanelIndex--;
-                SelectionMark.transform.parent = ItemText[inventoryPanelIndex].transform;
-                SelectionMark.transform.localPosition = new(SelectionMark.transform.localPosition.x, 0, 0);
-            }
-        }
-        else if (key == MoveDown)
-        {
-            if (inventoryPanelIndex < items.Count-1)
-            {
-                inventoryPanelIndex++;
-                SelectionMark.transform.parent = ItemText[inventoryPanelIndex].transform;
-                SelectionMark.transform.localPosition = new(SelectionMark.transform.localPosition.x, 0, 0);
-            }
-        }
-    }
-
+    //Inventory
     void RefreshInventoryPanel()
     {
-        SelectionMark.transform.localPosition = new(SelectionMark.transform.localPosition.x, 0, 0);
-        for (int i = 0; i < ItemText.Length; i++)
+        foreach (ItemSlot slot in items) slot.RefreshSlot();
+    }
+
+    public void TakeItem(ItemObject item)
+    {
+        foreach (ItemSlot slot in items)
         {
-            if (i < items.Count && items[i] != null)
+            if (slot.storedItem == null)
             {
-                ItemText[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                ItemText[i].gameObject.SetActive(false);
+                slot.storedItem = item.item;
+                Destroy(item.gameObject);
+                break;
             }
         }
     }
 
+    public void StartDragItem(ItemClass dragItem)
+    {
+        heldItem = dragItem;
+        draggedItem.gameObject.SetActive(true);
+        draggedItem.sprite = heldItem.itemIcon; //line 232
+        StartCoroutine(DragItem());
+    }
+
+    IEnumerator DragItem()
+    {
+        while (Input.GetMouseButton(0))
+        {
+            draggedItem.transform.localPosition = GetCursorPositionOnCanvas();
+            yield return null;
+        }
+
+        draggedItem.gameObject.SetActive(false);
+        yield return null;
+        hoveredSlot.storedItem = heldItem;
+        hoveredSlot.RefreshSlot();
+        yield return null;
+        heldItem = null;
+    }
+
+    public Vector2 GetCursorPositionOnCanvas()
+    {
+        Vector2 screenPosition = Input.mousePosition;
+        Vector2 localPosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvasRectTransform,
+            screenPosition,
+            mainCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : Camera.main,
+            out localPosition
+        );
+        return localPosition;
+    }
 
 
+
+    
     void OnDrawGizmos()
     {
         if (Physics2D.Raycast(transform.position, facingDirection, 1, ~excludePlayer) is RaycastHit2D hit && hit.collider != null)
