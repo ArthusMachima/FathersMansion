@@ -1,9 +1,10 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.UI;
+using static GeneralEventsListeners;
 
 public class UIManager : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] Transform CabinetItemSlotList;
     [SerializeField] ItemSlot[] CabinetItemSlot;
 
+    [Header("Puzzle Panel")]
+    [SerializeField] CanvasGroup PuzzleCanvasGroup;
+    [SerializeField] GameObject CurrentPuzzlePanel;
+
     private void Start()
     {
         CabinetItemSlot = CabinetItemSlotList.GetComponentsInChildren<ItemSlot>();
@@ -43,7 +48,7 @@ public class UIManager : MonoBehaviour
     }
 
 
-
+    // Dialogue Panel
     IEnumerator Dialogue()
     {
         while (pendingDialogue.Count > 0)
@@ -51,17 +56,22 @@ public class UIManager : MonoBehaviour
             dialogueText.text = "";
             //a.dialogue.clip = a.sfx_dialogue;    *insert audio source*
 
-            if (pendingDialogue.Peek().cutsceneImage != null && !isCutscenePanelShown)
+            if (pendingDialogue.Peek().methodCall != null && pendingDialogue.Peek().methodCall.GetPersistentEventCount() > 0)
+            {
+                pendingDialogue.Peek().methodCall.Invoke();
+            }
+
+            if (pendingDialogue.Peek().cutsceneImage != null && !isCutscenePanelShown)  // Does the current pendingDialogue queue have an image
             {
                 Debug.Log("cutscene detected");
 
                 isCutscenePanelShown = true;
                 CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
-                LeanTween.value(CutscenePanel.gameObject, 0f, 1, 0.5f)
+                LeanTween.value(CutscenePanel.gameObject, 0, 1, 0.5f)
                     .setOnUpdate(val => CutscenePanel.alpha = val);
                 yield return new WaitForSeconds(0.5f);
             }
-            else if (isCutscenePanelShown)
+            else if (isCutscenePanelShown) // Does the current pendingDialogue queue have NO image
             {
                 LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
                 .setOnUpdate(val => CutscenePanel.alpha = val);
@@ -70,7 +80,7 @@ public class UIManager : MonoBehaviour
                 CutsceneImage.sprite = null;
             }
 
-            foreach (char chars in pendingDialogue.Peek().sentence)
+            foreach (char chars in pendingDialogue.Peek().sentence) // Putting individual characters each from pendingDialogue before a set slight delay.
             {
                 dialogueText.text += chars;
                 //if (!a.dialogue.isPlaying) { a.dialogue.Play(); } *insert sound effects*
@@ -103,8 +113,6 @@ public class UIManager : MonoBehaviour
         PlayerControls.Instance.doPlayerControls = true;
     }
 
-
-
     public void LoadDialogue(Dialogue[] dialogueData)
     {
         pendingDialogue.Clear();
@@ -114,8 +122,6 @@ public class UIManager : MonoBehaviour
         }
         ShowDialoguePanel(true);
     }
-
-
 
     public void ShowDialoguePanel(bool show)
     {
@@ -143,6 +149,7 @@ public class UIManager : MonoBehaviour
 
 
 
+    // Cabinet Panel
     public void ShowCabinet(bool show, List<ItemClass> items)
     {
         if (show)
@@ -174,4 +181,33 @@ public class UIManager : MonoBehaviour
 
 
 
+    // Puzzle Panel
+    public void ShowPuzzlePanel(GameObject panel)
+    {
+        CurrentPuzzlePanel = Instantiate(panel, PuzzleCanvasGroup.transform);
+        PuzzleCanvasGroup.gameObject.SetActive(true);
+        PlayerControls.Instance.PuzzleMode(true);
+        LeanTween.value(PuzzleCanvasGroup.gameObject, 0, 1, 0.3f)
+            .setOnUpdate(val => PuzzleCanvasGroup.alpha = val);
+    }
+
+    public void ShowPuzzlePanel()
+    {
+        PlayerControls.Instance.OpenInventory(false, false);
+        PlayerControls.Instance.doPlayerControls = false;
+        LeanTween.value(PuzzleCanvasGroup.gameObject, 1, 0, 0.3f)
+                .setOnUpdate(val => PuzzleCanvasGroup.alpha = val).setOnComplete(() =>
+                {
+                    StartCoroutine(DelayedPuzzlePanelHide());
+                });
+    }
+
+    IEnumerator DelayedPuzzlePanelHide( )
+    {
+        yield return new WaitForSeconds(0.1f);
+        PlayerControls.Instance.doPlayerControls = true;
+        PlayerControls.Instance.PuzzleMode(false);
+        PuzzleCanvasGroup.gameObject.SetActive(false);
+        Destroy(CurrentPuzzlePanel);
+    }
 }

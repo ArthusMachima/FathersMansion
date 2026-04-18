@@ -10,7 +10,7 @@ public class PlayerControls : MonoBehaviour
 {
     [Header("Intialization")]
     Rigidbody2D body;
-    [SerializeField] GameControlState gameControlState = GameControlState.TopDownControls;
+    public GameControlState gameControlState = GameControlState.TopDownControls;
 
     [Header("Movement")]
     public bool doPlayerControls=true;
@@ -23,15 +23,26 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] LayerMask excludeMask;
     [SerializeField] LayerMask excludePlayer;
     public IInteractable interactedObject;
+    public PuzzleObject currentInteractedPuzzle;
 
     [Header("Inventory")]
     [SerializeField] GameObject InventoryPanel;
-    [SerializeField] GameObject List;
+    [SerializeField] GameObject ItemDescriptionPanel;
+    [SerializeField] TextMeshProUGUI ItemDescriptionText;
+
+    [Header("Pocket Panel")]
+    [SerializeField] GameObject PocketPanel;
+    [SerializeField] GameObject PocketList;
     [SerializeField] ItemSlot[] items;
 
+    [Header("KeyItem Panel")]
+    [SerializeField] GameObject KeyItemPanel;
+    [SerializeField] GameObject KeyItemList;
+    [SerializeField] KeyItemSlot[] keyItems;
+
     [Header("Item Drag")]
-    [SerializeField] ItemClass heldItem;
-    [SerializeField] Image draggedItem;
+    public ItemClass heldItem;
+    public Image draggedItem;
     [SerializeField] Canvas mainCanvas;
     [SerializeField] RectTransform canvasRectTransform;
     public ItemSlot prevSlot;
@@ -42,7 +53,7 @@ public class PlayerControls : MonoBehaviour
     {
         TopDownControls,
         InventoryPanel,
-        DraggingItem
+        SolvingPuzzle
     }
 
     [Header("Player Controls")]
@@ -64,14 +75,15 @@ public class PlayerControls : MonoBehaviour
     }
 
 
-
     private void Start()
     {
-        items = List.GetComponentsInChildren<ItemSlot>();
+        items = PocketList.GetComponentsInChildren<ItemSlot>();
+        keyItems = KeyItemList.GetComponentsInChildren<KeyItemSlot>();
         body = GetComponent<Rigidbody2D>();
-        InventoryPanel.SetActive(false);
         canvasRectTransform = mainCanvas.GetComponent<RectTransform>();
         draggedItem.gameObject.SetActive(false);
+        InventoryPanel.SetActive(false);
+        ItemDescriptionPanel.SetActive(false);
     }
 
 
@@ -83,7 +95,7 @@ public class PlayerControls : MonoBehaviour
         {
             if (Input.GetKeyDown(ActionInventory) && !up && !left && !down && !right)
             {
-                OpenInventory(true);
+                OpenInventory(true, true);
                 up = false; left = false; down = false; right = false;
             }
 
@@ -121,7 +133,7 @@ public class PlayerControls : MonoBehaviour
             } //empty
 
             //Cursor Controls
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0)) 
             {
 
 
@@ -139,16 +151,13 @@ public class PlayerControls : MonoBehaviour
                     if (exists == false) UIManager.Instance.CloseExamineGui(null);
                 }
                 */
-            }
-
-
-
+            } //empty
         }
         else if (gameControlState == GameControlState.InventoryPanel)
         {
             if (Input.GetKeyDown(ActionInventory))
             {
-                OpenInventory(false);
+                OpenInventory(false, true);
                 if (interactedObject is CabinetObject openedCabinet && interactedObject!=null)
                 {
                     UIManager.Instance.ShowCabinet(false, openedCabinet.storedItems);
@@ -160,7 +169,7 @@ public class PlayerControls : MonoBehaviour
                 Input.GetKeyDown(MoveDown) ||
                 Input.GetKeyDown(MoveRight))
             {
-                OpenInventory(false);
+                OpenInventory(false, true);
                 if (interactedObject is CabinetObject openedCabinet && interactedObject != null)
                 {
                     UIManager.Instance.ShowCabinet(false, openedCabinet.storedItems);
@@ -169,8 +178,17 @@ public class PlayerControls : MonoBehaviour
 
 
         }
-
-
+        else if (gameControlState == GameControlState.SolvingPuzzle)
+        {
+            if (Input.GetKeyDown(MoveUp) ||
+                Input.GetKeyDown(MoveLeft) ||
+                Input.GetKeyDown(MoveDown) ||
+                Input.GetKeyDown(MoveRight))
+            {
+                doPlayerControls = false;
+                UIManager.Instance.ShowPuzzlePanel();
+            }
+        }
     }
 
 
@@ -198,18 +216,19 @@ public class PlayerControls : MonoBehaviour
 
 
     //Inventory
-    public void OpenInventory(bool open)
+    public void OpenInventory(bool open, bool notpuzzle)
     {
         if (open)
         {
             InventoryPanel.SetActive(true);
-            gameControlState = GameControlState.InventoryPanel;
+            ShowPocketPanel();
+            if (notpuzzle) gameControlState = GameControlState.InventoryPanel;
             RefreshInventoryPanel();
         }
         else
         {
             InventoryPanel.SetActive(false);
-            gameControlState = GameControlState.TopDownControls;
+            if (notpuzzle) gameControlState = GameControlState.TopDownControls;
         }
     }
 
@@ -224,8 +243,22 @@ public class PlayerControls : MonoBehaviour
         {
             if (!slot.HasItem())
             {
+                SideScreenMessage.Instance.DisplayMessage("Obtained", item.item.itemName, 0.6f);
                 slot.InsertItem(item.item);
                 Destroy(item.gameObject);
+                break;
+            }
+        }
+    }
+
+    public void TransferItemToKey(ItemClass item)
+    {
+        foreach (KeyItemSlot slot in keyItems)
+        {
+            if (!slot.HasItem())
+            {
+                SideScreenMessage.Instance.DisplayMessage("Obtained", item.itemName, 0.6f);
+                slot.InsertItem(item);
                 break;
             }
         }
@@ -246,6 +279,7 @@ public class PlayerControls : MonoBehaviour
         {
             draggedItem.transform.localPosition = GetCursorPositionOnCanvas();
             yield return null;
+            if (heldItem==null) yield break;
         }
 
         draggedItem.gameObject.SetActive(false);
@@ -254,11 +288,54 @@ public class PlayerControls : MonoBehaviour
         heldItem = null;
     }
 
+    public void SetHoveredSlot(ItemSlot slot)
+    {
+        if (slot!=null)
+        {
+            hoveredSlot = slot;
+            if (hoveredSlot.HasItem())
+            {
+                ItemDescriptionPanel.SetActive(true);
+                ItemDescriptionText.text = $"{slot.PeekItem().itemName} - {slot.PeekItem().itemDescription}";
+            }
+        }
+    }
+
+    public void SetHoveredSlot(KeyItemSlot slot)
+    {
+        if (slot != null)
+        {
+            ItemDescriptionPanel.SetActive(true);
+            ItemDescriptionText.text = $"{slot.PeekItem().itemName} - {slot.PeekItem().itemDescription}";
+        }
+    }
+
+    public void SetHoveredSlot()
+    {
+        ItemDescriptionText.text = "";
+        ItemDescriptionPanel.SetActive(false);
+    }
+
+    public void ShowPocketPanel()
+    {
+        PocketPanel.SetActive(false);
+        KeyItemPanel.SetActive(false);
+
+        PocketPanel.SetActive(true);
+    }
+
+    public void ShowKeyItemPanel()
+    {
+        PocketPanel.SetActive(false);
+        KeyItemPanel.SetActive(false);
+
+        KeyItemPanel.SetActive(true);
+        foreach (KeyItemSlot slot in keyItems) slot.RefreshSlot();
+    }
 
 
 
     //Utility
-
     public Vector2 GetCursorPositionOnCanvas()
     {
         Vector2 screenPosition = Input.mousePosition;
@@ -271,9 +348,21 @@ public class PlayerControls : MonoBehaviour
         return localPosition;
     }
 
+    public void PuzzleMode(bool show)
+    {
+        if (show)
+        {
+            gameControlState = GameControlState.SolvingPuzzle;
+        }
+        else
+        {
+            doPlayerControls = true;
+            gameControlState = GameControlState.TopDownControls;
+        }
+    }
 
 
-    
+
     void OnDrawGizmos()
     {
         if (Physics2D.Raycast(transform.position, facingDirection, 1, ~excludePlayer) is RaycastHit2D hit && hit.collider != null)

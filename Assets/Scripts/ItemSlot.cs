@@ -14,6 +14,9 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         RefreshSlot();
     }
 
+
+
+    //Slot Functions
     public void RefreshSlot()
     {
         if (storedItem!=null)
@@ -52,15 +55,22 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         return item;
     }
 
+    public ItemClass PeekItem()
+    {
+        return storedItem;
+    }
+
+
+
+    //Mouse functions
     public void OnPointerEnter(PointerEventData eventData)
     {
-        PlayerControls.Instance.hoveredSlot = this;
+        PlayerControls.Instance.SetHoveredSlot(this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //Hide item description
-        //Debug.Log("Exit Slot");
+        PlayerControls.Instance.SetHoveredSlot();
     }
 
     public void OnPointerDown(PointerEventData eventData)

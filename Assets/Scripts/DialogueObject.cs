@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueObject : MonoBehaviour, IInteractable
 {
     [SerializeField] Dialogue[] dialogue;
+    [SerializeField] bool isInteractable = true;
     [SerializeField] bool isCutscene;
     [SerializeField] bool isRepeatable;
     SpriteRenderer sprite;
@@ -18,6 +20,11 @@ public class DialogueObject : MonoBehaviour, IInteractable
     }
 
     public void Interact()
+    {
+        if (isInteractable) LoadDialogue();
+    }
+
+    public void LoadDialogue()
     {
         UIManager.Instance.LoadDialogue(dialogue);
     }
@@ -37,4 +44,5 @@ public class Dialogue
 {
     public string sentence;
     public Sprite cutsceneImage;
+    public UnityEvent methodCall;
 }

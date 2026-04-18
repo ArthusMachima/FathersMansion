@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbce768a0359c7243b4b85d5637d0a09, type: 3}
-  m_Name: SampleItem
+  m_Script: {fileID: 11500000, guid: 81309d0f23f145f4080253cf6a0f55b1, type: 3}
+  m_Name: Matching Puzzle Piece
   m_EditorClassIdentifier: 
-  itemName: SampleItem
-  itemIcon: {fileID: 5393448996881579246, guid: a2bed0c2c68fef84f9e9ad5a62ec6d41, type: 3}
+  itemName: Matching Puzzle Piece
+  itemIcon: {fileID: 831571705078766722, guid: 37438744cb832a74c96763f4f1a3a21e, type: 3}
+  itemDescription: A piece of matching puzzle.
