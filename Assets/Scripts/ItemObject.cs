@@ -11,11 +11,11 @@ public class ItemObject : MonoBehaviour, IInteractable
     {
         if (!isKeyItem)
         {
-            PlayerControls.Instance.TakeItem(this);
+            InventoryManager.Instance.TakeItem(this);
         }
         else
         {
-            PlayerControls.Instance.TransferItemToKey(item);
+            InventoryManager.Instance.TransferItemToKey(item);
             Destroy(gameObject);
         }
     }

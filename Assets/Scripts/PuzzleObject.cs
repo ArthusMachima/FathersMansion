@@ -5,43 +5,57 @@ using UnityEngine.Events;
 public class PuzzleObject : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject PuzzlePanel;
+    [SerializeField] UnityEvent OnPuzzleEnterMethod;
+    [SerializeField] UnityEvent OnPuzzleExitMethod;
     [SerializeField] UnityEvent OnPuzzleCompleteMethod;
     [SerializeField] ItemClass rewardItem;
     public bool isPuzzlePieceFound;
-    [SerializeField] bool isPuzzleFinished;
+    public bool isPuzzleFinished;
+
+    private void Start()
+    {
+        PlayerPrefs.DeleteKey("paintingPuzzle");
+    }
 
     public void Interact()
     {
-        EnterPuzzle();
-        PlayerControls.Instance.OpenInventory(true, false);
-    }
-
-
-
-    void EnterPuzzle()
-    {
         UIManager.Instance.ShowPuzzlePanel(PuzzlePanel);
         PlayerControls.Instance.currentInteractedPuzzle = this;
+        OnPuzzleEnter();
+        InventoryManager.Instance.OpenInventory(true, false);
     }
-
-
 
     public void OnPuzzleComplete()
     {
-        StartCoroutine(PuzzleCompleteBehavior());
+        PlayerControls.Instance.doPlayerControls = false;
+        UIManager.Instance.ShowPuzzlePanel();
+        InventoryManager.Instance.OpenInventory(false, false);
+
+        LeanTween.delayedCall(0.6f, () =>
+        {
+            if (!isPuzzleFinished)
+            {
+                OnPuzzleCompleteMethod.Invoke();
+                if (rewardItem != null) InventoryManager.Instance.TransferItemToKey(rewardItem);
+                isPuzzleFinished = true;
+            }
+            PlayerControls.Instance.currentInteractedPuzzle = null;
+
+            // If OnPuzzleCompleteMethod loaded dialogue, let the dialogue
+            // coroutine re-enable controls instead to avoid the movement gap
+            if (UIManager.Instance.pendingDialogue.Count == 0)
+                PlayerControls.Instance.PuzzleMode(false);
+        });
     }
 
-    IEnumerator PuzzleCompleteBehavior()
+    public void OnPuzzleEnter()
     {
-        UIManager.Instance.ShowPuzzlePanel();
-        PlayerControls.Instance.OpenInventory(false, false);
-        yield return new WaitForSeconds(0.5f);
-        if (!isPuzzleFinished)
-        {
-            OnPuzzleCompleteMethod.Invoke();
-            if (rewardItem != null) PlayerControls.Instance.TransferItemToKey(rewardItem);
-            isPuzzleFinished = true;
-        }
-        PlayerControls.Instance.currentInteractedPuzzle = null;
+        UIManager.Instance.CurrentPuzzlePanel.OnPuzzleEnter();
+        OnPuzzleEnterMethod.Invoke();
+    }
+
+    public void OnPuzzleExit()
+    {
+        OnPuzzleExitMethod.Invoke();
     }
 }

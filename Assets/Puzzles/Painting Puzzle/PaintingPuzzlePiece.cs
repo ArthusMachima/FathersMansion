@@ -1,19 +1,19 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PaintingPuzzlePiece : PaintingPuzzle, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
+public class PaintingPuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    public enum PaintingDirection { w, a, s, d }
-
-    public PaintingDirection currentDirection = PaintingDirection.w;
+    public PaintingPuzzle parentPuzzle;
+    static readonly char[] directions = { 'w', 'a', 's', 'd' };
     [SerializeField] int directionIndex = 0;
+    public char currentDirection = 'w';
+    public char colorCode;
     [SerializeField] int rot;
-
     private CanvasGroup canvasGroup;
     private Transform originalParent;
-    private Vector2 originalPosition;
     private Canvas rootCanvas;
     private bool isDragging = false;
+    public bool canBeMoved = true;
     [SerializeField] ItemClass item;
 
     void OnEnable()
@@ -21,69 +21,83 @@ public class PaintingPuzzlePiece : PaintingPuzzle, IBeginDragHandler, IDragHandl
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
+    }
 
-        rootCanvas = GetComponentInParent<Canvas>();
+    Canvas GetRootCanvas()
+    {
+        if (rootCanvas != null) return rootCanvas;
+        rootCanvas = GetComponentInParent<Canvas>()?.rootCanvas;
+        return rootCanvas;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (!canBeMoved) return;
         isDragging = false;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (!canBeMoved) return;
         if (!isDragging)
         {
-            rot += 90;
-            directionIndex++;
-
-            if (directionIndex <= 1) { directionIndex = 1; currentDirection = PaintingDirection.a; }
-            else if (directionIndex == 2) { currentDirection = PaintingDirection.s; }
-            else if (directionIndex == 3) { currentDirection = PaintingDirection.d; }
-            else if (directionIndex >= 4) { directionIndex = 0; rot = 0; currentDirection = PaintingDirection.w; }
-
+            directionIndex = (directionIndex + 1) % directions.Length;
+            currentDirection = directions[directionIndex];
+            rot = directionIndex * 90;
             LeanTween.cancel(gameObject);
-            transform.LeanRotateZ(rot, 0.3f).setEaseOutQuint();
+            transform.LeanRotateZ(rot, 0.3f).setEaseOutQuint().setOnComplete(() =>
+            {
+                parentPuzzle.CheckAnswer();
+            });
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!canBeMoved) return;
         isDragging = true;
-        originalParent = transform.parent;
+        rootCanvas = GetRootCanvas();
 
-        PaintingPuzzleSlot originalSlot = originalParent.GetComponent<PaintingPuzzleSlot>();
-        if (originalSlot != null)
+        originalParent = transform.parent;
+        if (originalParent.TryGetComponent<PaintingPuzzleSlot>(out var originalSlot))
             originalSlot.heldPiece = null;
 
-        originalPosition = GetComponent<RectTransform>().anchoredPosition;
         transform.SetParent(rootCanvas.transform);
-        canvasGroup.blocksRaycasts = false;
-    }
 
-    public void OnDrag(PointerEventData eventData)
-    {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             rootCanvas.GetComponent<RectTransform>(),
             eventData.position,
             eventData.pressEventCamera,
             out Vector2 localPoint
         );
+        GetComponent<RectTransform>().localPosition = localPoint;
 
+        canvasGroup.blocksRaycasts = false;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (!canBeMoved) return;
+        rootCanvas = GetRootCanvas();
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            rootCanvas.GetComponent<RectTransform>(),
+            eventData.position,
+            eventData.pressEventCamera,
+            out Vector2 localPoint
+        );
         GetComponent<RectTransform>().localPosition = localPoint;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!canBeMoved) return;
         isDragging = false;
         canvasGroup.blocksRaycasts = true;
 
-        // Check for ItemSlot under cursor
         ItemSlot targetItemSlot = null;
         foreach (GameObject hoveredObject in eventData.hovered)
         {
-            ItemSlot slot = hoveredObject.GetComponent<ItemSlot>();
-            if (slot != null)
+            if (hoveredObject.TryGetComponent<ItemSlot>(out var slot))
             {
                 targetItemSlot = slot;
                 break;
@@ -92,29 +106,39 @@ public class PaintingPuzzlePiece : PaintingPuzzle, IBeginDragHandler, IDragHandl
 
         if (targetItemSlot != null)
         {
-            Debug.Log($"Dropped on ItemSlot: {targetItemSlot.name}");
             targetItemSlot.PlaceItem(item);
             Destroy(gameObject);
         }
-        else if (HoveredPuzzleSlot != null)
+        else if (parentPuzzle.HoveredPuzzleSlot != null)
         {
-            transform.SetParent(HoveredPuzzleSlot.transform);
-            GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-            HoveredPuzzleSlot.heldPiece = this;
-            HoveredPuzzleSlot = null;
+            PlaceOntoSlot(parentPuzzle.HoveredPuzzleSlot);
+            parentPuzzle.HoveredPuzzleSlot = null;
         }
         else
         {
             try
             {
-                transform.SetParent(originalParent);
-                GetComponent<RectTransform>().anchoredPosition = originalPosition;
-                originalParent.GetComponent<PaintingPuzzleSlot>().heldPiece = this;
+                PlaceOntoSlot(originalParent.GetComponent<PaintingPuzzleSlot>());
             }
             catch (MissingReferenceException)
             {
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void PlaceOntoSlot(PaintingPuzzleSlot slot, bool checkAnswer = true)
+    {
+        transform.SetParent(slot.transform);
+        GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        slot.heldPiece = this;
+        parentPuzzle = GetComponentInParent<PaintingPuzzle>();
+        if (checkAnswer) parentPuzzle.CheckAnswer();
+    }
+
+    public void SetRotation(float rot)
+    {
+        LeanTween.cancel(gameObject);
+        transform.LeanRotateZ(rot, 0);
     }
 }

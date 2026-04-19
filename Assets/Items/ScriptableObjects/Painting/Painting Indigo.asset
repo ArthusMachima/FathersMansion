@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81309d0f23f145f4080253cf6a0f55b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 640f6120f9f34c04caad74f1419b85e3, type: 3}
   m_Name: Painting Indigo
   m_EditorClassIdentifier: 
   itemName: Painting
   itemIcon: {fileID: 172823446024386954, guid: 37438744cb832a74c96763f4f1a3a21e, type: 3}
-  itemDescription: A piece of art
+  itemDescription: A piece of Art
+  puzzlePiecePrefab: {fileID: 5342000718627715126, guid: 6414b18c2c1ad1542a5f4a3c5f5c0a01, type: 3}

@@ -23,21 +23,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] CanvasGroup CutscenePanel;
     [SerializeField] Image CutsceneImage;
 
-    [Header("Cabinet Panel")]
-    public GameObject CabinetPanel;
-    [SerializeField] Transform CabinetItemSlotList;
-    [SerializeField] ItemSlot[] CabinetItemSlot;
-
     [Header("Puzzle Panel")]
     [SerializeField] CanvasGroup PuzzleCanvasGroup;
-    [SerializeField] GameObject CurrentPuzzlePanel;
-
-    private void Start()
-    {
-        CabinetItemSlot = CabinetItemSlotList.GetComponentsInChildren<ItemSlot>();
-    }
-
-
+    public PuzzleClass CurrentPuzzlePanel;
 
 
     // Singleton
@@ -61,40 +49,38 @@ public class UIManager : MonoBehaviour
                 pendingDialogue.Peek().methodCall.Invoke();
             }
 
-            if (pendingDialogue.Peek().cutsceneImage != null && !isCutscenePanelShown)  // Does the current pendingDialogue queue have an image
+            if (pendingDialogue.Peek().cutsceneImage != null && !isCutscenePanelShown)
             {
                 Debug.Log("cutscene detected");
-
                 isCutscenePanelShown = true;
                 CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
                 LeanTween.value(CutscenePanel.gameObject, 0, 1, 0.5f)
                     .setOnUpdate(val => CutscenePanel.alpha = val);
                 yield return new WaitForSeconds(0.5f);
             }
-            else if (isCutscenePanelShown) // Does the current pendingDialogue queue have NO image
+            else if (isCutscenePanelShown)
             {
                 LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
-                .setOnUpdate(val => CutscenePanel.alpha = val);
+                    .setOnUpdate(val => CutscenePanel.alpha = val);
                 yield return new WaitForSeconds(0.5f);
                 isCutscenePanelShown = false;
                 CutsceneImage.sprite = null;
             }
 
-            foreach (char chars in pendingDialogue.Peek().sentence) // Putting individual characters each from pendingDialogue before a set slight delay.
+            foreach (char chars in pendingDialogue.Peek().sentence)
             {
                 dialogueText.text += chars;
-                //if (!a.dialogue.isPlaying) { a.dialogue.Play(); } *insert sound effects*
-                if (Input.GetKey(PlayerControls.Instance.ActionSecondary)) //Fast forward function
+                if (Input.GetKey(PlayerControls.Instance.ActionSecondary))
                     yield return null;
-                else if (chars == ',' || chars == '.' || chars == '?' || chars == '!' || chars == ':' || chars == '-')  //Text delays
+                else if (chars == ',' || chars == '.' || chars == '?' || chars == '!' || chars == ':' || chars == '-')
                     yield return new WaitForSeconds(0.5f);
                 else
                     yield return new WaitForSeconds(textSpeed);
             }
 
             dialogueConfirmSprite.SetActive(true);
-            yield return new WaitUntil(()=>
-            Input.GetKeyDown(PlayerControls.Instance.ActionPrimary) || 
+            yield return new WaitUntil(() =>
+                Input.GetKeyDown(PlayerControls.Instance.ActionPrimary) ||
                 Input.GetKey(PlayerControls.Instance.ActionSecondary));
             pendingDialogue.Dequeue();
             dialogueConfirmSprite.SetActive(false);
@@ -109,7 +95,6 @@ public class UIManager : MonoBehaviour
             CutsceneImage.sprite = null;
         }
         ShowDialoguePanel(false);
-
         PlayerControls.Instance.doPlayerControls = true;
     }
 
@@ -141,50 +126,16 @@ public class UIManager : MonoBehaviour
         {
             PlayerControls.Instance.doPlayerControls = true;
             dialogueText.gameObject.SetActive(false);
-
             DialoguePanelTop   .LeanMoveY( 150+Screen.height, animationTime).setEaseOutQuint();
             DialoguePanelBottom.LeanMoveY(-150, animationTime).setEaseOutQuint();
         }
     }
 
 
-
-    // Cabinet Panel
-    public void ShowCabinet(bool show, List<ItemClass> items)
-    {
-        if (show)
-        {
-            CabinetPanel.SetActive(true);
-            for (int i=0; i<items.Count; i++)
-            {
-                if (items.Count>4)
-                {
-                    Debug.LogError("CABINET SHOULD ONLY HAVE FOUR ITEMS");
-                    return;
-                }
-
-                if (items[i]!=null) CabinetItemSlot[i].PlaceItem(items[i]);
-                else CabinetItemSlot[i].TakeItem();
-            }
-        }
-        else
-        {
-            items.Clear();
-            for (int i = 0; i < CabinetItemSlot.Length; i++)
-            {
-                if (CabinetItemSlot[i].HasItem()) items.Add(CabinetItemSlot[i].TakeItem());
-            }
-            PlayerControls.Instance.interactedObject = null;
-            CabinetPanel.SetActive(false);
-        }
-    }
-
-
-
     // Puzzle Panel
     public void ShowPuzzlePanel(GameObject panel)
     {
-        CurrentPuzzlePanel = Instantiate(panel, PuzzleCanvasGroup.transform);
+        CurrentPuzzlePanel = Instantiate(panel, PuzzleCanvasGroup.transform).GetComponent<PuzzleClass>();
         PuzzleCanvasGroup.gameObject.SetActive(true);
         PlayerControls.Instance.PuzzleMode(true);
         LeanTween.value(PuzzleCanvasGroup.gameObject, 0, 1, 0.3f)
@@ -193,21 +144,19 @@ public class UIManager : MonoBehaviour
 
     public void ShowPuzzlePanel()
     {
-        PlayerControls.Instance.OpenInventory(false, false);
-        PlayerControls.Instance.doPlayerControls = false;
+        InventoryManager.Instance.OpenInventory(false, false);
         LeanTween.value(PuzzleCanvasGroup.gameObject, 1, 0, 0.3f)
-                .setOnUpdate(val => PuzzleCanvasGroup.alpha = val).setOnComplete(() =>
-                {
-                    StartCoroutine(DelayedPuzzlePanelHide());
-                });
+            .setOnUpdate(val => PuzzleCanvasGroup.alpha = val).setOnComplete(() =>
+            {
+                StartCoroutine(DelayedPuzzlePanelHide());
+            });
     }
 
-    IEnumerator DelayedPuzzlePanelHide( )
+    IEnumerator DelayedPuzzlePanelHide()
     {
         yield return new WaitForSeconds(0.1f);
-        PlayerControls.Instance.doPlayerControls = true;
-        PlayerControls.Instance.PuzzleMode(false);
         PuzzleCanvasGroup.gameObject.SetActive(false);
-        Destroy(CurrentPuzzlePanel);
+        if (CurrentPuzzlePanel!=null) Destroy(CurrentPuzzlePanel.gameObject);
+        // PuzzleMode(false) and doPlayerControls are handled by PuzzleObject.PuzzleCompleteBehavior
     }
 }

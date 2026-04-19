@@ -8,6 +8,8 @@ public class DialogueObject : MonoBehaviour, IInteractable
     [SerializeField] bool isInteractable = true;
     [SerializeField] bool isCutscene;
     [SerializeField] bool isRepeatable;
+    [SerializeField] bool onlyShownOnce;
+    bool alreadyShown;
     SpriteRenderer sprite;
 
     private void Start()
@@ -26,7 +28,9 @@ public class DialogueObject : MonoBehaviour, IInteractable
 
     public void LoadDialogue()
     {
+        if (alreadyShown) return;
         UIManager.Instance.LoadDialogue(dialogue);
+        if (onlyShownOnce) alreadyShown = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

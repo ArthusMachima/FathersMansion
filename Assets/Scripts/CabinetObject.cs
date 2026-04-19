@@ -9,8 +9,8 @@ public class CabinetObject : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        UIManager.Instance.ShowCabinet(true, storedItems);
-        PlayerControls.Instance.OpenInventory(true, true);
+        CabinetManager.Instance.ShowCabinet(true, storedItems);
+        InventoryManager.Instance.OpenInventory(true, true);
     }
 
 

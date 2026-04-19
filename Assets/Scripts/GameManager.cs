@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Fog.SetActive(true);
+        AudioManager.Instance.PlayBGM(AudioManager.Instance.m_lullaby);
     }
 
 
@@ -16,6 +17,17 @@ public class GameManager : MonoBehaviour
 
         SideScreenMessage.Instance.DisplayMessage("Objective", "Find a way out", 1.5f);
     }
+
+
+    public void MatchingMessage()
+    {
+        SideScreenMessage.Instance.DisplayMessage("Objective", "Find a polaroid card and drag it here", 1.5f);
+    }
+
+
+
+
+
 
 
 

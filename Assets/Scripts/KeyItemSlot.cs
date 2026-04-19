@@ -66,11 +66,11 @@ public class KeyItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //Mouse functions
     public void OnPointerEnter(PointerEventData eventData)
     {
-        PlayerControls.Instance.SetHoveredSlot(this);
+        InventoryManager.Instance.SetHoveredSlot(this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        PlayerControls.Instance.SetHoveredSlot();
+        InventoryManager.Instance.SetHoveredSlot();
     }
 }

@@ -28,15 +28,16 @@ public class MatchingPuzzleSlot : MonoBehaviour, IPointerDownHandler
     {
         if (!isFlipped)
         {
+            matchingPuzzle.puzzleInteractable = false;
             transform.LeanRotateY(90, flipTime).setEaseOutQuint().setOnComplete(() =>
             {
                 cardSprite.sprite = frontCard;
                 transform.LeanRotateY(180, flipTime).setEaseOutQuint().setOnComplete(() =>
                 {
+                    isFlipped = true;
                     StartCoroutine(matchingPuzzle.OnSlotFlip(this));
                 });
             });
-            isFlipped = true;
         }
         else
         {

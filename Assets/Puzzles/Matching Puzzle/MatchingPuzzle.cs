@@ -1,11 +1,10 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
-public class MatchingPuzzle : MonoBehaviour, IPointerEnterHandler
+public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
 {
     [SerializeField] MatchingPuzzleSlot[] matchingPuzzleSlots;
     [SerializeField] Transform slotParent;
@@ -28,17 +27,20 @@ public class MatchingPuzzle : MonoBehaviour, IPointerEnterHandler
 
     void InstantiatePuzzleSlots()
     {
-        int chance;
         for (int i = 0; i < slotAmount; i++)
         {
+            // Guard against infinite loop if all variants are exhausted
+            bool anyAvailable = false;
+            foreach (var v in variants) if (v.amount > 0) { anyAvailable = true; break; }
+            if (!anyAvailable) break;
+
             GameObject card = Instantiate(slotPrefab, slotParent);
             MatchingPuzzleSlot slot = card.GetComponent<MatchingPuzzleSlot>();
-            do
-            {
-                chance = Random.Range(1, 9);
-            }
+
+            int chance;
+            do { chance = Random.Range(0, variants.Length); }
             while (variants[chance].amount == 0);
-            
+
             slot.frontCard = variants[chance].frontCard;
             slot.cardType = chance;
             variants[chance].amount--;
@@ -87,16 +89,13 @@ public class MatchingPuzzle : MonoBehaviour, IPointerEnterHandler
         bool allAreFlipped = true;
         foreach (var slot in matchingPuzzleSlots)
         {
-            if (!slot.isFlipped) allAreFlipped=false;
+            if (!slot.gameObject.activeSelf) continue; // skip hidden slot
+            if (!slot.isFlipped) allAreFlipped = false;
         }
         if (allAreFlipped)
         {
             Debug.Log("PUZZLE COMPLETE");
             PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
-        }
-        else
-        {
-
         }
     }
 
@@ -112,12 +111,24 @@ public class MatchingPuzzle : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (PlayerControls.Instance.heldItem == pieceRequirement)
+        if (InventoryManager.Instance.heldItem == pieceRequirement)
         {
-            PlayerControls.Instance.heldItem = null;
-            PlayerControls.Instance.draggedItem.gameObject.SetActive(false);
+            InventoryManager.Instance.heldItem = null;
+            InventoryManager.Instance.draggedItem.gameObject.SetActive(false);
             InsertLostPiece();
         }
+    }
+
+    public override void OnPuzzleEnter()
+    {
+
+    }
+
+    // Removed call to currentInteractedPuzzle.OnPuzzleExit() here —
+    // PuzzleObject already handles that in PlayerControls' SolvingPuzzle exit block
+    public override void OnPuzzleExit()
+    {
+
     }
 }
 
@@ -125,5 +136,5 @@ public class MatchingPuzzle : MonoBehaviour, IPointerEnterHandler
 public class MatchingPuzzleSlotVariant
 {
     public Sprite frontCard;
-    public int amount=2;
+    public int amount = 2;
 }

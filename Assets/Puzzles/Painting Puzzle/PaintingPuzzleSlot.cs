@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PaintingPuzzleSlot : PaintingPuzzle, IDropHandler
+public class PaintingPuzzleSlot : MonoBehaviour, IDropHandler
 {
+    public PaintingPuzzle parentPuzzle;
     public PaintingPuzzlePiece heldPiece;
 
     private void Start()
     {
+        parentPuzzle = GetComponentInParent<PaintingPuzzle>();
         heldPiece = GetComponentInChildren<PaintingPuzzlePiece>();
     }
 
@@ -17,7 +19,7 @@ public class PaintingPuzzleSlot : PaintingPuzzle, IDropHandler
         if (piece != null && heldPiece == null)
         {
             heldPiece = piece;
-            HoveredPuzzleSlot = this;
+            parentPuzzle.HoveredPuzzleSlot = this;
         }
     }
 }

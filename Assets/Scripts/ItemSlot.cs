@@ -8,9 +8,13 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] ItemClass storedItem;
     [SerializeField] Image slotIcon;
 
-    private void Start()
+    private void Awake()
     {
         slotIcon = transform.GetChild(0).GetComponent<Image>();
+    }
+
+    private void Start()
+    {
         RefreshSlot();
     }
 
@@ -65,19 +69,19 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     //Mouse functions
     public void OnPointerEnter(PointerEventData eventData)
     {
-        PlayerControls.Instance.SetHoveredSlot(this);
+        InventoryManager.Instance.SetHoveredSlot(this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        PlayerControls.Instance.SetHoveredSlot();
+        InventoryManager.Instance.SetHoveredSlot();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         if (storedItem!=null)
         {
-            PlayerControls.Instance.StartDragItem(storedItem);
+            InventoryManager.Instance.StartDragItem(storedItem);
             storedItem = null;
             RefreshSlot();
         }
