@@ -24,12 +24,14 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] LayerMask excludePlayer;
     public IInteractable interactedObject;
     public PuzzleObject currentInteractedPuzzle;
+    public bool isPlayerHiddenInCloset;
 
     public enum GameControlState
     {
         TopDownControls,
         InventoryPanel,
-        SolvingPuzzle
+        SolvingPuzzle,
+        HidingCloset
     }
 
     [Header("Player Controls")]
@@ -40,6 +42,9 @@ public class PlayerControls : MonoBehaviour
     public KeyCode ActionPrimary   = KeyCode.F;
     public KeyCode ActionSecondary = KeyCode.LeftShift;
     public KeyCode ActionInventory = KeyCode.E;
+
+    [Header("Other Behavior")]
+    public int MonsterDistance=5;
 
 
     // Singleton
@@ -103,7 +108,7 @@ public class PlayerControls : MonoBehaviour
             if (Input.GetKeyDown(ActionInventory))
             {
                 InventoryManager.Instance.OpenInventory(false, true);
-                if (interactedObject is CabinetObject openedCabinet && interactedObject != null)
+                if (interactedObject is DrawerObject openedCabinet && interactedObject != null)
                 {
                     CabinetManager.Instance.ShowCabinet(false, openedCabinet.storedItems);
                 }
@@ -115,7 +120,7 @@ public class PlayerControls : MonoBehaviour
                 Input.GetKeyDown(MoveRight))
             {
                 InventoryManager.Instance.OpenInventory(false, true);
-                if (interactedObject is CabinetObject openedCabinet && interactedObject != null)
+                if (interactedObject is DrawerObject openedCabinet && interactedObject != null)
                 {
                     CabinetManager.Instance.ShowCabinet(false, openedCabinet.storedItems);
                 }
@@ -133,6 +138,13 @@ public class PlayerControls : MonoBehaviour
 
                 UIManager.Instance.ShowPuzzlePanel();
                 PuzzleMode(false); // handles both doPlayerControls and gameControlState
+            }
+        }
+        else if (gameControlState == GameControlState.HidingCloset)
+        {
+            if (Input.GetKeyDown(ActionPrimary))
+            {
+                ClosetHideMode(false);
             }
         }
     }
@@ -173,6 +185,26 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+    public void ClosetHideMode(bool hide)
+    {
+        if (hide)
+        {
+            isPlayerHiddenInCloset = true;
+            gameControlState = GameControlState.HidingCloset;
+        }
+        else
+        {
+            if (MonsterDistance==0)
+            {
+                //TODO: closet opens and gameover
+                GameManager.Instance.Jumpscare();
+            }
+            isPlayerHiddenInCloset = false;
+            doPlayerControls = true;
+            gameControlState = GameControlState.TopDownControls;
+            HideClosetBehavior.Instance.gameObject.SetActive(false);
+        }
+    }
 
     void OnDrawGizmos()
     {

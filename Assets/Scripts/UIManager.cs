@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] CanvasGroup PuzzleCanvasGroup;
     public PuzzleClass CurrentPuzzlePanel;
 
+    
+
 
     // Singleton
     public static UIManager Instance;
@@ -130,7 +132,7 @@ public class UIManager : MonoBehaviour
             DialoguePanelBottom.LeanMoveY(-150, animationTime).setEaseOutQuint();
         }
     }
-
+    
 
     // Puzzle Panel
     public void ShowPuzzlePanel(GameObject panel)
@@ -157,6 +159,5 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         PuzzleCanvasGroup.gameObject.SetActive(false);
         if (CurrentPuzzlePanel!=null) Destroy(CurrentPuzzlePanel.gameObject);
-        // PuzzleMode(false) and doPlayerControls are handled by PuzzleObject.PuzzleCompleteBehavior
     }
 }

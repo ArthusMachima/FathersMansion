@@ -6,17 +6,25 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Fog.SetActive(true);
+        if (Fog!=null) Fog.SetActive(true);
         AudioManager.Instance.PlayBGM(AudioManager.Instance.m_lullaby);
+    }
+
+
+
+    public static GameManager Instance;
+    private void OnEnable()
+    {
+        Instance = this;
     }
 
 
 
     public void StarterMessage()
     {
-
         SideScreenMessage.Instance.DisplayMessage("Objective", "Find a way out", 1.5f);
     }
+
 
 
     public void MatchingMessage()
@@ -26,8 +34,10 @@ public class GameManager : MonoBehaviour
 
 
 
-
-
+    public void Jumpscare()
+    {
+        Debug.Log("Jumpscared");
+    }
 
 
 

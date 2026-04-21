@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CabinetObject : MonoBehaviour, IInteractable
+public class DrawerObject : MonoBehaviour, IInteractable
 {
     public List<ItemClass> storedItems = new();
 
