@@ -16,3 +16,4 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: a2bed0c2c68fef84f9e9ad5a62ec6d41, type: 3}
   itemDescription: A run down hammer found somewhere in the mansion. Can be used
     to break vases to potentially find items.
+  Durability: 5

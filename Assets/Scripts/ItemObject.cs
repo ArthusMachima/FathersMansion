@@ -7,6 +7,12 @@ public class ItemObject : MonoBehaviour, IInteractable
     [SerializeField] SpriteRenderer icon;
     [SerializeField] bool isKeyItem;
 
+
+    public ItemObject(ItemClass item)
+    {
+        this.item = item;
+    }
+
     public void Interact()
     {
         if (!isKeyItem)
@@ -22,8 +28,13 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        RefreshObject();
+    }
+
+    public void RefreshObject()
+    {
         icon = gameObject.GetComponent<SpriteRenderer>();
-        icon.sprite = item.itemIcon;
+        if (icon!=null) icon.sprite = item.itemIcon;
     }
 
 

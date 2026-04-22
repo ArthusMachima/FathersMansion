@@ -28,7 +28,7 @@ public class InventoryManager : MonoBehaviour
     [Header("KeyItem Panel")]
     [SerializeField] GameObject KeyItemPanel;
     [SerializeField] GameObject KeyItemList;
-    [SerializeField] KeyItemSlot[] keyItems;
+    public KeyItemSlot[] keyItems;
 
     [Header("Item Drag")]
     public ItemClass heldItem;
@@ -37,6 +37,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] RectTransform canvasRectTransform;
     public ItemSlot prevSlot;
     public ItemSlot hoveredSlot;
+    [SerializeField] LayerMask breakables;
 
 
     private void Start()
@@ -64,6 +65,14 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
+            // FIX 2: Cancel any active drag before closing so the item isn't lost
+            if (heldItem != null)
+            {
+                prevSlot.PlaceItem(heldItem);
+                heldItem = null;
+                draggedItem.gameObject.SetActive(false);
+                draggedItem.gameObject.LeanScale(Vector3.one, 0);
+            }
             InventoryPanel.SetActive(false);
             if (notpuzzle) PlayerControls.Instance.gameControlState = PlayerControls.GameControlState.TopDownControls;
         }
@@ -141,8 +150,19 @@ public class InventoryManager : MonoBehaviour
 
         while (Input.GetMouseButton(0))
         {
+            // FIX 1: If inventory was closed mid-drag, return item and abort
+            if (!InventoryPanel.activeSelf)
+            {
+                prevSlot.PlaceItem(heldItem);
+                heldItem = null;
+                draggedItem.gameObject.SetActive(false);
+                draggedItem.gameObject.LeanScale(Vector3.one, 0);
+                yield break;
+            }
+
             draggedItem.transform.localPosition = GetCursorPositionOnCanvas();
             yield return null;
+
             if (heldItem == null)
             {
                 draggedItem.gameObject.LeanScale(Vector3.one, 0);
@@ -154,12 +174,24 @@ public class InventoryManager : MonoBehaviour
 
         if (heldItem is PuzzlePiece)
         {
+            OnPuzzlePieceDropOnUI(heldItem);
+        }
+        else if (heldItem is ItemToolClass)
+        {
             OnPuzzlePieceDrop(heldItem);
         }
         else
         {
-            if (hoveredSlot.HasItem()) prevSlot.PlaceItem(heldItem);
-            else hoveredSlot.PlaceItem(heldItem);
+            // FIX 4: Guard against hoveredSlot being null
+            if (hoveredSlot != null)
+            {
+                if (hoveredSlot.HasItem()) prevSlot.PlaceItem(heldItem);
+                else hoveredSlot.PlaceItem(heldItem);
+            }
+            else
+            {
+                prevSlot.PlaceItem(heldItem);
+            }
         }
 
         if (heldItem is ItemClueClass)
@@ -171,7 +203,7 @@ public class InventoryManager : MonoBehaviour
         heldItem = null;
     }
 
-    void OnPuzzlePieceDrop(ItemClass item)
+    void OnPuzzlePieceDropOnUI(ItemClass item)
     {
         PointerEventData pointerData = new(EventSystem.current) { position = Input.mousePosition };
         List<RaycastResult> results = new();
@@ -195,6 +227,28 @@ public class InventoryManager : MonoBehaviour
                         .PlaceOntoSlot(slot);
                 }
                 return;
+            }
+            if (result.gameObject.TryGetComponent<BreakableObject>(out var breakable))
+            {
+                breakable.BreakContainer();
+            }
+        }
+
+        // Nothing valid found — return to original slot
+        prevSlot.PlaceItem(heldItem);
+    }
+
+    void OnPuzzlePieceDrop(ItemClass item)
+    {
+        Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // FIX 3: Correct Physics2D.Raycast signature — breakables was being passed as direction
+        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, Mathf.Infinity, breakables);
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.TryGetComponent<BreakableObject>(out var breakable))
+            {
+                breakable.BreakContainer();
             }
         }
 

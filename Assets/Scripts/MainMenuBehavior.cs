@@ -67,4 +67,13 @@ public class MainMenuBehavior : MonoBehaviour
             #endif
         });
     }
+
+    public void GoToMainMenu()
+    {
+        HideAllPanel();
+        LeanTween.delayedCall(0.5f, () =>
+        {
+            SceneManager.LoadScene("MainMenu");
+        });
+    }
 }

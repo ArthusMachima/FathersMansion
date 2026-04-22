@@ -46,6 +46,12 @@ public class DialogueObject : MonoBehaviour, IInteractable
 [Serializable]
 public class Dialogue
 {
+    public Dialogue(string msg, Sprite img)
+    {
+        sentence = msg;
+        cutsceneImage = img;
+    }
+
     public string sentence;
     public Sprite cutsceneImage;
     public UnityEvent methodCall;

@@ -1,3 +1,4 @@
+
 using System.Collections;
 using UnityEngine;
 
@@ -48,7 +49,7 @@ public class HideClosetBehavior : MonoBehaviour
                 hasMonsterArrived = false;
             }
 
-            if (ClosetHP<0)
+            if (ClosetHP<=0)
             {
                 monsterMoveRange = Screen.width / 2;
                 LeanTween.delayedCall(1, () =>
@@ -57,7 +58,7 @@ public class HideClosetBehavior : MonoBehaviour
                 });
                 MonsterEntered = true;
             }
-            else ClosetHP -= 5f * Time.deltaTime;
+            else ClosetHP -= 10f * Time.deltaTime;
 
             if (!MonsterAboutToPunch)
             {
@@ -71,6 +72,7 @@ public class HideClosetBehavior : MonoBehaviour
             {
                 LeanTween.value(MonsterSprite.gameObject, 0, 1, 2)
                     .setOnUpdate(val => MonsterSprite.alpha = val);
+                StartCoroutine(MonsterLeaveTimer());
                 hasMonsterArrived = true;
             }
         }
@@ -78,10 +80,17 @@ public class HideClosetBehavior : MonoBehaviour
 
     IEnumerator MonsterPunch(float delay)
     {
+        if (MonsterEntered) yield break;
         monsterMoveRange = (Screen.width/2)+Random.Range(-400, 400);
         yield return new WaitForSeconds(delay);
-        ClosetHP -= Random.Range(10, 40);
+        ClosetHP -= Random.Range(10, 65);
         //TODO: door punch sfx
         MonsterAboutToPunch = false;
+    }
+
+    IEnumerator MonsterLeaveTimer()
+    {
+        yield return new WaitForSeconds(Random.Range(4,10));
+        PlayerControls.Instance.MonsterDistance = 1;
     }
 }

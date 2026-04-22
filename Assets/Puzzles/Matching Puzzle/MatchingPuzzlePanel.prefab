@@ -176,4 +176,4 @@ MonoBehaviour:
   slotAmount: 16
   puzzleInteractable: 1
   isMissingPieceFound: 0
-  pieceRequirement: {fileID: 11400000, guid: 722627e29283e09458dc32883be89c1d, type: 2}
+  pieceRequirement: {fileID: 11400000, guid: 98092ae8b9386604cb65080f4b4b484e, type: 2}

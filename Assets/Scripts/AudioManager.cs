@@ -18,7 +18,9 @@ public class AudioManager : MonoBehaviour
 
     [Header("Clips")]
     public AudioClip m_lullaby;
-
+    public AudioClip s_jumpscare1;
+    public AudioClip s_jumpscare2;
+    public AudioClip s_jumpscare3;
 
 
 
@@ -27,6 +29,7 @@ public class AudioManager : MonoBehaviour
         if (sfxCooldownTimer > 0)
             sfxCooldownTimer -= Time.deltaTime;
     }
+
 
 
     // BGM
@@ -84,6 +87,7 @@ public class AudioManager : MonoBehaviour
         bgmIntroSource.volume = Mathf.Clamp01(volume);
         bgmLoopSource.volume = Mathf.Clamp01(volume);
     }
+
 
 
     // SFX

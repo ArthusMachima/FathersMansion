@@ -7,7 +7,7 @@ public class KeyItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     [SerializeField] TextMeshProUGUI slotText;
     [SerializeField] Image slotIcon;
-    [SerializeField] ItemClass storedItem;
+    public ItemClass storedItem;
 
 
 

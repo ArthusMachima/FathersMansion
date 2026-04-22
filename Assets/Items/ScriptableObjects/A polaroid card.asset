@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3131fe0ae90ddf041ae0f883523425b3, type: 3}
-  m_Name: Blue Key
+  m_Name: A polaroid card
   m_EditorClassIdentifier: 
-  itemName: Blue Key
-  itemIcon: {fileID: 21300000, guid: e5371bda1d6126a49ac298b3fd9cb7af, type: 3}
-  itemDescription: A silver key with a blue tip. Could be used to unlock doors.
+  itemName: A polaroid card
+  itemIcon: {fileID: 831571705078766722, guid: 37438744cb832a74c96763f4f1a3a21e, type: 3}
+  itemDescription: An old dusty picture that seemed to be what you've seen before
+    but can't remember.
