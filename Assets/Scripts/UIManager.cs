@@ -72,7 +72,7 @@ public class UIManager : MonoBehaviour
             foreach (char chars in pendingDialogue.Peek().sentence)
             {
                 dialogueText.text += chars;
-                if (Input.GetKey(PlayerControls.Instance.ActionSecondary))
+                if (Input.GetKey(PlayerControls.Instance.Run))
                     yield return null;
                 else if (chars == ',' || chars == '.' || chars == '?' || chars == '!' || chars == ':' || chars == '-')
                     yield return new WaitForSeconds(0.5f);
@@ -82,8 +82,8 @@ public class UIManager : MonoBehaviour
 
             dialogueConfirmSprite.SetActive(true);
             yield return new WaitUntil(() =>
-                Input.GetKeyDown(PlayerControls.Instance.ActionPrimary) ||
-                Input.GetKey(PlayerControls.Instance.ActionSecondary));
+                Input.GetKeyDown(PlayerControls.Instance.Interact) ||
+                Input.GetKey(PlayerControls.Instance.Run));
             pendingDialogue.Dequeue();
             dialogueConfirmSprite.SetActive(false);
         }

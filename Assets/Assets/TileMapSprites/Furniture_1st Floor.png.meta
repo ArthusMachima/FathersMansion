@@ -1,0 +1,524 @@
+fileFormatVersion: 2
+guid: 69624e3a2f00b59428cdc814b95a20aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 363413740829380027
+    second: Furniture_1st Floor_0
+  - first:
+      213: 2071072569968554643
+    second: Furniture_1st Floor_1
+  - first:
+      213: 8914453065352448708
+    second: Furniture_1st Floor_2
+  - first:
+      213: 2355284267182241704
+    second: Furniture_1st Floor_3
+  - first:
+      213: -2369781079751318261
+    second: Furniture_1st Floor_4
+  - first:
+      213: 623399023701456733
+    second: Furniture_1st Floor_5
+  - first:
+      213: 4105691423625459868
+    second: Furniture_1st Floor_6
+  - first:
+      213: -1524875487895405334
+    second: Furniture_1st Floor_7
+  - first:
+      213: -8744664181054483769
+    second: Furniture_1st Floor_8
+  - first:
+      213: 7749672546194004353
+    second: Furniture_1st Floor_9
+  - first:
+      213: 6196292951420223692
+    second: Furniture_1st Floor_10
+  - first:
+      213: 8348947742211724170
+    second: Furniture_1st Floor_11
+  - first:
+      213: 3858050596685812272
+    second: Furniture_1st Floor_12
+  - first:
+      213: 672181378317860974
+    second: Furniture_1st Floor_13
+  - first:
+      213: -7909312225637134847
+    second: Furniture_1st Floor_14
+  - first:
+      213: -707220099582476451
+    second: Furniture_1st Floor_15
+  - first:
+      213: 49331877528804575
+    second: Furniture_1st Floor_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Furniture_1st Floor_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbd81a03fda1b0500800000000000000
+      internalID: 363413740829380027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57fc01fb12c6a800800000000000000
+      internalID: 623399023701456733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c25a203246b4a680800000000000000
+      internalID: -8744664181054483769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93f54d6b91e26db458692f47f10c5f36
+      internalID: 1001693866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c960e93916884624fab8aa801a8c1f80
+      internalID: 639145967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_26
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d5ff4d9d724717419786bb7e3d0e98f
+      internalID: -284661245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15f7c463a2842e46ab7516b3cf7f238
+      internalID: 992473884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_30
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1312a008d56610a4ba071c040a5bb8aa
+      internalID: 1879783471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_31
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160f19daa604af0489acb2e71ee51301
+      internalID: 140250886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_32
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f028fc2f2a79a43b7158f0a79fc960
+      internalID: -1925795161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c287ece37768c344e823fdb93400c016
+      internalID: -904311026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_50
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49299e5ff015bbc4683253f878fcf4fd
+      internalID: 1610988658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_1st Floor_51
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fc17af431fc70d42a9c823a0181ab84
+      internalID: 148100927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 069411733bcf29f418d52432704c66a2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Furniture_1st Floor_0: 363413740829380027
+      Furniture_1st Floor_1: 2071072569968554643
+      Furniture_1st Floor_10: 6196292951420223692
+      Furniture_1st Floor_11: 8348947742211724170
+      Furniture_1st Floor_12: 3858050596685812272
+      Furniture_1st Floor_13: 672181378317860974
+      Furniture_1st Floor_14: -7909312225637134847
+      Furniture_1st Floor_15: -707220099582476451
+      Furniture_1st Floor_16: 49331877528804575
+      Furniture_1st Floor_17: 1536421166
+      Furniture_1st Floor_18: 1001693866
+      Furniture_1st Floor_19: 439788550
+      Furniture_1st Floor_2: 8914453065352448708
+      Furniture_1st Floor_20: -235301534
+      Furniture_1st Floor_21: 639145967
+      Furniture_1st Floor_22: 521276653
+      Furniture_1st Floor_23: 54696172
+      Furniture_1st Floor_24: 1040167910
+      Furniture_1st Floor_25: 76349635
+      Furniture_1st Floor_26: -284661245
+      Furniture_1st Floor_27: 418107057
+      Furniture_1st Floor_28: 1010353934
+      Furniture_1st Floor_29: 992473884
+      Furniture_1st Floor_3: 2355284267182241704
+      Furniture_1st Floor_30: 1879783471
+      Furniture_1st Floor_31: 140250886
+      Furniture_1st Floor_32: -1925795161
+      Furniture_1st Floor_33: -947664580
+      Furniture_1st Floor_34: 1519808999
+      Furniture_1st Floor_35: 821652913
+      Furniture_1st Floor_36: 213356368
+      Furniture_1st Floor_37: -904311026
+      Furniture_1st Floor_38: 1753065018
+      Furniture_1st Floor_39: -884376468
+      Furniture_1st Floor_4: -2369781079751318261
+      Furniture_1st Floor_40: -1857823441
+      Furniture_1st Floor_41: 1965841542
+      Furniture_1st Floor_42: -1634160550
+      Furniture_1st Floor_43: -737812259
+      Furniture_1st Floor_44: 485954929
+      Furniture_1st Floor_45: 2110915479
+      Furniture_1st Floor_46: -982264151
+      Furniture_1st Floor_47: 627725633
+      Furniture_1st Floor_48: 2010627279
+      Furniture_1st Floor_49: 1455224839
+      Furniture_1st Floor_5: 623399023701456733
+      Furniture_1st Floor_50: 1610988658
+      Furniture_1st Floor_51: 148100927
+      Furniture_1st Floor_52: -1306717354
+      Furniture_1st Floor_53: 1672266363
+      Furniture_1st Floor_54: -394874775
+      Furniture_1st Floor_55: -2047463730
+      Furniture_1st Floor_56: -1709861799
+      Furniture_1st Floor_6: 4105691423625459868
+      Furniture_1st Floor_7: -1524875487895405334
+      Furniture_1st Floor_8: -8744664181054483769
+      Furniture_1st Floor_9: 7749672546194004353
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

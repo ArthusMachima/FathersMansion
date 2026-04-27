@@ -9,6 +9,8 @@ public class DoorObject : MonoBehaviour, IInteractable
     public Sprite closeSprite;
     [SerializeField] bool isUnlocked;
     [SerializeField] ItemClass requiredKeys;
+    [SerializeField] int frontLayerIndex;
+    [SerializeField] int backLayerIndex;
 
     private void Start()
     {
@@ -31,8 +33,10 @@ public class DoorObject : MonoBehaviour, IInteractable
 
     public void OpenDoor(bool open)
     {
+        UpdateLayer();
         if (open)
         {
+            sprite.sortingOrder = backLayerIndex;
             if (!isUnlocked)
             {
                 Vector3 offset = transform.position - PlayerControls.Instance.transform.position;
@@ -65,6 +69,14 @@ public class DoorObject : MonoBehaviour, IInteractable
     private void OnTriggerExit2D(Collider2D collision)
     {
         OpenDoor(false);
+        UpdateLayer();
+    }
+
+    void UpdateLayer()
+    {
+        Vector3 offset = transform.position - PlayerControls.Instance.transform.position;
+        if (offset.y < 0) sprite.sortingOrder = frontLayerIndex;
+        else sprite.sortingOrder = backLayerIndex;
     }
 
     public void TryUnlockingDoor()

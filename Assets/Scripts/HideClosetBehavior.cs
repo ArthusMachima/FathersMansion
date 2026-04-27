@@ -19,6 +19,7 @@ public class HideClosetBehavior : MonoBehaviour
     private void OnEnable()
     {
         Instance = this;
+        ClosetHP = 100;
     }
 
     private void Start()
@@ -83,7 +84,7 @@ public class HideClosetBehavior : MonoBehaviour
         if (MonsterEntered) yield break;
         monsterMoveRange = (Screen.width/2)+Random.Range(-400, 400);
         yield return new WaitForSeconds(delay);
-        ClosetHP -= Random.Range(10, 65);
+        ClosetHP -= Random.Range(10, 40);
         //TODO: door punch sfx
         MonsterAboutToPunch = false;
     }
@@ -91,6 +92,6 @@ public class HideClosetBehavior : MonoBehaviour
     IEnumerator MonsterLeaveTimer()
     {
         yield return new WaitForSeconds(Random.Range(4,10));
-        PlayerControls.Instance.MonsterDistance = 1;
+        PlayerControls.Instance.MonsterDistance = 5;
     }
 }

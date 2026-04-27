@@ -84,8 +84,10 @@ public class AudioManager : MonoBehaviour
 
     public void SetBGMVolume(float volume)
     {
-        bgmIntroSource.volume = Mathf.Clamp01(volume);
-        bgmLoopSource.volume = Mathf.Clamp01(volume);
+        LeanTween.value(gameObject, bgmIntroSource.volume, volume, 0.5f)
+            .setOnUpdate(val => bgmIntroSource.volume = val);
+        LeanTween.value(gameObject, bgmLoopSource.volume, volume, 0.5f)
+            .setOnUpdate(val => bgmLoopSource.volume = val);
     }
 
 

@@ -26,6 +26,14 @@ public class PlayerControls : MonoBehaviour
     public PuzzleObject currentInteractedPuzzle;
     public bool isPlayerHiddenInCloset;
 
+    [Header("Stamina")]
+    [SerializeField] GameObject StaminaPanel;
+    public float MaxStamina=100;
+    public float Stamina;
+    [SerializeField] bool isRunning;
+    [SerializeField] Transform StaminaBar;
+
+
     public enum GameControlState
     {
         TopDownControls,
@@ -35,13 +43,13 @@ public class PlayerControls : MonoBehaviour
     }
 
     [Header("Player Controls")]
-    public KeyCode MoveUp          = KeyCode.W;
-    public KeyCode MoveLeft        = KeyCode.A;
-    public KeyCode MoveDown        = KeyCode.S;
-    public KeyCode MoveRight       = KeyCode.D;
-    public KeyCode ActionPrimary   = KeyCode.F;
-    public KeyCode ActionSecondary = KeyCode.LeftShift;
-    public KeyCode ActionInventory = KeyCode.E;
+    public KeyCode MoveUp    = KeyCode.W;
+    public KeyCode MoveLeft  = KeyCode.A;
+    public KeyCode MoveDown  = KeyCode.S;
+    public KeyCode MoveRight = KeyCode.D;
+    public KeyCode Interact  = KeyCode.F;
+    public KeyCode Run       = KeyCode.LeftShift;
+    public KeyCode Inventory = KeyCode.E;
 
     [Header("Other Behavior")]
     public int MonsterDistance=5;
@@ -57,6 +65,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Start()
     {
+        Stamina = 100;
         body = GetComponent<Rigidbody2D>();
     }
 
@@ -66,13 +75,12 @@ public class PlayerControls : MonoBehaviour
         if (!doPlayerControls) return;
         if (gameControlState == GameControlState.TopDownControls)
         {
-            if (Input.GetKeyDown(ActionInventory) && !up && !left && !down && !right)
+            if (Input.GetKeyDown(Inventory) && !up && !left && !down && !right)
             {
                 InventoryManager.Instance.OpenInventory(true, true);
                 up = false; left = false; down = false; right = false;
             }
 
-            //Keyboard Controls
             if (body != null)
             {
                 if (Input.GetKey(MoveUp))    up   =true; else up   =false;
@@ -81,7 +89,7 @@ public class PlayerControls : MonoBehaviour
                 if (Input.GetKey(MoveRight)) right=true; else right=false;
             }
 
-            if (Input.GetKeyDown(ActionPrimary))
+            if (Input.GetKeyDown(Interact))
             {
                 var hits = Physics2D.RaycastAll(transform.position, facingDirection, 1, ~excludePlayer);
 
@@ -98,14 +106,35 @@ public class PlayerControls : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(ActionSecondary))
+            if (Input.GetKey(Run))
             {
-
+                isRunning = true;
             }
+
+            if (Input.GetKeyUp(Run))
+            {
+                LeanTween.delayedCall(0.5f, () =>
+                {
+                    isRunning = false;
+                });
+            }
+
+            if (!Input.GetKey(Run) && Stamina < MaxStamina && !isRunning)
+            {
+                Stamina++;
+            }
+
+            if (StaminaBar!=null) StaminaBar.localScale = new((float)(Stamina / MaxStamina), 1, 1);
+
+            if (Stamina==MaxStamina)
+                StaminaPanel.SetActive(false);
+            else
+                StaminaPanel.SetActive(true);
+
         }
         else if (gameControlState == GameControlState.InventoryPanel)
         {
-            if (Input.GetKeyDown(ActionInventory))
+            if (Input.GetKeyDown(Inventory))
             {
                 InventoryManager.Instance.OpenInventory(false, true);
                 if (interactedObject is DrawerObject openedCabinet && interactedObject != null)
@@ -142,11 +171,14 @@ public class PlayerControls : MonoBehaviour
         }
         else if (gameControlState == GameControlState.HidingCloset)
         {
-            if (Input.GetKeyDown(ActionPrimary))
+            if (Input.GetKeyDown(Interact))
             {
                 ClosetHideMode(false);
             }
         }
+
+
+        
     }
 
 
@@ -163,10 +195,15 @@ public class PlayerControls : MonoBehaviour
         if (up || left || down || right)
         {
             facingDirection = direction.normalized;
-            if (Input.GetKey(ActionSecondary))
+            if (Input.GetKey(Run) && 0<Stamina)
+            {
                 body.AddForce(10 * 2 * speed * direction.normalized);
+                Stamina--;
+            }
             else
+            {
                 body.AddForce(10 * speed * direction.normalized);
+            }
         }
     }
 
@@ -191,12 +228,12 @@ public class PlayerControls : MonoBehaviour
         {
             isPlayerHiddenInCloset = true;
             gameControlState = GameControlState.HidingCloset;
+            GameManager.Instance.Monster.agent.isStopped = true;
         }
         else
         {
             if (MonsterDistance==0)
             {
-                //TODO: closet opens and gameover
                 GameManager.Instance.Jumpscare();
             }
             isPlayerHiddenInCloset = false;

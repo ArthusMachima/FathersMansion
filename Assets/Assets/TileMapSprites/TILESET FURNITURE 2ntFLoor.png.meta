@@ -1,0 +1,1358 @@
+fileFormatVersion: 2
+guid: 0fe83cc2907d912438f879a894543623
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5848853679405178913
+    second: TILESET FURNITURE 2ntFLoor_0
+  - first:
+      213: 1542807105467508383
+    second: TILESET FURNITURE 2ntFLoor_1
+  - first:
+      213: -7429522193792583281
+    second: TILESET FURNITURE 2ntFLoor_2
+  - first:
+      213: 8191577589897570829
+    second: TILESET FURNITURE 2ntFLoor_3
+  - first:
+      213: -9029566168226830743
+    second: TILESET FURNITURE 2ntFLoor_4
+  - first:
+      213: -149178556629890195
+    second: TILESET FURNITURE 2ntFLoor_5
+  - first:
+      213: 7697952048940822398
+    second: TILESET FURNITURE 2ntFLoor_6
+  - first:
+      213: -4777687758570820269
+    second: TILESET FURNITURE 2ntFLoor_7
+  - first:
+      213: 838179140794839648
+    second: TILESET FURNITURE 2ntFLoor_8
+  - first:
+      213: 7818573961695479488
+    second: TILESET FURNITURE 2ntFLoor_9
+  - first:
+      213: 5470650177502360448
+    second: TILESET FURNITURE 2ntFLoor_10
+  - first:
+      213: -1267857505775533796
+    second: TILESET FURNITURE 2ntFLoor_11
+  - first:
+      213: 6564246911992492928
+    second: TILESET FURNITURE 2ntFLoor_12
+  - first:
+      213: -8732979596169854514
+    second: TILESET FURNITURE 2ntFLoor_13
+  - first:
+      213: 7894244598362189996
+    second: TILESET FURNITURE 2ntFLoor_14
+  - first:
+      213: 28264360035724710
+    second: TILESET FURNITURE 2ntFLoor_15
+  - first:
+      213: -2334603326029506374
+    second: TILESET FURNITURE 2ntFLoor_16
+  - first:
+      213: -3747696687085805026
+    second: TILESET FURNITURE 2ntFLoor_17
+  - first:
+      213: -3048133498818739641
+    second: TILESET FURNITURE 2ntFLoor_18
+  - first:
+      213: -1282260958923799127
+    second: TILESET FURNITURE 2ntFLoor_19
+  - first:
+      213: -6505860998900323086
+    second: TILESET FURNITURE 2ntFLoor_20
+  - first:
+      213: -5591568280201171282
+    second: TILESET FURNITURE 2ntFLoor_21
+  - first:
+      213: -7220654397489635111
+    second: TILESET FURNITURE 2ntFLoor_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdf51df2192b4dea0800000000000000
+      internalID: -5848853679405178913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f96e65663e6296510800000000000000
+      internalID: 1542807105467508383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f89bc149de805e890800000000000000
+      internalID: -7429522193792583281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a25ebca645ea170800000000000000
+      internalID: 8191577589897570829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96664f2296980b280800000000000000
+      internalID: -9029566168226830743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 352
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6b48f3a4e20eedf0800000000000000
+      internalID: -149178556629890195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 062f739dc7fc1ab00800000000000000
+      internalID: 838179140794839648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 352
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c64af4f797218c60800000000000000
+      internalID: 7818573961695479488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_10
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 083b4780a57abeb40800000000000000
+      internalID: 5470650177502360448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fc6a7a14e986b5a0800000000000000
+      internalID: -6505860998900323086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_19
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547bc638a8470d54e802eece34b1a916
+      internalID: -1282260958923799127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061c0a1b0cabc5148bf6035956096102
+      internalID: -5591568280201171282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda0c647d5540694890e30090588fb27
+      internalID: 390110872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_13
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c18c805b0720be4197ef799b45dfa2a
+      internalID: -8732979596169854514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_15
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca42bda70a21fc14c94374997899e536
+      internalID: 28264360035724710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_17
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07521fefceb1ef244a0c7d6aad3445c3
+      internalID: -3747696687085805026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_37
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c3aa2e04bb179b42959798f2d4718f6
+      internalID: -745921215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_50
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 323
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a30ab4caf70db44d93117885f5884df
+      internalID: 1339081647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 272
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e602cea82e1f11488b434487b384c21
+      internalID: -392026257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_53
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8809d6c01b2bf9b4eaad5a2e24f681d9
+      internalID: -664984528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_55
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03c61f2d68e702c409aaf4d5ff567105
+      internalID: 125658753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_57
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c78e7018085c041949d0b3864e6a4a
+      internalID: 1068489578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_70
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 272
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b8065abcf32df4aafe198b262ebed0
+      internalID: -228318516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_73
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6cffb63b915cba4fa4c4a1655afb7f1
+      internalID: 155758575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_74
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59fff1b03033eb4a8769fbdeac6c8d7
+      internalID: -245391658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_75
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c4e3ce387b6ea645bf4b06a4ed040be
+      internalID: 1720745736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_76
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d94733c9c30f949a4e93510bd440bb
+      internalID: 1858029760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_77
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96deac30c9299a1469685ac8777ab4f7
+      internalID: -1174558316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_80
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 274
+        width: 44
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53712333483551740b47b470c217a905
+      internalID: 1831767768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_83
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d5b30ae911c54441ba29fa892c8fc08
+      internalID: 1261657012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_84
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 256
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eace0a27a9d971c4cb579910a0345ddc
+      internalID: -1840828159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_88
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0f7af6a374d9d54ab6cacb3a2ea85b7
+      internalID: 1093262370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_89
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7957da340c3f9d428a018410d0b9073
+      internalID: 1805645810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_90
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 893f179d23865084daba695597678c10
+      internalID: -2131415014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_91
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746171495bd38b74ba109e4d891df9a1
+      internalID: -1719762623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_92
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f8789eb3d04cb04ab4e1a1f7aa02d9c
+      internalID: -1835553647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_95
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c1a9147b47b2e9479a765475142d1f4
+      internalID: -1724682451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_96
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d4e493bf949141458fb04af5cbedfd5
+      internalID: 1727460626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_97
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c794c79ae1b1a8e4dbfce50dc26a77d2
+      internalID: 762436103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_98
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571e11f57ef3fd540b9982e8191acc37
+      internalID: 1934982855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_99
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c2386ed100fa04bac411b6bb0a633e
+      internalID: 810529962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8505afcfb1d9bc943adfba18ca722264
+      internalID: -1715530376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_101
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c95913326acdbb4784d00585ec7e057
+      internalID: -1508295370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_102
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3c7331035034f4c8bfbd3187e150d1
+      internalID: -1209876038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d6d8b7203bf3b448f7b264962b2978
+      internalID: 7697952048940822398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_7
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47af45b009bb46840b15c552ba8b18f1
+      internalID: -4777687758570820269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_11
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 210
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06fd95b67324a844d9d0cf10a688b39a
+      internalID: -1267857505775533796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILESET FURNITURE 2ntFLoor_12
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab13cfd0f9c72fa4094e787d6158b2c8
+      internalID: 6564246911992492928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f74060cfc957db9499046556615e62a3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TILESET FURNITURE 2ntFLoor_0: -5848853679405178913
+      TILESET FURNITURE 2ntFLoor_1: 1542807105467508383
+      TILESET FURNITURE 2ntFLoor_10: 5470650177502360448
+      TILESET FURNITURE 2ntFLoor_100: -1715530376
+      TILESET FURNITURE 2ntFLoor_101: -1508295370
+      TILESET FURNITURE 2ntFLoor_102: -1209876038
+      TILESET FURNITURE 2ntFLoor_11: -1267857505775533796
+      TILESET FURNITURE 2ntFLoor_12: 6564246911992492928
+      TILESET FURNITURE 2ntFLoor_13: -8732979596169854514
+      TILESET FURNITURE 2ntFLoor_14: 7894244598362189996
+      TILESET FURNITURE 2ntFLoor_15: 28264360035724710
+      TILESET FURNITURE 2ntFLoor_16: -2334603326029506374
+      TILESET FURNITURE 2ntFLoor_17: -3747696687085805026
+      TILESET FURNITURE 2ntFLoor_18: -3048133498818739641
+      TILESET FURNITURE 2ntFLoor_19: -1282260958923799127
+      TILESET FURNITURE 2ntFLoor_2: -7429522193792583281
+      TILESET FURNITURE 2ntFLoor_20: -6505860998900323086
+      TILESET FURNITURE 2ntFLoor_21: -5591568280201171282
+      TILESET FURNITURE 2ntFLoor_22: -7220654397489635111
+      TILESET FURNITURE 2ntFLoor_23: -1060722537
+      TILESET FURNITURE 2ntFLoor_24: 1021056259
+      TILESET FURNITURE 2ntFLoor_25: 390110872
+      TILESET FURNITURE 2ntFLoor_26: 328957368
+      TILESET FURNITURE 2ntFLoor_27: -1714479741
+      TILESET FURNITURE 2ntFLoor_28: -29837244
+      TILESET FURNITURE 2ntFLoor_29: 1437994417
+      TILESET FURNITURE 2ntFLoor_3: 8191577589897570829
+      TILESET FURNITURE 2ntFLoor_30: 2136133903
+      TILESET FURNITURE 2ntFLoor_31: 442959556
+      TILESET FURNITURE 2ntFLoor_32: -1277895644
+      TILESET FURNITURE 2ntFLoor_33: 837030717
+      TILESET FURNITURE 2ntFLoor_34: -1858923384
+      TILESET FURNITURE 2ntFLoor_35: -1246657648
+      TILESET FURNITURE 2ntFLoor_36: 1140226235
+      TILESET FURNITURE 2ntFLoor_37: -745921215
+      TILESET FURNITURE 2ntFLoor_38: 1905267847
+      TILESET FURNITURE 2ntFLoor_39: -593952074
+      TILESET FURNITURE 2ntFLoor_4: -9029566168226830743
+      TILESET FURNITURE 2ntFLoor_40: -2094617761
+      TILESET FURNITURE 2ntFLoor_41: 533031086
+      TILESET FURNITURE 2ntFLoor_42: -1582175764
+      TILESET FURNITURE 2ntFLoor_43: 1937191578
+      TILESET FURNITURE 2ntFLoor_44: 640090588
+      TILESET FURNITURE 2ntFLoor_45: 601703596
+      TILESET FURNITURE 2ntFLoor_46: -1206831626
+      TILESET FURNITURE 2ntFLoor_47: -926032697
+      TILESET FURNITURE 2ntFLoor_48: 1623329635
+      TILESET FURNITURE 2ntFLoor_49: 1524408118
+      TILESET FURNITURE 2ntFLoor_5: -149178556629890195
+      TILESET FURNITURE 2ntFLoor_50: 1339081647
+      TILESET FURNITURE 2ntFLoor_51: -392026257
+      TILESET FURNITURE 2ntFLoor_52: -1570536558
+      TILESET FURNITURE 2ntFLoor_53: -664984528
+      TILESET FURNITURE 2ntFLoor_54: -98818681
+      TILESET FURNITURE 2ntFLoor_55: 125658753
+      TILESET FURNITURE 2ntFLoor_56: 598624953
+      TILESET FURNITURE 2ntFLoor_57: 1068489578
+      TILESET FURNITURE 2ntFLoor_58: -786731465
+      TILESET FURNITURE 2ntFLoor_59: 32021024
+      TILESET FURNITURE 2ntFLoor_6: 7697952048940822398
+      TILESET FURNITURE 2ntFLoor_60: 390160449
+      TILESET FURNITURE 2ntFLoor_61: -129074670
+      TILESET FURNITURE 2ntFLoor_62: -2000636095
+      TILESET FURNITURE 2ntFLoor_63: -1254258859
+      TILESET FURNITURE 2ntFLoor_64: -177397358
+      TILESET FURNITURE 2ntFLoor_65: -412499579
+      TILESET FURNITURE 2ntFLoor_66: -613601894
+      TILESET FURNITURE 2ntFLoor_67: -1858749285
+      TILESET FURNITURE 2ntFLoor_68: -2001453475
+      TILESET FURNITURE 2ntFLoor_69: -558838487
+      TILESET FURNITURE 2ntFLoor_7: -4777687758570820269
+      TILESET FURNITURE 2ntFLoor_70: -228318516
+      TILESET FURNITURE 2ntFLoor_71: -489251434
+      TILESET FURNITURE 2ntFLoor_72: -897852426
+      TILESET FURNITURE 2ntFLoor_73: 155758575
+      TILESET FURNITURE 2ntFLoor_74: -245391658
+      TILESET FURNITURE 2ntFLoor_75: 1720745736
+      TILESET FURNITURE 2ntFLoor_76: 1858029760
+      TILESET FURNITURE 2ntFLoor_77: -1174558316
+      TILESET FURNITURE 2ntFLoor_78: 1368217818
+      TILESET FURNITURE 2ntFLoor_79: 2116743300
+      TILESET FURNITURE 2ntFLoor_8: 838179140794839648
+      TILESET FURNITURE 2ntFLoor_80: 1831767768
+      TILESET FURNITURE 2ntFLoor_81: 2113280222
+      TILESET FURNITURE 2ntFLoor_82: 1620206248
+      TILESET FURNITURE 2ntFLoor_83: 1261657012
+      TILESET FURNITURE 2ntFLoor_84: -1840828159
+      TILESET FURNITURE 2ntFLoor_85: -501962074
+      TILESET FURNITURE 2ntFLoor_86: -960025270
+      TILESET FURNITURE 2ntFLoor_87: 170545985
+      TILESET FURNITURE 2ntFLoor_88: 1093262370
+      TILESET FURNITURE 2ntFLoor_89: 1805645810
+      TILESET FURNITURE 2ntFLoor_9: 7818573961695479488
+      TILESET FURNITURE 2ntFLoor_90: -2131415014
+      TILESET FURNITURE 2ntFLoor_91: -1719762623
+      TILESET FURNITURE 2ntFLoor_92: -1835553647
+      TILESET FURNITURE 2ntFLoor_93: -1758202916
+      TILESET FURNITURE 2ntFLoor_94: -1772601187
+      TILESET FURNITURE 2ntFLoor_95: -1724682451
+      TILESET FURNITURE 2ntFLoor_96: 1727460626
+      TILESET FURNITURE 2ntFLoor_97: 762436103
+      TILESET FURNITURE 2ntFLoor_98: 1934982855
+      TILESET FURNITURE 2ntFLoor_99: 810529962
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

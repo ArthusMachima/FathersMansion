@@ -65,7 +65,6 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            // FIX 2: Cancel any active drag before closing so the item isn't lost
             if (heldItem != null)
             {
                 prevSlot.PlaceItem(heldItem);
@@ -150,7 +149,6 @@ public class InventoryManager : MonoBehaviour
 
         while (Input.GetMouseButton(0))
         {
-            // FIX 1: If inventory was closed mid-drag, return item and abort
             if (!InventoryPanel.activeSelf)
             {
                 prevSlot.PlaceItem(heldItem);
@@ -182,7 +180,6 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            // FIX 4: Guard against hoveredSlot being null
             if (hoveredSlot != null)
             {
                 if (hoveredSlot.HasItem()) prevSlot.PlaceItem(heldItem);
@@ -234,14 +231,12 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        // Nothing valid found — return to original slot
         prevSlot.PlaceItem(heldItem);
     }
 
     void OnPuzzlePieceDrop(ItemClass item)
     {
         Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // FIX 3: Correct Physics2D.Raycast signature — breakables was being passed as direction
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, Mathf.Infinity, breakables);
 
         if (hit.collider != null)
@@ -252,7 +247,6 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        // Nothing valid found — return to original slot
         prevSlot.PlaceItem(heldItem);
     }
 
