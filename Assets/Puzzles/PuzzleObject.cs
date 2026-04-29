@@ -10,6 +10,7 @@ public class PuzzleObject : MonoBehaviour, IInteractable
     [SerializeField] UnityEvent OnPuzzleEnterMethod;
     [SerializeField] UnityEvent OnPuzzleExitMethod;
     [SerializeField] UnityEvent OnPuzzleCompleteMethod;
+    public ItemClass missingPieceReq;
     [SerializeField] ItemClass rewardItem;
     public bool isPuzzlePieceFound;
     public bool isPuzzleFinished;

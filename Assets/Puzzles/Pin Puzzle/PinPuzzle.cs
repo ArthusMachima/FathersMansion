@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PinPuzzle : PuzzleClass
 {
+    [SerializeField] PuzzleObject puzzleObject;
     string pass = "";
     [SerializeField] string correctCode;
     [SerializeField] TextMeshProUGUI text;
@@ -19,12 +20,17 @@ public class PinPuzzle : PuzzleClass
 
     }
 
+    private void Start()
+    {
+        puzzleObject = PlayerControls.Instance.currentInteractedPuzzle;
+    }
+
     public void Confirm()
     {
         if (pass == correctCode)
         {
             Debug.Log("correct");
-            PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
+            puzzleObject.OnPuzzleComplete();
         }
         else
         {

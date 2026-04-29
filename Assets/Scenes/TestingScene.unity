@@ -229,10 +229,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1634843900528742131, guid: c93ebc2893b62214281f0b76202b489d, type: 3}
-      propertyPath: storedItems.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4263906111461287201, guid: c93ebc2893b62214281f0b76202b489d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -243,7 +239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4263906111461287201, guid: c93ebc2893b62214281f0b76202b489d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263906111461287201, guid: c93ebc2893b62214281f0b76202b489d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1839,9 +1835,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1634843900528742131, guid: c93ebc2893b62214281f0b76202b489d, type: 3}
-      propertyPath: storedItems.Array.size
-      value: 2
+    - target: {fileID: 489317271496526943, guid: c93ebc2893b62214281f0b76202b489d, type: 3}
+      propertyPath: pivotOffset.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4263906111461287201, guid: c93ebc2893b62214281f0b76202b489d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1853,7 +1849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4263906111461287201, guid: c93ebc2893b62214281f0b76202b489d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263906111461287201, guid: c93ebc2893b62214281f0b76202b489d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1997,10 +1993,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7267733042296386295, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
-      propertyPath: storedItem
-      value: 
-      objectReference: {fileID: 11400000, guid: bde915120eb1ec94a8a717d1a40a025c, type: 2}
     - target: {fileID: 8917880998187439597, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Name
       value: Box
@@ -2115,10 +2107,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7267733042296386295, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: storedItem
-      value: 
-      objectReference: {fileID: 11400000, guid: 98092ae8b9386604cb65080f4b4b484e, type: 2}
     - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Name
       value: Vase

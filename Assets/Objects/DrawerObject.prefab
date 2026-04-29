@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9194774633447136187}
   - component: {fileID: 8113061981812976829}
   - component: {fileID: 1634843900528742131}
+  - component: {fileID: 489317271496526943}
   m_Layer: 0
   m_Name: DrawerObject
   m_TagString: Untagged
@@ -147,8 +148,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f080afcf93e4e44694e1f2375321376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storedItems:
-  - {fileID: 11400000, guid: 98092ae8b9386604cb65080f4b4b484e, type: 2}
-  - {fileID: 11400000, guid: 4e7eab91bb777e94495232643dcb620e, type: 2}
-  - {fileID: 11400000, guid: e5e107862ca39ee4b85bac4bb085c38e, type: 2}
-  - {fileID: 11400000, guid: bde915120eb1ec94a8a717d1a40a025c, type: 2}
+  storedItems: []
+--- !u!114 &489317271496526943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6284841583200730308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b046232b86dfca40bd951f80889b243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  backLayerIndex: 2
+  frontLayerIndex: 1
+  pivotOffset: {x: 0, y: 0, z: 0}

@@ -5,6 +5,7 @@ using UnityEngine.U2D;
 
 public class SlidingPuzzle : PuzzleClass
 {
+    [SerializeField] PuzzleObject puzzleObject;
     [SerializeField] Sprite[] SlicedPuzzlePicture;
 
     [SerializeField] Transform PiecePositionParent;
@@ -18,11 +19,12 @@ public class SlidingPuzzle : PuzzleClass
 
     private void Start()
     {
+        puzzleObject = PlayerControls.Instance.currentInteractedPuzzle;
         PiecePosition = PiecePositionParent.GetComponentsInChildren<Transform>()
                                            .Where(t => t != PiecePositionParent)
                                            .ToArray(); // now truly 0-based, index 0–8
         PuzzlePieces = GetComponentsInChildren<SlidingPuzzlePiece>();
-        SlicedPuzzlePicture = Resources.LoadAll<Sprite>(PlayerControls.Instance.currentInteractedPuzzle.PuzzleTexture.name);
+        SlicedPuzzlePicture = Resources.LoadAll<Sprite>(puzzleObject.PuzzleTexture.name);
         LeanTween.delayedCall(0.1f, () =>
         {
             ScramblePieces();
@@ -33,14 +35,14 @@ public class SlidingPuzzle : PuzzleClass
     public void CheckAnswer()
     {
         bool correct = PuzzlePieces.All(p => p.pieceCodeNumber == p.assignedPosIndex);
-        if (correct) PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
+        if (correct) puzzleObject.OnPuzzleComplete();
     }
 
     public void ScramblePieces()
     {
         //Apply sliced texture
         SlicedPuzzlePicture = null;
-        SlicedPuzzlePicture = Resources.LoadAll<Sprite>(PlayerControls.Instance.currentInteractedPuzzle.PuzzleTexture.name);
+        SlicedPuzzlePicture = Resources.LoadAll<Sprite>(puzzleObject.PuzzleTexture.name);
 
         for (int i = 0; i < PuzzlePieces.Length; i++)
         {
@@ -56,7 +58,7 @@ public class SlidingPuzzle : PuzzleClass
         }
         EmptySpace = PuzzlePieces.Length - 1; // = 8
 
-        if (PlayerControls.Instance.currentInteractedPuzzle.isPuzzleFinished)
+        if (puzzleObject.isPuzzleFinished)
         {
             PuzzlePieces[^1].gameObject.SetActive(false);
             PuzzleAlreadyFinishedDialogue();

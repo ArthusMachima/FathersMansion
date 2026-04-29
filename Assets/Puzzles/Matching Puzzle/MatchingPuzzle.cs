@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
 {
+    [SerializeField] PuzzleObject puzzleObject;
     [SerializeField] MatchingPuzzleSlot[] matchingPuzzleSlots;
     [SerializeField] Transform slotParent;
     [SerializeField] MatchingPuzzleSlot FlippedA;
@@ -17,11 +18,12 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
     public bool puzzleInteractable = true;
     public bool isMissingPieceFound;
     MatchingPuzzleSlot hidPuzzleSlot;
-    [SerializeField] ItemClass pieceRequirement;
+    //[SerializeField] ItemClass pieceRequirement;
 
     private void Start()
     {
-        SlicedPicture = Resources.LoadAll<Sprite>(PlayerControls.Instance.currentInteractedPuzzle.PuzzleTexture.name);
+        puzzleObject = PlayerControls.Instance.currentInteractedPuzzle;
+        SlicedPicture = Resources.LoadAll<Sprite>(puzzleObject.PuzzleTexture.name);
         InstantiatePuzzleSlots();
         matchingPuzzleSlots = slotParent.GetComponentsInChildren<MatchingPuzzleSlot>();
         MissingPieceCheck();
@@ -57,7 +59,7 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
 
     void MissingPieceCheck()
     {
-        isMissingPieceFound = PlayerControls.Instance.currentInteractedPuzzle.isPuzzlePieceFound;
+        isMissingPieceFound = puzzleObject.isPuzzlePieceFound;
         if (isMissingPieceFound) return;
         int chance = Random.Range(0, matchingPuzzleSlots.Length);
         hidPuzzleSlot = matchingPuzzleSlots[chance];
@@ -102,7 +104,7 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
         }
         if (allAreFlipped)
         {
-            PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
+            puzzleObject.OnPuzzleComplete();
         }
     }
 
@@ -112,13 +114,13 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
         {
             hidPuzzleSlot.gameObject.SetActive(true);
             isMissingPieceFound = true;
-            PlayerControls.Instance.currentInteractedPuzzle.isPuzzlePieceFound = true;
+            puzzleObject.isPuzzlePieceFound = true;
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (InventoryManager.Instance.heldItem == pieceRequirement)
+        if (InventoryManager.Instance.heldItem == puzzleObject.missingPieceReq)
         {
             InventoryManager.Instance.heldItem = null;
             InventoryManager.Instance.draggedItem.gameObject.SetActive(false);
