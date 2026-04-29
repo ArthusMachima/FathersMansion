@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e743419290311084a9b2f1b45b3ba60d
+guid: e4893021cc77ff5459d7b9691c5919ac
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: -8092142298806690246
     second: painting puzzle placeover_2
+  - first:
+      213: -3187622129873895758
+    second: painting puzzle placeover_3
+  - first:
+      213: 2199205134531312346
+    second: painting puzzle placeover_4
+  - first:
+      213: -1769343369793380741
+    second: painting puzzle placeover_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,10 +131,10 @@ TextureImporter:
       name: painting puzzle placeover_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 4
-        width: 6
-        height: 8
+        x: 2
+        y: 8
+        width: 9
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +153,10 @@ TextureImporter:
       name: painting puzzle placeover_1
       rect:
         serializedVersion: 2
-        x: 6
-        y: 3
-        width: 10
-        height: 11
+        x: 4
+        y: 19
+        width: 8
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +175,10 @@ TextureImporter:
       name: painting puzzle placeover_2
       rect:
         serializedVersion: 2
-        x: 19
-        y: 2
-        width: 12
-        height: 12
+        x: 12
+        y: 18
+        width: 8
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,6 +189,72 @@ TextureImporter:
       bones: []
       spriteID: a3ed6b7047fe2bf80800000000000000
       internalID: -8092142298806690246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: painting puzzle placeover_3
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 17
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2be31b6cf8a43c3d0800000000000000
+      internalID: -3187622129873895758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: painting puzzle placeover_4
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 9
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada34fffa65258e10800000000000000
+      internalID: 2199205134531312346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: painting puzzle placeover_5
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 6
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7ed5cd54970277e0800000000000000
+      internalID: -1769343369793380741
       vertices: []
       indices: 
       edges: []
@@ -201,6 +276,9 @@ TextureImporter:
       painting puzzle placeover_0: 6669428153285330859
       painting puzzle placeover_1: 8958147091668087848
       painting puzzle placeover_2: -8092142298806690246
+      painting puzzle placeover_3: -3187622129873895758
+      painting puzzle placeover_4: 2199205134531312346
+      painting puzzle placeover_5: -1769343369793380741
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

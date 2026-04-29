@@ -5,6 +5,8 @@ using UnityEngine.Events;
 public class PuzzleObject : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject PuzzlePanel;
+    public Texture2D PuzzleTexture;
+    [SerializeField] Sprite CompletedPuzzleSprite;
     [SerializeField] UnityEvent OnPuzzleEnterMethod;
     [SerializeField] UnityEvent OnPuzzleExitMethod;
     [SerializeField] UnityEvent OnPuzzleCompleteMethod;
@@ -30,6 +32,7 @@ public class PuzzleObject : MonoBehaviour, IInteractable
         PlayerControls.Instance.doPlayerControls = false;
         UIManager.Instance.ShowPuzzlePanel();
         InventoryManager.Instance.OpenInventory(false, false);
+        if (CompletedPuzzleSprite!=null) GetComponent<SpriteRenderer>().sprite = CompletedPuzzleSprite;
 
         LeanTween.delayedCall(0.6f, () =>
         {

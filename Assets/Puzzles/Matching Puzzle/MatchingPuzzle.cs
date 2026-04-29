@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
@@ -10,7 +11,7 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
     [SerializeField] Transform slotParent;
     [SerializeField] MatchingPuzzleSlot FlippedA;
     [SerializeField] MatchingPuzzleSlot FlippedB;
-    [SerializeField] MatchingPuzzleSlotVariant[] variants;
+    [SerializeField] Sprite[] SlicedPicture;
     [SerializeField] GameObject slotPrefab;
     [SerializeField] int slotAmount = 16;
     public bool puzzleInteractable = true;
@@ -20,6 +21,7 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
 
     private void Start()
     {
+        SlicedPicture = Resources.LoadAll<Sprite>(PlayerControls.Instance.currentInteractedPuzzle.PuzzleTexture.name);
         InstantiatePuzzleSlots();
         matchingPuzzleSlots = slotParent.GetComponentsInChildren<MatchingPuzzleSlot>();
         MissingPieceCheck();
@@ -27,23 +29,29 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
 
     void InstantiatePuzzleSlots()
     {
-        for (int i = 0; i < slotAmount; i++)
+        // Build a paired list from sliced sprites (each sprite appears twice)
+        List<(Sprite sprite, int type)> pool = new();
+        for (int i = 0; i < slotAmount / 2; i++)
         {
-            // Guard against infinite loop if all variants are exhausted
-            bool anyAvailable = false;
-            foreach (var v in variants) if (v.amount > 0) { anyAvailable = true; break; }
-            if (!anyAvailable) break;
+            pool.Add((SlicedPicture[i + 1], i));
+            pool.Add((SlicedPicture[i + 1], i));
+        }
 
+        // Shuffle the pool
+        for (int i = pool.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (pool[i], pool[j]) = (pool[j], pool[i]);
+        }
+
+        // Instantiate slots
+        foreach (var (sprite, type) in pool)
+        {
             GameObject card = Instantiate(slotPrefab, slotParent);
             MatchingPuzzleSlot slot = card.GetComponent<MatchingPuzzleSlot>();
-
-            int chance;
-            do { chance = Random.Range(0, variants.Length); }
-            while (variants[chance].amount == 0);
-
-            slot.frontCard = variants[chance].frontCard;
-            slot.cardType = chance;
-            variants[chance].amount--;
+            slot.frontCard = sprite;
+            slot.cardType = type;
+            slot.backCard = SlicedPicture[0]; // assign back texture
         }
     }
 
@@ -89,12 +97,11 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
         bool allAreFlipped = true;
         foreach (var slot in matchingPuzzleSlots)
         {
-            if (!slot.gameObject.activeSelf) continue; // skip hidden slot
+            if (!slot.gameObject.activeSelf) continue;
             if (!slot.isFlipped) allAreFlipped = false;
         }
         if (allAreFlipped)
         {
-            Debug.Log("PUZZLE COMPLETE");
             PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
         }
     }
@@ -119,22 +126,6 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
         }
     }
 
-    public override void OnPuzzleEnter()
-    {
-
-    }
-
-    // Removed call to currentInteractedPuzzle.OnPuzzleExit() here —
-    // PuzzleObject already handles that in PlayerControls' SolvingPuzzle exit block
-    public override void OnPuzzleExit()
-    {
-
-    }
-}
-
-[Serializable]
-public class MatchingPuzzleSlotVariant
-{
-    public Sprite frontCard;
-    public int amount = 2;
+    public override void OnPuzzleEnter() { }
+    public override void OnPuzzleExit() { }
 }

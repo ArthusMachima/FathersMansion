@@ -13,6 +13,9 @@ public class PlayerControls : MonoBehaviour
     public GameControlState gameControlState = GameControlState.TopDownControls;
 
     [Header("Movement")]
+    public Animator anim;
+    [SerializeField] bool isMoving;
+    [SerializeField] bool isRunning;
     public bool doPlayerControls=true;
     [SerializeField] float speed;
     bool up, left, down, right;
@@ -27,10 +30,10 @@ public class PlayerControls : MonoBehaviour
     public bool isPlayerHiddenInCloset;
 
     [Header("Stamina")]
+    [SerializeField] bool RegenStamina;
     [SerializeField] GameObject StaminaPanel;
     public float MaxStamina=100;
     public float Stamina;
-    [SerializeField] bool isRunning;
     [SerializeField] Transform StaminaBar;
 
 
@@ -108,18 +111,20 @@ public class PlayerControls : MonoBehaviour
 
             if (Input.GetKey(Run))
             {
-                isRunning = true;
+                isRunning = isMoving ? true : false;
+                RegenStamina = false;
             }
 
             if (Input.GetKeyUp(Run))
             {
+                isRunning = false;
                 LeanTween.delayedCall(0.5f, () =>
                 {
-                    isRunning = false;
+                    RegenStamina = true;
                 });
             }
 
-            if (!Input.GetKey(Run) && Stamina < MaxStamina && !isRunning)
+            if (Stamina < MaxStamina && RegenStamina)
             {
                 Stamina++;
             }
@@ -187,22 +192,35 @@ public class PlayerControls : MonoBehaviour
     {
         if (!doPlayerControls) return;
 
+        //Set Move Direction
         if (body == null) return;
         direction = new(
             (right ? 1 : 0) - (left ? 1 : 0),
             (up    ? 1 : 0) - (down ? 1 : 0));
+        isMoving = direction.magnitude > 0.1f || direction.magnitude < -0.1f ? true : false;
 
+
+        //Animation
+        anim.SetBool("isMoving", isMoving);
+        anim.SetBool("isRunning", isRunning);
+        if (isMoving)
+        {
+            anim.SetFloat("x", direction.x);
+            anim.SetFloat("y", direction.y);
+        }
+
+        //Apply Movement
         if (up || left || down || right)
         {
             facingDirection = direction.normalized;
-            if (Input.GetKey(Run) && 0<Stamina)
+            if (isRunning && 0 < Stamina)
             {
-                body.AddForce(10 * 2 * speed * direction.normalized);
+                body.AddForce(10 * 2 * speed * direction.normalized); // Run
                 Stamina--;
             }
             else
             {
-                body.AddForce(10 * speed * direction.normalized);
+                body.AddForce(10 * speed * direction.normalized); // Walk
             }
         }
     }

@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: c306da180675e8040985809a5e75e47c
+guid: a140f05ec3e57c141b3cd7747905acd1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8192823631714518751
-    second: painting puzzle placeover (COMPLETED)_0
-  - first:
-      213: 7174978078357696159
-    second: painting puzzle placeover (COMPLETED)_1
-  - first:
-      213: 5589442533356624906
-    second: painting puzzle placeover (COMPLETED)_2
-  - first:
-      213: -830117843622372869
-    second: painting puzzle placeover (COMPLETED)_3
+      213: 4751665468544604401
+    second: InvestigatorHat_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -55,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: painting puzzle placeover (COMPLETED)_0
+      name: InvestigatorHat_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 4
-        width: 6
-        height: 8
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,74 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 129fa3c705e3d4e80800000000000000
-      internalID: -8192823631714518751
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: painting puzzle placeover (COMPLETED)_1
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 3
-        width: 10
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f9ea9bf2c84a29360800000000000000
-      internalID: 7174978078357696159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: painting puzzle placeover (COMPLETED)_2
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 2
-        width: 13
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a0c5e25be50b19d40800000000000000
-      internalID: 5589442533356624906
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: painting puzzle placeover (COMPLETED)_3
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 2
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf9dc292834da74f0800000000000000
-      internalID: -830117843622372869
+      spriteID: 1f85718719e41f140800000000000000
+      internalID: 4751665468544604401
       vertices: []
       indices: 
       edges: []
@@ -213,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      painting puzzle placeover (COMPLETED)_0: -8192823631714518751
-      painting puzzle placeover (COMPLETED)_1: 7174978078357696159
-      painting puzzle placeover (COMPLETED)_2: 5589442533356624906
-      painting puzzle placeover (COMPLETED)_3: -830117843622372869
+      InvestigatorHat_0: 4751665468544604401
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

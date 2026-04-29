@@ -1,9 +1,10 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.U2D;
 
 public class SlidingPuzzle : PuzzleClass
 {
-    [SerializeField] Texture2D PuzzlePicture;
     [SerializeField] Sprite[] SlicedPuzzlePicture;
 
     [SerializeField] Transform PiecePositionParent;
@@ -12,33 +13,16 @@ public class SlidingPuzzle : PuzzleClass
     [SerializeField] CanvasGroup Slots;
     [SerializeField] SlidingPuzzlePiece[] PuzzlePieces; // should be about the length of 9 (8)
 
-    [SerializeField] int EmptySpace=9;
+    [SerializeField] int EmptySpace=8;
 
-    [Header("Debug")]
-    [SerializeField] bool TriggerScramblePieces;
-    [SerializeField] bool TriggerCheckAnswer;
-
-    private void Update()
-    {
-        //Debugs
-        if (TriggerScramblePieces)
-        {
-            ScramblePieces();
-            TriggerScramblePieces = false;
-        }
-
-        if (TriggerCheckAnswer)
-        {
-            CheckAnswer();
-            TriggerCheckAnswer = false;
-        }
-    }
 
     private void Start()
     {
-        PiecePosition = PiecePositionParent.GetComponentsInChildren<Transform>(); //Starting number is 1
+        PiecePosition = PiecePositionParent.GetComponentsInChildren<Transform>()
+                                           .Where(t => t != PiecePositionParent)
+                                           .ToArray(); // now truly 0-based, index 0–8
         PuzzlePieces = GetComponentsInChildren<SlidingPuzzlePiece>();
-        SlicedPuzzlePicture = Resources.LoadAll<Sprite>(PuzzlePicture.name);
+        SlicedPuzzlePicture = Resources.LoadAll<Sprite>(PlayerControls.Instance.currentInteractedPuzzle.PuzzleTexture.name);
         LeanTween.delayedCall(0.1f, () =>
         {
             ScramblePieces();
@@ -48,46 +32,126 @@ public class SlidingPuzzle : PuzzleClass
 
     public void CheckAnswer()
     {
-        bool correct = true;
-        for (int i=0; i< PuzzlePieces.Length; i++)
-        {
-            Debug.Log($"{PuzzlePieces[i].pieceCodeNumber} = {i}");
-            if (PuzzlePieces[i].pieceCodeNumber!=i) correct = false;
-        }
-
-        if (correct) Debug.Log("YAAAAYYYYYYYYYYYYYYYYYYYYYY!!!!!!!!!!!!!!!!!!");
-        else Debug.LogError("wrong");
-        //Todo: PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
+        bool correct = PuzzlePieces.All(p => p.pieceCodeNumber == p.assignedPosIndex);
+        if (correct) PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
     }
 
     public void ScramblePieces()
     {
+        //Apply sliced texture
         SlicedPuzzlePicture = null;
-        SlicedPuzzlePicture = Resources.LoadAll<Sprite>(PuzzlePicture.name);
+        SlicedPuzzlePicture = Resources.LoadAll<Sprite>(PlayerControls.Instance.currentInteractedPuzzle.PuzzleTexture.name);
 
-        foreach (var piece in PuzzlePieces) piece.setUpped = false;
-        int num = 0;
-        for (int i=0; i<SlicedPuzzlePicture.Length; i++)
+        for (int i = 0; i < PuzzlePieces.Length; i++)
         {
-            do num = Random.Range(0, PuzzlePieces.Length);
-            while (PuzzlePieces[num].setUpped);
-            PuzzlePieces[num].image.sprite = SlicedPuzzlePicture[i];
-            PuzzlePieces[num].pieceCodeNumber = i;
-            PuzzlePieces[num].setUpped = true;
+            PuzzlePieces[i].assignedPosIndex = i;
+            PuzzlePieces[i].setUpped = true;
+            PuzzlePieces[i].gameObject.SetActive(true);
 
-            if (i==SlicedPuzzlePicture.Length-1) PuzzlePieces[i].gameObject.SetActive(false);
+            if (i < SlicedPuzzlePicture.Length)
+            {
+                PuzzlePieces[i].image.sprite = SlicedPuzzlePicture[i];
+                PuzzlePieces[i].pieceCodeNumber = i;
+            }
         }
+        EmptySpace = PuzzlePieces.Length - 1; // = 8
+
+        if (PlayerControls.Instance.currentInteractedPuzzle.isPuzzleFinished)
+        {
+            PuzzlePieces[^1].gameObject.SetActive(false);
+            PuzzleAlreadyFinishedDialogue();
+            return;
+        }
+
+
+        int grid = 3;
+        int[] firstColumn = new int[grid];
+        int[] lastColumn = new int[grid];
+        for (int i = 0; i < grid; i++)
+        {
+            firstColumn[i] = grid * i;
+            lastColumn[i] = grid * (i + 1) - 1;
+        }
+
+        int lastMoved = -1;
+        int shuffleMoves = 200;
+
+        for (int s = 0; s < shuffleMoves; s++)
+        {
+            List<int> candidates = new();
+
+            int left = EmptySpace - 1;
+            int right = EmptySpace + 1;
+            int down = EmptySpace - grid;
+            int up = EmptySpace + grid;
+
+            if (left >= 0 && !firstColumn.Any(i => EmptySpace == i) && left != lastMoved) candidates.Add(left);
+            if (right <= grid * grid - 1 && !lastColumn.Any(i => EmptySpace == i) && right != lastMoved) candidates.Add(right);
+            if (down >= 0 && down != lastMoved) candidates.Add(down);
+            if (up <= grid * grid - 1 && up != lastMoved) candidates.Add(up);
+
+            int chosen = candidates[Random.Range(0, candidates.Count)];
+
+            SlidingPuzzlePiece movingPiece = System.Array.Find(PuzzlePieces, p => p.assignedPosIndex == chosen);
+            if (movingPiece != null)
+            {
+                lastMoved = EmptySpace;
+                movingPiece.assignedPosIndex = EmptySpace;
+                EmptySpace = chosen;
+                PuzzlePieces[^1].assignedPosIndex = EmptySpace;
+            }
+        }
+
+        foreach (var piece in PuzzlePieces)
+        {
+            piece.gameObject.transform.position = PiecePosition[piece.assignedPosIndex].position;
+            piece.interactable = true;
+
+            if (piece.pieceCodeNumber == 8)
+            {
+                piece.assignedPosIndex = 8;
+                piece.gameObject.SetActive(false);
+            }
+        }
+
     }
 
     public void MovePiece(SlidingPuzzlePiece piece)
     {
-        piece.gameObject.LeanMove(PiecePosition[EmptySpace].position, 0.3f).setEaseInOutQuint();
+        // Set up constraints
+        int grid = 3;
+        int[] firstColumn = new int[grid];
+        int[] lastColumn = new int[grid];
+        for (int i = 0; i < grid; i++)
+        {
+            firstColumn[i] = grid * i;           // 0, 3, 6
+             lastColumn[i] = grid * (i + 1) - 1; // 2, 5, 8
+        }
 
+        // Check pieces
+        bool found = false; 
+        if (piece.assignedPosIndex -    1 == EmptySpace && !firstColumn.Any(i => piece.assignedPosIndex == i)) found = true; // check left
+        if (piece.assignedPosIndex +    1 == EmptySpace && !lastColumn.Any(i => piece.assignedPosIndex == i))  found = true; // check right
+        if (piece.assignedPosIndex - grid == EmptySpace && piece.assignedPosIndex - grid >= 0)                 found = true; // check down
+        if (piece.assignedPosIndex + grid == EmptySpace && piece.assignedPosIndex + grid <= grid * grid - 1)   found = true; // check up
+        if (!found) return;
 
-        CheckAnswer();
+        //Move piece
+        piece.gameObject.LeanMove(PiecePosition[EmptySpace].position, 0.3f).setEaseInOutQuint().setOnComplete(() =>
+        {
+            CheckAnswer();
+        });
+        (piece.assignedPosIndex, EmptySpace) = (EmptySpace, piece.assignedPosIndex); // Tupple
     }
 
-
+    void PuzzleAlreadyFinishedDialogue()
+    {
+        Dialogue[] msg = new Dialogue[]
+        {
+            new("I already solved this sliding puzzle.", null)
+        };
+        UIManager.Instance.LoadDialogue(msg);
+    }
 
 
 

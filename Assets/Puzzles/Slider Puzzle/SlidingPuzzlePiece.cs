@@ -9,6 +9,8 @@ public class SlidingPuzzlePiece : MonoBehaviour, IPointerClickHandler
     public int pieceCodeNumber;
     public Image image;
     public bool setUpped;
+    public int assignedPosIndex;
+    public bool interactable;
 
     private void Start()
     {
@@ -17,6 +19,7 @@ public class SlidingPuzzlePiece : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (!interactable) return;
         parentPuzzle.MovePiece(this);
     }
 }

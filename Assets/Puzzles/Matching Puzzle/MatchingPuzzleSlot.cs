@@ -7,9 +7,9 @@ public class MatchingPuzzleSlot : MonoBehaviour, IPointerDownHandler
     [SerializeField] float flipTime = 0.3f;
     [SerializeField] MatchingPuzzle matchingPuzzle;
     public int cardType;
-    [SerializeField] Image cardSprite;
+    public Image cardSprite;
     public Sprite frontCard;
-    [SerializeField] Sprite backCard;
+    public Sprite backCard;
     public bool isFlipped;
 
     private void Start()
