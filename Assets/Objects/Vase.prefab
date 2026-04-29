@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7267733042296386295}
   - component: {fileID: 799996628746490898}
   m_Layer: 7
-  m_Name: BreakableContainer
+  m_Name: Vase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8917880998187439597}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.47681046, y: 2.0093417, z: -0.1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.5, y: 0.5, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7499154508442906066, guid: df9fc47aa2b81d342969d07d742af048, type: 3}
+  m_Sprite: {fileID: -5848853679405178913, guid: 0fe83cc2907d912438f879a894543623, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storedItem: {fileID: 0}
-  openedBox: {fileID: -4751441601245812612, guid: df9fc47aa2b81d342969d07d742af048, type: 3}
+  openedBox: {fileID: 1542807105467508383, guid: 0fe83cc2907d912438f879a894543623, type: 3}
+  requiredItem: {fileID: 11400000, guid: ae00d0144888500418e5a35618b80b78, type: 2}
 --- !u!61 &799996628746490898
 BoxCollider2D:
   m_ObjectHideFlags: 0

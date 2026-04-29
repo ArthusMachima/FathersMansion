@@ -4,6 +4,7 @@ public class BreakableObject : MonoBehaviour
 {
     [SerializeField] ItemClass storedItem;
     [SerializeField] Sprite openedBox;
+    [SerializeField] ItemClass requiredItem;
     SpriteRenderer sprite;
     BoxCollider2D col;
 
@@ -15,6 +16,8 @@ public class BreakableObject : MonoBehaviour
 
     public void BreakContainer()
     {
+        if (requiredItem!=null && InventoryManager.Instance.heldItem != requiredItem) return;
+
         col.enabled = false;
         sprite.sprite = openedBox;
         if (storedItem != null)

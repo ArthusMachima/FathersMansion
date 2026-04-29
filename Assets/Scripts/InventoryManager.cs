@@ -238,13 +238,20 @@ public class InventoryManager : MonoBehaviour
     {
         Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, Mathf.Infinity, breakables);
+        
 
         if (hit.collider != null)
         {
+            Debug.Log(hit.collider.gameObject.name);
+
             if (hit.collider.TryGetComponent<BreakableObject>(out var breakable))
             {
                 breakable.BreakContainer();
             }
+        }
+        else
+        {
+            Debug.Log("empty");
         }
 
         prevSlot.PlaceItem(heldItem);

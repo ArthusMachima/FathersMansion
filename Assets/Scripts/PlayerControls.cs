@@ -111,7 +111,7 @@ public class PlayerControls : MonoBehaviour
 
             if (Input.GetKey(Run))
             {
-                isRunning = isMoving ? true : false;
+                isRunning = isMoving;
                 RegenStamina = false;
             }
 
@@ -197,7 +197,7 @@ public class PlayerControls : MonoBehaviour
         direction = new(
             (right ? 1 : 0) - (left ? 1 : 0),
             (up    ? 1 : 0) - (down ? 1 : 0));
-        isMoving = direction.magnitude > 0.1f || direction.magnitude < -0.1f ? true : false;
+        isMoving = direction.magnitude > 0.1f || direction.magnitude < -0.1f;
 
 
         //Animation

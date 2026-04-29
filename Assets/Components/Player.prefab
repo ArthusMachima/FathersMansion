@@ -349,7 +349,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &7660938246108060946
 MonoBehaviour:
@@ -409,8 +409,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7815925901274899619}
   - component: {fileID: 5879153688822146325}
+  - component: {fileID: 4772987021267520764}
   m_Layer: 3
-  m_Name: Sprite
+  m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -474,7 +475,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 320520630778913837, guid: 19665d421a82187498efe42e7b66cab6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -486,6 +487,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4772987021267520764
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6474505876718338788}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a58f16ae0c64184591a5e032a948f24, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8705131925242080566
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +586,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameControlState: 0
+  anim: {fileID: 4772987021267520764}
+  isMoving: 0
+  isRunning: 0
   doPlayerControls: 1
   speed: 15
   excludeMask:
@@ -573,10 +599,10 @@ MonoBehaviour:
     m_Bits: 8
   currentInteractedPuzzle: {fileID: 0}
   isPlayerHiddenInCloset: 0
+  RegenStamina: 0
   StaminaPanel: {fileID: 5943166779839869346}
   MaxStamina: 100
   Stamina: 0
-  isRunning: 0
   StaminaBar: {fileID: 6910061691762932083}
   MoveUp: 119
   MoveLeft: 97
@@ -621,4 +647,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.18
+  m_Radius: 0.25

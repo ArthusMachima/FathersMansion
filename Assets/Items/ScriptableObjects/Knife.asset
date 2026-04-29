@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81309d0f23f145f4080253cf6a0f55b1, type: 3}
-  m_Name: Red Book (SampleItem)
+  m_Name: Knife
   m_EditorClassIdentifier: 
-  itemName: Red Book
-  itemIcon: {fileID: 21300000, guid: e56ec32b03fef6c4ab10bf4f10275e72, type: 3}
-  itemDescription: A strange red book that can't be opened. Could ve a puzzle piece
+  itemName: Hammer
+  itemIcon: {fileID: 21300000, guid: 349ffaa70722ceb40826fb97139a35ec, type: 3}
+  itemDescription: A rusty knife found somewhere in the mansion
+  Durability: 5
