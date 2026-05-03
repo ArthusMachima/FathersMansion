@@ -2,16 +2,14 @@ using UnityEngine;
 
 public class PaintingPuzzle : PuzzleClass
 {
-    [SerializeField] PuzzleObject puzzleObject;
     [SerializeField] Transform paintingPuzzleSlotParent;
     public PaintingPuzzleSlot[] paintingPuzzleSlots;
     public PaintingPuzzleSlot HoveredPuzzleSlot;
     public string CorrectCode = "odraisysbdgw";
     public GameObject[] PaintingPrefabs;
 
-    private void Start()
+    private void Awake()
     {
-        puzzleObject = PlayerControls.Instance.currentInteractedPuzzle;
         if (paintingPuzzleSlotParent != null)
             paintingPuzzleSlots = paintingPuzzleSlotParent.GetComponentsInChildren<PaintingPuzzleSlot>();
     }
@@ -84,7 +82,7 @@ public class PaintingPuzzle : PuzzleClass
     {
         Debug.Log("PUZZLE STARTED");
         LoadPaintings();
-        if (puzzleObject.isPuzzleFinished)
+        if (PlayerControls.Instance.currentInteractedPuzzle.isPuzzleFinished)
         {
             foreach (var slot in paintingPuzzleSlots)
             {
@@ -103,11 +101,11 @@ public class PaintingPuzzle : PuzzleClass
     public void CheckAnswer()
     {
         string code = GetPuzzleStateString();
-        if (string.Equals(code, CorrectCode) && !puzzleObject.isPuzzleFinished)
+        if (string.Equals(code, CorrectCode) && !PlayerControls.Instance.currentInteractedPuzzle.isPuzzleFinished)
         {
             Debug.Log("PUZZLE SOLVED");
             PlayerPrefs.SetString("paintingPuzzle", GetPuzzleStateString());
-            puzzleObject.OnPuzzleComplete();
+            PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
         }
     }
 }

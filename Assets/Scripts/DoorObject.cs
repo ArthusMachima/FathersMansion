@@ -9,8 +9,6 @@ public class DoorObject : MonoBehaviour, IInteractable
     public Sprite closeSprite;
     [SerializeField] bool isUnlocked;
     [SerializeField] ItemClass requiredKeys;
-    [SerializeField] int frontLayerIndex;
-    [SerializeField] int backLayerIndex;
 
     private void Start()
     {
@@ -76,7 +74,7 @@ public class DoorObject : MonoBehaviour, IInteractable
             if (requiredKeys == null) break;
             if (slot.storedItem == requiredKeys)
             {
-                slot.TakeItem();
+                //slot.TakeItem();
                 UnlockDoor();
                 return;
             }

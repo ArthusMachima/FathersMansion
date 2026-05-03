@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject[] Floors;
     [SerializeField] int floorIndex;
-    [SerializeField] GameObject[] Fog;
     [SerializeField] GameObject JumpscarePanel;
     [SerializeField] bool isJumpscared;
     [SerializeField] bool isMonsterSpawned;
@@ -21,7 +20,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (Fog != null) foreach (var fog in Fog) fog.SetActive(true);
         if (GameUI != null) GameUI.SetActive(true);
         AudioManager.Instance.PlayBGM(AudioManager.Instance.m_lullaby);
     }

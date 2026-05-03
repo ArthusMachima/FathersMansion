@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
 {
-    [SerializeField] PuzzleObject puzzleObject;
+    public PuzzleObject puzzleObject;
     [SerializeField] MatchingPuzzleSlot[] matchingPuzzleSlots;
     [SerializeField] Transform slotParent;
     [SerializeField] MatchingPuzzleSlot FlippedA;
@@ -16,9 +16,7 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
     [SerializeField] GameObject slotPrefab;
     [SerializeField] int slotAmount = 16;
     public bool puzzleInteractable = true;
-    public bool isMissingPieceFound;
     MatchingPuzzleSlot hidPuzzleSlot;
-    //[SerializeField] ItemClass pieceRequirement;
 
     private void Start()
     {
@@ -59,8 +57,7 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
 
     void MissingPieceCheck()
     {
-        isMissingPieceFound = puzzleObject.isPuzzlePieceFound;
-        if (isMissingPieceFound) return;
+        if (puzzleObject.isPuzzlePieceFound) return;
         int chance = Random.Range(0, matchingPuzzleSlots.Length);
         hidPuzzleSlot = matchingPuzzleSlots[chance];
         hidPuzzleSlot.gameObject.SetActive(false);
@@ -110,10 +107,9 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
 
     public void InsertLostPiece()
     {
-        if (!isMissingPieceFound)
+        if (!puzzleObject.isPuzzlePieceFound)
         {
             hidPuzzleSlot.gameObject.SetActive(true);
-            isMissingPieceFound = true;
             puzzleObject.isPuzzlePieceFound = true;
         }
     }

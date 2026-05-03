@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.U2D;
 
-public class SlidingPuzzle : PuzzleClass
+public class SlidingPuzzle : PuzzleClass, IPointerEnterHandler
 {
     [SerializeField] PuzzleObject puzzleObject;
     [SerializeField] Sprite[] SlicedPuzzlePicture;
@@ -22,7 +23,7 @@ public class SlidingPuzzle : PuzzleClass
         puzzleObject = PlayerControls.Instance.currentInteractedPuzzle;
         PiecePosition = PiecePositionParent.GetComponentsInChildren<Transform>()
                                            .Where(t => t != PiecePositionParent)
-                                           .ToArray(); // now truly 0-based, index 0–8
+                                           .ToArray();
         PuzzlePieces = GetComponentsInChildren<SlidingPuzzlePiece>();
         SlicedPuzzlePicture = Resources.LoadAll<Sprite>(puzzleObject.PuzzleTexture.name);
         LeanTween.delayedCall(0.1f, () =>
@@ -107,9 +108,13 @@ public class SlidingPuzzle : PuzzleClass
         foreach (var piece in PuzzlePieces)
         {
             piece.gameObject.transform.position = PiecePosition[piece.assignedPosIndex].position;
-            piece.interactable = true;
+            if (puzzleObject.isPuzzlePieceFound) piece.interactable = true;
 
-            if (piece.pieceCodeNumber == 8)
+            if (piece.pieceCodeNumber == 7 && !puzzleObject.isPuzzlePieceFound)
+            {
+                piece.gameObject.SetActive(false);
+            }
+            else if (piece.pieceCodeNumber == 8)
             {
                 piece.assignedPosIndex = 8;
                 piece.gameObject.SetActive(false);
@@ -144,6 +149,26 @@ public class SlidingPuzzle : PuzzleClass
             CheckAnswer();
         });
         (piece.assignedPosIndex, EmptySpace) = (EmptySpace, piece.assignedPosIndex); // Tupple
+    }
+
+    public void InsertLostPiece()
+    {
+        if (!puzzleObject.isPuzzlePieceFound)
+        {
+            PuzzlePieces[7].gameObject.SetActive(true);
+            foreach (var piece in PuzzlePieces) piece.interactable = true;
+            puzzleObject.isPuzzlePieceFound = true;
+        }
+    } 
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (InventoryManager.Instance.heldItem == puzzleObject.missingPieceReq)
+        {
+            InventoryManager.Instance.heldItem = null;
+            InventoryManager.Instance.draggedItem.gameObject.SetActive(false);
+            InsertLostPiece();
+        }
     }
 
     void PuzzleAlreadyFinishedDialogue()
