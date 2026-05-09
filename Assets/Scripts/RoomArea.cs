@@ -22,7 +22,21 @@ public class RoomArea : MonoBehaviour
         LeanTween.value(gameObject, alpha.alpha, 1, dur)
                     .setOnUpdate(val => alpha.alpha = val).setOnComplete(() =>
                     {
-                        foreach (var collider in colliders) collider.enabled = true;
+                        foreach (var collider in colliders)
+                        {
+                            if (collider.TryGetComponent<BreakableObject>(out var breakable))
+                            {
+                                if (!breakable.isBroke)
+                                {
+                                    collider.enabled = true;
+                                }
+                                else
+                                {
+                                    collider.enabled = false;
+                                }
+                            }
+                            else collider.enabled = true;
+                        }
                     });
     }
 

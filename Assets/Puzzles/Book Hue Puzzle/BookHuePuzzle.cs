@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BookHuePuzzle : PuzzleClass
+public class BookHuePuzzle : PuzzleClass, IPointerEnterHandler
 {
     [SerializeField] PuzzleObject puzzleObject;
     [SerializeField] PuzzleBookData[] Books;
@@ -44,10 +45,9 @@ public class BookHuePuzzle : PuzzleClass
         InitItems();
         SetUpBookHues();
 
-        LeanTween.delayedCall(0.1f, Randomize);
+        if (!puzzleObject.isPuzzleFinished) LeanTween.delayedCall(0.1f, Randomize);
     }
 
-    // ── Hue setup ─────────────────────────────────────────────────────────
     void SetUpBookHues()
     {
         if (Books == null || Books.Length == 0) return;
@@ -59,7 +59,6 @@ public class BookHuePuzzle : PuzzleClass
         }
     }
 
-    // ── Puzzle ────────────────────────────────────────────────────────────
     public void Randomize()
     {
         if (Books == null || Books.Length < 2) return;
@@ -80,6 +79,40 @@ public class BookHuePuzzle : PuzzleClass
         }
         SetLayout(true);
         ForceRebuild();
+
+        if (puzzleObject.isPuzzlePieceFound)
+        {
+            layoutGroup.enabled = true;
+            Books[2].gameObject.SetActive(true);
+            foreach (var book in Books) book.interactable = true;
+        }
+        else
+        {
+            layoutGroup.enabled = false;
+            foreach (var book in Books) book.interactable = false;
+            Books[2].gameObject.SetActive(false);
+        }
+    }
+
+    public void InsertLostPiece()
+    {
+        if (!puzzleObject.isPuzzlePieceFound)
+        {
+            layoutGroup.enabled = true;
+            Books[2].gameObject.SetActive(true);
+            foreach (var book in Books) book.interactable = true;
+            puzzleObject.isPuzzlePieceFound = true;
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (InventoryManager.Instance.heldItem == puzzleObject.missingPieceReq)
+        {
+            InventoryManager.Instance.heldItem = null;
+            InventoryManager.Instance.draggedItem.gameObject.SetActive(false);
+            InsertLostPiece();
+        }
     }
 
     public void CheckSolved()
@@ -89,8 +122,6 @@ public class BookHuePuzzle : PuzzleClass
             Debug.Log("Not solved");
             return;
         }
-        
-
         Debug.Log("[BookHuePuzzle] Solved!");
         puzzleObject.OnPuzzleComplete();
     }
@@ -107,7 +138,6 @@ public class BookHuePuzzle : PuzzleClass
         return true;
     }
 
-    // ── Drag callbacks ────────────────────────────────────────────────────
     public void OnBeginDrag(PuzzleBookData item)
     {
         draggedItem = item;
@@ -143,7 +173,6 @@ public class BookHuePuzzle : PuzzleClass
         CheckSolved();
     }
 
-    // ── Sibling reorder mid-drag ──────────────────────────────────────────
     private void ReorderSiblings(PuzzleBookData item, int targetIndex)
     {
         if (item.transform.GetSiblingIndex() == targetIndex) return;
@@ -164,7 +193,6 @@ public class BookHuePuzzle : PuzzleClass
         SetLayout(false);
     }
 
-    // ── Insert index ──────────────────────────────────────────────────────
     private int ComputeInsertIndex(Vector2 localPos, PuzzleBookData dragged)
     {
         int   best     = 0;
@@ -194,7 +222,6 @@ public class BookHuePuzzle : PuzzleClass
         return Mathf.Clamp(best, 0, parentRect.childCount - 1);
     }
 
-    // ── Helpers ───────────────────────────────────────────────────────────
     private void DetectLayout()
     {
         if      (layoutGroup is GridLayoutGroup)       { isGrid = true;  isVertical = true;  }

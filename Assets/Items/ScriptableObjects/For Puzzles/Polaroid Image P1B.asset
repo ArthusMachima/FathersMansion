@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c078744bb20dd745bf1b52565e1d9fc, type: 3}
+  m_Name: Polaroid Image P1B
+  m_EditorClassIdentifier: 
+  itemName: Polaroid Image "P1B"
+  itemIcon: {fileID: -1572618297, guid: 251e04c764ee44b4fa4f073599c3f6c7, type: 3}
+  itemDescription: An old polaroid picture that may include a clue.
+  clue: {fileID: -3802705441194057608, guid: d51a7b38040fc2643b16f2a320ebf48b, type: 3}

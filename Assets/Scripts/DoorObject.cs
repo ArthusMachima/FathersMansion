@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DoorObject : MonoBehaviour, IInteractable
 {
+    [SerializeField] AudioManager aud;
     [SerializeField] BoxCollider2D Collider;
     public LockDirection currentLockDirection;
     public SpriteRenderer sprite;
@@ -9,9 +11,12 @@ public class DoorObject : MonoBehaviour, IInteractable
     public Sprite closeSprite;
     [SerializeField] bool isUnlocked;
     [SerializeField] ItemClass requiredKeys;
+    [SerializeField] UnityEvent onDoorLocked;
+    [SerializeField] DoorObject connectedDoor;
 
     private void Start()
     {
+        aud = AudioManager.Instance;
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -38,10 +43,10 @@ public class DoorObject : MonoBehaviour, IInteractable
                 Vector3 offset = transform.position - PlayerControls.Instance.transform.position;
                 bool isLockedSide = currentLockDirection switch
                 {
-                    LockDirection.Up    => offset.y < 0,
-                    LockDirection.Down  => offset.y > 0,
-                    LockDirection.Right => offset.x < 0,
-                    LockDirection.Left  => offset.x > 0,
+                    LockDirection.Up    => offset.y-1 < 0,
+                    LockDirection.Down  => offset.y-1 > 0,
+                    LockDirection.Right => offset.x   < 0,
+                    LockDirection.Left  => offset.x   > 0,
                     _ => false
                 };
                 if (isLockedSide)
@@ -54,11 +59,13 @@ public class DoorObject : MonoBehaviour, IInteractable
 
             Collider.enabled = false;
             sprite.sprite = openSprite;
+            aud.PlaySFX(aud.sfxOpen);
         }
         else
         {
             Collider.enabled = true;
             sprite.sprite = closeSprite;
+            aud.PlaySFX(aud.sfxClose);
         }
     }
 
@@ -80,6 +87,7 @@ public class DoorObject : MonoBehaviour, IInteractable
             }
         }
 
+        aud.PlaySFX(aud.sfxLocked);
         Dialogue[] msg = new Dialogue[1];
         if (requiredKeys!=null)
         {
@@ -90,12 +98,15 @@ public class DoorObject : MonoBehaviour, IInteractable
         {
             msg = new Dialogue[] { new("The door is locked from the other side.", null) };
         }
-        UIManager.Instance.LoadDialogue(msg);
+        if (onDoorLocked.GetPersistentEventCount()==0) UIManager.Instance.LoadDialogue(msg);
+        else onDoorLocked.Invoke();
     }
 
     public void UnlockDoor()
     {
         isUnlocked = true;
+        if (connectedDoor!=null) connectedDoor.isUnlocked = true;
+        aud.PlaySFX(aud.sfxUnlock);
         Dialogue[] msg = { new("I unlocked the door.", null) };
         UIManager.Instance.LoadDialogue(msg);
     }

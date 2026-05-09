@@ -12,6 +12,7 @@ public class PuzzleObject : MonoBehaviour, IInteractable
     [SerializeField] UnityEvent OnPuzzleCompleteMethod;
     public ItemClass missingPieceReq;
     [SerializeField] ItemClass rewardItem;
+    [SerializeField] bool isRewardKey;
     public bool isPuzzlePieceFound;
     public bool isPuzzleFinished;
 
@@ -40,7 +41,11 @@ public class PuzzleObject : MonoBehaviour, IInteractable
             if (!isPuzzleFinished)
             {
                 OnPuzzleCompleteMethod.Invoke();
-                if (rewardItem != null) InventoryManager.Instance.TransferItemToKey(rewardItem);
+                if (rewardItem != null)
+                {
+                    if (isRewardKey) InventoryManager.Instance.TransferItem(rewardItem, true);
+                    else InventoryManager.Instance.TransferItem(rewardItem, false);
+                }
                 isPuzzleFinished = true;
             }
             PlayerControls.Instance.currentInteractedPuzzle = null;

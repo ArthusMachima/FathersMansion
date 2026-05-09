@@ -97,16 +97,12 @@ public class InventoryManager : MonoBehaviour
         foreach (KeyItemSlot slot in keyItems) slot.RefreshSlot();
     }
 
-
-    // ── Items ──────────────────────────────────────────────────────────────
-
     public void TakeItem(ItemObject item)
     {
         foreach (ItemSlot slot in items)
         {
             if (!slot.HasItem())
             {
-                SideScreenMessage.Instance.DisplayMessage("Obtained", item.item.itemName, 0.6f);
                 slot.InsertItem(item.item);
                 Destroy(item.gameObject);
                 break;
@@ -114,21 +110,33 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void TransferItemToKey(ItemClass item)
+    public void TransferItem(ItemClass item, bool isKey)
     {
-        foreach (KeyItemSlot slot in keyItems)
+        if (isKey)
         {
-            if (!slot.HasItem())
+            foreach (KeyItemSlot slot in keyItems)
             {
-                SideScreenMessage.Instance.DisplayMessage("Obtained", item.itemName, 0.6f);
-                slot.InsertItem(item);
-                break;
+                if (!slot.HasItem())
+                {
+                    SideScreenMessage.Instance.DisplayMessage("Obtained", item.itemName, 0.6f);
+                    slot.InsertItem(item);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            foreach (ItemSlot slot in items)
+            {
+                if (!slot.HasItem())
+                {
+                    SideScreenMessage.Instance.DisplayMessage("Obtained", item.itemName, 0.6f);
+                    slot.InsertItem(item);
+                    break;
+                }
             }
         }
     }
-
-
-    // ── Drag ───────────────────────────────────────────────────────────────
 
     public void StartDragItem(ItemClass dragItem)
     {
@@ -176,7 +184,7 @@ public class InventoryManager : MonoBehaviour
         }
         else if (heldItem is ItemToolClass)
         {
-            OnPuzzlePieceDrop(heldItem);
+            OnPuzzlePieceDrop();
         }
         else
         {
@@ -234,7 +242,7 @@ public class InventoryManager : MonoBehaviour
         prevSlot.PlaceItem(heldItem);
     }
 
-    void OnPuzzlePieceDrop(ItemClass item)
+    void OnPuzzlePieceDrop()
     {
         Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, Mathf.Infinity, breakables);
@@ -268,7 +276,12 @@ public class InventoryManager : MonoBehaviour
             if (hoveredSlot.HasItem())
             {
                 ItemDescriptionPanel.SetActive(true);
-                ItemDescriptionText.text = $"{slot.PeekItem().itemName} - {slot.PeekItem().itemDescription}";
+                if (hoveredSlot.PeekItem() is MysteryItemClass item)
+                {
+                    if (item.isRealized) ItemDescriptionText.text = $"{item.realName} - {item.realDescription}";
+                    else ItemDescriptionText.text = $"{item.itemName} - {item.itemDescription}";
+                }
+                else ItemDescriptionText.text = $"{slot.PeekItem().itemName} - {slot.PeekItem().itemDescription}";
             }
         }
     }
@@ -278,7 +291,12 @@ public class InventoryManager : MonoBehaviour
         if (slot != null)
         {
             ItemDescriptionPanel.SetActive(true);
-            ItemDescriptionText.text = $"{slot.PeekItem().itemName} - {slot.PeekItem().itemDescription}";
+            if (hoveredSlot.PeekItem() is MysteryItemClass item)
+            {
+                if (item.isRealized) ItemDescriptionText.text = $"{item.realName} - {item.realDescription}";
+                else ItemDescriptionText.text = $"{item.itemName} - {item.itemDescription}";
+            }
+            else ItemDescriptionText.text = $"{slot.PeekItem().itemName} - {slot.PeekItem().itemDescription}";
         }
     }
 

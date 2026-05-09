@@ -5,6 +5,8 @@ public class PaintingPuzzle : PuzzleClass
     [SerializeField] Transform paintingPuzzleSlotParent;
     public PaintingPuzzleSlot[] paintingPuzzleSlots;
     public PaintingPuzzleSlot HoveredPuzzleSlot;
+    public PaintingPuzzleSlot PrevPuzzleSlot;
+    [SerializeField] string startingCode;
     public string CorrectCode = "odraisysbdgw";
     public GameObject[] PaintingPrefabs;
 
@@ -29,7 +31,7 @@ public class PaintingPuzzle : PuzzleClass
 
     public void LoadPaintings()
     {
-        string code = PlayerPrefs.GetString("paintingPuzzle", "rwowywgw##vw");
+        string code = PlayerPrefs.GetString("paintingPuzzle", startingCode);
         Debug.Log(code);
         int slotIndex = 0;
 
@@ -94,7 +96,6 @@ public class PaintingPuzzle : PuzzleClass
 
     public override void OnPuzzleExit()
     {
-        Debug.Log(GetPuzzleStateString());
         PlayerPrefs.SetString("paintingPuzzle", GetPuzzleStateString());
     }
 
@@ -107,5 +108,6 @@ public class PaintingPuzzle : PuzzleClass
             PlayerPrefs.SetString("paintingPuzzle", GetPuzzleStateString());
             PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
         }
+        else Debug.Log(GetPuzzleStateString());
     }
 }

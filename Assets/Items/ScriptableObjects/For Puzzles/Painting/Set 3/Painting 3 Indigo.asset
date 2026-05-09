@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640f6120f9f34c04caad74f1419b85e3, type: 3}
+  m_Name: Painting 3 Indigo
+  m_EditorClassIdentifier: 
+  itemName: Painting
+  itemIcon: {fileID: -16748806120384504, guid: 864a843d322c9d6419e45e0ef4d746e9, type: 3}
+  itemDescription: A piece of Art
+  puzzlePiecePrefab: {fileID: 5342000718627715126, guid: 4e3d0dec797ae134dbcf9905af1907e5, type: 3}

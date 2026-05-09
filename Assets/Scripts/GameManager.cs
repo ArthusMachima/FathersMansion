@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,10 +18,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform MonsterSpawnPoint;
     [SerializeField] float monsterApproachCooldown=10;
     [SerializeField] int prevDistance;
+    [SerializeField] bool doCutscene=true;
 
 
     void Start()
     {
+        if (PlayerPrefs.GetInt("PlayCount", 0)==0)
+        {
+            if (doCutscene) StartCoroutine(StartingScene());
+        }
         if (GameUI != null) GameUI.SetActive(true);
         AudioManager.Instance.PlayBGM(AudioManager.Instance.m_lullaby);
     }
@@ -152,11 +159,6 @@ public class GameManager : MonoBehaviour
 
 
     //Messages
-    public void TestSideMessage()
-    {
-        SideScreenMessage.Instance.DisplayMessage("Objective", "Talk to blue guy", 1.5f);
-    }
-
     public void StarterMessage()
     {
         SideScreenMessage.Instance.DisplayMessage("Objective", "Find a way out", 1.5f);
@@ -167,4 +169,32 @@ public class GameManager : MonoBehaviour
         SideScreenMessage.Instance.DisplayMessage("Objective", "Find a polaroid card and drag it here", 1.5f);
     }
 
+
+
+    //Cutscene
+    IEnumerator StartingScene()
+    {
+        PlayerControls.Instance.anim.SetFloat("y", -1);
+        PlayerControls.Instance.doPlayerControls = false;
+        FloorTransitionBlack.alpha = 1;
+
+        LeanTween.value(gameObject, 1, 0, 6)
+            .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+
+        yield return new WaitForSeconds(1);
+        PlayerControls.Instance.anim.Play("WalkingUp");
+        yield return null;
+        float animationLength = PlayerControls.Instance.anim.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(animationLength);
+        PlayerControls.Instance.anim.Play("Idle");
+        Dialogue[] msg = new Dialogue[]
+        {
+            new("...a room?", null),
+            new("Where am I?", null)
+        };
+        UIManager.Instance.LoadDialogue(msg);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+        SideScreenMessage.Instance.DisplayMessage("Objective", "Find a way out", 1.5f);
+        PlayerControls.Instance.doPlayerControls = true;
+    }
 }

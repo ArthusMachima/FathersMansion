@@ -6,9 +6,9 @@ public class DialogueObject : MonoBehaviour, IInteractable
 {
     [SerializeField] Dialogue[] dialogue;
     [SerializeField] bool isInteractable = true;
-    [SerializeField] bool isCutscene;
     [SerializeField] bool isRepeatable;
     [SerializeField] bool onlyShownOnce;
+    [SerializeField] bool isCutscene;
     bool alreadyShown;
     SpriteRenderer sprite;
 
@@ -55,4 +55,5 @@ public class Dialogue
     public string sentence;
     public Sprite cutsceneImage;
     public UnityEvent methodCall;
+    public bool disableTextSpecificDelays;
 }

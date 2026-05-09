@@ -10,6 +10,7 @@ public class PuzzleBookData : MonoBehaviour,
     public int CodeIndex { get; private set; }
     private BookHuePuzzle parentList;
     public RectTransform RT { get; private set; }
+    public bool interactable;
 
     private void Awake()
     {
@@ -31,18 +32,21 @@ public class PuzzleBookData : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!interactable) return;
         if (parentList == null) return;
         parentList.OnBeginDrag(this);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!interactable) return;
         if (parentList == null) return;
         parentList.OnDrag(this, eventData.position);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!interactable) return;
         if (parentList == null) return;
         parentList.OnEndDrag(this);
     }

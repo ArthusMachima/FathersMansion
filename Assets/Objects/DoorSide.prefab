@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5945320853377956954}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -110,8 +110,6 @@ MonoBehaviour:
   closeSprite: {fileID: 1261657012, guid: 0fe83cc2907d912438f879a894543623, type: 3}
   isUnlocked: 1
   requiredKeys: {fileID: 0}
-  frontLayerIndex: 2
-  backLayerIndex: 1
 --- !u!61 &8082287979535716176
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -119,7 +117,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5945320853377956954}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -217,6 +215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 5353241180932431618}
-  backLayerIndex: 2
-  frontLayerIndex: 1
+  backLayerIndex: 1
+  frontLayerIndex: 0
   pivotOffset: {x: 0, y: -1, z: 0}

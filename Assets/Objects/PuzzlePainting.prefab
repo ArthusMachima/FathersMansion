@@ -78,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c306da180675e8040985809a5e75e47c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4893021cc77ff5459d7b9691c5919ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -123,17 +123,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.6488929}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1}
-    newSize: {x: 2, y: 1}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 1}
+  m_Size: {x: 2, y: 0.61653614}
   m_EdgeRadius: 0
 --- !u!114 &4727663946750985838
 MonoBehaviour:
@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PuzzlePanel: {fileID: 9098544040601174532, guid: c3706d380c965bf4b9d6a5a72295ecb5, type: 3}
+  PuzzleTexture: {fileID: 0}
+  CompletedPuzzleSprite: {fileID: 0}
   OnPuzzleEnterMethod:
     m_PersistentCalls:
       m_Calls: []
@@ -157,6 +159,8 @@ MonoBehaviour:
   OnPuzzleCompleteMethod:
     m_PersistentCalls:
       m_Calls: []
+  missingPieceReq: {fileID: 0}
   rewardItem: {fileID: 0}
+  isRewardKey: 0
   isPuzzlePieceFound: 0
   isPuzzleFinished: 0

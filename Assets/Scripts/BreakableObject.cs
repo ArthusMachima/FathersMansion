@@ -7,6 +7,7 @@ public class BreakableObject : MonoBehaviour
     [SerializeField] ItemClass requiredItem;
     SpriteRenderer sprite;
     BoxCollider2D col;
+    public bool isBroke;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class BreakableObject : MonoBehaviour
 
         col.enabled = false;
         sprite.sprite = openedBox;
+        isBroke = true;
         if (storedItem != null)
         {
             GameObject itemGameObj = new("Item");

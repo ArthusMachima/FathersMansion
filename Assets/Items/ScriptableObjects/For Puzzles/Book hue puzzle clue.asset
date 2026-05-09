@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c078744bb20dd745bf1b52565e1d9fc, type: 3}
+  m_Name: Book hue puzzle clue
+  m_EditorClassIdentifier: 
+  itemName: Scribled Image
+  itemIcon: {fileID: 442959556, guid: 0fe83cc2907d912438f879a894543623, type: 3}
+  itemDescription: A childishly scribled drawing that could give me a clue to that
+    book hue puzzle.
+  clue: {fileID: 7463408916926491946, guid: 1bdaa554aef9dc944a6b9d6f47f44230, type: 3}

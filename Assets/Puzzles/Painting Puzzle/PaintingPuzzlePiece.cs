@@ -106,8 +106,15 @@ public class PaintingPuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandle
 
         if (targetItemSlot != null)
         {
-            targetItemSlot.PlaceItem(item);
-            Destroy(gameObject);
+            if (!targetItemSlot.HasItem())
+            {
+                targetItemSlot.PlaceItem(item);
+                Destroy(gameObject);
+            }
+            else
+            {
+                PlaceOntoSlot(originalParent.GetComponent<PaintingPuzzleSlot>());
+            }
         }
         else if (parentPuzzle.HoveredPuzzleSlot != null)
         {

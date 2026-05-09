@@ -1,11 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ItemObject : MonoBehaviour, IInteractable
 {
     public ItemClass item;
     [SerializeField] SpriteRenderer icon;
     [SerializeField] bool isKeyItem;
+    [SerializeField] UnityEvent onInteract;
+    [SerializeField] bool forceTake;
 
 
     public ItemObject(ItemClass item)
@@ -15,14 +18,21 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (!isKeyItem)
+        if (onInteract.GetPersistentEventCount()>0 && !forceTake)
         {
-            InventoryManager.Instance.TakeItem(this);
+            onInteract.Invoke();
         }
         else
         {
-            InventoryManager.Instance.TransferItemToKey(item);
-            Destroy(gameObject);
+            if (!isKeyItem)
+            {
+                InventoryManager.Instance.TakeItem(this);
+            }
+            else
+            {
+                InventoryManager.Instance.TransferItem(item, true);
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -38,4 +48,9 @@ public class ItemObject : MonoBehaviour, IInteractable
     }
 
 
+    public void DoForceTake()
+    {
+        forceTake = true;
+        Interact();
+    }
 }

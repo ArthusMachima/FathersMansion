@@ -22,6 +22,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip s_jumpscare2;
     public AudioClip s_jumpscare3;
 
+    public AudioClip sfxOpen;
+    public AudioClip sfxClose;
+    public AudioClip sfxLocked;
+    public AudioClip sfxUnlock;
+
 
 
     private void Update()

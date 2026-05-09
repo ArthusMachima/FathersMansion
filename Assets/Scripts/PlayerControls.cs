@@ -1,4 +1,6 @@
 
+using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
@@ -98,6 +100,8 @@ public class PlayerControls : MonoBehaviour
                     if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
                     {
                         interactedObject = interactable;
+                        up=false; left=false; down=false; right=false;
+                        anim.SetBool("isMoving", false);
                         interactable.Interact();
                         break;
                     }
@@ -130,6 +134,7 @@ public class PlayerControls : MonoBehaviour
                 StaminaPanel.SetActive(false);
             else
                 StaminaPanel.SetActive(true);
+
 
         }
         else if (gameControlState == GameControlState.InventoryPanel)
@@ -273,4 +278,5 @@ public class PlayerControls : MonoBehaviour
         else Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, facingDirection * 1f);
     }
+
 }

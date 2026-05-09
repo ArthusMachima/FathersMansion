@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2239989212254101536}
   - component: {fileID: 7267733042296386295}
   - component: {fileID: 799996628746490898}
+  - component: {fileID: 6877661473707332724}
   m_Layer: 7
   m_Name: Vase
   m_TagString: Untagged
@@ -101,9 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2a62c79444f354fbadd423645b6aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storedItem: {fileID: 11400000, guid: 98092ae8b9386604cb65080f4b4b484e, type: 2}
+  storedItem: {fileID: 0}
   openedBox: {fileID: 1542807105467508383, guid: 0fe83cc2907d912438f879a894543623, type: 3}
   requiredItem: {fileID: 11400000, guid: ae00d0144888500418e5a35618b80b78, type: 2}
+  isBroke: 0
 --- !u!61 &799996628746490898
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138,7 +140,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -148,5 +150,21 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &6877661473707332724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8917880998187439597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b046232b86dfca40bd951f80889b243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  backLayerIndex: 2
+  frontLayerIndex: 0
+  pivotOffset: {x: 0, y: 0, z: 0}

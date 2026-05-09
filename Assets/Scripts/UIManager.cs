@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static GeneralEventsListeners;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,6 +15,7 @@ public class UIManager : MonoBehaviour
     public float textSpeed;
     public TextMeshProUGUI dialogueText;
     public GameObject dialogueConfirmSprite;
+    public AudioClip dialogueTextSFX;
 
     [Header("Cutscene Panel")]
     [SerializeField] bool isCutscenePanelShown;
@@ -44,7 +43,7 @@ public class UIManager : MonoBehaviour
         while (pendingDialogue.Count > 0)
         {
             dialogueText.text = "";
-            //a.dialogue.clip = a.sfx_dialogue;    *insert audio source*
+            AudioManager.Instance.PlaySFX(dialogueTextSFX);
 
             if (pendingDialogue.Peek().methodCall != null && pendingDialogue.Peek().methodCall.GetPersistentEventCount() > 0)
             {
@@ -72,12 +71,15 @@ public class UIManager : MonoBehaviour
             foreach (char chars in pendingDialogue.Peek().sentence)
             {
                 dialogueText.text += chars;
-                if (Input.GetKey(PlayerControls.Instance.Run))
-                    yield return null;
+                AudioManager.Instance.PlaySFX(dialogueTextSFX);
+                if (pendingDialogue.Peek().sentence == "") yield return null;
+                else if (Input.GetKey(PlayerControls.Instance.Run)) yield return null;
                 else if (chars == ',' || chars == '.' || chars == '?' || chars == '!' || chars == ':' || chars == '-')
-                    yield return new WaitForSeconds(0.5f);
-                else
-                    yield return new WaitForSeconds(textSpeed);
+                {
+                    if (!pendingDialogue.Peek().disableTextSpecificDelays) yield return new WaitForSeconds(0.5f);
+                    else yield return new WaitForSeconds(textSpeed);
+                }   
+                else yield return new WaitForSeconds(textSpeed);
             }
 
             dialogueConfirmSprite.SetActive(true);

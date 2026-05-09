@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640f6120f9f34c04caad74f1419b85e3, type: 3}
+  m_Name: Painting 1 Violet
+  m_EditorClassIdentifier: 
+  itemName: Painting
+  itemIcon: {fileID: -3710648522175554396, guid: 278c6c663efb85b498f4a9e22384f66d, type: 3}
+  itemDescription: A piece of Art
+  puzzlePiecePrefab: {fileID: 4226117025189444877, guid: 81ca90302ea267d4c865c25fb21ba237, type: 3}
