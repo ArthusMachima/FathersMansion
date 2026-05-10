@@ -20,12 +20,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] int prevDistance;
     [SerializeField] bool doCutscene=true;
 
+    [Header("2nd Floor")]
+    [SerializeField] int keyCounter=0;
+
+    [Header("Cutscene Elements")]
+    [SerializeField] GameObject Player;
+    [SerializeField] Transform[] TransPoints;
+
 
     void Start()
     {
         if (PlayerPrefs.GetInt("PlayCount", 0)==0)
         {
-            if (doCutscene) StartCoroutine(StartingScene());
+            if (doCutscene) StartCoroutine(SceneSecondFloorStart());
         }
         if (GameUI != null) GameUI.SetActive(true);
         AudioManager.Instance.PlayBGM(AudioManager.Instance.m_lullaby);
@@ -156,6 +163,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddKey()
+    {
+        keyCounter++;
+    }
+
 
 
     //Messages
@@ -171,8 +183,9 @@ public class GameManager : MonoBehaviour
 
 
 
-    //Cutscene
-    IEnumerator StartingScene()
+    //Cutscenes
+
+    IEnumerator SceneSecondFloorStart()
     {
         PlayerControls.Instance.anim.SetFloat("y", -1);
         PlayerControls.Instance.doPlayerControls = false;
@@ -196,5 +209,61 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
         SideScreenMessage.Instance.DisplayMessage("Objective", "Find a way out", 1.5f);
         PlayerControls.Instance.doPlayerControls = true;
+    }
+
+
+
+    public void PlayKeyAssemble()
+    {
+        StartCoroutine(SceneKeyAssemble());
+    }
+
+    IEnumerator SceneKeyAssemble()
+    {
+        if (keyCounter >= 5) yield break;
+
+        if (keyCounter<4)
+        {
+            Debug.Log("KEY INCOMPLETE CUTSCENE");
+        }
+        else
+        {
+            Debug.Log("KEY COMPLETE CUTSCENE");
+            yield return null;
+            //todo key assemble cutscene
+            keyCounter++;
+        }
+    }
+
+
+
+    public void PlaySecondFloorEnd()
+    {
+        StartCoroutine(SceneSecondFloorEnd());
+    }
+
+    IEnumerator SceneSecondFloorEnd()
+    {
+        LeanTween.value(FloorTransitionBlack.gameObject, 0, 1, 0.5f)
+                    .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+
+        yield return new WaitForSeconds(0.1f);
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+
+        yield return new WaitForSeconds(1f);
+        Camera.main.transform.SetParent(TransPoints[0], false);
+        Player.transform.position = TransPoints[1].position;
+        yield return new WaitForSeconds(1f);
+        LeanTween.value(FloorTransitionBlack.gameObject, 1, 0, 2f)
+                    .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+
+
+
+        yield return new WaitForSeconds(3f);
+        Camera.main.transform.SetParent(Player.transform, false);
+
+        PlayerControls.Instance.doPlayerControls = true;
+        PlayerControls.Instance.doPlayerAnimations = true;
     }
 }

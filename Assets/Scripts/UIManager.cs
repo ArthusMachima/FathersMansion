@@ -40,24 +40,31 @@ public class UIManager : MonoBehaviour
     // Dialogue Panel
     IEnumerator Dialogue()
     {
+
+
         while (pendingDialogue.Count > 0)
         {
             dialogueText.text = "";
-            AudioManager.Instance.PlaySFX(dialogueTextSFX);
+            //AudioManager.Instance.PlaySFX(dialogueTextSFX);
+
+            if (pendingDialogue.Peek().sound != null) AudioManager.Instance.PlaySFX(pendingDialogue.Peek().sound);
 
             if (pendingDialogue.Peek().methodCall != null && pendingDialogue.Peek().methodCall.GetPersistentEventCount() > 0)
             {
                 pendingDialogue.Peek().methodCall.Invoke();
             }
 
-            if (pendingDialogue.Peek().cutsceneImage != null && !isCutscenePanelShown)
+            if (pendingDialogue.Peek().cutsceneImage != null)
             {
-                Debug.Log("cutscene detected");
-                isCutscenePanelShown = true;
-                CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
-                LeanTween.value(CutscenePanel.gameObject, 0, 1, 0.5f)
-                    .setOnUpdate(val => CutscenePanel.alpha = val);
-                yield return new WaitForSeconds(0.5f);
+                if (!isCutscenePanelShown)
+                {
+                    Debug.Log("cutscene detected");
+                    isCutscenePanelShown = true;
+                    CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
+                    LeanTween.value(CutscenePanel.gameObject, 0, 1, 0.5f)
+                        .setOnUpdate(val => CutscenePanel.alpha = val);
+                    yield return new WaitForSeconds(0.5f);
+                }
             }
             else if (isCutscenePanelShown)
             {
@@ -99,7 +106,6 @@ public class UIManager : MonoBehaviour
             CutsceneImage.sprite = null;
         }
         ShowDialoguePanel(false);
-        PlayerControls.Instance.doPlayerControls = true;
     }
 
     public void LoadDialogue(Dialogue[] dialogueData)
@@ -116,9 +122,15 @@ public class UIManager : MonoBehaviour
     {
         LeanTween.cancel(DialoguePanelTop);
         LeanTween.cancel(DialoguePanelBottom);
+        PlayerControls player = PlayerControls.Instance;
+
         if (show)
         {
-            PlayerControls.Instance.doPlayerControls = false;
+            player.doPlayerControls = false;
+            player.doPlayerAnimations = false;
+            player.anim.SetBool("isMoving", false);
+            player.anim.SetBool("isRunning", false);
+
             DialoguePanelTop   .LeanMoveY(Screen.height, animationTime).setEaseOutQuint();
             DialoguePanelBottom.LeanMoveY(0, animationTime).setEaseOutQuint().setOnComplete(() =>
             {
@@ -129,6 +141,7 @@ public class UIManager : MonoBehaviour
         else
         {
             PlayerControls.Instance.doPlayerControls = true;
+            PlayerControls.Instance.doPlayerAnimations = true;
             dialogueText.gameObject.SetActive(false);
             DialoguePanelTop   .LeanMoveY( 150+Screen.height, animationTime).setEaseOutQuint();
             DialoguePanelBottom.LeanMoveY(-150, animationTime).setEaseOutQuint();

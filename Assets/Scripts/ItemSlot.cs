@@ -79,6 +79,12 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Right Click Function");
+            return;
+        }
+
         if (storedItem!=null)
         {
             InventoryManager.Instance.StartDragItem(storedItem);

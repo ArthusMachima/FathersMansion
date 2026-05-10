@@ -23,7 +23,7 @@ public class InventoryManager : MonoBehaviour
     [Header("Pocket Panel")]
     [SerializeField] GameObject PocketPanel;
     [SerializeField] GameObject PocketList;
-    [SerializeField] ItemSlot[] items;
+    public ItemSlot[] items;
 
     [Header("KeyItem Panel")]
     [SerializeField] GameObject KeyItemPanel;
@@ -155,7 +155,7 @@ public class InventoryManager : MonoBehaviour
             draggedItem.sprite = (heldItem as ItemClueClass).clue;
         }
 
-        while (Input.GetMouseButton(0))
+        while (Input.GetMouseButton(0) || Input.GetMouseButton(1))
         {
             if (!InventoryPanel.activeSelf)
             {

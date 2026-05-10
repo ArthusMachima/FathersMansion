@@ -14,6 +14,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] bool isMoving;
     [SerializeField] bool isRunning;
     public bool doPlayerControls=true;
+    public bool doPlayerAnimations = true;
     [SerializeField] float speed;
     bool up, left, down, right;
     Vector3 direction = new(0, -1);
@@ -60,6 +61,8 @@ public class PlayerControls : MonoBehaviour
     private void OnEnable()
     {
         Instance = this;
+        InventoryManager.Instance.OpenInventory(true, true);
+        CabinetManager.Instance.ShowCabinet(false);
     }
 
 
@@ -78,7 +81,11 @@ public class PlayerControls : MonoBehaviour
             if (Input.GetKeyDown(Inventory) && !up && !left && !down && !right)
             {
                 InventoryManager.Instance.OpenInventory(true, true);
-                up = false; left = false; down = false; right = false;
+                doPlayerAnimations = false;
+                isMoving = false;
+                isRunning = false;
+                anim.SetBool("isMoving", isMoving);
+                anim.SetBool("isRunning", isRunning);
             }
 
             if (body != null)
@@ -141,6 +148,7 @@ public class PlayerControls : MonoBehaviour
         {
             if (Input.GetKeyDown(Inventory))
             {
+                doPlayerAnimations = true;
                 InventoryManager.Instance.OpenInventory(false, true);
                 if (interactedObject is DrawerObject openedCabinet && interactedObject != null)
                 {
@@ -153,6 +161,7 @@ public class PlayerControls : MonoBehaviour
                 Input.GetKeyDown(MoveDown) ||
                 Input.GetKeyDown(MoveRight))
             {
+                doPlayerAnimations = true;
                 InventoryManager.Instance.OpenInventory(false, true);
                 if (interactedObject is DrawerObject openedCabinet && interactedObject != null)
                 {
@@ -201,12 +210,15 @@ public class PlayerControls : MonoBehaviour
 
 
         //Animation
-        anim.SetBool("isMoving", isMoving);
-        anim.SetBool("isRunning", isRunning);
-        if (isMoving)
+        if (doPlayerAnimations)
         {
-            anim.SetFloat("x", direction.x);
-            anim.SetFloat("y", direction.y);
+            anim.SetBool("isMoving", isMoving);
+            anim.SetBool("isRunning", isRunning);
+            if (isMoving)
+            {
+                anim.SetFloat("x", direction.x);
+                anim.SetFloat("y", direction.y);
+            }
         }
 
         //Apply Movement

@@ -110,4 +110,9 @@ public class DoorObject : MonoBehaviour, IInteractable
         Dialogue[] msg = { new("I unlocked the door.", null) };
         UIManager.Instance.LoadDialogue(msg);
     }
+
+    public void ForceUnlockDoor()
+    {
+        isUnlocked = true;
+    }
 }

@@ -52,4 +52,18 @@ public class CabinetManager : MonoBehaviour
             CabinetPanel.SetActive(false);
         }
     }
+
+    public void ShowCabinet(bool show)
+    {
+        if (show)
+        {
+
+            CabinetPanel.SetActive(true);
+        }
+        else
+        {
+            PlayerControls.Instance.interactedObject = null;
+            CabinetPanel.SetActive(false);
+        }
+    }
 }

@@ -10,15 +10,16 @@ public class DialogueObject : MonoBehaviour, IInteractable
     [SerializeField] bool onlyShownOnce;
     [SerializeField] bool isCutscene;
     bool alreadyShown;
-    SpriteRenderer sprite;
+    SpriteRenderer render;
 
     private void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
-        if (sprite != null && isCutscene)
-        {
-            sprite.color = new(0,0,0,0);
-        }
+        render = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        if (render != null && isCutscene) render.color = new(0, 0, 0, 0);
     }
 
     public void Interact()
@@ -37,6 +38,7 @@ public class DialogueObject : MonoBehaviour, IInteractable
     {
         if (isCutscene)
         {
+            if (!isInteractable) return;
             UIManager.Instance.LoadDialogue(dialogue);
             if (!isRepeatable) Destroy(gameObject, 0.1f);
         }
@@ -54,6 +56,7 @@ public class Dialogue
 
     public string sentence;
     public Sprite cutsceneImage;
+    public AudioClip sound;
     public UnityEvent methodCall;
     public bool disableTextSpecificDelays;
 }
