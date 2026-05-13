@@ -26,7 +26,16 @@ public class PuzzleObject : MonoBehaviour, IInteractable
         UIManager.Instance.ShowPuzzlePanel(PuzzlePanel);
         PlayerControls.Instance.currentInteractedPuzzle = this;
         OnPuzzleEnter();
+        if (OnPuzzleEnterMethod.GetPersistentEventCount()==0)
+        {
+            OnDialogueEnd();
+        }
+    }
+
+    public void OnDialogueEnd()
+    {
         InventoryManager.Instance.OpenInventory(true, false);
+        UIManager.Instance.CurrentPuzzlePanel.OnDialogueEnd();
     }
 
     public void OnPuzzleComplete()

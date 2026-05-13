@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +14,11 @@ public class UIManager : MonoBehaviour
     public GameObject DialoguePanelBottom;
     public Queue<Dialogue> pendingDialogue = new();
     public float textSpeed;
+    public TextMeshProUGUI currentDialogueText;
     public TextMeshProUGUI dialogueText;
-    public GameObject dialogueConfirmSprite;
-    public AudioClip dialogueTextSFX;
+    public TextMeshProUGUI ScreenText;
+    [SerializeField] GameObject dialogueConfirmSprite;
+    [SerializeField] AudioClip dialogueTextSFX;
 
     [Header("Cutscene Panel")]
     [SerializeField] bool isCutscenePanelShown;
@@ -36,15 +39,18 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        currentDialogueText = dialogueText;
+    }
+
 
     // Dialogue Panel
     IEnumerator Dialogue()
     {
-
-
         while (pendingDialogue.Count > 0)
         {
-            dialogueText.text = "";
+            currentDialogueText.text = "";
             //AudioManager.Instance.PlaySFX(dialogueTextSFX);
 
             if (pendingDialogue.Peek().sound != null) AudioManager.Instance.PlaySFX(pendingDialogue.Peek().sound);
@@ -77,7 +83,7 @@ public class UIManager : MonoBehaviour
 
             foreach (char chars in pendingDialogue.Peek().sentence)
             {
-                dialogueText.text += chars;
+                currentDialogueText.text += chars;
                 AudioManager.Instance.PlaySFX(dialogueTextSFX);
                 if (pendingDialogue.Peek().sentence == "") yield return null;
                 else if (Input.GetKey(PlayerControls.Instance.Run)) yield return null;
@@ -110,6 +116,17 @@ public class UIManager : MonoBehaviour
 
     public void LoadDialogue(Dialogue[] dialogueData)
     {
+        pendingDialogue.Clear();
+        for (int i = 0; i < dialogueData.Length; i++)
+        {
+            pendingDialogue.Enqueue(dialogueData[i]);
+        }
+        ShowDialoguePanel(true);
+    }
+
+    public void LoadDialogue(Dialogue[] dialogueData, TextMeshProUGUI textMesh)
+    {
+        currentDialogueText = textMesh;
         pendingDialogue.Clear();
         for (int i = 0; i < dialogueData.Length; i++)
         {

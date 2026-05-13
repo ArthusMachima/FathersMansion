@@ -51,4 +51,8 @@ public class PadlockPuzzle : PuzzleClass, IPointerEnterHandler
     public override void OnPuzzleExit()
     {
     }
+
+    public override void OnDialogueEnd()
+    {
+    }
 }

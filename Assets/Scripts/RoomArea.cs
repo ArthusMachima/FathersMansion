@@ -47,7 +47,11 @@ public class RoomArea : MonoBehaviour
         LeanTween.value(gameObject, alpha.alpha, 0, dur)
                     .setOnUpdate(val => alpha.alpha = val).setOnComplete(() =>
                     {
-                        foreach (var collider in colliders) collider.enabled = false;
+                        try
+                        {
+                            foreach (var collider in colliders) collider.enabled = false;
+                        }
+                        catch (MissingReferenceException) { }
                     });
     }
 }

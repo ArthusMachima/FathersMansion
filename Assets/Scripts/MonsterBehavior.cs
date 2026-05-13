@@ -17,6 +17,7 @@ public class MonsterBehavior : MonoBehaviour
 
     private void Update()
     {
+        agent.isStopped=GameManager.Instance.gamePaused; 
         if (target != null) agent.SetDestination(target.position);
     }
 

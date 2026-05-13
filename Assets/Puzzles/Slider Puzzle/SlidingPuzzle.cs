@@ -194,4 +194,8 @@ public class SlidingPuzzle : PuzzleClass, IPointerEnterHandler
     {
 
     }
+
+    public override void OnDialogueEnd()
+    {
+    }
 }

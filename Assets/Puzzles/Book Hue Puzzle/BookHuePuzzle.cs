@@ -21,6 +21,10 @@ public class BookHuePuzzle : PuzzleClass, IPointerEnterHandler
     private bool          isGrid     = false;
 
     private PuzzleBookData draggedItem;
+    // Cached rest positions of non-dragged books, snapshotted when drag begins.
+    // Used by ComputeInsertIndex so stale localPositions (layout disabled) never
+    // cause the edge-oscillation bug.
+    private Vector2[] slotPositions;
 
     // ─────────────────────────────────────────────────────────────────────
     private void Start()
@@ -52,10 +56,22 @@ public class BookHuePuzzle : PuzzleClass, IPointerEnterHandler
     {
         if (Books == null || Books.Length == 0) return;
 
+        string code = "fokmhbadejligcn";
+
         for (int i = 0; i < Books.Length; i++)
         {
-            float hue = (float)i / Books.Length * 0.833f;
-            Books[i].Sprite.color = Color.HSVToRGB(hue, 1f, 1f);
+            if (GameManager.Instance.colorblindMode)
+            {
+                float hue = (float)i / Books.Length * 0.833f;
+                Books[i].Sprite.color = Color.HSVToRGB(hue, 1f, 1f);
+                Books[i].letter.text = code[i].ToString();
+            }
+            else
+            {
+                float hue = (float)i / Books.Length * 0.833f;
+                Books[i].Sprite.color = Color.HSVToRGB(hue, 1f, 1f);
+                Books[i].letter.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -146,6 +162,10 @@ public class BookHuePuzzle : PuzzleClass, IPointerEnterHandler
         LeanTween.scale(item.gameObject, Vector3.one * LiftScale, LiftDuration).setEaseOutQuad();
 
         item.transform.SetAsLastSibling();
+
+        // Snapshot positions BEFORE disabling the layout so ComputeInsertIndex
+        // always has stable, up-to-date reference points for non-dragged children.
+        SnapshotSlotPositions(item);
         SetLayout(false);
     }
 
@@ -193,33 +213,70 @@ public class BookHuePuzzle : PuzzleClass, IPointerEnterHandler
         SetLayout(false);
     }
 
-    private int ComputeInsertIndex(Vector2 localPos, PuzzleBookData dragged)
+    // Snapshots the localPosition of every child except the one being dragged.
+    // Called once at drag-start while the layout is still active, so positions are authoritative.
+    private void SnapshotSlotPositions(PuzzleBookData dragged)
     {
-        int   best     = 0;
-        float bestDist = float.MaxValue;
+        int nonDraggedCount = 0;
+        for (int i = 0; i < parentRect.childCount; i++)
+        {
+            var child = parentRect.GetChild(i) as RectTransform;
+            if (child != null && child != dragged.RT) nonDraggedCount++;
+        }
 
+        slotPositions = new Vector2[nonDraggedCount];
+        int idx = 0;
         for (int i = 0; i < parentRect.childCount; i++)
         {
             var child = parentRect.GetChild(i) as RectTransform;
             if (child == null || child == dragged.RT) continue;
+            slotPositions[idx++] = child.localPosition;
+        }
+    }
 
+    // Projects the cursor onto the ordered slot axis and returns the insertion index.
+    // Using cached slot positions eliminates the oscillation that occurred when
+    // localPositions were read after the layout was disabled (stale data) and the
+    // nearest-neighbour + before/after heuristic kept flipping at the boundaries.
+    private int ComputeInsertIndex(Vector2 localPos, PuzzleBookData dragged)
+    {
+        if (slotPositions == null || slotPositions.Length == 0) return 0;
+
+        // Find the slot whose axis coordinate is closest to the cursor.
+        int   nearestSlot = 0;
+        float bestDist    = float.MaxValue;
+
+        for (int i = 0; i < slotPositions.Length; i++)
+        {
             float dist = isVertical
-                ? Mathf.Abs(child.localPosition.y - localPos.y)
-                : Mathf.Abs(child.localPosition.x - localPos.x);
+                ? Mathf.Abs(slotPositions[i].y - localPos.y)
+                : Mathf.Abs(slotPositions[i].x - localPos.x);
 
-            if (dist < bestDist)
-            {
-                bestDist = dist;
-
-                bool before = isVertical
-                    ? localPos.y > child.localPosition.y
-                    : localPos.x < child.localPosition.x;
-
-                best = before ? i : i + 1;
-            }
+            if (dist < bestDist) { bestDist = dist; nearestSlot = i; }
         }
 
-        return Mathf.Clamp(best, 0, parentRect.childCount - 1);
+        // Decide whether to insert before or after the nearest slot.
+        // The half-slot-width dead zone prevents the cursor flickering across
+        // a boundary from triggering repeated sibling swaps.
+        float slotSpacing = slotPositions.Length > 1
+            ? Mathf.Abs(isVertical
+                ? slotPositions[1].y - slotPositions[0].y
+                : slotPositions[1].x - slotPositions[0].x)
+            : 0f;
+
+        float halfSlot = slotSpacing * 0.5f;
+
+        float cursorAxis  = isVertical ? localPos.y         : localPos.x;
+        float slotAxis    = isVertical ? slotPositions[nearestSlot].y : slotPositions[nearestSlot].x;
+
+        // For vertical layouts positive-y is "before" (higher up); for horizontal,
+        // positive-x is "after" (further right).
+        bool insertAfter = isVertical
+            ? (cursorAxis < slotAxis - halfSlot * 0.5f)
+            : (cursorAxis > slotAxis + halfSlot * 0.5f);
+
+        int targetIndex = insertAfter ? nearestSlot + 1 : nearestSlot;
+        return Mathf.Clamp(targetIndex, 0, parentRect.childCount - 1);
     }
 
     private void DetectLayout()
@@ -273,5 +330,9 @@ public class BookHuePuzzle : PuzzleClass, IPointerEnterHandler
     public override void OnPuzzleExit()
     {
 
+    }
+
+    public override void OnDialogueEnd()
+    {
     }
 }

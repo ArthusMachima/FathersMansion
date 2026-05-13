@@ -7,7 +7,7 @@ public class ItemObject : MonoBehaviour, IInteractable
     public ItemClass item;
     [SerializeField] SpriteRenderer icon;
     [SerializeField] bool isKeyItem;
-    [SerializeField] UnityEvent onInteract;
+    [SerializeField] UnityEvent onInteract = new();
     [SerializeField] bool forceTake;
 
 
@@ -18,7 +18,7 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (onInteract.GetPersistentEventCount()>0 && !forceTake)
+        if (onInteract != null && onInteract.GetPersistentEventCount() > 0 && !forceTake)
         {
             onInteract.Invoke();
         }

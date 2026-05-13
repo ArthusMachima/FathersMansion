@@ -21,7 +21,8 @@ public class MatchingPuzzleSlot : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!isFlipped && matchingPuzzle.puzzleInteractable && matchingPuzzle.puzzleObject.isPuzzlePieceFound) Flip();
+        if (!isFlipped && matchingPuzzle.puzzleInteractable && matchingPuzzle.puzzleObject.isPuzzlePieceFound
+            && !matchingPuzzle.puzzleObject.isPuzzleFinished) Flip();
     }
 
     public void Flip()

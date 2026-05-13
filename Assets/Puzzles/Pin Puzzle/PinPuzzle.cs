@@ -54,4 +54,8 @@ public class PinPuzzle : PuzzleClass
             text.text = pass;
         }
     }
+
+    public override void OnDialogueEnd()
+    {
+    }
 }

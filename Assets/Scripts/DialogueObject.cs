@@ -9,6 +9,7 @@ public class DialogueObject : MonoBehaviour, IInteractable
     [SerializeField] bool isRepeatable;
     [SerializeField] bool onlyShownOnce;
     [SerializeField] bool isCutscene;
+    [SerializeField] bool isPuzzleDialogue;
     bool alreadyShown;
     SpriteRenderer render;
 
@@ -29,7 +30,12 @@ public class DialogueObject : MonoBehaviour, IInteractable
 
     public void LoadDialogue()
     {
-        if (alreadyShown) return;
+        if (alreadyShown)
+        {
+            if (dialogue != null && dialogue.Length > 0 && dialogue[^1] != null)
+                dialogue[^1].methodCall.Invoke();
+            return;
+        }
         UIManager.Instance.LoadDialogue(dialogue);
         if (onlyShownOnce) alreadyShown = true;
     }

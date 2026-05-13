@@ -7,6 +7,10 @@ public class MainMenuBehavior : MonoBehaviour
     [Header("Panels")]
     [SerializeField] CanvasGroup MainMenuPanel;
     [SerializeField] CanvasGroup SettingsPanel;
+    [SerializeField] bool colorblindMode;
+
+    [Header("Toggles")]
+    [SerializeField] GameObject ColorblindToggle;
 
     private void Start()
     {
@@ -75,5 +79,25 @@ public class MainMenuBehavior : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         });
+    }
+
+    
+
+
+
+    //Other
+    public void ToggleColorblindMode()
+    {
+        if (!colorblindMode)
+        {
+            colorblindMode = true;
+            ColorblindToggle.SetActive(false);
+        }
+        else
+        {
+            colorblindMode = false;
+            ColorblindToggle.SetActive(true);
+        }
+        PlayerPrefs.SetInt("colorblindMode", colorblindMode ? 1 : 0);
     }
 }

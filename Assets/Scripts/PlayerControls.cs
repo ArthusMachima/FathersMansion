@@ -29,7 +29,7 @@ public class PlayerControls : MonoBehaviour
 
     [Header("Stamina")]
     [SerializeField] bool RegenStamina;
-    [SerializeField] GameObject StaminaPanel;
+    public GameObject StaminaPanel;
     public float MaxStamina=100;
     public float Stamina;
     [SerializeField] Transform StaminaBar;
@@ -61,8 +61,6 @@ public class PlayerControls : MonoBehaviour
     private void OnEnable()
     {
         Instance = this;
-        InventoryManager.Instance.OpenInventory(true, true);
-        CabinetManager.Instance.ShowCabinet(false);
     }
 
 
@@ -239,6 +237,15 @@ public class PlayerControls : MonoBehaviour
 
 
     // Utility
+    public void StopPlayer()
+    {
+        RegenStamina = true;
+        isMoving = false;
+        isRunning = false;
+        anim.SetBool("isMoving", false);
+        anim.SetBool("isRunning", false);
+    }
+
     public void PuzzleMode(bool show)
     {
         if (show)

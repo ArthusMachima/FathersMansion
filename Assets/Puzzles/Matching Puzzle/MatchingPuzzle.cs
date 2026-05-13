@@ -25,6 +25,18 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
         InstantiatePuzzleSlots();
         matchingPuzzleSlots = slotParent.GetComponentsInChildren<MatchingPuzzleSlot>();
         MissingPieceCheck();
+        if (puzzleObject.isPuzzleFinished)
+        {
+            Debug.Log("already finished");
+            foreach (var slot in matchingPuzzleSlots)
+            {
+                LeanTween.delayedCall(0.00000001f, () =>
+                {
+                    Debug.LogWarning("slot confiremd");
+                    slot.cardSprite.sprite = slot.frontCard;
+                });
+            }
+        }
     }
 
     void InstantiatePuzzleSlots()
@@ -53,6 +65,8 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
             slot.cardType = type;
             slot.backCard = SlicedPicture[0]; // assign back texture
         }
+
+        
     }
 
     void MissingPieceCheck()
@@ -126,4 +140,8 @@ public class MatchingPuzzle : PuzzleClass, IPointerEnterHandler
 
     public override void OnPuzzleEnter() { }
     public override void OnPuzzleExit() { }
+
+    public override void OnDialogueEnd()
+    {
+    }
 }

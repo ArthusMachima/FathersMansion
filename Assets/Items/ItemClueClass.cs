@@ -4,4 +4,5 @@ using UnityEngine;
 public class ItemClueClass : ItemClass
 {
     public Sprite clue;
+    public Sprite clueColorblindAlt;
 }

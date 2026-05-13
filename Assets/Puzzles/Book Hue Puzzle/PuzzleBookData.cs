@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -10,10 +11,12 @@ public class PuzzleBookData : MonoBehaviour,
     public int CodeIndex { get; private set; }
     private BookHuePuzzle parentList;
     public RectTransform RT { get; private set; }
+    public TextMeshProUGUI letter;
     public bool interactable;
 
     private void Awake()
     {
+        letter = GetComponentInChildren<TextMeshProUGUI>();
         Sprite = GetComponent<Image>();
         RT = GetComponent<RectTransform>();
     }

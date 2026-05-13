@@ -19,14 +19,11 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] GameObject InventoryPanel;
     [SerializeField] GameObject ItemDescriptionPanel;
     [SerializeField] TextMeshProUGUI ItemDescriptionText;
-
-    [Header("Pocket Panel")]
-    [SerializeField] GameObject PocketPanel;
+    [SerializeField] GameObject KeyItemDescriptionPanel;
+    [SerializeField] TextMeshProUGUI KeyItemDescriptionText;
+    [SerializeField] Image ClueDisplay;
     [SerializeField] GameObject PocketList;
     public ItemSlot[] items;
-
-    [Header("KeyItem Panel")]
-    [SerializeField] GameObject KeyItemPanel;
     [SerializeField] GameObject KeyItemList;
     public KeyItemSlot[] keyItems;
 
@@ -37,6 +34,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] RectTransform canvasRectTransform;
     public ItemSlot prevSlot;
     public ItemSlot hoveredSlot;
+    [SerializeField] bool isHoveredOverSlot;
     [SerializeField] LayerMask breakables;
 
 
@@ -49,17 +47,17 @@ public class InventoryManager : MonoBehaviour
         draggedItem.gameObject.SetActive(false);
         InventoryPanel.SetActive(false);
         ItemDescriptionPanel.SetActive(false);
+        KeyItemDescriptionPanel.SetActive(false);
+        ClueDisplay.gameObject.SetActive(false);
     }
 
 
-    // ── Inventory Panel ────────────────────────────────────────────────────
-
+    // Inventory Panel
     public void OpenInventory(bool open, bool notpuzzle)
     {
         if (open)
         {
             InventoryPanel.SetActive(true);
-            ShowPocketPanel();
             if (notpuzzle) PlayerControls.Instance.gameControlState = PlayerControls.GameControlState.InventoryPanel;
             RefreshInventoryPanel();
         }
@@ -80,20 +78,6 @@ public class InventoryManager : MonoBehaviour
     void RefreshInventoryPanel()
     {
         foreach (ItemSlot slot in items) slot.RefreshSlot();
-    }
-
-    public void ShowPocketPanel()
-    {
-        PocketPanel.SetActive(false);
-        KeyItemPanel.SetActive(false);
-        PocketPanel.SetActive(true);
-    }
-
-    public void ShowKeyItemPanel()
-    {
-        PocketPanel.SetActive(false);
-        KeyItemPanel.SetActive(false);
-        KeyItemPanel.SetActive(true);
         foreach (KeyItemSlot slot in keyItems) slot.RefreshSlot();
     }
 
@@ -105,9 +89,13 @@ public class InventoryManager : MonoBehaviour
             {
                 slot.InsertItem(item.item);
                 Destroy(item.gameObject);
-                break;
+                return;
             }
+            
         }
+
+        Dialogue[] msg = { new("I can't take anymore items.", null) };
+        UIManager.Instance.LoadDialogue(msg);
     }
 
     public void TransferItem(ItemClass item, bool isKey)
@@ -118,7 +106,6 @@ public class InventoryManager : MonoBehaviour
             {
                 if (!slot.HasItem())
                 {
-                    SideScreenMessage.Instance.DisplayMessage("Obtained", item.itemName, 0.6f);
                     slot.InsertItem(item);
                     break;
                 }
@@ -149,11 +136,6 @@ public class InventoryManager : MonoBehaviour
 
     IEnumerator DragItem()
     {
-        if (heldItem is ItemClueClass)
-        {
-            draggedItem.gameObject.LeanScale(new(5, 5, 5), 0);
-            draggedItem.sprite = (heldItem as ItemClueClass).clue;
-        }
 
         while (Input.GetMouseButton(0) || Input.GetMouseButton(1))
         {
@@ -178,32 +160,23 @@ public class InventoryManager : MonoBehaviour
 
         draggedItem.gameObject.SetActive(false);
 
-        if (heldItem is PuzzlePiece)
+        if (hoveredSlot != null)
         {
-            OnPuzzlePieceDropOnUI(heldItem);
-        }
-        else if (heldItem is ItemToolClass)
-        {
-            OnPuzzlePieceDrop();
-        }
-        else
-        {
-            if (hoveredSlot != null)
+            if (isHoveredOverSlot)
             {
                 if (hoveredSlot.HasItem()) prevSlot.PlaceItem(heldItem);
                 else hoveredSlot.PlaceItem(heldItem);
             }
             else
             {
-                prevSlot.PlaceItem(heldItem);
+                if (heldItem is PuzzlePiece) OnPuzzlePieceDropOnUI(heldItem);
+                else if (heldItem is ItemToolClass) OnItemDrop();
+                else prevSlot.PlaceItem(heldItem);
             }
         }
+        else prevSlot.PlaceItem(heldItem);
 
-        if (heldItem is ItemClueClass)
-        {
-            draggedItem.gameObject.LeanScale(Vector3.one, 0);
-            draggedItem.sprite = heldItem.itemIcon;
-        }
+
 
         heldItem = null;
     }
@@ -242,7 +215,7 @@ public class InventoryManager : MonoBehaviour
         prevSlot.PlaceItem(heldItem);
     }
 
-    void OnPuzzlePieceDrop()
+    void OnItemDrop()
     {
         Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, Mathf.Infinity, breakables);
@@ -266,13 +239,13 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    // ── Hover / Description ────────────────────────────────────────────────
-
+    // Hover functions
     public void SetHoveredSlot(ItemSlot slot)
     {
         if (slot != null)
         {
             hoveredSlot = slot;
+            isHoveredOverSlot = true;
             if (hoveredSlot.HasItem())
             {
                 ItemDescriptionPanel.SetActive(true);
@@ -282,6 +255,14 @@ public class InventoryManager : MonoBehaviour
                     else ItemDescriptionText.text = $"{item.itemName} - {item.itemDescription}";
                 }
                 else ItemDescriptionText.text = $"{slot.PeekItem().itemName} - {slot.PeekItem().itemDescription}";
+
+                if (hoveredSlot.PeekItem() is ItemClueClass clue)
+                {
+                    ClueDisplay.gameObject.SetActive(true);
+                    if (GameManager.Instance.colorblindMode && clue.clueColorblindAlt!=null)
+                        ClueDisplay.sprite = clue.clueColorblindAlt;
+                    else ClueDisplay.sprite = clue.clue;
+                }
             }
         }
     }
@@ -290,13 +271,13 @@ public class InventoryManager : MonoBehaviour
     {
         if (slot != null)
         {
-            ItemDescriptionPanel.SetActive(true);
+            KeyItemDescriptionPanel.SetActive(true);
             if (hoveredSlot.PeekItem() is MysteryItemClass item)
             {
-                if (item.isRealized) ItemDescriptionText.text = $"{item.realName} - {item.realDescription}";
-                else ItemDescriptionText.text = $"{item.itemName} - {item.itemDescription}";
+                if (item.isRealized) KeyItemDescriptionText.text = $"{item.realName} - {item.realDescription}";
+                else KeyItemDescriptionText.text = $"{item.itemName} - {item.itemDescription}";
             }
-            else ItemDescriptionText.text = $"{slot.PeekItem().itemName} - {slot.PeekItem().itemDescription}";
+            else KeyItemDescriptionText.text = $"{slot.PeekItem().itemName} - {slot.PeekItem().itemDescription}";
         }
     }
 
@@ -304,11 +285,14 @@ public class InventoryManager : MonoBehaviour
     {
         ItemDescriptionText.text = "";
         ItemDescriptionPanel.SetActive(false);
+        KeyItemDescriptionText.text = "";
+        KeyItemDescriptionPanel.SetActive(false);
+        ClueDisplay.gameObject.SetActive(false);
+        isHoveredOverSlot = false;
     }
 
 
-    // ── Utility ────────────────────────────────────────────────────────────
-
+    // Utility
     public Vector2 GetCursorPositionOnCanvas()
     {
         Vector2 screenPosition = Input.mousePosition;

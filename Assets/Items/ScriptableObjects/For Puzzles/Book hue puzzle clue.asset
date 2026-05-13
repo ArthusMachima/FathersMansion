@@ -17,3 +17,4 @@ MonoBehaviour:
   itemDescription: A childishly scribled drawing that could give me a clue to that
     book hue puzzle.
   clue: {fileID: 7463408916926491946, guid: 1bdaa554aef9dc944a6b9d6f47f44230, type: 3}
+  clueColorblindAlt: {fileID: -9001824993610690568, guid: 7fe2e523ef974f341b0835219d8ee1ca, type: 3}

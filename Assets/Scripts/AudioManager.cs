@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -87,12 +88,29 @@ public class AudioManager : MonoBehaviour
         bgmLoopSource.Stop();
     }
 
-    public void SetBGMVolume(float volume)
+    public void FadeStopBGM(float dur)
     {
-        LeanTween.value(gameObject, bgmIntroSource.volume, volume, 0.5f)
-            .setOnUpdate(val => bgmIntroSource.volume = val);
-        LeanTween.value(gameObject, bgmLoopSource.volume, volume, 0.5f)
-            .setOnUpdate(val => bgmLoopSource.volume = val);
+        if (bgmCoroutine != null) StopCoroutine(bgmCoroutine);
+
+        LeanTween.value(gameObject, bgmIntroSource.volume, 0f, dur)
+            .setOnUpdate(vol => bgmIntroSource.volume = vol).setOnComplete(() =>
+            {
+                bgmIntroSource.Stop();
+            });
+
+        LeanTween.value(gameObject, bgmLoopSource.volume, 0f, dur)
+            .setOnUpdate(vol => bgmLoopSource.volume = vol).setOnComplete(() =>
+            {
+                bgmLoopSource.Stop();
+            });
+    }
+
+    public void SetBGMVolume(float volume, float dur)
+    {
+        LeanTween.value(gameObject, bgmIntroSource.volume, volume, dur)
+            .setOnUpdate(vol => bgmIntroSource.volume = vol);
+        LeanTween.value(gameObject, bgmLoopSource.volume, volume, dur)
+            .setOnUpdate(vol => bgmLoopSource.volume = vol);
     }
 
 

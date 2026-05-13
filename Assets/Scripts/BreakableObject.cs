@@ -29,7 +29,7 @@ public class BreakableObject : MonoBehaviour
             itemGameObj.AddComponent<ItemObject>();
             itemGameObj.GetComponent<ItemObject>().item = storedItem;
             itemGameObj.AddComponent<BoxCollider2D>().GetComponent<BoxCollider2D>().size = new(1, 1);
-            itemGameObj.transform.position = transform.position;
+            itemGameObj.transform.SetParent(transform, false);
             itemGameObj.GetComponent<ItemObject>().RefreshObject();
         }
     }

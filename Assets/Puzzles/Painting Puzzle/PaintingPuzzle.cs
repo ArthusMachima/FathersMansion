@@ -106,8 +106,15 @@ public class PaintingPuzzle : PuzzleClass
         {
             Debug.Log("PUZZLE SOLVED");
             PlayerPrefs.SetString("paintingPuzzle", GetPuzzleStateString());
-            PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
+            LeanTween.delayedCall(0.5f, () =>
+            {
+                PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
+            });
         }
         else Debug.Log(GetPuzzleStateString());
+    }
+
+    public override void OnDialogueEnd()
+    {
     }
 }
