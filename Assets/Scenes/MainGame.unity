@@ -9713,6 +9713,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8705131925242080566, guid: ea96587c0266f84418079da8091d2c99, type: 3}
   m_PrefabInstance: {fileID: 5150136191261923942}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &519299240 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
+  m_PrefabInstance: {fileID: 5150136191261923942}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &525419868
 GameObject:
   m_ObjectHideFlags: 0
@@ -11005,6 +11010,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8508845448860982540}
   - {fileID: 4064346931816244837}
   - {fileID: 1938434029}
   - {fileID: 8950755459941122086}
@@ -23090,7 +23096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8029017640018421813, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34561,7 +34567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1683729817
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34628,7 +34634,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683729816}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -38830,7 +38836,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8508845448860982540}
   - {fileID: 1799199487}
   - {fileID: 7444995826900694665}
   - {fileID: 973469402}
@@ -45917,7 +45922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 7682581946938859348}
-  target: {fileID: 0}
+  target: {fileID: 519299240}
 --- !u!114 &616920976878783227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52861,7 +52866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &3002943787885174470
 GameObject:
   m_ObjectHideFlags: 0
@@ -55383,7 +55388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &3778394215684974873
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -59907,11 +59912,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.z
@@ -60099,7 +60104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &5310172387699092280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69216,11 +69221,11 @@ Transform:
   m_GameObject: {fileID: 2580114562226093769}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.5, y: 16, z: 0}
+  m_LocalPosition: {x: 12, y: 17.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1938434029}
+  m_Father: {fileID: 583511107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &8523609953128642519
 TilemapRenderer:
