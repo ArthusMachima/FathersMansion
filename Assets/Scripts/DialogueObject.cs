@@ -44,8 +44,9 @@ public class DialogueObject : MonoBehaviour, IInteractable
     {
         if (isCutscene)
         {
-            if (!isInteractable) return;
+            if (!isInteractable || alreadyShown) return;
             UIManager.Instance.LoadDialogue(dialogue);
+            if (onlyShownOnce) alreadyShown = true;
             if (!isRepeatable) Destroy(gameObject, 0.1f);
         }
     }

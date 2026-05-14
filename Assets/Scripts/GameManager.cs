@@ -41,6 +41,22 @@ public class GameManager : MonoBehaviour
     public ItemClass[] SecondFloorSecretItems;
     public bool FoundAllSecretItemsInSecondFloor;
 
+    [Header("Basement")]
+    [SerializeField] ShaderEffect_BleedingColors ScreenEffectsHazing;
+    [SerializeField] ShaderEffect_BleedingColors ScreenEffectsDupe;
+    [SerializeField] ShaderEffect_Tint ScreenEffectsHue;
+    [SerializeField] ShaderEffect_CorruptedVram ScreenEffectsWipe;
+    //[SerializeField]
+
+    public void DoBasementScreenEffects()
+    {
+        //ScreenEffectsHazing - intensity value swinging back and fort from -2.5 to 2.5 randomize dur 0.5-1
+        //ScreenEffectsDupe - appears out of nowhere and moves dupe to left or right
+        //ScreenEffectsHue - slowly transitions in or out into purple
+        //ScreenEffectsWipe - shift value lerps from 
+        //Camera.main.backgroundColor 
+        //Camera.main.transform.LeanRotateZ hotline miami like cam rotation randomized range and duration -5 to 5
+    }
 
     void Start()
     {
