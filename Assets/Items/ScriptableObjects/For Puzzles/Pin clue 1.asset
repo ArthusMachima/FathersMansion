@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c078744bb20dd745bf1b52565e1d9fc, type: 3}
+  m_Name: Pin clue 1
+  m_EditorClassIdentifier: 
+  itemName: Pin Clue
+  itemIcon: {fileID: -5591568280201171282, guid: 0fe83cc2907d912438f879a894543623, type: 3}
+  itemDescription: A scratch of paper that seems to hint a number for a puzzle.
+  clue: {fileID: 21300000, guid: 9c57c615255aa274f9f3a89c6b1f08df, type: 3}
+  clueColorblindAlt: {fileID: 0}

@@ -9,10 +9,12 @@ public class PadlockPuzzle : PuzzleClass, IPointerEnterHandler
     [SerializeField] ItemClass correctItem;
     [SerializeField] Sprite unlockedSprite;
     [SerializeField] Image sprite;
+    [SerializeField] AudioManager aud;
 
 
     private void Start()
     {
+        aud = AudioManager.Instance;
         puzzleObject = PlayerControls.Instance.currentInteractedPuzzle;
         if (puzzleObject.isPuzzleFinished) sprite.sprite = unlockedSprite;
     }
@@ -34,6 +36,7 @@ public class PadlockPuzzle : PuzzleClass, IPointerEnterHandler
 
     void Unlock()
     {
+        aud.PlaySFX(aud.s_Padlock);
         sprite.sprite = unlockedSprite;
         lockPhys.gravityScale = 150;
         lockPhys.bodyType = RigidbodyType2D.Dynamic;

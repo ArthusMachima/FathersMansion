@@ -11,9 +11,11 @@ public class MatchingPuzzleSlot : MonoBehaviour, IPointerDownHandler
     public Sprite frontCard;
     public Sprite backCard;
     public bool isFlipped;
+    [SerializeField] AudioManager aud;
 
     private void Start()
     {
+        aud = AudioManager.Instance;
         cardSprite = GetComponent<Image>();
         matchingPuzzle = GetComponentInParent<MatchingPuzzle>();
         cardSprite.sprite = backCard;
@@ -30,6 +32,7 @@ public class MatchingPuzzleSlot : MonoBehaviour, IPointerDownHandler
         if (!isFlipped)
         {
             matchingPuzzle.puzzleInteractable = false;
+            aud.PlaySFX(aud.s_CardFlip);
             transform.LeanRotateY(90, flipTime).setEaseOutQuint().setOnComplete(() =>
             {
                 cardSprite.sprite = frontCard;
@@ -42,6 +45,7 @@ public class MatchingPuzzleSlot : MonoBehaviour, IPointerDownHandler
         }
         else
         {
+            aud.PlaySFX(aud.s_CardFlipBack);
             transform.LeanRotateY(90, flipTime).setEaseOutQuint().setOnComplete(() =>
             {
                 cardSprite.sprite = backCard;

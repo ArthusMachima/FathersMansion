@@ -1,6 +1,7 @@
 
 using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerControls : MonoBehaviour
     public Animator anim;
     [SerializeField] bool isMoving;
     [SerializeField] bool isRunning;
+    [SerializeField] bool prev_isRunning;
     public bool doPlayerControls=true;
     public bool doPlayerAnimations = true;
     [SerializeField] float speed;
@@ -116,7 +118,16 @@ public class PlayerControls : MonoBehaviour
             if (Input.GetKey(Run))
             {
                 isRunning = isMoving;
-                RegenStamina = false;
+                if (isRunning) RegenStamina = false;
+
+                if (isRunning != prev_isRunning)
+                {
+                    LeanTween.delayedCall(0.5f, () =>
+                    {
+                        RegenStamina = true;
+                    });
+                    prev_isRunning = isRunning;
+                }
             }
 
             if (Input.GetKeyUp(Run))
@@ -150,7 +161,7 @@ public class PlayerControls : MonoBehaviour
                 InventoryManager.Instance.OpenInventory(false, true);
                 if (interactedObject is DrawerObject openedCabinet && interactedObject != null)
                 {
-                    CabinetManager.Instance.ShowCabinet(false, openedCabinet.storedItems);
+                    DrawerManager.Instance.ShowDrawer(false, openedCabinet.storedItems);
                 }
             }
 
@@ -159,26 +170,32 @@ public class PlayerControls : MonoBehaviour
                 Input.GetKeyDown(MoveDown) ||
                 Input.GetKeyDown(MoveRight))
             {
+                StopPlayer();
                 doPlayerAnimations = true;
                 InventoryManager.Instance.OpenInventory(false, true);
                 if (interactedObject is DrawerObject openedCabinet && interactedObject != null)
                 {
-                    CabinetManager.Instance.ShowCabinet(false, openedCabinet.storedItems);
+                    DrawerManager.Instance.ShowDrawer(false, openedCabinet.storedItems);
                 }
             }
         }
         else if (gameControlState == GameControlState.SolvingPuzzle)
         {
-            if (Input.GetKeyDown(MoveUp) ||
+            if (Input.GetKeyDown(KeyCode.F3) && GameManager.Instance.enablePuzzleCheats)
+            {
+                currentInteractedPuzzle.OnPuzzleComplete();
+            }
+
+            if (Input.GetKeyDown(MoveUp)   ||
                 Input.GetKeyDown(MoveLeft) ||
                 Input.GetKeyDown(MoveDown) ||
                 Input.GetKeyDown(MoveRight))
             {
                 if (currentInteractedPuzzle != null)
                     UIManager.Instance.CurrentPuzzlePanel.OnPuzzleExit();
-
+                StopPlayer();
                 UIManager.Instance.ShowPuzzlePanel();
-                PuzzleMode(false); // handles both doPlayerControls and gameControlState
+                PuzzleMode(false);
             }
         }
         else if (gameControlState == GameControlState.HidingCloset)
@@ -188,9 +205,6 @@ public class PlayerControls : MonoBehaviour
                 ClosetHideMode(false);
             }
         }
-
-
-        
     }
 
 
@@ -239,6 +253,8 @@ public class PlayerControls : MonoBehaviour
     // Utility
     public void StopPlayer()
     {
+        StaminaPanel.SetActive(false);
+        Stamina = MaxStamina;
         RegenStamina = true;
         isMoving = false;
         isRunning = false;

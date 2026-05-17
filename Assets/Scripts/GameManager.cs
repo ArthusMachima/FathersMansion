@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    public bool enablePuzzleCheats;
     public bool gamePaused;
     [SerializeField] GameObject ToggleColorblind;
     [SerializeField] CanvasGroup PausePanel;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int keyCounter=0;
 
     [Header("Cutscene Elements")]
+    public bool cutsceneMode;
     [SerializeField] GameObject Player;
     [SerializeField] Transform[] TransPoints;
     [SerializeField] Sprite[] CutsceneImages;
@@ -66,7 +68,7 @@ public class GameManager : MonoBehaviour
             
         }
         if (GameUI != null) GameUI.SetActive(true);
-        AudioManager.Instance.PlayBGM(AudioManager.Instance.m_lullaby);
+        AudioManager.Instance.PlayBGM(AudioManager.Instance.m_2ndFloorEnd);
     }
 
 
@@ -136,7 +138,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
     //Function
     public void PauseGame()
     {
@@ -144,8 +145,11 @@ public class GameManager : MonoBehaviour
         PausePanel.alpha = gamePaused?1:0;
         PausePanel.interactable = gamePaused;
         PausePanel.blocksRaycasts = gamePaused;
-        PlayerControls.Instance.doPlayerControls = !gamePaused;
-        PlayerControls.Instance.doPlayerAnimations = !gamePaused;
+        if (UIManager.Instance.pendingDialogue.Count==0)
+        {
+            PlayerControls.Instance.doPlayerControls = !gamePaused;
+            PlayerControls.Instance.doPlayerAnimations = !gamePaused;
+        }
         if (gamePaused)
         {
             PlayerControls.Instance.StopPlayer();
@@ -332,6 +336,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SceneSecondFloorEnd()
     {
+        cutsceneMode = true;
+        PlayerControls.Instance.StopPlayer();
+
         //Fades out
         AudioManager.Instance.FadeStopBGM(0.5f);
         LeanTween.value(FloorTransitionBlack.gameObject, 0, 1, 0.5f)
@@ -397,8 +404,15 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         //Item check
-        FoundAllSecretItemsInSecondFloor = SecondFloorSecretItems.All(secret =>
-        InventoryManager.Instance.items.Any(slot => slot.PeekItem() == secret));
+        if (FoundAllSecretItemsInSecondFloor = SecondFloorSecretItems.All(secret =>
+             InventoryManager.Instance.items.Any(slot => slot.PeekItem() == secret)))
+        {
+            foreach (var slot in InventoryManager.Instance.items)
+                if (SecondFloorSecretItems.Contains(slot.PeekItem())) slot.TakeItem();
+
+            foreach (MysteryItemClass item in SecondFloorSecretItems)
+            { item.isRealized = true; InventoryManager.Instance.TransferItem(item, true); }
+        }
 
         //Branched Dialogue
         if (FoundAllSecretItemsInSecondFloor)
@@ -474,6 +488,9 @@ public class GameManager : MonoBehaviour
         //Restore cam
         Camera.main.transform.SetParent(Player.transform, false);
 
+        //Alter Inventory
+
+
         //Fades in
         LeanTween.value(FloorTransitionBlack.gameObject, 1, 0, 0.5f)
                     .setOnUpdate(val => FloorTransitionBlack.alpha = val);
@@ -482,5 +499,7 @@ public class GameManager : MonoBehaviour
         //Restore controls
         PlayerControls.Instance.doPlayerControls = true;
         PlayerControls.Instance.doPlayerAnimations = true;
+
+        cutsceneMode= false;
     }
 }

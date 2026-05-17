@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI ScreenText;
     [SerializeField] GameObject dialogueConfirmSprite;
-    [SerializeField] AudioClip dialogueTextSFX;
 
     [Header("Cutscene Panel")]
     [SerializeField] bool isCutscenePanelShown;
@@ -48,10 +47,11 @@ public class UIManager : MonoBehaviour
     // Dialogue Panel
     IEnumerator Dialogue()
     {
+        PlayerControls.Instance.StopPlayer();
         while (pendingDialogue.Count > 0)
         {
             currentDialogueText.text = "";
-            //AudioManager.Instance.PlaySFX(dialogueTextSFX);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.s_DialogueTyping);
 
             if (pendingDialogue.Peek().sound != null) AudioManager.Instance.PlaySFX(pendingDialogue.Peek().sound);
 
@@ -84,7 +84,7 @@ public class UIManager : MonoBehaviour
             foreach (char chars in pendingDialogue.Peek().sentence)
             {
                 currentDialogueText.text += chars;
-                AudioManager.Instance.PlaySFX(dialogueTextSFX);
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.s_DialogueTyping);
                 if (pendingDialogue.Peek().sentence == "") yield return null;
                 else if (Input.GetKey(PlayerControls.Instance.Run)) yield return null;
                 else if (chars == ',' || chars == '.' || chars == '?' || chars == '!' || chars == ':' || chars == '-')
@@ -143,10 +143,13 @@ public class UIManager : MonoBehaviour
 
         if (show)
         {
-            player.doPlayerControls = false;
-            player.doPlayerAnimations = false;
-            player.anim.SetBool("isMoving", false);
-            player.anim.SetBool("isRunning", false);
+            if (!GameManager.Instance.cutsceneMode)
+            {
+                player.doPlayerControls = false;
+                player.doPlayerAnimations = false;
+                player.anim.SetBool("isMoving", false);
+                player.anim.SetBool("isRunning", false);
+            }
 
             DialoguePanelTop   .LeanMoveY(Screen.height, animationTime).setEaseOutQuint();
             DialoguePanelBottom.LeanMoveY(0, animationTime).setEaseOutQuint().setOnComplete(() =>
@@ -157,8 +160,11 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            PlayerControls.Instance.doPlayerControls = true;
-            PlayerControls.Instance.doPlayerAnimations = true;
+            if (!GameManager.Instance.cutsceneMode)
+            {
+                PlayerControls.Instance.doPlayerControls = true;
+                PlayerControls.Instance.doPlayerAnimations = true;
+            }
             dialogueText.gameObject.SetActive(false);
             DialoguePanelTop   .LeanMoveY( 150+Screen.height, animationTime).setEaseOutQuint();
             DialoguePanelBottom.LeanMoveY(-150, animationTime).setEaseOutQuint();

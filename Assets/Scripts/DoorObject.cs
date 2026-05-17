@@ -59,13 +59,13 @@ public class DoorObject : MonoBehaviour, IInteractable
 
             Collider.enabled = false;
             sprite.sprite = openSprite;
-            aud.PlaySFX(aud.sfxOpen);
+            aud.PlaySFX(aud.s_DoorOpen);
         }
         else
         {
             Collider.enabled = true;
             sprite.sprite = closeSprite;
-            aud.PlaySFX(aud.sfxClose);
+            aud.PlaySFX(aud.s_DoorClose);
         }
     }
 
@@ -87,7 +87,7 @@ public class DoorObject : MonoBehaviour, IInteractable
             }
         }
 
-        aud.PlaySFX(aud.sfxLocked);
+        aud.PlaySFX(aud.s_DoorLocked);
         Dialogue[] msg = new Dialogue[1];
         if (requiredKeys!=null)
         {
@@ -106,13 +106,14 @@ public class DoorObject : MonoBehaviour, IInteractable
     {
         isUnlocked = true;
         if (connectedDoor!=null) connectedDoor.isUnlocked = true;
-        aud.PlaySFX(aud.sfxUnlock);
+        aud.PlaySFX(aud.s_DoorUnlock);
         Dialogue[] msg = { new("I unlocked the door.", null) };
         UIManager.Instance.LoadDialogue(msg);
     }
 
     public void ForceUnlockDoor()
     {
+        aud.PlaySFX(aud.s_DoorUnlock);
         isUnlocked = true;
     }
 }

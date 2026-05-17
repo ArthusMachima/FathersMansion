@@ -7,8 +7,14 @@ public class PinPuzzle : PuzzleClass
     string pass = "";
     [SerializeField] string correctCode;
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] bool interactable;
+    [SerializeField] AudioManager aud;
 
 
+    public void MakePinInteractive()
+    {
+        interactable=true;
+    }
 
     public override void OnPuzzleEnter()
     {
@@ -22,6 +28,7 @@ public class PinPuzzle : PuzzleClass
 
     private void Start()
     {
+        aud = AudioManager.Instance;
         puzzleObject = PlayerControls.Instance.currentInteractedPuzzle;
     }
 
@@ -29,12 +36,18 @@ public class PinPuzzle : PuzzleClass
     {
         if (pass == correctCode)
         {
-            Debug.Log("correct");
+            aud.PlaySFX(aud.s_PinCorrect);
+            text.color = Color.green;
             puzzleObject.OnPuzzleComplete();
         }
         else
         {
-            Debug.LogWarning("incorrect");
+            aud.PlaySFX(aud.s_PinIncorrect);
+            text.color = Color.red;
+            LeanTween.delayedCall(0.5f, () =>
+            {
+                text.color = Color.white;
+            });
         }
     }
 
@@ -46,13 +59,14 @@ public class PinPuzzle : PuzzleClass
 
     public void AddNumber(int num)
     {
-        
+        if (!interactable) return;
+        aud.PlaySFX(aud.s_PinType);
         if (pass.Length<6)
         {
-            Debug.Log("Inputed");
             pass += num.ToString();
             text.text = pass;
         }
+        else aud.PlaySFX(aud.s_PinIncorrect);
     }
 
     public override void OnDialogueEnd()

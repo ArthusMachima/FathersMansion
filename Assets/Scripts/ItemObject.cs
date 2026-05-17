@@ -9,6 +9,7 @@ public class ItemObject : MonoBehaviour, IInteractable
     [SerializeField] bool isKeyItem;
     [SerializeField] UnityEvent onInteract = new();
     [SerializeField] bool forceTake;
+    [SerializeField] AudioManager aud;
 
 
     public ItemObject(ItemClass item)
@@ -33,11 +34,13 @@ public class ItemObject : MonoBehaviour, IInteractable
                 InventoryManager.Instance.TransferItem(item, true);
                 Destroy(gameObject);
             }
+            aud.PlaySFX(aud.s_ItemPickUp);
         }
     }
 
     private void Start()
     {
+        aud = AudioManager.Instance;
         RefreshObject();
     }
 

@@ -13,9 +13,11 @@ public class PuzzleBookData : MonoBehaviour,
     public RectTransform RT { get; private set; }
     public TextMeshProUGUI letter;
     public bool interactable;
+    [SerializeField] AudioManager aud;
 
     private void Awake()
     {
+        aud = AudioManager.Instance;
         letter = GetComponentInChildren<TextMeshProUGUI>();
         Sprite = GetComponent<Image>();
         RT = GetComponent<RectTransform>();
@@ -35,6 +37,7 @@ public class PuzzleBookData : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        aud.PlaySFX(aud.s_Pick);
         if (!interactable) return;
         if (parentList == null) return;
         parentList.OnBeginDrag(this);
@@ -49,6 +52,7 @@ public class PuzzleBookData : MonoBehaviour,
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        aud.PlaySFX(aud.s_Place);
         if (!interactable) return;
         if (parentList == null) return;
         parentList.OnEndDrag(this);

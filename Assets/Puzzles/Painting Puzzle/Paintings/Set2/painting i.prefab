@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7449738884794880301, guid: 1297d7f2fff2673449adfa2ca437b861, type: 3}
+  m_Sprite: {fileID: -2039542872, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -98,6 +98,7 @@ MonoBehaviour:
   rot: 0
   canBeMoved: 1
   item: {fileID: 11400000, guid: 4e7eab91bb777e94495232643dcb620e, type: 2}
+  aud: {fileID: 0}
 --- !u!225 &5613526891561578006
 CanvasGroup:
   m_ObjectHideFlags: 0

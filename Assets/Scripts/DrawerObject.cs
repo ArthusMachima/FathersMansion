@@ -17,7 +17,7 @@ public class DrawerObject : MonoBehaviour, IInteractable
         } 
         else
         {
-            CabinetManager.Instance.ShowCabinet(true, storedItems);
+            DrawerManager.Instance.ShowDrawer(true, storedItems);
             InventoryManager.Instance.OpenInventory(true, true);
         }
     }

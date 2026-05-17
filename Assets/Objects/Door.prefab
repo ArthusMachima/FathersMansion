@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6917fea0959d94c8ac7fab41b6492f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aud: {fileID: 0}
   Collider: {fileID: 4874237152431470392}
   currentLockDirection: 0
   sprite: {fileID: 6150342176067402088}
@@ -110,6 +111,10 @@ MonoBehaviour:
   closeSprite: {fileID: -664984528, guid: 0fe83cc2907d912438f879a894543623, type: 3}
   isUnlocked: 1
   requiredKeys: {fileID: 0}
+  onDoorLocked:
+    m_PersistentCalls:
+      m_Calls: []
+  connectedDoor: {fileID: 0}
 --- !u!61 &4874237152431470392
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +122,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268380271268688133}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -215,6 +220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 6150342176067402088}
-  backLayerIndex: 1
+  backLayerIndex: 2
   frontLayerIndex: 0
   pivotOffset: {x: 0, y: -1, z: 0}

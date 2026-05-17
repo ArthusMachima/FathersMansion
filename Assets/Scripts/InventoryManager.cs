@@ -36,10 +36,12 @@ public class InventoryManager : MonoBehaviour
     public ItemSlot hoveredSlot;
     [SerializeField] bool isHoveredOverSlot;
     [SerializeField] LayerMask breakables;
+    [SerializeField] AudioManager aud;
 
 
     private void Start()
     {
+        aud = AudioManager.Instance;
         items = PocketList.GetComponentsInChildren<ItemSlot>();
         keyItems = KeyItemList.GetComponentsInChildren<KeyItemSlot>();
         mainCanvas = InventoryPanel.GetComponentInParent<Canvas>(true).rootCanvas;
@@ -136,7 +138,7 @@ public class InventoryManager : MonoBehaviour
 
     IEnumerator DragItem()
     {
-
+        aud.PlaySFX(aud.s_Pick);
         while (Input.GetMouseButton(0) || Input.GetMouseButton(1))
         {
             if (!InventoryPanel.activeSelf)
@@ -157,6 +159,7 @@ public class InventoryManager : MonoBehaviour
                 yield break;
             }
         }
+        aud.PlaySFX(aud.s_Place);
 
         draggedItem.gameObject.SetActive(false);
 

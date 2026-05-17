@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,23 +12,50 @@ public class AudioManager : MonoBehaviour
     [Header("BGM")]
     [SerializeField] AudioSource bgmIntroSource;
     [SerializeField] AudioSource bgmLoopSource;
+    [SerializeField] Slider bgmSlider;
 
     [Header("SFX")]
     [SerializeField] AudioSource sfxSource;
+    [SerializeField] AudioSource sfxSoundTest;
     [SerializeField] float sfxCooldown = 0.1f;
+    [SerializeField] Slider sfxSlider;
     private float sfxCooldownTimer;
     private Coroutine bgmCoroutine;
 
     [Header("Clips")]
     public AudioClip m_lullaby;
+    public AudioClip m_MainMenu;
+    public AudioClip m_2ndFloorEnd;
+    public AudioClip m_1stFloorEnd;
+    public AudioClip m_BasementEnd;
+    public AudioClip m_HE;
+    public AudioClip m_SHE;
+    public AudioClip m_Credits;
+    [Space]
     public AudioClip s_jumpscare1;
     public AudioClip s_jumpscare2;
     public AudioClip s_jumpscare3;
+    [Space]
+    public AudioClip s_DoorOpen;
+    public AudioClip s_DoorClose;
+    public AudioClip s_DoorLocked;
+    public AudioClip s_DoorUnlock;
+    [Space]
+    public AudioClip s_Pick;
+    public AudioClip s_Place;
+    [Space]
+    public AudioClip s_ItemPickUp;
+    public AudioClip s_ItemWorth;
+    [Space]
+    public AudioClip s_CardFlip;
+    public AudioClip s_CardFlipBack;
+    public AudioClip s_Padlock;
+    public AudioClip s_PinType;
+    public AudioClip s_PinCorrect;
+    public AudioClip s_PinIncorrect;
+    [Space]
+    public AudioClip s_DialogueTyping;
 
-    public AudioClip sfxOpen;
-    public AudioClip sfxClose;
-    public AudioClip sfxLocked;
-    public AudioClip sfxUnlock;
 
 
 
@@ -132,5 +161,30 @@ public class AudioManager : MonoBehaviour
 
         sfxSource.PlayOneShot(clip, volume);
         sfxCooldownTimer = cooldownOverride;
+    }
+
+    public void SyncBGMVolume()
+    {
+        bgmIntroSource.volume = bgmSlider.value;
+        bgmLoopSource.volume = bgmSlider.value;
+    }
+
+    public void SyncSFXVolume()
+    {
+        sfxSource.volume = sfxSlider.value;
+        sfxSoundTest.volume = sfxSlider.value;
+    }
+
+    public void SFXSoundTest(bool play)
+    {
+        if (play)
+        {
+            if (!sfxSoundTest.isPlaying)
+            {
+                sfxSoundTest.loop = true;
+                sfxSoundTest.Play();
+            }
+        }
+        else sfxSoundTest.Stop();
     }
 }

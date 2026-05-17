@@ -11,15 +11,18 @@ public class SlidingPuzzlePiece : MonoBehaviour, IPointerClickHandler
     public bool setUpped;
     public int assignedPosIndex;
     public bool interactable;
+    [SerializeField] AudioManager aud;
 
     private void Start()
     {
+        aud = AudioManager.Instance;
         image = GetComponent<Image>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         if (!interactable) return;
+        aud.PlaySFX(aud.s_Pick);
         parentPuzzle.MovePiece(this);
     }
 }

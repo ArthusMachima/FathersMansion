@@ -15,9 +15,11 @@ public class PaintingPuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandle
     private bool isDragging = false;
     public bool canBeMoved = true;
     [SerializeField] ItemClass item;
+    [SerializeField] AudioManager aud;
 
     void OnEnable()
     {
+        aud = AudioManager.Instance;
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
@@ -33,6 +35,7 @@ public class PaintingPuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandle
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!canBeMoved) return;
+        aud.PlaySFX(aud.s_Pick);
         isDragging = false;
     }
 
@@ -55,6 +58,7 @@ public class PaintingPuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandle
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!canBeMoved) return;
+        aud.PlaySFX(aud.s_Pick);
         isDragging = true;
         rootCanvas = GetRootCanvas();
 
@@ -91,6 +95,7 @@ public class PaintingPuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandle
     public void OnEndDrag(PointerEventData eventData)
     {
         if (!canBeMoved) return;
+        aud.PlaySFX(aud.s_Place);
         isDragging = false;
         canvasGroup.blocksRaycasts = true;
 
