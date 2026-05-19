@@ -151,6 +151,10 @@ public class PlayerControls : MonoBehaviour
             else
                 StaminaPanel.SetActive(true);
 
+            if (Input.GetKeyDown(KeyCode.F1) && GameManager.Instance.enablePuzzleCheats)
+            {
+                MonsterDistance = 0;
+            }
 
         }
         else if (gameControlState == GameControlState.InventoryPanel)
@@ -172,11 +176,7 @@ public class PlayerControls : MonoBehaviour
             {
                 StopPlayer();
                 doPlayerAnimations = true;
-                InventoryManager.Instance.OpenInventory(false, true);
-                if (interactedObject is DrawerObject openedCabinet && interactedObject != null)
-                {
-                    DrawerManager.Instance.ShowDrawer(false, openedCabinet.storedItems);
-                }
+                CloseInventory();
             }
         }
         else if (gameControlState == GameControlState.SolvingPuzzle)
@@ -251,6 +251,15 @@ public class PlayerControls : MonoBehaviour
 
 
     // Utility
+    public void CloseInventory()
+    {
+        InventoryManager.Instance.OpenInventory(false, true);
+        if (interactedObject is DrawerObject openedCabinet && interactedObject != null)
+        {
+            DrawerManager.Instance.ShowDrawer(false, openedCabinet.storedItems);
+        }
+    }
+
     public void StopPlayer()
     {
         StaminaPanel.SetActive(false);
@@ -281,7 +290,6 @@ public class PlayerControls : MonoBehaviour
         {
             isPlayerHiddenInCloset = true;
             gameControlState = GameControlState.HidingCloset;
-            GameManager.Instance.Monster.agent.isStopped = true;
         }
         else
         {
@@ -292,7 +300,7 @@ public class PlayerControls : MonoBehaviour
             isPlayerHiddenInCloset = false;
             doPlayerControls = true;
             gameControlState = GameControlState.TopDownControls;
-            HideClosetBehavior.Instance.gameObject.SetActive(false);
+            HideClosetBehavior.Instance.ShowClosetPanel(false);
         }
     }
 

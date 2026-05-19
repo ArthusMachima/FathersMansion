@@ -5,7 +5,7 @@ using UnityEngine;
 public class HideClosetBehavior : MonoBehaviour
 {
     [Header("Hide Closet Panel")]
-    [SerializeField] GameObject HideClosetPanel;
+    [SerializeField] CanvasGroup HideClosetPanel;
     [SerializeField] Transform ClosetDoor;
     [SerializeField] CanvasGroup MonsterSprite;
     public float ClosetHP = 100;
@@ -16,16 +16,12 @@ public class HideClosetBehavior : MonoBehaviour
 
     //Singleton
     public static HideClosetBehavior Instance;
-    private void OnEnable()
+    private void Awake()
     {
         Instance = this;
-        ClosetHP = 100;
-    }
-
-    private void Start()
-    {
         gameObject.SetActive(false);
     }
+
 
     private void Update()
     {
@@ -45,6 +41,7 @@ public class HideClosetBehavior : MonoBehaviour
         {
             if (PlayerControls.Instance.MonsterDistance > 0)
             {
+                AudioManager.Instance.PlayBGM(AudioManager.Instance.m_lullaby);
                 LeanTween.value(MonsterSprite.gameObject, 1, 0, 0.3f)
                     .setOnUpdate(val => MonsterSprite.alpha = val);
                 hasMonsterArrived = false;
@@ -69,8 +66,10 @@ public class HideClosetBehavior : MonoBehaviour
         }
         else
         {
+            ClosetHP = 100;
             if (PlayerControls.Instance.MonsterDistance<=0)
             {
+                AudioManager.Instance.PlayBGM(AudioManager.Instance.s_Heartbeat);
                 LeanTween.value(MonsterSprite.gameObject, 0, 1, 2)
                     .setOnUpdate(val => MonsterSprite.alpha = val);
                 StartCoroutine(MonsterLeaveTimer());
@@ -85,7 +84,18 @@ public class HideClosetBehavior : MonoBehaviour
         monsterMoveRange = (Screen.width/2)+Random.Range(-400, 400);
         yield return new WaitForSeconds(delay);
         ClosetHP -= Random.Range(10, 40);
-        //TODO: door punch sfx
+        switch (Random.Range(1,4))
+        {
+            case 1:
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.s_Noise1); break;
+            case 2:
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.s_Noise2); break;
+            case 3:
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.s_Noise3); break;
+            default:
+                Debug.Log("ERROR OUT OF RANGE");
+                break;
+        }
         MonsterAboutToPunch = false;
     }
 
@@ -93,5 +103,24 @@ public class HideClosetBehavior : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(4,10));
         PlayerControls.Instance.MonsterDistance = 5;
+    }
+
+    public void ShowClosetPanel(bool show)
+    {
+        if (show) gameObject.SetActive(true);
+        ClosetHP = 100;
+        LeanTween.value(gameObject, HideClosetPanel.alpha, show?1:0, 0.3f)
+            .setOnUpdate(val => HideClosetPanel.alpha = val).setOnComplete(() =>
+            {
+                if (!show) gameObject.SetActive(false);
+            });
+        HideClosetPanel.blocksRaycasts = show;
+        HideClosetPanel.interactable = show;
+        if (show)
+        {
+            hasMonsterArrived = false;
+            MonsterEntered = false;
+            MonsterAboutToPunch = false;
+        }
     }
 }

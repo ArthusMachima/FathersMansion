@@ -301,6 +301,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuPanel: {fileID: 615705823}
   SettingsPanel: {fileID: 683633847}
+  colorblindMode: 0
+  ColorblindToggle: {fileID: 0}
 --- !u!1 &615705821
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,7 +857,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 530122631}
         m_TargetAssemblyTypeName: MainMenuBehavior, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: RetryGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -105,7 +105,7 @@ public class PaintingPuzzle : PuzzleClass
         if (string.Equals(code, CorrectCode) && !PlayerControls.Instance.currentInteractedPuzzle.isPuzzleFinished)
         {
             Debug.Log("PUZZLE SOLVED");
-            PlayerPrefs.SetString("paintingPuzzle", GetPuzzleStateString());
+            PlayerPrefs.DeleteKey("paintingPuzzle");
             LeanTween.delayedCall(0.5f, () =>
             {
                 PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();

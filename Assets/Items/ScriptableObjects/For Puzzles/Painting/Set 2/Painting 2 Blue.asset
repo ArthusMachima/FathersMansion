@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Painting 2 Blue
   m_EditorClassIdentifier: 
   itemName: Painting
-  itemIcon: {fileID: 7625043794010562741, guid: 37438744cb832a74c96763f4f1a3a21e, type: 3}
+  itemIcon: {fileID: 216899954, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
   itemDescription: A piece of Art
-  puzzlePiecePrefab: {fileID: 339251757995544388, guid: 9bf0d3efd52747a4cbe5d5217b2c2c62, type: 3}
+  puzzlePiecePrefab: {fileID: 339251757995544388, guid: b06b91e9e170c8f458b385f7c05399e1, type: 3}

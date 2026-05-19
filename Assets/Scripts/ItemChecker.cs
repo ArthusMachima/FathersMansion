@@ -7,6 +7,7 @@ public class ItemChecker : MonoBehaviour
     [SerializeField] ItemClass itemToCheck;
     [SerializeField] UnityEvent onItemMatch;
     [SerializeField] bool makeItTransparent;
+    [SerializeField] bool destroyOnCheck;
     SpriteRenderer render;
 
     private void Start()
@@ -26,18 +27,23 @@ public class ItemChecker : MonoBehaviour
         {
             bool found = false;
             InventoryManager inv = InventoryManager.Instance;
-            foreach (var slot in inv.items)
+            if (itemToCheck != null)
             {
-                if (slot.PeekItem()==itemToCheck)
+                foreach (var slot in inv.items)
                 {
-                    found=true;
+                    if (slot.PeekItem() == itemToCheck)
+                    {
+                        found = true;
+                    }
                 }
             }
+            else found = true;
 
             if (found)
             {
                 Debug.Log("Found");
                 onItemMatch.Invoke();
+                if (destroyOnCheck) Destroy(gameObject);
             }
         }
     }

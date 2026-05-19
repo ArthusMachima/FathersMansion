@@ -55,9 +55,29 @@ public class AudioManager : MonoBehaviour
     public AudioClip s_PinIncorrect;
     [Space]
     public AudioClip s_DialogueTyping;
+    public AudioClip s_UIConfirm;
+    public AudioClip s_UICancel;
+    [Space]
+    public AudioClip s_OfficeDoor;
+    public AudioClip s_Paper1;
+    public AudioClip s_Paper2;
+    [Space]
+    public AudioClip s_Heartbeat;
+    public AudioClip s_Noise1;
+    public AudioClip s_Noise2;
+    public AudioClip s_Noise3;
 
 
+    private void Start()
+    {
+        bgmIntroSource.volume = PlayerPrefs.GetFloat("bgmVol", 0.7f);
+        bgmLoopSource.volume = PlayerPrefs.GetFloat("bgmVol", 0.7f);
+        if (bgmSlider!=null) bgmSlider.value = PlayerPrefs.GetFloat("bgmVol", 0.7f);
 
+        sfxSource.volume = PlayerPrefs.GetFloat("sfxVol", 0.7f);
+        sfxSoundTest.volume = PlayerPrefs.GetFloat("sfxVol", 0.7f);
+        if (sfxSlider!= null) sfxSlider.value = PlayerPrefs.GetFloat("sfxVol", 0.7f);
+    }
 
     private void Update()
     {
@@ -136,9 +156,9 @@ public class AudioManager : MonoBehaviour
 
     public void SetBGMVolume(float volume, float dur)
     {
-        LeanTween.value(gameObject, bgmIntroSource.volume, volume, dur)
+        LeanTween.value(gameObject, bgmIntroSource.volume, volume*bgmSlider.value, dur)
             .setOnUpdate(vol => bgmIntroSource.volume = vol);
-        LeanTween.value(gameObject, bgmLoopSource.volume, volume, dur)
+        LeanTween.value(gameObject, bgmLoopSource.volume, volume*bgmSlider.value, dur)
             .setOnUpdate(vol => bgmLoopSource.volume = vol);
     }
 
@@ -167,12 +187,14 @@ public class AudioManager : MonoBehaviour
     {
         bgmIntroSource.volume = bgmSlider.value;
         bgmLoopSource.volume = bgmSlider.value;
+        PlayerPrefs.SetFloat("bgmVol", bgmSlider.value);
     }
 
     public void SyncSFXVolume()
     {
         sfxSource.volume = sfxSlider.value;
         sfxSoundTest.volume = sfxSlider.value;
+        PlayerPrefs.SetFloat("sfxVol", sfxSlider.value);
     }
 
     public void SFXSoundTest(bool play)

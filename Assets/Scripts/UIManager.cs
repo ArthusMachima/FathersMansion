@@ -45,6 +45,17 @@ public class UIManager : MonoBehaviour
 
 
     // Dialogue Panel
+    public void ForceStopDialogue()
+    {
+        currentDialogueText.text = "";
+        StopCoroutine(Dialogue());
+        pendingDialogue.Clear();
+        ShowDialoguePanel(false);
+        CutscenePanel.alpha = 0;
+        isCutscenePanelShown = false;
+        CutsceneImage.sprite = null;
+    }
+
     IEnumerator Dialogue()
     {
         PlayerControls.Instance.StopPlayer();

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Painting 2 Green
   m_EditorClassIdentifier: 
   itemName: Painting
-  itemIcon: {fileID: 6550858925576678410, guid: 37438744cb832a74c96763f4f1a3a21e, type: 3}
+  itemIcon: {fileID: -1123473351, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
   itemDescription: A piece of Art
-  puzzlePiecePrefab: {fileID: 1072512239702389563, guid: c798543ec52f5b5449ab4149ca95860d, type: 3}
+  puzzlePiecePrefab: {fileID: 1072512239702389563, guid: ee05e51bf91773c4ea2bb53843877b85, type: 3}

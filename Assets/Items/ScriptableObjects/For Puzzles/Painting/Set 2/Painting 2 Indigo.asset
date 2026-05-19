@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Painting 2 Indigo
   m_EditorClassIdentifier: 
   itemName: Painting
-  itemIcon: {fileID: 172823446024386954, guid: 37438744cb832a74c96763f4f1a3a21e, type: 3}
+  itemIcon: {fileID: -2039542872, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
   itemDescription: A piece of Art
-  puzzlePiecePrefab: {fileID: 5342000718627715126, guid: 6414b18c2c1ad1542a5f4a3c5f5c0a01, type: 3}
+  puzzlePiecePrefab: {fileID: 5342000718627715126, guid: 1ae49d7ab4590e0459b7fe277704baeb, type: 3}

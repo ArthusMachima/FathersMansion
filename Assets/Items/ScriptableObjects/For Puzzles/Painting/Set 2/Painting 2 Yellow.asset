@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Painting 2 Yellow
   m_EditorClassIdentifier: 
   itemName: Painting
-  itemIcon: {fileID: 3923908007044970540, guid: 37438744cb832a74c96763f4f1a3a21e, type: 3}
+  itemIcon: {fileID: 729172626, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
   itemDescription: A piece of Art
-  puzzlePiecePrefab: {fileID: 7319816887459363061, guid: a1e975e6c576d6145935236cb72b4653, type: 3}
+  puzzlePiecePrefab: {fileID: 7319816887459363061, guid: 2fbcdea05d26eff48a08c6ea7eb5d2c4, type: 3}

@@ -166,5 +166,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   backLayerIndex: 2
-  frontLayerIndex: 1
+  frontLayerIndex: 0
   pivotOffset: {x: 0, y: 0.25, z: 0}

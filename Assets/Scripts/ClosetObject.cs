@@ -4,7 +4,7 @@ public class ClosetObject : MonoBehaviour, IInteractable
 {
     public void Interact()
     {
-        HideClosetBehavior.Instance.gameObject.SetActive(true);
+        HideClosetBehavior.Instance.ShowClosetPanel(true);
         PlayerControls.Instance.ClosetHideMode(true);
     }
 }

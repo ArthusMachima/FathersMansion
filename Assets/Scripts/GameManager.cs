@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,11 +10,15 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject GameOverUI;
+    [SerializeField] Transform Map;
+    [SerializeField] RendererGroupAlpha[] RoomAlpha;
+    [SerializeField] RendererGroupAlpha[] starterRooms;
+    [SerializeField] Transform[] FloorSpawnPoints;
     public bool enablePuzzleCheats;
     public bool gamePaused;
     [SerializeField] GameObject ToggleColorblind;
     [SerializeField] CanvasGroup PausePanel;
-
     public bool colorblindMode;
     [SerializeField] GameObject[] Floors;
     [SerializeField] int floorIndex;
@@ -28,6 +33,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float monsterApproachCooldown=10;
     [SerializeField] int prevDistance;
     [SerializeField] bool doCutscene=true;
+    [SerializeField] bool doMonsterSpawn=true;
 
     [Header("2nd Floor")]
     [SerializeField] ItemClass LongKey;
@@ -50,6 +56,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] ShaderEffect_CorruptedVram ScreenEffectsWipe;
     //[SerializeField]
 
+    [Header("Tutorial")]
+    [SerializeField] bool informedOnMonster;
+
     public void DoBasementScreenEffects()
     {
         //ScreenEffectsHazing - intensity value swinging back and fort from -2.5 to 2.5 randomize dur 0.5-1
@@ -62,13 +71,29 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (doCutscene) StartCoroutine(SceneSecondFloorStart());
-        if (PlayerPrefs.GetInt("PlayCount", 0)==0)
-        {
-            
-        }
+        RoomAlpha = Map.GetComponentsInChildren<RendererGroupAlpha>(true);
         if (GameUI != null) GameUI.SetActive(true);
-        AudioManager.Instance.PlayBGM(AudioManager.Instance.m_2ndFloorEnd);
+        StartGame();
+    }
+
+    void StartGame()
+    {
+        if (PlayerPrefs.GetInt("PlayCount", 0) == 0)
+        {
+            if (doCutscene) StartCoroutine(SceneSecondFloorStart());
+        }
+        else LoadLocation();
+        AudioManager.Instance.PlayBGM(AudioManager.Instance.m_lullaby);
+    }
+
+    public void LoadLocation()
+    {
+        int index = PlayerPrefs.GetInt("savedFloor", 2);
+        SwitchFloors(index, false);
+        foreach (var room in RoomAlpha) room.alpha = 0;
+        starterRooms[index].alpha = 1;
+        Player.transform.position = FloorSpawnPoints[index].position;
+        FloorTransitionBlack.alpha = 0;
     }
 
 
@@ -95,7 +120,7 @@ public class GameManager : MonoBehaviour
                 LeanTween.cancel(PlayerControls.Instance.gameObject);
                 LeanTween.value(MonsterDarkness.gameObject, MonsterDarkness.alpha, o, 0.5f)
                        .setOnUpdate(val => MonsterDarkness.alpha = val);
-                AudioManager.Instance.SetBGMVolume((float)PlayerControls.Instance.MonsterDistance - 1 / 5, 0.5f);
+                AudioManager.Instance.SetBGMVolume(PlayerControls.Instance.MonsterDistance - 1f / 5f, 0.5f);
                 prevDistance = PlayerControls.Instance.MonsterDistance;
             }
         }
@@ -112,7 +137,7 @@ public class GameManager : MonoBehaviour
 
                 if (monsterApproachCooldown>0)
                 {
-                    monsterApproachCooldown -= Time.deltaTime;
+                    if (doMonsterSpawn) monsterApproachCooldown -= Time.deltaTime;
                 }
                 else
                 {
@@ -120,12 +145,20 @@ public class GameManager : MonoBehaviour
                     monsterApproachCooldown = Random.Range(3,10);
                 }
             }
+            if (PlayerControls.Instance.MonsterDistance == 2)
+            {
+                if (!informedOnMonster && PlayerPrefs.GetInt("PlayCount", 0) == 0)
+                {
+                    StartCoroutine(InformAboutMonster());
+                    informedOnMonster = true;
+                }
+            }
             else if (PlayerControls.Instance.MonsterDistance <= 0)
             {
                 if (PlayerControls.Instance.MonsterDistance < 0)
                     PlayerControls.Instance.MonsterDistance = 0;
 
-                if (!isMonsterSpawned)
+                if (!isMonsterSpawned && UIManager.Instance.pendingDialogue.Count==0)
                 {
                     SpawnMonster(true);
                     isMonsterSpawned = true;
@@ -199,10 +232,47 @@ public class GameManager : MonoBehaviour
                         else
                             MonsterDarkness.gameObject.SetActive(true);
                     });
+
+        PlayerPrefs.SetInt("savedFloor", floorIndex);
+    }
+
+    public void SwitchFloors(int floor, bool doTransition)
+    {
+        if (doTransition)
+        {
+            floorIndex = floor;
+            LeanTween.value(FloorTransitionBlack.gameObject, 0, 1, 0.5f)
+                        .setOnUpdate(val => FloorTransitionBlack.alpha = val).setOnComplete(() =>
+                        {
+                            foreach (var f in Floors) f.SetActive(false);
+                            Floors[floor].SetActive(true);
+                            LeanTween.value(FloorTransitionBlack.gameObject, 1, 0, 0.5f)
+                        .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+                            if (floor == 2)
+                                MonsterDarkness.gameObject.SetActive(false);
+                            else
+                                MonsterDarkness.gameObject.SetActive(true);
+                        });
+            PlayerPrefs.SetInt("savedFloor", floorIndex);
+        }
+        else
+        {
+            floorIndex = floor;
+            foreach (var f in Floors) f.SetActive(false);
+            Floors[floor].SetActive(true);
+            if (floor == 2)
+                MonsterDarkness.gameObject.SetActive(false);
+            else
+                MonsterDarkness.gameObject.SetActive(true);
+        }
     }
 
     public void Jumpscare()
     {
+        PlayerControls.Instance.StopPlayer();
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+
         if (isJumpscared) return;
         JumpscarePanel.SetActive(true);
         switch (Random.Range(0,3))
@@ -224,10 +294,45 @@ public class GameManager : MonoBehaviour
                 }
         }
         isJumpscared = true;
-        LeanTween.delayedCall(2, () =>
+        LeanTween.delayedCall(Random.Range(1f,2f), () =>
         {
-            SceneManager.LoadScene("GameOver");
+            AudioManager.Instance.StopBGM();
+            Monster.transform.position = Vector3.zero;
+            Monster.gameObject.SetActive(false);
+            JumpscarePanel.SetActive(false);
+            GameOver();
+            isJumpscared = false;
         });
+    } //TODO player can still move while jumpscare and gameover
+
+    void GameOver()
+    {
+        GameOverUI.SetActive(true);
+        GameOverUI.GetComponent<MainMenuBehavior>().ShowMainMenu();
+
+        FloorTransitionBlack.alpha=1;
+        doMonsterSpawn=false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+        PlayerControls.Instance.doPlayerControls = false;
+
+        cutsceneMode = true;
+        PlayerControls.Instance.StopPlayer();
+        UIManager.Instance.ShowPuzzlePanel();
+        UIManager.Instance.ForceStopDialogue();
+        HideClosetBehavior.Instance.ShowClosetPanel(false);
+        PlayerControls.Instance.PuzzleMode(false);
+        PlayerControls.Instance.CloseInventory();
+    }
+
+    public void RespawnPlayer()
+    {
+        GameOverUI.SetActive(false);
+        cutsceneMode = false;
+        //doMonsterSpawn = true;
+        PlayerControls.Instance.MonsterDistance = 5;
+        PlayerControls.Instance.doPlayerAnimations = true;
+        PlayerControls.Instance.doPlayerControls = true;
+        StartGame();
     }
 
     public void SpawnMonster(bool spawn)
@@ -293,6 +398,22 @@ public class GameManager : MonoBehaviour
     }
 
 
+    //Tutorials
+    public IEnumerator InformAboutMonster()
+    {
+        yield return null;
+        Debug.Log("INFORMED MONSTER");
+        doMonsterSpawn = true;
+    }
+
+    public IEnumerator InformAboutControls()
+    {
+        yield return null;
+        Debug.Log("INFORMED CONTROLS");
+        PlayerControls.Instance.doPlayerControls = true;
+    }
+
+
 
     //Cutscenes
     IEnumerator SceneSecondFloorStart()
@@ -318,15 +439,8 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.LoadDialogue(msg);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
         SideScreenMessage.Instance.DisplayMessage("Objective", "Find a way out", 1.5f);
-        PlayerControls.Instance.doPlayerControls = true;
+        StartCoroutine(InformAboutControls());
     }
-
-
-
-    
-
-
-
 
     public void PlaySecondFloorEnd()
     {
@@ -393,14 +507,13 @@ public class GameManager : MonoBehaviour
         Dialogue[] msg =
         {
             new("I began to stare at the mirror, before I could ask myself why.", null),
-            new("From it, I see the figure staring right back at me, Just as confused as I was.", null), // cutscene image starts here
-            new("I moved - she followed, she could mimic every single thing I'd try to do.", null),
-            new("This is undoubtedly me, whom I've never met before.", null)
+            new("From it, I see the figure staring right back at me, Just as confused as I was.", CutsceneImages[1]),
+            new("I moved - she followed, she could mimic every single thing I'd try to do.", CutsceneImages[1]),
+            new("This is undoubtedly me, whom I've never met before.", CutsceneImages[1])
         };
         UIManager.Instance.LoadDialogue(msg);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
         msg=null;
-
         yield return new WaitForSeconds(1);
 
         //Item check
@@ -410,7 +523,7 @@ public class GameManager : MonoBehaviour
             foreach (var slot in InventoryManager.Instance.items)
                 if (SecondFloorSecretItems.Contains(slot.PeekItem())) slot.TakeItem();
 
-            foreach (MysteryItemClass item in SecondFloorSecretItems)
+            foreach (MysteryItemClass item in SecondFloorSecretItems.Cast<MysteryItemClass>())
             { item.isRealized = true; InventoryManager.Instance.TransferItem(item, true); }
         }
 
@@ -420,9 +533,9 @@ public class GameManager : MonoBehaviour
             msg = new Dialogue[]
             {
             new("I noticed the weight my pockets were carrying as I stood there for a while.", null),
-            new("Almost forgot I had these items. I wonder why I can feel a connection to them?", null), // image
+            new("Almost forgot I had these items. I wonder why I can feel a connection to them?", CutsceneImages[2]),
             new("The next thing I know...", null),
-            new("I wore the hat and posed in front of the mirror carrying a camera.", null), // cutscene image
+            new("I wore the hat and posed in front of the mirror carrying a camera.", CutsceneImages[3]), // cutscene image
             new("Then, I began to remember something...", null)
             };
             UIManager.Instance.LoadDialogue(msg);
@@ -435,6 +548,9 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(2f);
 
             //Dialogue
+            UIManager.Instance.ScreenText.gameObject.SetActive(true);
+            AudioManager.Instance.PlayBGM(AudioManager.Instance.m_2ndFloorEnd);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.s_OfficeDoor);
             msg = new Dialogue[]
             {
             new("It all started with the sound of an open door.", null),
@@ -448,9 +564,11 @@ public class GameManager : MonoBehaviour
             };
             UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
             yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+            UIManager.Instance.ScreenText.gameObject.SetActive(false);
 
             //White fade out
             FloorTransitionBlack.GetComponent<Image>().color = new(1, 1, 1);
+            AudioManager.Instance.FadeStopBGM(1);
             LeanTween.value(FloorTransitionBlack.gameObject, 1, 0, 1f)
                     .setOnUpdate(val => FloorTransitionBlack.alpha = val);
             yield return new WaitForSeconds(1f);
@@ -488,9 +606,6 @@ public class GameManager : MonoBehaviour
         //Restore cam
         Camera.main.transform.SetParent(Player.transform, false);
 
-        //Alter Inventory
-
-
         //Fades in
         LeanTween.value(FloorTransitionBlack.gameObject, 1, 0, 0.5f)
                     .setOnUpdate(val => FloorTransitionBlack.alpha = val);
@@ -499,7 +614,100 @@ public class GameManager : MonoBehaviour
         //Restore controls
         PlayerControls.Instance.doPlayerControls = true;
         PlayerControls.Instance.doPlayerAnimations = true;
+        AudioManager.Instance.PlayBGM(AudioManager.Instance.m_lullaby);
+        cutsceneMode = false;
+    }
 
-        cutsceneMode= false;
+    public void PlayMainExitFound()
+    {
+        StartCoroutine(SceneMainExitFound());
+    }
+
+    IEnumerator SceneMainExitFound()
+    {
+        //initial setup
+        cutsceneMode = true;
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+
+        //dialogue
+        Dialogue[] msg =
+        {
+            new("!!", null),
+            new("This must be the main exit", null),
+        };
+        UIManager.Instance.LoadDialogue(msg);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //walks to door
+        Player.LeanMove(TransPoints[3].position, 0.3f).setOnComplete(() =>
+        {
+            PlayerControls.Instance.anim.SetBool("isMoving", false);
+        });
+        PlayerControls.Instance.anim.SetFloat("x", 0);
+        PlayerControls.Instance.anim.SetFloat("y", 1);
+        PlayerControls.Instance.anim.SetBool("isMoving", true);
+        yield return new WaitForSeconds(0.3f);
+
+        //door sound effect
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.s_DoorLocked);
+        yield return new WaitForSeconds(0.5f);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.s_DoorLocked);
+        yield return new WaitForSeconds(0.5f);
+
+        //dialogue
+        msg = new Dialogue[]
+        {
+            new("Dammit! it's locked", null),
+            new("It’s one of those elongated padlocks again.", CutsceneImages[7]),
+            new("The keys must be somewhere…", null),
+        };
+        UIManager.Instance.LoadDialogue(msg);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //exit setup
+        cutsceneMode = false;
+        PlayerControls.Instance.doPlayerControls = true;
+        PlayerControls.Instance.doPlayerAnimations = true;
+    }
+
+    public void PlayMonsterEncounter()
+    {
+        StartCoroutine(SceneMonsterEncounter());
+    }
+
+    IEnumerator SceneMonsterEncounter()
+    {
+        //initial setup
+        cutsceneMode = true;
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+
+        //darken
+        PlayerControls.Instance.MonsterDistance = 2;
+        yield return new WaitForSeconds(0.5f);
+
+        //dialogue
+        Dialogue[] msg =
+        {
+            new("Wait… why is everything going dark?", null),
+            new("Did someone mess with the power here?", null),
+            new("Or maybe… I'm not alone in here.", null),
+            new("Ughh this gives me the creeps I might need to hide in a closet or something.", null),
+        };
+        UIManager.Instance.LoadDialogue(msg);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //exit setup
+        cutsceneMode = false;
+        PlayerControls.Instance.doPlayerControls = true;
+        PlayerControls.Instance.doPlayerAnimations = true;
+        doMonsterSpawn = true;
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("PlayCount");
+        PlayerPrefs.DeleteKey("savedFloor");
     }
 }

@@ -1998,5 +1998,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4a1e35a8627d446a711c12ec43a897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctCode: 123456
+  puzzleObject: {fileID: 0}
+  correctCode: 635263
   text: {fileID: 54645883268635991}
+  interactable: 0
+  aud: {fileID: 0}

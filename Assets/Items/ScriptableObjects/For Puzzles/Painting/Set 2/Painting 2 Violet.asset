@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Painting 2 Violet
   m_EditorClassIdentifier: 
   itemName: Painting
-  itemIcon: {fileID: -3313576376499290477, guid: 37438744cb832a74c96763f4f1a3a21e, type: 3}
+  itemIcon: {fileID: 311261088, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
   itemDescription: A piece of Art
-  puzzlePiecePrefab: {fileID: 4226117025189444877, guid: 81ca90302ea267d4c865c25fb21ba237, type: 3}
+  puzzlePiecePrefab: {fileID: 4226117025189444877, guid: 5dca2095df96b424087d02118ca747ab, type: 3}

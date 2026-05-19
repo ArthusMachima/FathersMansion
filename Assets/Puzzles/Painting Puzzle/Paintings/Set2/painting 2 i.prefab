@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1381287103340382713}
   - component: {fileID: 2763443825411479001}
   m_Layer: 5
-  m_Name: painting i
+  m_Name: painting 2 i
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   colorCode: 105
   rot: 0
   canBeMoved: 1
-  item: {fileID: 11400000, guid: 4e7eab91bb777e94495232643dcb620e, type: 2}
+  item: {fileID: 11400000, guid: c34ddba205e33524d83b202bb5c21e9b, type: 2}
   aud: {fileID: 0}
 --- !u!225 &5613526891561578006
 CanvasGroup:

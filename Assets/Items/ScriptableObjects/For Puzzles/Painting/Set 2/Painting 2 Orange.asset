@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Painting 2 Orange
   m_EditorClassIdentifier: 
   itemName: Painting
-  itemIcon: {fileID: 5129148486412463519, guid: 37438744cb832a74c96763f4f1a3a21e, type: 3}
+  itemIcon: {fileID: -536382990, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
   itemDescription: A piece of Art
-  puzzlePiecePrefab: {fileID: 4410242848758079390, guid: 2b926ddf5dde81944bb32cb6b5890e1e, type: 3}
+  puzzlePiecePrefab: {fileID: 4410242848758079390, guid: f87a97358c95f154597d6675d9459290, type: 3}

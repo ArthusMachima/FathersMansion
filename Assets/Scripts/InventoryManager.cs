@@ -89,6 +89,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (!slot.HasItem())
             {
+                aud.PlaySFX(aud.s_ItemPickUp);
                 slot.InsertItem(item.item);
                 Destroy(item.gameObject);
                 return;
@@ -108,6 +109,7 @@ public class InventoryManager : MonoBehaviour
             {
                 if (!slot.HasItem())
                 {
+                    aud.PlaySFX(aud.s_ItemPickUp);
                     slot.InsertItem(item);
                     break;
                 }

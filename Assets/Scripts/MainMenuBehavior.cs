@@ -27,11 +27,12 @@ public class MainMenuBehavior : MonoBehaviour
     void HideAllPanel()
     {
         if (MainMenuPanel.alpha>=0.5f) ShowPanel(MainMenuPanel, !true);
-        if (SettingsPanel.alpha>=0.5f) ShowPanel(SettingsPanel, !true);
+        if (SettingsPanel != null) if (SettingsPanel.alpha>=0.5f) ShowPanel(SettingsPanel, !true);
     }
 
     public void ShowMainMenu()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.s_UIConfirm);
         HideAllPanel();
         LeanTween.delayedCall(0.5f, () =>
         {
@@ -41,6 +42,7 @@ public class MainMenuBehavior : MonoBehaviour
 
     public void ShowSettings()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.s_UICancel);
         HideAllPanel();
         LeanTween.delayedCall(0.5f, () =>
         {
@@ -53,6 +55,8 @@ public class MainMenuBehavior : MonoBehaviour
     //MainMenu Functions
     public void PlayGame()
     {
+        PlayerPrefs.DeleteKey("savedFloor");
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.s_UIConfirm);
         HideAllPanel();
         LeanTween.delayedCall(0.5f, () =>
         {
@@ -60,8 +64,20 @@ public class MainMenuBehavior : MonoBehaviour
         });
     }
 
+    public void RetryGame()
+    {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.s_UIConfirm);
+        PlayerPrefs.SetInt("PlayCount", PlayerPrefs.GetInt("PlayCount", 0) + 1);
+        HideAllPanel();
+        LeanTween.delayedCall(0.5f, () =>
+        {
+            GameManager.Instance.RespawnPlayer();
+        });
+    }
+
     public void ExitGame()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.s_UICancel);
         HideAllPanel();
         LeanTween.delayedCall(0.5f, () =>
         {
@@ -88,6 +104,7 @@ public class MainMenuBehavior : MonoBehaviour
     //Other
     public void ToggleColorblindMode()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.s_UIConfirm);
         if (!colorblindMode)
         {
             colorblindMode = true;

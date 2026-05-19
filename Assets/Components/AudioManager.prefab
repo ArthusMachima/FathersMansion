@@ -467,7 +467,9 @@ MonoBehaviour:
   s_PinType: {fileID: 8300000, guid: b46dceb7700106f408bc1d160459ac2e, type: 3}
   s_PinCorrect: {fileID: 8300000, guid: 431d1391ecf02804b8137f60e337c29e, type: 3}
   s_PinIncorrect: {fileID: 8300000, guid: a4efb322bd6412a42a6aa7abfe983567, type: 3}
-  s_DialogueTyping: {fileID: 0}
+  s_DialogueTyping: {fileID: 8300000, guid: 8065e89d6e7844a41b59262e48038e2d, type: 3}
+  s_UIConfirm: {fileID: 8300000, guid: 25d2203bab445fe4ca378c4463fcbbfb, type: 3}
+  s_UICancel: {fileID: 8300000, guid: 75b153d9d2f2ebb478a8ef82f716fb59, type: 3}
 --- !u!1 &8506254686897178699
 GameObject:
   m_ObjectHideFlags: 0
