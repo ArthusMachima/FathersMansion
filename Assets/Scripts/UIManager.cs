@@ -69,23 +69,38 @@ public class UIManager : MonoBehaviour
 
             if (pendingDialogue.Peek().sound != null) AudioManager.Instance.PlaySFX(pendingDialogue.Peek().sound);
 
+            if (pendingDialogue.Peek().methodCall != null && pendingDialogue.Peek().methodCall.GetPersistentEventCount() > 0)
+            {
+                pendingDialogue.Peek().methodCall.Invoke();
+            }
+
             if (pendingDialogue.Peek().cutsceneImage != null)
             {
                 if (!isCutscenePanelShown)
                 {
-                    Debug.Log("cutscene detected");
                     isCutscenePanelShown = true;
                     CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
                     LeanTween.value(CutscenePanel.gameObject, 0, 1, 0.5f)
                         .setOnUpdate(val => CutscenePanel.alpha = val);
                     yield return new WaitForSeconds(0.5f);
+                    /*
+                    if (pendingDialogue.Peek().willBeInterupted) CutscenePanel.alpha = 1;
+                    else
+                    {
+                        
+                    }
+                    */
                 }
             }
             else if (isCutscenePanelShown)
             {
-                LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
+                if (pendingDialogue.Peek().willBeInterupted) CutscenePanel.alpha = 0;
+                else
+                {
+                    LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
                     .setOnUpdate(val => CutscenePanel.alpha = val);
-                yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.5f);
+                }
                 isCutscenePanelShown = false;
                 CutsceneImage.sprite = null;
             }
@@ -118,19 +133,20 @@ public class UIManager : MonoBehaviour
                 yield return new WaitForSeconds(textSpeed);
                 pendingDialogue.Dequeue();
             }
-
-
-            if (pendingDialogue.Peek().methodCall != null && pendingDialogue.Peek().methodCall.GetPersistentEventCount() > 0)
-            {
-                pendingDialogue.Peek().methodCall.Invoke();
-            }
+            
         }
 
         if (isCutscenePanelShown)
         {
-            LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
+            if (pendingDialogue.Peek().willBeInterupted) CutscenePanel.alpha = 0;
+            else
+            {
+                LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
                 .setOnUpdate(val => CutscenePanel.alpha = val);
-            yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.5f);
+            }
+
+                
             isCutscenePanelShown = false;
             CutsceneImage.sprite = null;
         }

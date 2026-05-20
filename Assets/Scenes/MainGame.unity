@@ -75962,7 +75962,7 @@ MonoBehaviour:
   MonsterSpawnPoint: {fileID: 973469402}
   monsterApproachCooldown: 0
   prevDistance: 0
-  doCutscene: 1
+  doCutscene: 0
   doMonsterSpawn: 0
   LongKey: {fileID: 11400000, guid: 8f90ca1e4dd4fb849b9f1f6821c94c50, type: 2}
   keyCounter: 0
@@ -78924,7 +78924,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1246657648, guid: 0fe83cc2907d912438f879a894543623, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92005,7 +92005,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1140226235, guid: 0fe83cc2907d912438f879a894543623, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

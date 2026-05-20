@@ -828,7 +828,7 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.ScreenText.gameObject.SetActive(true);
         msg = new Dialogue[]
             {
-            new("\"Melania\"", null),
+            new("\"Melania\"", CutsceneImages[8]),
             };
         UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
@@ -848,8 +848,8 @@ public class GameManager : MonoBehaviour
         FloorTransitionBlack.alpha = 1;
         msg = new Dialogue[]
             {
-            new("\"I want you to take over the mansion for me\"", null),
-            new("That's what he said on the telephone.", null),
+            new("\"I want you to take over the mansion for me\"", CutsceneImages[8]),
+            new("That's what he said on the telephone.", CutsceneImages[8]),
             };
         UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
@@ -869,8 +869,8 @@ public class GameManager : MonoBehaviour
         FloorTransitionBlack.alpha = 1;
         msg = new Dialogue[]
             {
-            new("I don't think you need to.", null),
-            new("Father, I'm already doing well with my job.", null),
+            new("I don't think you need to.", CutsceneImages[8]),
+            new("Father, I'm already doing well with my job.", CutsceneImages[8]),
             };
         UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
