@@ -61,9 +61,17 @@ public class Dialogue
         cutsceneImage = img;
     }
 
+    public Dialogue(string msg, Sprite img, bool interuptable)
+    {
+        sentence = msg;
+        cutsceneImage = img;
+        willBeInterupted = interuptable;
+    }
+
     public string sentence;
     public Sprite cutsceneImage;
     public AudioClip sound;
     public UnityEvent methodCall;
     public bool disableTextSpecificDelays;
+    public bool willBeInterupted;
 }

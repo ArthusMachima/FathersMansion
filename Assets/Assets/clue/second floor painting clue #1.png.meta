@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 046f9eb438de83945b598402b7fa1f3a
+guid: d68be7af888eaee43b524c765dbceb8a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1569866148010719229
-    second: Pantting Puzzle set 1 clue first half_0
+      213: 4573339436635028081
+    second: second floor painting clue #1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pantting Puzzle set 1 clue first half_0
+      name: second floor painting clue #1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 3264
-        height: 2448
+        width: 1534
+        height: 1151
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30809ee4e07b63ae0800000000000000
-      internalID: -1569866148010719229
+      spriteID: 17a7aedacf3c77f30800000000000000
+      internalID: 4573339436635028081
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pantting Puzzle set 1 clue first half_0: -1569866148010719229
+      second floor painting clue #1_0: 4573339436635028081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

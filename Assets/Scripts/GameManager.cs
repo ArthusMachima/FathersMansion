@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] CanvasGroup PlayerWalkingScene;
     [SerializeField] GameObject GameOverUI;
     [SerializeField] Transform Map;
     [SerializeField] RendererGroupAlpha[] RoomAlpha;
@@ -167,7 +168,9 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Escape)) PauseGame(); 
+        if (Input.GetKeyDown(KeyCode.Escape)) PauseGame();
+
+        if (Input.GetKeyDown(KeyCode.F2)) Play1stFloorFinalPainting();
     }
 
 
@@ -703,6 +706,192 @@ public class GameManager : MonoBehaviour
         PlayerControls.Instance.doPlayerControls = true;
         PlayerControls.Instance.doPlayerAnimations = true;
         doMonsterSpawn = true;
+    }
+
+    public void PlayEscapeScenes()
+    {
+        if (FoundAllSecretItemsInSecondFloor)
+            PlayRealEscape();
+        else
+            PlayNormalEscape();
+    }
+
+    public void PlayNormalEscape()
+    {
+        StartCoroutine(SceneNormalEscape());
+    }
+
+    IEnumerator SceneNormalEscape()
+    {
+        //initial setup
+        cutsceneMode = true;
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+
+        yield return null;
+
+        //fade out game
+        LeanTween.value(FloorTransitionBlack.gameObject, 0, 1, 0.5f)
+                    .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+        yield return new WaitForSeconds(0.5f);
+        
+        //dialogue
+        Dialogue[] msg =
+        {
+            new("Finally, I managed to escape the place.", null),
+        };
+        UIManager.Instance.LoadDialogue(msg);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //fade in player walking
+        LeanTween.value(PlayerWalkingScene.gameObject, 0, 1, 0.5f)
+                    .setOnUpdate(val => PlayerWalkingScene.alpha = val);
+        yield return new WaitForSeconds(0.5f);
+
+        //play music
+        AudioManager.Instance.PlayBGM(AudioManager.Instance.m_1stFloorEnd);
+
+        //dialogue
+        msg = new Dialogue[]
+            {
+                new("And as I'm walking, I think about the things I've seen back there.", null),
+                new("The fact that I woke up on the second floor of a mansion.", null),
+                new("The fact that I somehow had close ties to it, seeing my own face in the portrait and all.", null),
+                new("The fact that something was chasing me, I don't know what that is.", null),
+                new("And the fact that I seem to not recognize myself.", null),
+                new("Though I may be curious about finding all the answers.", null),
+                new("I decided to just... ditched all of them, go back home to rest up from dealing all of that.", null),
+                new("But... which is the way to home? Where do I even live?", null),
+                new("And from that moment I realized that I kept on walking, without seeing a thing, all in pitch black.", null),
+            };
+        UIManager.Instance.LoadDialogue(msg);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //fade music and charcter sprite
+        LeanTween.value(PlayerWalkingScene.gameObject, 1, 0, 1)
+                    .setOnUpdate(val => PlayerWalkingScene.alpha = val);
+        AudioManager.Instance.SetBGMVolume(0, 1);
+
+        //dialogue
+        msg = new Dialogue[]
+            {
+                new("Walking endlessly and aimlessly.", null),
+                new("It's like I haven't escaped from a delusion.", null),
+            };
+        UIManager.Instance.LoadDialogue(msg);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //go to menu
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void PlayRealEscape()
+    {
+        StartCoroutine(SceneRealEscape());
+    }
+
+    IEnumerator SceneRealEscape()
+    {
+        //initial setup
+        cutsceneMode = true;
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("MainMenu");
+    } //not finished
+
+    public void Play1stFloorFinalPainting()
+    {
+        StartCoroutine(Scene1stFloorFinalPainting());
+    }
+
+    IEnumerator Scene1stFloorFinalPainting()
+    {
+        //initial setup
+        cutsceneMode = true;
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+
+        Dialogue[] msg =
+            {
+                new("Something came down the table.", null),
+                new("Huh, it's a painting of a telephon-", CutsceneImages[8], true), //putting cutscene images does not proceed to next convo
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //sudden flash back dialogue
+        FloorTransitionBlack.GetComponent<Image>().color = new(1, 1, 1);
+        FloorTransitionBlack.alpha = 1;
+        UIManager.Instance.ScreenText.gameObject.SetActive(true);
+        msg = new Dialogue[]
+            {
+            new("\"Melania\"", null),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //dialogue
+        UIManager.Instance.dialogueText.text = "";
+        FloorTransitionBlack.alpha = 0;
+        msg = new Dialogue[]
+            {
+            new("!?", CutsceneImages[8]),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //sudden flash back dialogue
+        UIManager.Instance.ScreenText.text = "";
+        FloorTransitionBlack.alpha = 1;
+        msg = new Dialogue[]
+            {
+            new("\"I want you to take over the mansion for me\"", null),
+            new("That's what he said on the telephone.", null),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //dialogue
+        UIManager.Instance.dialogueText.text = "";
+        FloorTransitionBlack.alpha = 0;
+        msg = new Dialogue[]
+            {
+            new("Huh...? What was-", CutsceneImages[8], true),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //sudden flash back dialogue
+        UIManager.Instance.ScreenText.text = "";
+        FloorTransitionBlack.alpha = 1;
+        msg = new Dialogue[]
+            {
+            new("I don't think you need to.", null),
+            new("Father, I'm already doing well with my job.", null),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //dialogue
+        UIManager.Instance.dialogueText.text = "";
+        FloorTransitionBlack.alpha = 0;
+        msg = new Dialogue[]
+            {
+            new("...", CutsceneImages[8], true),
+            new("It's gonna take a long while for me to process what I just remembered.", null),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //end setup
+        cutsceneMode = false;
+        PlayerControls.Instance.doPlayerControls = true;
+        PlayerControls.Instance.doPlayerAnimations = true;
+        FloorTransitionBlack.GetComponent<Image>().color = new(0, 0, 0);
+        UIManager.Instance.ScreenText.gameObject.SetActive(false);
     }
 
     private void OnApplicationQuit()

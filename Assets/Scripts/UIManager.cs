@@ -28,7 +28,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] CanvasGroup PuzzleCanvasGroup;
     public PuzzleClass CurrentPuzzlePanel;
 
-    
+    private void Update()
+    {
+        //Debug.Log(pendingDialogue.Count);
+    }
 
 
     // Singleton
@@ -66,11 +69,6 @@ public class UIManager : MonoBehaviour
 
             if (pendingDialogue.Peek().sound != null) AudioManager.Instance.PlaySFX(pendingDialogue.Peek().sound);
 
-            if (pendingDialogue.Peek().methodCall != null && pendingDialogue.Peek().methodCall.GetPersistentEventCount() > 0)
-            {
-                pendingDialogue.Peek().methodCall.Invoke();
-            }
-
             if (pendingDialogue.Peek().cutsceneImage != null)
             {
                 if (!isCutscenePanelShown)
@@ -106,12 +104,26 @@ public class UIManager : MonoBehaviour
                 else yield return new WaitForSeconds(textSpeed);
             }
 
-            dialogueConfirmSprite.SetActive(true);
-            yield return new WaitUntil(() =>
-                Input.GetKeyDown(PlayerControls.Instance.Interact) ||
-                Input.GetKey(PlayerControls.Instance.Run));
-            pendingDialogue.Dequeue();
-            dialogueConfirmSprite.SetActive(false);
+            if (!pendingDialogue.Peek().willBeInterupted)
+            {
+                dialogueConfirmSprite.SetActive(true);
+                yield return new WaitUntil(() =>
+                    Input.GetKeyDown(PlayerControls.Instance.Interact) ||
+                    Input.GetKey(PlayerControls.Instance.Run));
+                dialogueConfirmSprite.SetActive(false);
+                pendingDialogue.Dequeue();
+            }
+            else
+            {
+                yield return new WaitForSeconds(textSpeed);
+                pendingDialogue.Dequeue();
+            }
+
+
+            if (pendingDialogue.Peek().methodCall != null && pendingDialogue.Peek().methodCall.GetPersistentEventCount() > 0)
+            {
+                pendingDialogue.Peek().methodCall.Invoke();
+            }
         }
 
         if (isCutscenePanelShown)

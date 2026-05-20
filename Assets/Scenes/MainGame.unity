@@ -387,6 +387,175 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &17944360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 17944361}
+  - component: {fileID: 17944364}
+  - component: {fileID: 17944363}
+  - component: {fileID: 17944362}
+  m_Layer: 0
+  m_Name: Pliers encounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &17944361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17944360}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.38865155, y: -1.75, z: 0}
+  m_LocalScale: {x: 0.5, y: 1.673278, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1048747960}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &17944362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17944360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbc5addb558b0f46ab5a62838de0dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - sentence: Oh look, those pliers on that table might come in handy.
+    cutsceneImage: {fileID: 0}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: I could make lock picks from paper clips with that.
+    cutsceneImage: {fileID: 0}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  isInteractable: 1
+  isRepeatable: 0
+  onlyShownOnce: 0
+  isCutscene: 1
+  isPuzzleDialogue: 0
+--- !u!61 &17944363
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17944360}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!212 &17944364
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17944360}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -6
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &31670822
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,6 +2312,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -2289,7 +2459,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -228318516, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2484,6 +2654,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: It would be a convenient thing to have while studying
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -2491,6 +2662,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -3107,6 +3279,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -3178,7 +3351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150342176067402088, guid: db33b02fd521907428b26c730d4db019, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3260,7 +3433,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 125658753, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3305,6 +3478,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...
     cutsceneImage: {fileID: 21300000, guid: fb4503569e1301145a4b3501bedfbb42, type: 3}
     sound: {fileID: 0}
@@ -3312,6 +3486,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: This is probably a clue to a puzzle.
     cutsceneImage: {fileID: 21300000, guid: fb4503569e1301145a4b3501bedfbb42, type: 3}
     sound: {fileID: 0}
@@ -3319,6 +3494,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -3338,6 +3514,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -3563,7 +3740,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 1437994417, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3681,7 +3858,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1246657648, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3745,6 +3922,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Save me...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -3752,6 +3930,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -3848,7 +4027,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2334603326029506374, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3936,7 +4115,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -7220654397489635111, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4191,7 +4370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6191186741958361059, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: frontLayerIndex
@@ -4234,6 +4413,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I want to stab them with a knife.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -4241,6 +4421,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -4415,7 +4596,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 6284643380549296943, guid: 9752e7ae599eed7498bd519f8fd2dba3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5684,7 +5865,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 1610988658, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5775,6 +5956,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -5876,7 +6058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &142329752
 Transform:
   m_ObjectHideFlags: 0
@@ -8468,7 +8650,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: -6, z: 0}
   m_Size: {x: 18, y: 21, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -8502,7 +8684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7250c70f2aa8b642b955979a7264545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 0
+  alpha: 1
   doLog: 0
 --- !u!114 &142329759
 MonoBehaviour:
@@ -8933,7 +9115,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -284661245, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9018,7 +9200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -9208,6 +9390,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &198430372
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 672131947}
+    m_Modifications:
+    - target: {fileID: 607892810935707505, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 607892810935707505, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 607892810935707505, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 607892810935707505, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 607892810935707505, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 607892810935707505, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 607892810935707505, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 607892810935707505, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 607892810935707505, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 607892810935707505, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267733042296386295, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: storedItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 97e9d305265f0684e965e0b98c939334, type: 2}
+    - target: {fileID: 8917880998187439597, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+      propertyPath: m_Name
+      value: Box
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+--- !u!4 &198430373 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 607892810935707505, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
+  m_PrefabInstance: {fileID: 198430372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &200693102
 GameObject:
   m_ObjectHideFlags: 0
@@ -9319,7 +9567,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1068489578, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9394,6 +9642,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -9413,6 +9662,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -9662,7 +9912,7 @@ PrefabInstance:
       objectReference: {fileID: 1905267847, guid: 0fe83cc2907d912438f879a894543623, type: 3}
     - target: {fileID: 6150342176067402088, guid: db33b02fd521907428b26c730d4db019, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9807,6 +10057,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -9862,7 +10113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -10015,6 +10266,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Let's see what is in this room that makes them want to put a pin lock
       on.
     cutsceneImage: {fileID: 0}
@@ -10023,6 +10275,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -10042,6 +10295,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -10067,6 +10321,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -10086,6 +10341,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -10200,7 +10456,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -3747696687085805026, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10442,7 +10698,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: -2, z: 0}
   m_Size: {x: 16, y: 10, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -10844,7 +11100,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 1437994417, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11065,7 +11321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -11171,7 +11427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Name
@@ -11215,6 +11471,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -11330,7 +11587,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: -29837244, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11853,7 +12110,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 125658753, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12258,7 +12515,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1068489578, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12303,6 +12560,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -12322,6 +12580,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -12511,6 +12770,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -16611,6 +16871,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -16707,7 +16968,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2334603326029506374, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -16930,7 +17191,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -392026257, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17021,6 +17282,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Though I got no time for that.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -17028,6 +17290,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -17295,7 +17558,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 8191577589897570829, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17577,7 +17840,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2687917145589890042, guid: 38625ab8bc074d04e9adb6854dc18cb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17626,6 +17889,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: This is a first time I've seen a washing machine.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -17633,6 +17897,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Well, knowing the things this huge house has, I perhaps it makes sense
       for them to have one.
     cutsceneImage: {fileID: 0}
@@ -17641,6 +17906,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -17737,7 +18003,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2071072569968554643, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -20213,6 +20479,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -20232,6 +20499,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -20294,6 +20562,7 @@ GameObject:
   - component: {fileID: 397217989}
   - component: {fileID: 397217988}
   - component: {fileID: 397217991}
+  - component: {fileID: 397217992}
   m_Layer: 0
   m_Name: TILESET FURNITURE 2ntFLoor_17
   m_TagString: Untagged
@@ -20392,7 +20661,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 125658753, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -20431,10 +20700,134 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedItems:
   - {fileID: 11400000, guid: 4fe6a3157d135f940a19b8c80d9d38ac, type: 2}
+  - {fileID: 11400000, guid: 3441046a4259a754daeca023e274fc07, type: 2}
   onInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 397217992}
+        m_TargetAssemblyTypeName: DialogueObject, Assembly-CSharp
+        m_MethodName: LoadDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   forceOpenDrawer: 0
+--- !u!114 &397217992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397217987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbc5addb558b0f46ab5a62838de0dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - sentence: Let's see, we have...
+    cutsceneImage: {fileID: 0}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: A paper clip, could use it to make lock picks.
+    cutsceneImage: {fileID: -3294014016939171930, guid: ac4d2cdae92a5fd4ca26f04f363d822a, type: 3}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: And...
+    cutsceneImage: {fileID: 0}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: ...
+    cutsceneImage: {fileID: -1123473351, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: Wait, this is...
+    cutsceneImage: {fileID: -1123473351, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 1
+    willBeInterupted: 0
+  - sentence: A painting of a younger me... why is it here?
+    cutsceneImage: {fileID: -1123473351, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: What is the meaning of this?
+    cutsceneImage: {fileID: -1123473351, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: Does this mean I used to live here? Like perhaps this was my auntie's
+      place or something?
+    cutsceneImage: {fileID: -1123473351, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: I can't think hard about this now, I have to focus finding a way out.
+    cutsceneImage: {fileID: 0}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: 
+    cutsceneImage: {fileID: 0}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 397217991}
+          m_TargetAssemblyTypeName: DrawerObject, Assembly-CSharp
+          m_MethodName: DoForceOpen
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  isInteractable: 0
+  isRepeatable: 0
+  onlyShownOnce: 1
+  isCutscene: 0
+  isPuzzleDialogue: 0
 --- !u!1001 &399480113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20685,7 +21078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4772377754012533845, guid: 9ce19c483876c8642a890e36fb429dc8, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6327432215916389703, guid: 9ce19c483876c8642a890e36fb429dc8, type: 3}
       propertyPath: m_Name
@@ -20879,6 +21272,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: '"Jon bought five apples, he gave it to Kimberly."'
     cutsceneImage: {fileID: 21300000, guid: 48d72ac4a947b7741ad1305cc3615d81, type: 3}
     sound: {fileID: 0}
@@ -20886,6 +21280,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: '"Kimberly ate two and gave one to Joana, from which, out of gratitude,
       she exchanged five oranges in return."'
     cutsceneImage: {fileID: 21300000, guid: 48d72ac4a947b7741ad1305cc3615d81, type: 3}
@@ -20894,6 +21289,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: '"Joana was disapointed to find out that one of her oranges had spoiled."'
     cutsceneImage: {fileID: 21300000, guid: 48d72ac4a947b7741ad1305cc3615d81, type: 3}
     sound: {fileID: 0}
@@ -20901,6 +21297,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: '"Now, how many fresh fruit does Kimberly currently have?"'
     cutsceneImage: {fileID: 21300000, guid: 48d72ac4a947b7741ad1305cc3615d81, type: 3}
     sound: {fileID: 0}
@@ -20908,6 +21305,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: Is this some kind of riddle?
     cutsceneImage: {fileID: 21300000, guid: 48d72ac4a947b7741ad1305cc3615d81, type: 3}
     sound: {fileID: 0}
@@ -20915,6 +21313,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: I'll take this just in case...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -20922,6 +21321,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -20941,6 +21341,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -21069,7 +21470,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9029566168226830743, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -21215,6 +21616,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: "There, I found a painting\u2014wait... this painting..."
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -21222,6 +21624,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Is this the house where I'm currently at?
     cutsceneImage: {fileID: -2039542872, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -21229,6 +21632,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: And this person... Could he be the owner of the mansion perhaps?
     cutsceneImage: {fileID: -2039542872, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -21236,6 +21640,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -21255,6 +21660,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -21381,7 +21787,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1068489578, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -21411,7 +21817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &417085611
 Transform:
   m_ObjectHideFlags: 0
@@ -22631,7 +23037,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: -6, z: 0}
   m_Size: {x: 24, y: 13, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -22665,7 +23071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7250c70f2aa8b642b955979a7264545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 0
+  alpha: 1
   doLog: 0
 --- !u!114 &417085615
 MonoBehaviour:
@@ -22912,7 +23318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -24657,7 +25063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150342176067402088, guid: db33b02fd521907428b26c730d4db019, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25406,7 +25812,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 1610988658, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -25451,6 +25857,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -25671,7 +26078,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1068489578, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -25716,6 +26123,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...!
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -25723,6 +26131,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -25742,6 +26151,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -27194,7 +27604,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2267702975995657623, guid: b4ae6ef56a32bb848b60bebc1753b963, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -27281,7 +27691,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7059049456510230925, guid: 38625ab8bc074d04e9adb6854dc18cb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -27346,6 +27756,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Let's see here...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27353,6 +27764,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: '"Authorities are still on a lookout for five missing people"'
     cutsceneImage: {fileID: 2136133903, guid: 0fe83cc2907d912438f879a894543623, type: 3}
     sound: {fileID: 0}
@@ -27360,6 +27772,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: '"According to investigators, the last known location of each individual
       is near a forest with a mansion nearby."'
     cutsceneImage: {fileID: 2136133903, guid: 0fe83cc2907d912438f879a894543623, type: 3}
@@ -27368,6 +27781,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: '"There have been talks of authorities planning to seek a search warrant
       for the mansion."'
     cutsceneImage: {fileID: 2136133903, guid: 0fe83cc2907d912438f879a894543623, type: 3}
@@ -27376,6 +27790,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27383,6 +27798,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: missing people... forest...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27390,6 +27806,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: '!'
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27397,6 +27814,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Am I perhaps...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27404,6 +27822,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: One of the missing people...?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27411,6 +27830,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: Maybe they're searching for me right now?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27418,6 +27838,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -27586,7 +28007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -27818,6 +28239,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: '"My dear old friend, I would like to give you my deepest gratitude
       for being a successor of my passion project."'
     cutsceneImage: {fileID: 0}
@@ -27826,6 +28248,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: '"As I don''t have any time left because of old age, and further delving
       myself with this project can only stain my name due to it''s ethical concerns."'
     cutsceneImage: {fileID: 0}
@@ -27834,6 +28257,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: '"I commend you well for your recent progress, and I would like to
       say that you must deliver the subject to me as soon as you done enchancing
       her."'
@@ -27843,6 +28267,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: '"As always, keep the errand and my gratitude a secret until it''s
       time to present her to the Foundation."'
     cutsceneImage: {fileID: 0}
@@ -27851,6 +28276,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: '"Burn this paper if you must, and remember your contract." - Mr. Wundt'
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27858,6 +28284,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27865,6 +28292,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I have to know what's this about.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27872,6 +28300,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -28312,7 +28741,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1437994417, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -28509,7 +28938,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: -1714479741, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -28659,7 +29088,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -1060722537, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -28840,6 +29269,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Althought, I have better things to worry about other than that.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -28847,6 +29277,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -28946,6 +29377,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -29153,7 +29585,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -3, y: -2, z: 0}
   m_Size: {x: 26, y: 16, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -31436,8 +31868,8 @@ GameObject:
   - component: {fileID: 611215809}
   - component: {fileID: 611215811}
   - component: {fileID: 611215814}
-  - component: {fileID: 611215813}
   - component: {fileID: 611215812}
+  - component: {fileID: 611215815}
   m_Layer: 0
   m_Name: TILESET FURNITURE 2ntFLoor_23
   m_TagString: Untagged
@@ -31490,7 +31922,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -1060722537, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -31573,26 +32005,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbc5addb558b0f46ab5a62838de0dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: []
-  isInteractable: 1
-  isRepeatable: 0
-  onlyShownOnce: 0
-  isCutscene: 0
-  isPuzzleDialogue: 0
---- !u!114 &611215813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 611215808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cbc5addb558b0f46ab5a62838de0dd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue: []
-  isInteractable: 1
+  dialogue:
+  - sentence: I successfully made a lock pick out of a paper clip
+    cutsceneImage: {fileID: 0}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
   isCutscene: 0
@@ -31613,10 +32035,60 @@ MonoBehaviour:
   itemRequired: {fileID: 11400000, guid: 4fe6a3157d135f940a19b8c80d9d38ac, type: 2}
   onExchangeSucess:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 611215812}
+        m_TargetAssemblyTypeName: DialogueObject, Assembly-CSharp
+        m_MethodName: LoadDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onExchangeFail:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 611215815}
+        m_TargetAssemblyTypeName: DialogueObject, Assembly-CSharp
+        m_MethodName: LoadDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &611215815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611215808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbc5addb558b0f46ab5a62838de0dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - sentence: I don't have any paper clips in me.
+    cutsceneImage: {fileID: 0}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  isInteractable: 0
+  isRepeatable: 0
+  onlyShownOnce: 0
+  isCutscene: 0
+  isPuzzleDialogue: 0
 --- !u!1 &615070163
 GameObject:
   m_ObjectHideFlags: 0
@@ -31813,7 +32285,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1542807105467508383, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -31888,7 +32360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -32088,7 +32560,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -228318516, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -32163,7 +32635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Name
@@ -32207,6 +32679,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -32276,7 +32749,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 125658753, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -32486,7 +32959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Name
@@ -32530,6 +33003,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -32697,7 +33171,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -6
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -33147,7 +33621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &672131947
 Transform:
   m_ObjectHideFlags: 0
@@ -33175,6 +33649,7 @@ Transform:
   - {fileID: 465294872}
   - {fileID: 2092335802}
   - {fileID: 569505108}
+  - {fileID: 198430373}
   m_Father: {fileID: 149442111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &672131948
@@ -34333,7 +34808,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -6, y: -2, z: 0}
   m_Size: {x: 8, y: 12, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -34367,7 +34842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7250c70f2aa8b642b955979a7264545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 0
+  alpha: 1
   doLog: 0
 --- !u!114 &672131951
 MonoBehaviour:
@@ -34495,7 +34970,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 148100927, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -34602,6 +35077,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I would assume the item had already stolen long ago.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -34609,6 +35085,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Too bad.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -34616,6 +35093,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -36262,7 +36740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &680131070
 Transform:
   m_ObjectHideFlags: 0
@@ -37699,7 +38177,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: -3, z: 0}
   m_Size: {x: 15, y: 10, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -37733,7 +38211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7250c70f2aa8b642b955979a7264545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 0
+  alpha: 1
   doLog: 0
 --- !u!114 &680131074
 MonoBehaviour:
@@ -37861,7 +38339,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 148100927, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -37968,6 +38446,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I would assume the item had already stolen long ago.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -37975,6 +38454,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Too bad.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -37982,6 +38462,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -38114,7 +38595,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 125658753, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -38816,7 +39297,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2136133903, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -39055,7 +39536,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 623399023701456733, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -39317,6 +39798,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Why?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -39324,6 +39806,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -39407,7 +39890,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1437994417, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -39651,6 +40134,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -39754,7 +40238,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -6
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -40060,6 +40544,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -40487,7 +40972,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2334603326029506374, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -40532,6 +41017,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: It's as if they are keeping me from escaping.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -40539,6 +41025,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -40590,6 +41077,117 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.48921013}
   m_EdgeRadius: 0
+--- !u!1 &743193381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 743193382}
+  - component: {fileID: 743193385}
+  - component: {fileID: 743193384}
+  - component: {fileID: 743193383}
+  - component: {fileID: 743193386}
+  m_Layer: 5
+  m_Name: PlayerWalkingEnding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &743193382
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743193381}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8478389322700764288}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &743193383
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743193381}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c4b5ba131c876b14a9ed9e6e98e943fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &743193384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743193381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -112101691, guid: 19665d421a82187498efe42e7b66cab6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &743193385
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743193381}
+  m_CullTransparentMesh: 1
+--- !u!225 &743193386
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743193381}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &748064676
 GameObject:
   m_ObjectHideFlags: 0
@@ -40778,6 +41376,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Why does this room feel...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -40785,6 +41384,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: familiar...?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -40792,6 +41392,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -40960,7 +41561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150342176067402088, guid: db33b02fd521907428b26c730d4db019, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -41116,7 +41717,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 125658753, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -41878,7 +42479,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -3, y: -2, z: 0}
   m_Size: {x: 26, y: 16, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -41914,7 +42515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -42090,6 +42691,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -43229,7 +43831,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -228318516, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -43450,6 +44052,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -43627,6 +44230,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -43746,7 +44350,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1876224892791372681, guid: 3dfc14152619ea447b9cebb191a4be66, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2647455578208912692, guid: 3dfc14152619ea447b9cebb191a4be66, type: 3}
       propertyPath: m_Name
@@ -43896,6 +44500,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: That means a missing piece is lying around somewhere.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -43903,6 +44508,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -43922,6 +44528,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -43958,6 +44565,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: Wait... It has my name on it! I used to hang this in my office wall.
     cutsceneImage: {fileID: -1190603179, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -43965,6 +44573,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: How did it end up here??
     cutsceneImage: {fileID: -1190603179, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -43972,6 +44581,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: And also...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -43979,6 +44589,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Who is he?
     cutsceneImage: {fileID: 21300000, guid: 2af6812fa52321949bc20718b1be50ac, type: 3}
     sound: {fileID: 0}
@@ -43986,6 +44597,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -44485,7 +45097,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1542807105467508383, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -44623,7 +45235,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1485702546224255412, guid: 38625ab8bc074d04e9adb6854dc18cb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -45127,7 +45739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -45605,7 +46217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1306202182882030587, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1823251760386532871, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45650,13 +46262,25 @@ PrefabInstance:
     - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
       propertyPath: rewardItem
       value: 
-      objectReference: {fileID: 11400000, guid: 25c5ec5e74e331e48b8974ca8da02500, type: 2}
+      objectReference: {fileID: 11400000, guid: 8cf6f58b12df21a44bfdf6eac1f75932, type: 2}
     - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
       propertyPath: PuzzleTexture
       value: 
       objectReference: {fileID: 2800000, guid: 881b966ac8bd8724c9743da0f5fe38aa, type: 3}
     - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: missingPieceReq
+      value: 
+      objectReference: {fileID: 11400000, guid: 97e9d305265f0684e965e0b98c939334, type: 2}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
       propertyPath: OnPuzzleEnterMethod.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: OnPuzzleCompleteMethod.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: OnPuzzleEnterMethod.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
@@ -45664,8 +46288,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 937764048}
     - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: OnPuzzleCompleteMethod.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: OnPuzzleCompleteMethod.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1447365486}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
       propertyPath: OnPuzzleEnterMethod.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: OnPuzzleEnterMethod.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: OnPuzzleCompleteMethod.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: OnPuzzleCompleteMethod.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play1stFloorFinalPainting
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: OnPuzzleEnterMethod.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: OnPuzzleCompleteMethod.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: OnPuzzleEnterMethod.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771535851671056261, guid: 9c333939ef747b444917d1c8664e7834, type: 3}
+      propertyPath: OnPuzzleCompleteMethod.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -45709,13 +46369,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - sentence: dialogue text
+  - sentence: Another set of polaroids.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
     methodCall:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: They look kind of faded this time
+    cutsceneImage: {fileID: 0}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -45735,9 +46404,10 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
-  isInteractable: 1
+    willBeInterupted: 0
+  isInteractable: 0
   isRepeatable: 0
-  onlyShownOnce: 0
+  onlyShownOnce: 1
   isCutscene: 0
   isPuzzleDialogue: 0
 --- !u!1 &937782140
@@ -46105,6 +46775,7 @@ GameObject:
   - component: {fileID: 947132159}
   - component: {fileID: 947132163}
   - component: {fileID: 947132162}
+  - component: {fileID: 947132164}
   m_Layer: 0
   m_Name: Furniture_1st Floor_51
   m_TagString: Untagged
@@ -46203,7 +46874,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 148100927, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -46248,55 +46919,75 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
-  - sentence: If I have something to say right now...
+    willBeInterupted: 0
+  - sentence: Oh wait, something's here.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
     methodCall:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
-  - sentence: ...
-    cutsceneImage: {fileID: 0}
-    sound: {fileID: 0}
-    methodCall:
-      m_PersistentCalls:
-        m_Calls: []
-    disableTextSpecificDelays: 0
-  - sentence: '"I miss my parents..."'
-    cutsceneImage: {fileID: 0}
-    sound: {fileID: 0}
-    methodCall:
-      m_PersistentCalls:
-        m_Calls: []
-    disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: '!!'
+    cutsceneImage: {fileID: 216899954, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 947132164}
+          m_TargetAssemblyTypeName: ItemGiver, Assembly-CSharp
+          m_MethodName: GiveItem
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: Me... and the man behind the mansion...?
+    cutsceneImage: {fileID: 216899954, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: Why are we on the same picture?
+    cutsceneImage: {fileID: 216899954, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: If this looks like a family photo... then, does that mean...?
+    cutsceneImage: {fileID: 216899954, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: No, this place has weirded me out already.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
     methodCall:
       m_PersistentCalls:
         m_Calls: []
-    disableTextSpecificDelays: 1
-  - sentence: I just blurted that out...
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  - sentence: I have to prioritize getting out of here.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
     methodCall:
       m_PersistentCalls:
         m_Calls: []
-    disableTextSpecificDelays: 1
-  - sentence: Even though I can't even remember them.
-    cutsceneImage: {fileID: 0}
-    sound: {fileID: 0}
-    methodCall:
-      m_PersistentCalls:
-        m_Calls: []
-    disableTextSpecificDelays: 1
-  - sentence: Why?
-    cutsceneImage: {fileID: 0}
-    sound: {fileID: 0}
-    methodCall:
-      m_PersistentCalls:
-        m_Calls: []
-    disableTextSpecificDelays: 1
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -46318,6 +47009,20 @@ MonoBehaviour:
   backLayerIndex: 2
   frontLayerIndex: 0
   pivotOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &947132164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947132158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a912b2805b3da04b9a04a1e5b0b16fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToGive: {fileID: 11400000, guid: 581b0a8bea295d241ac96bb61aae02bc, type: 2}
+  isKey: 0
 --- !u!1 &948499601
 GameObject:
   m_ObjectHideFlags: 0
@@ -46395,7 +47100,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1485702546224255412, guid: 38625ab8bc074d04e9adb6854dc18cb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -46504,7 +47209,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: -904311026, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -46974,7 +47679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917880998187439597, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Name
@@ -47013,6 +47718,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -49802,7 +50508,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: -9029566168226830743, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -50470,7 +51176,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -6453626731154956584, guid: 38625ab8bc074d04e9adb6854dc18cb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -50542,7 +51248,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 838179140794839648, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -50847,6 +51553,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: hmmm...
     cutsceneImage: {fileID: 7463408916926491946, guid: 1bdaa554aef9dc944a6b9d6f47f44230, type: 3}
     sound: {fileID: 0}
@@ -50854,6 +51561,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I'll take this just in case
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -50861,6 +51569,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -50880,6 +51589,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -50921,7 +51631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1048747960
 Transform:
   m_ObjectHideFlags: 0
@@ -50944,6 +51654,7 @@ Transform:
   - {fileID: 1852459081}
   - {fileID: 1194376185}
   - {fileID: 895385009}
+  - {fileID: 17944361}
   m_Father: {fileID: 149442111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1048747961
@@ -51878,7 +52589,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -6, y: -6, z: 0}
   m_Size: {x: 8, y: 9, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -51912,7 +52623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7250c70f2aa8b642b955979a7264545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 0
+  alpha: 1
   doLog: 0
 --- !u!114 &1048747964
 MonoBehaviour:
@@ -52337,6 +53048,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -52538,7 +53250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -52724,7 +53436,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -228318516, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -52799,7 +53511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Name
@@ -52843,6 +53555,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -53327,7 +54040,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1021056259, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -54869,6 +55582,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: Why does it feel like I've held this camera before?
     cutsceneImage: {fileID: 21300000, guid: 3fe39dea9f7f2a5429df7632624fc10b, type: 3}
     sound: {fileID: 0}
@@ -54876,6 +55590,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -55338,7 +56053,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4714559247029807736, guid: 23c72c7e49bc60c48afbe5258cdcfad2, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4727663946750985838, guid: 23c72c7e49bc60c48afbe5258cdcfad2, type: 3}
       propertyPath: rewardItem
@@ -55489,6 +56204,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Huh, I got another puzzle clue.
     cutsceneImage: {fileID: 21300000, guid: e5e8d576674f67c4db9b6991e3fb086c, type: 3}
     sound: {fileID: 0}
@@ -55496,6 +56212,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -55521,6 +56238,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...A bulletin board? Why is it placed like that?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -55528,6 +56246,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -55547,6 +56266,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -55588,6 +56308,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -55703,7 +56424,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1437994417, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -55892,7 +56613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -56014,7 +56735,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7059049456510230925, guid: 38625ab8bc074d04e9adb6854dc18cb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -56333,7 +57054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -56677,7 +57398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7267733042296386295, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: storedItem
@@ -56720,6 +57441,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I tried getting it with my right hand.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -56727,6 +57449,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -56734,6 +57457,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Couldn't reach it for some reason.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -56741,6 +57465,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -56801,7 +57526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4772377754012533845, guid: 9ce19c483876c8642a890e36fb429dc8, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6327432215916389703, guid: 9ce19c483876c8642a890e36fb429dc8, type: 3}
       propertyPath: m_Name
@@ -58672,7 +59397,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 1610988658, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -58763,6 +59488,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: I see dead bugs inside of it.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -58770,6 +59496,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -58853,7 +59580,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 1610988658, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -59317,7 +60044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -59476,7 +60203,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: -904311026, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -59701,7 +60428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150342176067402088, guid: db33b02fd521907428b26c730d4db019, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -59868,6 +60595,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...somehow this hat kinda feels familiar.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -59875,6 +60603,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I should take it just incase.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -59882,6 +60611,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -59901,6 +60631,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -59976,7 +60707,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 148100927, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -60083,6 +60814,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I would assume the item had already stolen long ago.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -60090,6 +60822,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Too bad.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -60097,6 +60830,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -63974,7 +64708,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1068489578, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -64048,6 +64782,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -64067,6 +64802,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -64134,7 +64870,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2355284267182241704, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -67639,7 +68375,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -228318516, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -68604,6 +69340,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: It's a yellow-tipped key.
     cutsceneImage: {fileID: 21300000, guid: 10cfea25acd3d0946a3b6250ca31c75c, type: 3}
     sound: {fileID: 0}
@@ -68611,6 +69348,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: I'm guesing these puzzles with their keys are all over the place.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -68618,6 +69356,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: It might help me escape this place.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -68625,6 +69364,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -68644,6 +69384,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -68669,6 +69410,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...Oh these are polaroid cards.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -68676,6 +69418,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: And it seems to be missing a piece.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -68683,6 +69426,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: The cards are stuck in this state.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -68690,6 +69434,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -68721,6 +69466,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -69185,7 +69931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917880998187439597, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Name
@@ -69221,7 +69967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1366265770
 Transform:
   m_ObjectHideFlags: 0
@@ -70525,7 +71271,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -6, y: -1, z: 0}
   m_Size: {x: 11, y: 16, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -70620,7 +71366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7250c70f2aa8b642b955979a7264545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 0
+  alpha: 1
   doLog: 0
 --- !u!1 &1369875951
 GameObject:
@@ -70684,7 +71430,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 838179140794839648, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -72090,6 +72836,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: I think one of the keys I carried fell off.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -72097,6 +72844,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Oh...?
     cutsceneImage: {fileID: 21300000, guid: 841a2d43033e7184f8f2499d39c312f4, type: 3}
     sound: {fileID: 0}
@@ -72104,6 +72852,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: The key... broke?
     cutsceneImage: {fileID: 21300000, guid: 841a2d43033e7184f8f2499d39c312f4, type: 3}
     sound: {fileID: 0}
@@ -72111,6 +72860,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Or maybe...
     cutsceneImage: {fileID: 21300000, guid: 841a2d43033e7184f8f2499d39c312f4, type: 3}
     sound: {fileID: 0}
@@ -72118,6 +72868,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: I then checked each of the keys I was carrying.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -72125,6 +72876,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: Just as I thought, all of the colored tips turned out to be removable.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -72132,6 +72884,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: But why...?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -72139,6 +72892,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: '!!'
     cutsceneImage: {fileID: -5895795991965008814, guid: 251e04c764ee44b4fa4f073599c3f6c7, type: 3}
     sound: {fileID: 0}
@@ -72146,6 +72900,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: So that means...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -72153,6 +72908,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...
     cutsceneImage: {fileID: 21300000, guid: 098f9939563dbb04c814c9c43fa318cf, type: 3}
     sound: {fileID: 0}
@@ -72172,6 +72928,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: This should unlock that elongated lock.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -72179,6 +72936,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -72251,6 +73009,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -72270,6 +73029,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 1
   onlyShownOnce: 1
@@ -73280,7 +74040,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1542807105467508383, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -73606,6 +74366,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -73625,6 +74386,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 1
   onlyShownOnce: 1
@@ -73957,7 +74719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1446117261
 Transform:
   m_ObjectHideFlags: 0
@@ -75042,7 +75804,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: 0, z: 0}
   m_Size: {x: 24, y: 15, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -75076,7 +75838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7250c70f2aa8b642b955979a7264545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 0
+  alpha: 1
   doLog: 0
 --- !u!114 &1446117265
 MonoBehaviour:
@@ -75168,6 +75930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02784a389b24ae446a13214c8b924c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerWalkingScene: {fileID: 743193386}
   GameOverUI: {fileID: 8527154164707646380}
   Map: {fileID: 583511107}
   RoomAlpha: []
@@ -75220,6 +75983,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 667f0b0160325aa4180bd82b42ebc89f, type: 3}
   - {fileID: 21300000, guid: 70becc1640df8da48b84fbb58e22a89d, type: 3}
   - {fileID: -6888136837952420475, guid: 78b7b27689f64294aa9e3524d0543a3f, type: 3}
+  - {fileID: -536382990, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
   SecondFloorSecretItems:
   - {fileID: 11400000, guid: 9b1c782f0170aec4eac7ff3a36f735ce, type: 2}
   - {fileID: 11400000, guid: c1e4f4a18abcbc149bb5ceef390c34ae, type: 2}
@@ -75543,7 +76307,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4641035256024332992, guid: 38625ab8bc074d04e9adb6854dc18cb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -75808,6 +76572,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: Perhaps I can use this to get through those cardboard boxes.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -75815,6 +76580,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -75834,6 +76600,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -75962,7 +76729,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 349ffaa70722ceb40826fb97139a35ec, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -75994,7 +76761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -76257,7 +77024,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4641035256024332992, guid: 38625ab8bc074d04e9adb6854dc18cb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -76332,7 +77099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Name
@@ -76376,6 +77143,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -76401,7 +77169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1493445023
 Transform:
   m_ObjectHideFlags: 0
@@ -77847,7 +78615,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: -2, z: 0}
   m_Size: {x: 15, y: 17, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -77927,7 +78695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7250c70f2aa8b642b955979a7264545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 0
+  alpha: 1
   doLog: 0
 --- !u!114 &1493445028
 MonoBehaviour:
@@ -78158,7 +78926,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1246657648, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -80189,7 +80957,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: -29837244, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -80428,7 +81196,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -3048133498818739641, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -80473,6 +81241,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: It's as if they are keeping me from escaping.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -80480,6 +81249,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -80988,6 +81758,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I can't seem to understand the cursives.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -80995,6 +81766,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: There's a sketch under the papers.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -81002,6 +81774,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: And it seems to depict an empty pot placed in a weird position.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -81009,6 +81782,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -81443,7 +82217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1600891395
 Transform:
   m_ObjectHideFlags: 0
@@ -83034,7 +83808,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -284661245, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -83079,6 +83853,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: "\u201DA look at the evolution of the Dial Telephone\u201D"
     cutsceneImage: {fileID: 21300000, guid: 3578548ef6bb1554188c1800d2aa6eb8, type: 3}
     sound: {fileID: 0}
@@ -83086,6 +83861,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: "\u201DThe Model 50AL Candlestick was introduced in 1919 as the first
       free-standing dial telephone.\u201D"
     cutsceneImage: {fileID: 21300000, guid: 3578548ef6bb1554188c1800d2aa6eb8, type: 3}
@@ -83094,6 +83870,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: "\u201CThis groundbreaking model kicked off the rotary dial era that
       dominated the rest of the 20th century.\u201D"
     cutsceneImage: {fileID: 21300000, guid: 3578548ef6bb1554188c1800d2aa6eb8, type: 3}
@@ -83102,6 +83879,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: "\u201CIn 1927, Western Electric produced the Model A1, their first
       telephone featuring a convenie-\u201D Okay I don\u2019t think this could help
       my situation."
@@ -83111,6 +83889,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -83186,7 +83965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150342176067402088, guid: db33b02fd521907428b26c730d4db019, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -83426,7 +84205,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2355284267182241704, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -83546,7 +84325,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 1001693866, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -83591,6 +84370,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Too bad I don't know how to play one.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -83598,6 +84378,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -83951,7 +84732,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -284661245, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84132,7 +84913,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1437994417, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84691,7 +85472,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 148100927, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84798,6 +85579,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I would assume the item had already stolen long ago.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -84805,6 +85587,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Too bad.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -84812,6 +85595,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -85555,7 +86339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6191186741958361059, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: frontLayerIndex
@@ -85598,6 +86382,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I want to stab them with a knife.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -85605,6 +86390,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -88625,6 +89411,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I would imagine it having something inside.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -88632,6 +89419,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Well who knows.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -88639,6 +89427,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 1
@@ -89169,7 +89958,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -6453626731154956584, guid: 38625ab8bc074d04e9adb6854dc18cb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89319,7 +90108,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -6
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89409,7 +90198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6191186741958361059, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: frontLayerIndex
@@ -89452,6 +90241,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I want to stab them with a knife.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -89459,6 +90249,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -89853,6 +90644,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -90135,6 +90927,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I have never seen one with a circular window to the front.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -90142,6 +90935,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Perhaps this makes waiting for clothes a little more fun because you
       can see it from this angle.
     cutsceneImage: {fileID: 0}
@@ -90150,6 +90944,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -90246,7 +91041,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 8914453065352448708, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -90554,6 +91349,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I could now break empty pots with this.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -90561,6 +91357,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -90580,6 +91377,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -90669,7 +91467,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -904311026, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -90699,6 +91497,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: Why would they need this kind of lamp here?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -90706,6 +91505,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -91154,6 +91954,7 @@ GameObject:
   - component: {fileID: 1867549132}
   - component: {fileID: 1867549131}
   - component: {fileID: 1867549133}
+  - component: {fileID: 1867549134}
   m_Layer: 0
   m_Name: TILESET FURNITURE 2ntFLoor_36
   m_TagString: Untagged
@@ -91206,7 +92007,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1140226235, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -91277,6 +92078,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 0.45333147}
   m_EdgeRadius: 0
+--- !u!114 &1867549134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867549130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbc5addb558b0f46ab5a62838de0dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - sentence: Clothes with good and bad scent mixed in
+    cutsceneImage: {fileID: 0}
+    sound: {fileID: 0}
+    methodCall:
+      m_PersistentCalls:
+        m_Calls: []
+    disableTextSpecificDelays: 0
+    willBeInterupted: 0
+  isInteractable: 1
+  isRepeatable: 0
+  onlyShownOnce: 0
+  isCutscene: 0
+  isPuzzleDialogue: 0
 --- !u!1 &1867935576
 GameObject:
   m_ObjectHideFlags: 0
@@ -92394,7 +93221,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: -6, z: 0}
   m_Size: {x: 11, y: 8, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -92428,7 +93255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7250c70f2aa8b642b955979a7264545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 0
+  alpha: 1
   doLog: 0
 --- !u!114 &1870100759
 MonoBehaviour:
@@ -92747,6 +93574,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -92843,7 +93671,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2334603326029506374, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93045,7 +93873,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -3, y: -2, z: 0}
   m_Size: {x: 19, y: 10, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -93239,6 +94067,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -93381,7 +94210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917880998187439597, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Name
@@ -93420,6 +94249,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -93536,6 +94366,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -93580,6 +94411,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -93676,7 +94508,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2334603326029506374, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93951,7 +94783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4772377754012533845, guid: 9ce19c483876c8642a890e36fb429dc8, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6327432215916389703, guid: 9ce19c483876c8642a890e36fb429dc8, type: 3}
       propertyPath: m_Name
@@ -93983,7 +94815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1938434029
 Transform:
   m_ObjectHideFlags: 0
@@ -94003,6 +94835,7 @@ Transform:
   - {fileID: 1138199333}
   - {fileID: 969675861}
   - {fileID: 141676593}
+  - {fileID: 2095578691}
   - {fileID: 149442111}
   m_Father: {fileID: 583511107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -94097,7 +94930,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -7220654397489635111, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95645,6 +96478,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -95708,7 +96542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150342176067402088, guid: db33b02fd521907428b26c730d4db019, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -95943,7 +96777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642269376891335356, guid: fc1327b84a010674aa41f96f8bc2c3a0, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9045861572297304252, guid: fc1327b84a010674aa41f96f8bc2c3a0, type: 3}
       propertyPath: m_Name
@@ -96512,7 +97346,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -228318516, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96638,6 +97472,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -96657,6 +97492,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 1
   onlyShownOnce: 1
@@ -96753,7 +97589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353241180932431618, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5945320853377956954, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: m_Name
@@ -98360,6 +99196,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Is it one of those puzzles perhaps?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -98367,6 +99204,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I wonder what would happen if I try rearranging theses paintings?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -98374,6 +99212,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -98405,6 +99244,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -98430,6 +99270,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: It's a key
     cutsceneImage: {fileID: 21300000, guid: e5371bda1d6126a49ac298b3fd9cb7af, type: 3}
     sound: {fileID: 0}
@@ -98437,6 +99278,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -98456,6 +99298,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -98511,6 +99354,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -98607,7 +99451,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -904311026, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98777,6 +99621,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Somehow the only dying plant I've seen so far.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -98784,6 +99629,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -101132,7 +101978,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7818573961695479488, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101310,6 +102156,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I could make a lock pick out of this...
     cutsceneImage: {fileID: -3294014016939171930, guid: ac4d2cdae92a5fd4ca26f04f363d822a, type: 3}
     sound: {fileID: 0}
@@ -101317,6 +102164,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: Though I need a tool for it.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -101324,6 +102172,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -101404,7 +102253,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -6
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101493,7 +102342,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -1060722537, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101565,6 +102414,178 @@ MonoBehaviour:
   backLayerIndex: 3
   frontLayerIndex: -1
   pivotOffset: {x: 0, y: 0, z: 0}
+--- !u!1 &2095578690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2095578691}
+  - component: {fileID: 2095578693}
+  - component: {fileID: 2095578692}
+  - component: {fileID: 2095578694}
+  m_Layer: 0
+  m_Name: Escape
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2095578691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095578690}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9, y: 13, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1938434029}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &2095578692
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095578690}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.5}
+      - {x: -1.5, y: -2}
+      - {x: -0.72242856, y: -0.99999976}
+      - {x: 0.6148054, y: -0.9911916}
+      - {x: 1.5, y: -2}
+      - {x: 0.5, y: 0.5}
+  m_UseDelaunayMesh: 0
+--- !u!212 &2095578693
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095578690}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &2095578694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095578690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d79874b1f3627b44b409f96dee580b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToCheck: {fileID: 0}
+  onItemMatch:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1447365486}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PlayEscapeScenes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  makeItTransparent: 0
+  destroyOnCheck: 1
 --- !u!1 &2101126727
 GameObject:
   m_ObjectHideFlags: 0
@@ -101705,7 +102726,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1068489578, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101750,6 +102771,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Even if I could eat one, I'm not really that hungry.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -101757,6 +102779,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -101776,6 +102799,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -101839,7 +102863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150342176067402088, guid: db33b02fd521907428b26c730d4db019, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -101905,6 +102929,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -102001,7 +103026,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2334603326029506374, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102061,7 +103086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_Name
@@ -102105,6 +103130,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -102286,7 +103312,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2334603326029506374, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102331,6 +103357,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Though it's mostly just dried bones and spoiled veggies, thankfully.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -102338,6 +103365,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -102483,6 +103511,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I wonder what's in it...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -102490,6 +103519,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -102509,6 +103539,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -108453,7 +109484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4772377754012533845, guid: 9ce19c483876c8642a890e36fb429dc8, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6327432215916389703, guid: 9ce19c483876c8642a890e36fb429dc8, type: 3}
       propertyPath: m_Name
@@ -109955,6 +110986,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Why did I end up in a bedroom?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -109962,6 +110994,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -113680,7 +114713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239989212254101536, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917880998187439597, guid: 9d4dda373abfe1b4b9154ac239f40fcc, type: 3}
       propertyPath: m_Name
@@ -113719,6 +114752,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -116381,6 +117415,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...who am I?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -116388,6 +117423,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -116976,7 +118012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3002943787885174470
 GameObject:
   m_ObjectHideFlags: 0
@@ -117072,6 +118108,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Nothing happened.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -117079,6 +118116,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -120922,6 +121960,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 'It says the following:'
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -120929,6 +121968,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: '"To whom who may concern, the only way out of your predicament is
       to take the time to know your surroundings like a friend."'
     cutsceneImage: {fileID: 0}
@@ -120937,6 +121977,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I think it's telling me to check every object in a room.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -120944,6 +121985,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -128672,7 +129714,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2095204482299805331, guid: f564a43f782e3094eb41f44808cbbfba, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 743193382}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f564a43f782e3094eb41f44808cbbfba, type: 3}
 --- !u!1001 &5150136191261923942
@@ -128725,11 +129770,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.z
@@ -129686,6 +130731,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -130673,6 +131719,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -132828,6 +133875,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: wait... these are biology and psychology topics related to women.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -132835,6 +133883,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I wonder why...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -132842,6 +133891,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -133570,6 +134620,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Let's see here...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -133577,6 +134628,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -133596,6 +134648,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -133841,6 +134894,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -135687,6 +136741,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: and a trench coat behind it with a certain symbol that I don't recognize.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -135694,6 +136749,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -139100,6 +140156,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: A rather dark and witchy one
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -139107,6 +140164,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Not sure if this fits in the room.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -139114,6 +140172,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -139327,6 +140386,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -139669,6 +140729,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -140516,6 +141577,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -140826,6 +141888,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I would want to lay down on it, though, too bad it's dusty.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -140833,6 +141896,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -141339,6 +142403,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I could move these one by one if I could, although they're too heavy
       for me.
     cutsceneImage: {fileID: 0}
@@ -141347,6 +142412,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: or... I could just go there from the other side of the door.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -141354,6 +142420,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -141409,6 +142476,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -141843,6 +142911,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -142720,6 +143789,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: All the etiquettes and recipes.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -142727,6 +143797,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: These made me slightly more hungry.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -142734,6 +143805,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -143018,6 +144090,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Aw, what a shame.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -143025,6 +144098,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -143158,6 +144232,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: I need to get out of here.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -143165,6 +144240,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -143196,6 +144272,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -143221,6 +144298,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -143228,6 +144306,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Not even all of the keys I currently have would fit there.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -143235,6 +144314,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I don't think even hitting this thing with a hammer would break up
       either.
     cutsceneImage: {fileID: 0}
@@ -143243,6 +144323,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: It's elongated, which means I may need a longer key, I wonder how to
       get one.
     cutsceneImage: {fileID: 0}
@@ -143251,6 +144332,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -143282,6 +144364,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -143525,6 +144608,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -143946,6 +145030,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Makes me wonder about the owner of the room.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -143953,6 +145038,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -144368,6 +145454,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -144399,6 +145486,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -144933,6 +146021,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
+    willBeInterupted: 0
   - sentence: It's missing a piece, it doesn't make sense for this puzzle to have
       two gaps.
     cutsceneImage: {fileID: 0}
@@ -144941,6 +146030,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Can't seem to slide the pieces in this state.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -144948,6 +146038,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -144979,6 +146070,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -145004,6 +146096,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I found a key with a red tip
     cutsceneImage: {fileID: 21300000, guid: 845e172b0e7420f4bb122e75e12b12e9, type: 3}
     sound: {fileID: 0}
@@ -145011,6 +146104,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Perhaps I can use this to open that lock door.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -145018,6 +146112,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -145037,6 +146132,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -145928,6 +147024,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Even then, I try to look around and snuck my hand to see if I find
       something.
     cutsceneImage: {fileID: 0}
@@ -145936,6 +147033,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: ...!
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -145943,6 +147041,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: It's...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -145950,6 +147049,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -145969,6 +147069,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -146202,6 +147303,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: I guess this provides the hallway with much needed humidity.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -146209,6 +147311,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -146253,6 +147356,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -146346,6 +147450,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: This row specifically is about politics.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -146353,6 +147458,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -146407,6 +147513,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Let's see if I find anything useful here
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -146414,6 +147521,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -146433,6 +147541,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -146694,6 +147803,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -146713,6 +147823,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -147184,6 +148295,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: What do I do? Does this mean I am trapped here?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -147191,6 +148303,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -147385,6 +148498,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -147426,6 +148540,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -147445,6 +148560,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -147555,6 +148671,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -147595,6 +148712,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   - sentence: Some of it here could fit me
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -147602,6 +148720,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
+    willBeInterupted: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
