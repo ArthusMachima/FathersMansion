@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e5c06533e23cc814bb95476a9ddab76c
+guid: 278d6a2b1ee3e304e84ae40c387e1e61
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1569866148010719229
-    second: Pantting Puzzle set 1 clue first half_0
+      213: 8108348258951113162
+    second: textshadow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pantting Puzzle set 1 clue first half_0
+      name: textshadow_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 3264
-        height: 2448
+        width: 128
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30809ee4e07b63ae0800000000000000
-      internalID: -1569866148010719229
+      spriteID: ac920f918c3a68070800000000000000
+      internalID: 8108348258951113162
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pantting Puzzle set 1 clue first half_0: -1569866148010719229
+      textshadow_0: 8108348258951113162
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

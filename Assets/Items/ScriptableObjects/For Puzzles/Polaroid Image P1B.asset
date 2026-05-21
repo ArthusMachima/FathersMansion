@@ -15,4 +15,5 @@ MonoBehaviour:
   itemName: Polaroid Image "P1B"
   itemIcon: {fileID: -1572618297, guid: 251e04c764ee44b4fa4f073599c3f6c7, type: 3}
   itemDescription: An old polaroid picture that may include a clue.
-  clue: {fileID: -3802705441194057608, guid: d51a7b38040fc2643b16f2a320ebf48b, type: 3}
+  clue: {fileID: 21300000, guid: 162f3f5445b4d0c4bb640c9ad27c13dd, type: 3}
+  clueColorblindAlt: {fileID: 0}

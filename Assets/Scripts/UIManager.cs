@@ -28,10 +28,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] CanvasGroup PuzzleCanvasGroup;
     public PuzzleClass CurrentPuzzlePanel;
 
-    private void Update()
-    {
-        //Debug.Log(pendingDialogue.Count);
-    }
 
 
     // Singleton
@@ -65,7 +61,7 @@ public class UIManager : MonoBehaviour
         while (pendingDialogue.Count > 0)
         {
             currentDialogueText.text = "";
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.s_DialogueTyping);
+            //AudioManager.Instance.PlaySFX(AudioManager.Instance.s_DialogueTyping);
 
             if (pendingDialogue.Peek().sound != null) AudioManager.Instance.PlaySFX(pendingDialogue.Peek().sound);
 
@@ -74,29 +70,37 @@ public class UIManager : MonoBehaviour
                 pendingDialogue.Peek().methodCall.Invoke();
             }
 
+            //cutscene check
             if (pendingDialogue.Peek().cutsceneImage != null)
             {
                 if (!isCutscenePanelShown)
                 {
                     isCutscenePanelShown = true;
                     CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
-                    LeanTween.value(CutscenePanel.gameObject, 0, 1, 0.5f)
-                        .setOnUpdate(val => CutscenePanel.alpha = val);
-                    yield return new WaitForSeconds(0.5f);
-                    /*
-                    if (pendingDialogue.Peek().willBeInterupted) CutscenePanel.alpha = 1;
+
+
+                    if (pendingDialogue.Peek().willBeInterupted)
+                    {
+                        CutscenePanel.alpha = 1;
+                    }
                     else
                     {
-                        
+                        LeanTween.value(CutscenePanel.gameObject, 0, 1, 0.5f)
+                        .setOnUpdate(val => CutscenePanel.alpha = val);
+                        yield return new WaitForSeconds(0.5f);
                     }
-                    */
                 }
             }
             else if (isCutscenePanelShown)
             {
-                if (pendingDialogue.Peek().willBeInterupted) CutscenePanel.alpha = 0;
+                if (pendingDialogue.Peek().willBeInterupted)
+                {
+                    Debug.Log("2a");
+                    CutscenePanel.alpha = 0;
+                }
                 else
                 {
+                    Debug.Log("2b");
                     LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
                     .setOnUpdate(val => CutscenePanel.alpha = val);
                     yield return new WaitForSeconds(0.5f);
@@ -121,6 +125,7 @@ public class UIManager : MonoBehaviour
 
             if (!pendingDialogue.Peek().willBeInterupted)
             {
+                Debug.Log("3a");
                 dialogueConfirmSprite.SetActive(true);
                 yield return new WaitUntil(() =>
                     Input.GetKeyDown(PlayerControls.Instance.Interact) ||
@@ -130,6 +135,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
+                Debug.Log("3b");
                 yield return new WaitForSeconds(textSpeed);
                 pendingDialogue.Dequeue();
             }
@@ -138,9 +144,14 @@ public class UIManager : MonoBehaviour
 
         if (isCutscenePanelShown)
         {
-            if (pendingDialogue.Peek().willBeInterupted) CutscenePanel.alpha = 0;
+            if (pendingDialogue.Count>0 && !pendingDialogue.Peek().willBeInterupted)
+            {
+                Debug.Log("a");
+                CutscenePanel.alpha = 0;
+            }
             else
             {
+                Debug.Log("b");
                 LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
                 .setOnUpdate(val => CutscenePanel.alpha = val);
                 yield return new WaitForSeconds(0.5f);

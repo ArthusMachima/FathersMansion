@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
 
                 if (monsterApproachCooldown>0)
                 {
-                    if (doMonsterSpawn) monsterApproachCooldown -= Time.deltaTime;
+                    if (doMonsterSpawn && UIManager.Instance.pendingDialogue.Count==0) monsterApproachCooldown -= Time.deltaTime;
                 }
                 else
                 {
@@ -306,7 +306,7 @@ public class GameManager : MonoBehaviour
             GameOver();
             isJumpscared = false;
         });
-    } //TODO player can still move while jumpscare and gameover
+    } //TODO bug fix player can still move while jumpscare and gameover
 
     void GameOver()
     {
@@ -331,7 +331,7 @@ public class GameManager : MonoBehaviour
     {
         GameOverUI.SetActive(false);
         cutsceneMode = false;
-        //doMonsterSpawn = true;
+        doMonsterSpawn = true;
         PlayerControls.Instance.MonsterDistance = 5;
         PlayerControls.Instance.doPlayerAnimations = true;
         PlayerControls.Instance.doPlayerControls = true;
@@ -538,7 +538,7 @@ public class GameManager : MonoBehaviour
             new("I noticed the weight my pockets were carrying as I stood there for a while.", null),
             new("Almost forgot I had these items. I wonder why I can feel a connection to them?", CutsceneImages[2]),
             new("The next thing I know...", null),
-            new("I wore the hat and posed in front of the mirror carrying a camera.", CutsceneImages[3]), // cutscene image
+            new("I wore the hat and posed in front of the mirror carrying a camera.", CutsceneImages[3]),
             new("Then, I began to remember something...", null)
             };
             UIManager.Instance.LoadDialogue(msg);
@@ -821,8 +821,10 @@ public class GameManager : MonoBehaviour
             };
         UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+        Debug.Log("after");
 
         //sudden flash back dialogue
+        UIManager.Instance.ScreenText.text = "";
         FloorTransitionBlack.GetComponent<Image>().color = new(1, 1, 1);
         FloorTransitionBlack.alpha = 1;
         UIManager.Instance.ScreenText.gameObject.SetActive(true);

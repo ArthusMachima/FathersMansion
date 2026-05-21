@@ -66,6 +66,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip s_Noise1;
     public AudioClip s_Noise2;
     public AudioClip s_Noise3;
+    [Space]
+    public AudioClip s_VaseBreak;
+    public AudioClip s_BoxRip;
 
 
     private void Start()

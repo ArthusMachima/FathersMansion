@@ -98,6 +98,7 @@ MonoBehaviour:
   rot: 0
   canBeMoved: 1
   item: {fileID: 11400000, guid: 28fbc18064360744ca1a42f09616a2ac, type: 2}
+  aud: {fileID: 0}
 --- !u!225 &8657043203189629968
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -131,7 +132,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &-5271109256353214388
 MonoBehaviour:

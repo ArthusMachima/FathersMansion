@@ -5,6 +5,7 @@ public class BreakableObject : MonoBehaviour
     [SerializeField] ItemClass storedItem;
     [SerializeField] Sprite openedBox;
     [SerializeField] ItemClass requiredItem;
+    [SerializeField] AudioClip BreakSound;
     SpriteRenderer sprite;
     BoxCollider2D col;
     public bool isBroke;
@@ -22,6 +23,7 @@ public class BreakableObject : MonoBehaviour
         col.enabled = false;
         sprite.sprite = openedBox;
         isBroke = true;
+        AudioManager.Instance.PlaySFX(BreakSound);
         if (storedItem != null)
         {
             GameObject itemGameObj = new("Item");

@@ -301,7 +301,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 08dcfddb45917044f996c141fbae9723, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8065e89d6e7844a41b59262e48038e2d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -470,6 +470,15 @@ MonoBehaviour:
   s_DialogueTyping: {fileID: 8300000, guid: 8065e89d6e7844a41b59262e48038e2d, type: 3}
   s_UIConfirm: {fileID: 8300000, guid: 25d2203bab445fe4ca378c4463fcbbfb, type: 3}
   s_UICancel: {fileID: 8300000, guid: 75b153d9d2f2ebb478a8ef82f716fb59, type: 3}
+  s_OfficeDoor: {fileID: 8300000, guid: 85967464de41268478127b37b369efe0, type: 3}
+  s_Paper1: {fileID: 8300000, guid: 8ab246d0b4522294e97763f16f1052e6, type: 3}
+  s_Paper2: {fileID: 8300000, guid: b0c08287ad3554b41a06b7383ecd14e2, type: 3}
+  s_Heartbeat: {fileID: 8300000, guid: d3200cf745dfed442978b7e90a521895, type: 3}
+  s_Noise1: {fileID: 8300000, guid: 026be6f0bd2858c4abdc9ebeb49aa177, type: 3}
+  s_Noise2: {fileID: 8300000, guid: 534da7ebdea76d04e9d45563342ab716, type: 3}
+  s_Noise3: {fileID: 8300000, guid: b116c4304c1896d46914f72e61302910, type: 3}
+  s_VaseBreak: {fileID: 8300000, guid: f08762226fe919448bfc058ebae7bd56, type: 3}
+  s_BoxRip: {fileID: 8300000, guid: d1a7d054ab3787e47aa87c2ef01c1de0, type: 3}
 --- !u!1 &8506254686897178699
 GameObject:
   m_ObjectHideFlags: 0

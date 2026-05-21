@@ -40,6 +40,7 @@ public class PuzzleObject : MonoBehaviour, IInteractable
 
     public void OnPuzzleComplete()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.s_DoorUnlock);
         PlayerControls.Instance.doPlayerControls = false;
         UIManager.Instance.ShowPuzzlePanel();
         InventoryManager.Instance.OpenInventory(false, false);
