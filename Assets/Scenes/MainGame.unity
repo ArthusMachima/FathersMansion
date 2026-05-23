@@ -99836,6 +99836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c3940c3733d694c91ca23d42ecdb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableTriggers: 1
 --- !u!1 &1449208193
 GameObject:
   m_ObjectHideFlags: 0
@@ -197308,6 +197309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f4ff0e6034e5540a985772af237d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WarningText: {fileID: 0}
   MainMenuPanel: {fileID: 2322052971388097936}
   SettingsPanel: {fileID: 0}
   colorblindMode: 0

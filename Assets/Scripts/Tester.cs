@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Tester : MonoBehaviour
 {
+    [SerializeField] bool disableTriggers;
+
     void Update()
     {
         // Debug

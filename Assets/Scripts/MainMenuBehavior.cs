@@ -23,7 +23,7 @@ public class MainMenuBehavior : MonoBehaviour
     IEnumerator DelayedStart()
     {
         ShowPanel(WarningText, true, 1);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         ShowPanel(WarningText, false, 1f);
         yield return new WaitForSeconds(1f);
         ShowMainMenu();
