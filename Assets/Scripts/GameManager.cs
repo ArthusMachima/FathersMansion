@@ -10,21 +10,21 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    public AudioClip currentBGM;
     [SerializeField] CanvasGroup PlayerWalkingScene;
     [SerializeField] GameObject GameOverUI;
     [SerializeField] Transform Map;
     [SerializeField] RendererGroupAlpha[] RoomAlpha;
     [SerializeField] RendererGroupAlpha[] starterRooms;
     [SerializeField] Transform[] FloorSpawnPoints;
-    public bool enablePuzzleCheats;
     public bool gamePaused;
     [SerializeField] GameObject ToggleColorblind;
     [SerializeField] CanvasGroup PausePanel;
     public bool colorblindMode;
     [SerializeField] GameObject[] Floors;
     [SerializeField] int floorIndex;
-    [SerializeField] GameObject JumpscarePanel;
-    [SerializeField] bool isJumpscared;
+    public GameObject JumpscarePanel;
+    public bool isJumpscared;
     [SerializeField] bool isMonsterSpawned;
     [SerializeField] CanvasGroup FloorTransitionBlack;
     [SerializeField] CanvasGroup MonsterDarkness;
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] Transform[] TransPoints;
     [SerializeField] Sprite[] CutsceneImages;
+    [SerializeField] GameObject[] CutsceneObjects;
 
     [Header("True Ending Conditions")]
     public ItemClass[] SecondFloorSecretItems;
@@ -52,23 +53,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Basement")]
     [SerializeField] ShaderEffect_BleedingColors ScreenEffectsHazing;
-    [SerializeField] ShaderEffect_BleedingColors ScreenEffectsDupe;
     [SerializeField] ShaderEffect_Tint ScreenEffectsHue;
     [SerializeField] ShaderEffect_CorruptedVram ScreenEffectsWipe;
-    //[SerializeField]
 
     [Header("Tutorial")]
     [SerializeField] bool informedOnMonster;
 
-    public void DoBasementScreenEffects()
-    {
-        //ScreenEffectsHazing - intensity value swinging back and fort from -2.5 to 2.5 randomize dur 0.5-1
-        //ScreenEffectsDupe - appears out of nowhere and moves dupe to left or right
-        //ScreenEffectsHue - slowly transitions in or out into purple
-        //ScreenEffectsWipe - shift value lerps from 
-        //Camera.main.backgroundColor 
-        //Camera.main.transform.LeanRotateZ hotline miami like cam rotation randomized range and duration -5 to 5
-    }
+
 
     void Start()
     {
@@ -84,7 +75,8 @@ public class GameManager : MonoBehaviour
             if (doCutscene) StartCoroutine(SceneSecondFloorStart());
         }
         else LoadLocation();
-        AudioManager.Instance.PlayBGM(AudioManager.Instance.m_lullaby);
+        currentBGM = AudioManager.Instance.m_lullaby;
+        AudioManager.Instance.PlayBGM(currentBGM);
     }
 
     public void LoadLocation()
@@ -170,11 +162,195 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape)) PauseGame();
 
-        if (Input.GetKeyDown(KeyCode.F2)) Play1stFloorFinalPainting();
     }
 
 
     //Function
+    public void DoBasementScreenEffects(bool activate)
+    {
+        LeanTween.cancel(Camera.main.gameObject);
+        if (activate) AudioManager.Instance.CrossFadeBGM(AudioManager.Instance.m_SHE, 5f);
+        else AudioManager.Instance.CrossFadeBGM(currentBGM, 5f);
+
+        // --- Screen Hue ---
+        if (activate) ScreenEffectsHue.enabled = true;
+
+        LeanTween.value(Camera.main.gameObject, ScreenEffectsHue.y, activate ? 0.30f : 1f, 5f)
+            .setOnUpdate((float val) => ScreenEffectsHue.y = val);
+
+        LeanTween.value(Camera.main.gameObject, ScreenEffectsHue.u, activate ? -3f : 1f, 5f)
+            .setOnUpdate((float val) => ScreenEffectsHue.u = val);
+
+        LeanTween.value(Camera.main.gameObject, ScreenEffectsHue.v, activate ? 5f : 1f, 5f)
+            .setOnUpdate((float val) => ScreenEffectsHue.v = val)
+            .setOnComplete(() =>
+            {
+                if (!activate) ScreenEffectsHue.enabled = false;
+            });
+
+        // --- Screen Hazing ---
+        if (activate) ScreenEffectsHazing.enabled = true;
+
+        float hazingStart = ScreenEffectsHazing.intensity;   // always read live value
+        float hazingTarget = activate ? -5f : 0f;
+
+        LeanTween.value(Camera.main.gameObject, hazingStart, hazingTarget, 1f)
+            .setEaseInOutQuad()
+            .setOnUpdate((float val) => ScreenEffectsHazing.intensity = val)
+            .setOnComplete(() =>
+            {
+                if (!activate)
+                {
+                    ScreenEffectsHazing.enabled = false;
+                }
+                else
+                {
+                    LeanTween.value(Camera.main.gameObject, -5f, 5f, 1f)
+                        .setEaseInOutQuad()
+                        .setLoopPingPong()
+                        .setRepeat(-1)
+                        .setOnUpdate((float val) => ScreenEffectsHazing.intensity = val);
+                }
+            });
+
+        // --- Camera Rotation ---
+        float rotStart = Camera.main.transform.eulerAngles.z;
+        float rotTarget = activate ? -5f : 0f;
+
+        LeanTween.value(Camera.main.gameObject, rotStart, rotTarget, 8f)
+            .setEaseInOutQuad()
+            .setOnUpdate((float val) =>
+            {
+                Vector3 euler = Camera.main.transform.eulerAngles;
+                euler.z = val;
+                Camera.main.transform.eulerAngles = euler;
+            })
+            .setOnComplete(() =>
+            {
+                if (activate)
+                {
+                    LeanTween.value(Camera.main.gameObject, -5f, 5f, 8f)
+                        .setEaseInOutQuad()
+                        .setLoopPingPong()
+                        .setRepeat(-1)
+                        .setOnUpdate((float val) =>
+                        {
+                            Vector3 euler = Camera.main.transform.eulerAngles;
+                            euler.z = val;
+                            Camera.main.transform.eulerAngles = euler;
+                        });
+                }
+            });
+
+        // --- Camera Background Color ---
+        Color startColor = Camera.main.backgroundColor;
+        Color endColor = activate ? Color.HSVToRGB(1f, 0.3f, 0.3f) : Color.black;
+
+        LeanTween.value(Camera.main.gameObject, 0f, 1f, 10f)
+            .setEaseInOutQuad()
+            .setOnUpdate((float t) =>
+            {
+                Camera.main.backgroundColor = Color.Lerp(startColor, endColor, t);
+            })
+            .setOnComplete(() =>
+            {
+                if (activate)
+                {
+                    LeanTween.value(Camera.main.gameObject, 0f, 1f, 10f)
+                        .setEaseInOutQuad()
+                        .setLoopClamp()
+                        .setRepeat(-1)
+                        .setOnUpdate((float val) =>
+                        {
+                            Camera.main.backgroundColor = Color.HSVToRGB(val, 0.3f, 0.3f);
+                        });
+                }
+            });
+    }
+
+    public void DoBasementScreenEffects(bool activate, bool smooth)
+    {
+        if (smooth)
+        {
+            DoBasementScreenEffects(activate);
+            return;
+        }
+
+        LeanTween.cancel(Camera.main.gameObject);
+
+        if (activate) AudioManager.Instance.CrossFadeBGM(AudioManager.Instance.m_SHE, 0f);
+        else AudioManager.Instance.CrossFadeBGM(currentBGM, 0f);
+
+        ScreenEffectsHue.enabled = activate;
+        ScreenEffectsHue.y = activate ? 0.30f : 1f;
+        ScreenEffectsHue.u = activate ? -3f : 1f;
+        ScreenEffectsHue.v = activate ? 5f : 1f;
+
+        ScreenEffectsHazing.enabled = activate;
+        if (activate)
+        {
+            LeanTween.value(Camera.main.gameObject, -5f, 5f, 1f)
+                .setEaseInOutQuad()
+                .setLoopPingPong()
+                .setRepeat(-1)
+                .setOnUpdate((float val) => ScreenEffectsHazing.intensity = val);
+        }
+        else
+        {
+            ScreenEffectsHazing.intensity = 0f;
+        }
+
+        Vector3 euler = Camera.main.transform.eulerAngles;
+        if (activate)
+        {
+            LeanTween.value(Camera.main.gameObject, -5f, 5f, 8f)
+                .setEaseInOutQuad()
+                .setLoopPingPong()
+                .setRepeat(-1)
+                .setOnUpdate((float val) =>
+                {
+                    Vector3 e = Camera.main.transform.eulerAngles;
+                    e.z = val;
+                    Camera.main.transform.eulerAngles = e;
+                });
+        }
+        else
+        {
+            euler.z = 0f;
+            Camera.main.transform.eulerAngles = euler;
+        }
+
+        if (activate)
+        {
+            LeanTween.value(Camera.main.gameObject, 0f, 1f, 10f)
+                .setEaseInOutQuad()
+                .setLoopClamp()
+                .setRepeat(-1)
+                .setOnUpdate((float val) =>
+                {
+                    Camera.main.backgroundColor = Color.HSVToRGB(val, 0.3f, 0.3f);
+                });
+        }
+        else
+        {
+            Camera.main.backgroundColor = Color.black;
+        }
+    }
+
+    public void InstaStopBasementEffects()
+    {
+        DoBasementScreenEffects(false, false);
+    }
+
+    public void ShouldMonsterSpawn(bool spawn)
+    {
+        doMonsterSpawn = spawn;
+        if (!spawn)
+        {
+            PlayerControls.Instance.MonsterDistance = 5;
+        }
+    }
+
     public void PauseGame()
     {
         gamePaused = !gamePaused;
@@ -228,12 +404,21 @@ public class GameManager : MonoBehaviour
                     {
                         foreach (var f in Floors) f.SetActive(false);
                         Floors[floor].SetActive(true);
-                        LeanTween.value(FloorTransitionBlack.gameObject, 1, 0, 0.5f)
-                    .setOnUpdate(val => FloorTransitionBlack.alpha = val);
-                        if (floor==2)
+
+                        if (floor==0) AudioManager.Instance.FadeStopBGM(0.5f);
+                        else
+                        {
+                            if (!AudioManager.Instance.IsBGMPlaying())
+                                AudioManager.Instance.PlayBGM(currentBGM);
+                        }
+
+                        if (floor == 2)
                             MonsterDarkness.gameObject.SetActive(false);
                         else
                             MonsterDarkness.gameObject.SetActive(true);
+                        LeanTween.value(FloorTransitionBlack.gameObject, 1, 0, 0.5f)
+                    .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+                        
                     });
 
         PlayerPrefs.SetInt("savedFloor", floorIndex);
@@ -685,6 +870,7 @@ public class GameManager : MonoBehaviour
         cutsceneMode = true;
         PlayerControls.Instance.doPlayerControls = false;
         PlayerControls.Instance.doPlayerAnimations = false;
+        PlayerControls.Instance.StopPlayer();
 
         //darken
         PlayerControls.Instance.MonsterDistance = 2;
@@ -733,6 +919,7 @@ public class GameManager : MonoBehaviour
         //fade out game
         LeanTween.value(FloorTransitionBlack.gameObject, 0, 1, 0.5f)
                     .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+        AudioManager.Instance.FadeStopBGM(0.5f);
         yield return new WaitForSeconds(0.5f);
         
         //dialogue
@@ -887,6 +1074,114 @@ public class GameManager : MonoBehaviour
             };
         UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //end setup
+        cutsceneMode = false;
+        PlayerControls.Instance.doPlayerControls = true;
+        PlayerControls.Instance.doPlayerAnimations = true;
+        FloorTransitionBlack.GetComponent<Image>().color = new(0, 0, 0);
+        UIManager.Instance.ScreenText.gameObject.SetActive(false);
+    } // CRITICAL BUG
+
+    public void PlaySpecialRoom()
+    {
+        StartCoroutine(SceneSpecialRoom());
+    }
+
+    IEnumerator SceneSpecialRoom()
+    {
+        //initial setup
+        cutsceneMode = true;
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+
+        //black fade out
+        FloorTransitionBlack.gameObject.GetComponent<Image>().color = new(0, 0, 0);
+        LeanTween.value(FloorTransitionBlack.gameObject, 0, 1, 0.5f)
+                    .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+        yield return new WaitForSeconds(1f);
+
+        //moving player
+        Player.transform.position = TransPoints[5].position;
+
+        //black fade in
+        FloorTransitionBlack.gameObject.GetComponent<Image>().color = new(0, 0, 0);
+        LeanTween.value(FloorTransitionBlack.gameObject, 1, 0, 0.5f)
+                    .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+        yield return new WaitForSeconds(0.5f);
+
+        //dialogue
+        Dialogue[] msg =
+            {
+            new("What a messy room.", null),
+            new("What's even the cause of all this?", null),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //player move
+        Player.LeanMove(TransPoints[6].position, 2f).setOnComplete(() =>
+        {
+            PlayerControls.Instance.anim.SetBool("isMoving", false);
+        });
+        PlayerControls.Instance.anim.SetFloat("x", 0);
+        PlayerControls.Instance.anim.SetFloat("y", 1);
+        PlayerControls.Instance.anim.SetBool("isMoving", true);
+        yield return new WaitForSeconds(3f);
+
+        //dialogue
+        msg = new Dialogue[]
+            {
+            new("...is that me?", null),
+            new("How did I end up lying there?", null),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //cutscene pics sequence
+        CutsceneObjects[2].SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        CutsceneObjects[2].SetActive(false);
+        CutsceneObjects[3].SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        CutsceneObjects[3].SetActive(false);
+        CutsceneObjects[4].SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        CutsceneObjects[4].SetActive(false);
+        CutsceneObjects[0].SetActive(false);
+        CutsceneObjects[1].SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+
+        //dialogue
+        msg = new Dialogue[]
+            {
+            new("Ow, my head hurts.", null),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+
+        //player move
+        Player.LeanMove(TransPoints[6].position - TransPoints[5].position, 2f).setOnComplete(() =>
+        {
+            PlayerControls.Instance.anim.SetBool("isMoving", false);
+        });
+        PlayerControls.Instance.anim.SetFloat("x", 0);
+        PlayerControls.Instance.anim.SetFloat("y", 1);
+        PlayerControls.Instance.anim.SetBool("isMoving", true);
+        yield return new WaitForSeconds(2f);
+
+        //insanity filter
+        DoBasementScreenEffects(true);
+
+        //dialogue
+        msg = new Dialogue[]
+            {
+            new("Oh no, I'm going insane again.", null),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+
+
+        
+
 
         //end setup
         cutsceneMode = false;

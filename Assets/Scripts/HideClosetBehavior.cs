@@ -69,7 +69,7 @@ public class HideClosetBehavior : MonoBehaviour
             ClosetHP = 100;
             if (PlayerControls.Instance.MonsterDistance<=0)
             {
-                AudioManager.Instance.PlayBGM(AudioManager.Instance.s_Heartbeat);
+                AudioManager.Instance.PlayBGM(GameManager.Instance.currentBGM);
                 LeanTween.value(MonsterSprite.gameObject, 0, 1, 2)
                     .setOnUpdate(val => MonsterSprite.alpha = val);
                 StartCoroutine(MonsterLeaveTimer());

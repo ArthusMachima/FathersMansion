@@ -71,5 +71,6 @@ public class PinPuzzle : PuzzleClass
 
     public override void OnDialogueEnd()
     {
+        MakePinInteractive();
     }
 }

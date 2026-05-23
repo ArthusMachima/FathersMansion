@@ -151,10 +151,7 @@ public class PlayerControls : MonoBehaviour
             else
                 StaminaPanel.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.F1) && GameManager.Instance.enablePuzzleCheats)
-            {
-                MonsterDistance = 0;
-            }
+            
 
         }
         else if (gameControlState == GameControlState.InventoryPanel)
@@ -181,11 +178,6 @@ public class PlayerControls : MonoBehaviour
         }
         else if (gameControlState == GameControlState.SolvingPuzzle)
         {
-            if (Input.GetKeyDown(KeyCode.F3) && GameManager.Instance.enablePuzzleCheats)
-            {
-                currentInteractedPuzzle.OnPuzzleComplete();
-            }
-
             if (Input.GetKeyDown(MoveUp)   ||
                 Input.GetKeyDown(MoveLeft) ||
                 Input.GetKeyDown(MoveDown) ||

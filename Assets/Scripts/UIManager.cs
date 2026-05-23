@@ -95,12 +95,10 @@ public class UIManager : MonoBehaviour
             {
                 if (pendingDialogue.Peek().willBeInterupted)
                 {
-                    Debug.Log("2a");
                     CutscenePanel.alpha = 0;
                 }
                 else
                 {
-                    Debug.Log("2b");
                     LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
                     .setOnUpdate(val => CutscenePanel.alpha = val);
                     yield return new WaitForSeconds(0.5f);
@@ -125,7 +123,6 @@ public class UIManager : MonoBehaviour
 
             if (!pendingDialogue.Peek().willBeInterupted)
             {
-                Debug.Log("3a");
                 dialogueConfirmSprite.SetActive(true);
                 yield return new WaitUntil(() =>
                     Input.GetKeyDown(PlayerControls.Instance.Interact) ||
@@ -135,7 +132,6 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("3b");
                 yield return new WaitForSeconds(textSpeed);
                 pendingDialogue.Dequeue();
             }
@@ -146,12 +142,10 @@ public class UIManager : MonoBehaviour
         {
             if (pendingDialogue.Count>0 && !pendingDialogue.Peek().willBeInterupted)
             {
-                Debug.Log("a");
                 CutscenePanel.alpha = 0;
             }
             else
             {
-                Debug.Log("b");
                 LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
                 .setOnUpdate(val => CutscenePanel.alpha = val);
                 yield return new WaitForSeconds(0.5f);

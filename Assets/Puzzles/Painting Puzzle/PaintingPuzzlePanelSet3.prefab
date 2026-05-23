@@ -638,8 +638,8 @@ MonoBehaviour:
   paintingPuzzleSlots: []
   HoveredPuzzleSlot: {fileID: 0}
   PrevPuzzleSlot: {fileID: 0}
-  startingCode: rwowywgw##vw
-  CorrectCode: odraisysbdgw
+  startingCode: iwbwowravagw
+  CorrectCode: '############'
   PaintingPrefabs:
   - {fileID: 406905999802023869, guid: b1d14cf560c5f4847b3a245a4d696c7c, type: 3}
   - {fileID: 4410242848758079390, guid: 11133fa4b98dfc74394f66c57f310c6a, type: 3}

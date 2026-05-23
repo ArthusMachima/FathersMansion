@@ -153,4 +153,8 @@ public class PaintingPuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandle
         LeanTween.cancel(gameObject);
         transform.LeanRotateZ(rot, 0);
     }
+    private void OnDestroy()
+    {
+        parentPuzzle.CheckAnswer();
+    }
 }

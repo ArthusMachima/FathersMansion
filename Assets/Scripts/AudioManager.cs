@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     [Header("BGM")]
     [SerializeField] AudioSource bgmIntroSource;
     [SerializeField] AudioSource bgmLoopSource;
+    [SerializeField] AudioSource bgmCrossfadeSource;
     [SerializeField] Slider bgmSlider;
 
     [Header("SFX")]
@@ -61,6 +62,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip s_OfficeDoor;
     public AudioClip s_Paper1;
     public AudioClip s_Paper2;
+    public AudioClip s_Puke;
     [Space]
     public AudioClip s_Heartbeat;
     public AudioClip s_Noise1;
@@ -106,7 +108,6 @@ public class AudioManager : MonoBehaviour
         bgmCoroutine = StartCoroutine(PlayBGMSequence(intro, loop));
     }
 
-    // Overload for BGM with no intro
     public void PlayBGM(AudioClip loop, float volume = 1f)
     {
         PlayBGM(null, loop, volume);
@@ -154,6 +155,56 @@ public class AudioManager : MonoBehaviour
             .setOnUpdate(vol => bgmLoopSource.volume = vol).setOnComplete(() =>
             {
                 bgmLoopSource.Stop();
+            });
+    }
+
+    public void FadePlayBGM(float dur)
+    {
+        float targetVolume = bgmSlider != null ? bgmSlider.value : 1f;
+
+        if (!bgmIntroSource.isPlaying) bgmIntroSource.Play();
+        if (!bgmLoopSource.isPlaying) bgmLoopSource.Play();
+
+        LeanTween.value(gameObject, bgmIntroSource.volume, targetVolume, dur)
+            .setOnUpdate(vol => bgmIntroSource.volume = vol);
+
+        LeanTween.value(gameObject, bgmLoopSource.volume, targetVolume, dur)
+            .setOnUpdate(vol => bgmLoopSource.volume = vol);
+    }
+
+    public void CrossFadeBGM(AudioClip loop, float dur, AudioClip intro = null, float volume = -1f)
+    {
+        if (loop == null) return;
+        if (bgmCoroutine != null) StopCoroutine(bgmCoroutine);
+
+        float targetVolume = (volume < 0f ? (bgmSlider != null ? bgmSlider.value : 1f) : volume);
+
+        // Fade out current sources
+        LeanTween.value(gameObject, bgmIntroSource.volume, 0f, dur)
+            .setOnUpdate(vol => bgmIntroSource.volume = vol)
+            .setOnComplete(() => bgmIntroSource.Stop());
+
+        LeanTween.value(gameObject, bgmLoopSource.volume, 0f, dur)
+            .setOnUpdate(vol => bgmLoopSource.volume = vol)
+            .setOnComplete(() => bgmLoopSource.Stop());
+
+        // Fade in on crossfade source, then hand off to the proper sources
+        bgmCrossfadeSource.clip = loop;
+        bgmCrossfadeSource.loop = intro == null; // loops immediately only if no intro
+        bgmCrossfadeSource.volume = 0f;
+        bgmCrossfadeSource.Play();
+
+        LeanTween.value(gameObject, 0f, targetVolume, dur)
+            .setOnUpdate(vol => bgmCrossfadeSource.volume = vol)
+            .setOnComplete(() =>
+            {
+                bgmCrossfadeSource.Stop();
+                bgmCrossfadeSource.clip = null;
+
+                // Hand off to the normal intro+loop sources
+                bgmIntroSource.volume = targetVolume;
+                bgmLoopSource.volume = targetVolume;
+                bgmCoroutine = StartCoroutine(PlayBGMSequence(intro, loop));
             });
     }
 
@@ -211,5 +262,10 @@ public class AudioManager : MonoBehaviour
             }
         }
         else sfxSoundTest.Stop();
+    }
+
+    public bool IsBGMPlaying()
+    {
+        return bgmLoopSource.isPlaying || bgmIntroSource.isPlaying;
     }
 }

@@ -6,8 +6,8 @@ public class ItemChecker : MonoBehaviour
 {
     [SerializeField] ItemClass itemToCheck;
     [SerializeField] UnityEvent onItemMatch;
-    [SerializeField] bool makeItTransparent;
     [SerializeField] bool destroyOnCheck;
+    [SerializeField] bool makeItTransparent;
     SpriteRenderer render;
 
     private void Start()
@@ -30,6 +30,14 @@ public class ItemChecker : MonoBehaviour
             if (itemToCheck != null)
             {
                 foreach (var slot in inv.items)
+                {
+                    if (slot.PeekItem() == itemToCheck)
+                    {
+                        found = true;
+                    }
+                }
+
+                foreach (var slot in inv.keyItems)
                 {
                     if (slot.PeekItem() == itemToCheck)
                     {

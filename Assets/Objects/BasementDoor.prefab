@@ -220,6 +220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 4711026678352395197}
-  backLayerIndex: 1
+  backLayerIndex: 2
   frontLayerIndex: 0
   pivotOffset: {x: 0, y: -1, z: 0}

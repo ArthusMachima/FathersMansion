@@ -13,6 +13,7 @@ public class DoorObject : MonoBehaviour, IInteractable
     [SerializeField] ItemClass requiredKeys;
     [SerializeField] UnityEvent onDoorLocked;
     [SerializeField] DoorObject connectedDoor;
+    [SerializeField] bool doDialogue=true;
 
     private void Start()
     {
@@ -98,7 +99,7 @@ public class DoorObject : MonoBehaviour, IInteractable
         {
             msg = new Dialogue[] { new("The door is locked from the other side.", null) };
         }
-        if (onDoorLocked.GetPersistentEventCount()==0) UIManager.Instance.LoadDialogue(msg);
+        if (onDoorLocked.GetPersistentEventCount()==0 && doDialogue) UIManager.Instance.LoadDialogue(msg);
         else onDoorLocked.Invoke();
     }
 
@@ -108,7 +109,7 @@ public class DoorObject : MonoBehaviour, IInteractable
         if (connectedDoor!=null) connectedDoor.isUnlocked = true;
         aud.PlaySFX(aud.s_DoorUnlock);
         Dialogue[] msg = { new("I unlocked the door.", null) };
-        UIManager.Instance.LoadDialogue(msg);
+        if (doDialogue) UIManager.Instance.LoadDialogue(msg);
     }
 
     public void ForceUnlockDoor()
