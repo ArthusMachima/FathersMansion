@@ -9,6 +9,7 @@ public class PaintingPuzzle : PuzzleClass
     [SerializeField] string startingCode;
     public string CorrectCode = "odraisysbdgw";
     public GameObject[] PaintingPrefabs;
+    [SerializeField] bool isSolving;
 
     private void Awake()
     {
@@ -101,9 +102,11 @@ public class PaintingPuzzle : PuzzleClass
 
     public void CheckAnswer()
     {
+        if (isSolving) return; // prevent re-entry during solve sequence
         string code = GetPuzzleStateString();
         if (string.Equals(code, CorrectCode) && !PlayerControls.Instance.currentInteractedPuzzle.isPuzzleFinished)
         {
+            isSolving = true;
             Debug.Log("PUZZLE SOLVED");
             PlayerPrefs.DeleteKey("paintingPuzzle");
             LeanTween.delayedCall(0.5f, () =>
@@ -111,7 +114,6 @@ public class PaintingPuzzle : PuzzleClass
                 PlayerControls.Instance.currentInteractedPuzzle.OnPuzzleComplete();
             });
         }
-        else Debug.Log(GetPuzzleStateString());
     }
 
     public override void OnDialogueEnd()

@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI ScreenText;
     [SerializeField] GameObject dialogueConfirmSprite;
+    private Coroutine dialogueCoroutine;
+    private bool suppressPanelClose;
 
     [Header("Cutscene Panel")]
     [SerializeField] bool isCutscenePanelShown;
@@ -47,7 +49,8 @@ public class UIManager : MonoBehaviour
     public void ForceStopDialogue()
     {
         currentDialogueText.text = "";
-        StopCoroutine(Dialogue());
+        if (dialogueCoroutine != null) StopCoroutine(dialogueCoroutine);
+        dialogueCoroutine = null;
         pendingDialogue.Clear();
         ShowDialoguePanel(false);
         CutscenePanel.alpha = 0;
@@ -58,10 +61,13 @@ public class UIManager : MonoBehaviour
     IEnumerator Dialogue()
     {
         PlayerControls.Instance.StopPlayer();
+        bool nofade = false;
         while (pendingDialogue.Count > 0)
         {
-            currentDialogueText.text = "";
-            //AudioManager.Instance.PlaySFX(AudioManager.Instance.s_DialogueTyping);
+            currentDialogueText.text = ""; 
+            
+            Debug.Log($"pending dialogue: {pendingDialogue.Peek().sentence}" +
+                        $"\nnofade: {pendingDialogue.Peek().noFadeInTransition}");
 
             if (pendingDialogue.Peek().sound != null) AudioManager.Instance.PlaySFX(pendingDialogue.Peek().sound);
 
@@ -78,13 +84,14 @@ public class UIManager : MonoBehaviour
                     isCutscenePanelShown = true;
                     CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
 
-                    Debug.Log("A");
-                    if (!pendingDialogue.Peek().willBeInterupted)
+                    if (pendingDialogue.Peek().noFadeInTransition)
                     {
                         CutscenePanel.alpha = 1;
+                        Debug.Log("1 true");
                     }
                     else
                     {
+                        Debug.Log("2 false");
                         LeanTween.value(CutscenePanel.gameObject, 0, 1, 0.5f)
                         .setOnUpdate(val => CutscenePanel.alpha = val);
                         yield return new WaitForSeconds(0.5f);
@@ -93,15 +100,14 @@ public class UIManager : MonoBehaviour
             }
             else if (isCutscenePanelShown)
             {
-
-
-                Debug.Log("B");
-                if (pendingDialogue.Peek().willBeInterupted)
-                {
+                if (pendingDialogue.Peek().noFadeInTransition) 
+                { 
                     CutscenePanel.alpha = 0;
+                    Debug.Log("2 true");
                 }
                 else
                 {
+                    Debug.Log("2 false");
                     LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
                     .setOnUpdate(val => CutscenePanel.alpha = val);
                     yield return new WaitForSeconds(0.5f);
@@ -124,8 +130,9 @@ public class UIManager : MonoBehaviour
                 else yield return new WaitForSeconds(textSpeed);
             }
 
+            nofade = pendingDialogue.Peek().noFadeInTransition;
 
-            Debug.Log("C");
+            //dialog skip
             if (!pendingDialogue.Peek().willBeInterupted)
             {
                 dialogueConfirmSprite.SetActive(true);
@@ -134,25 +141,27 @@ public class UIManager : MonoBehaviour
                     Input.GetKey(PlayerControls.Instance.Run));
                 dialogueConfirmSprite.SetActive(false);
                 pendingDialogue.Dequeue();
+                Debug.Log("000000000000");
             }
             else
             {
                 yield return new WaitForSeconds(textSpeed);
                 pendingDialogue.Dequeue();
+                Debug.Log("11111111skip1111111111");
             }
             
         }
 
         if (isCutscenePanelShown)
         {
-
-            Debug.Log("D");
-            if (pendingDialogue.Count>0 && !pendingDialogue.Peek().willBeInterupted)
+            if (nofade)
             {
+                Debug.Log("3 false");
                 CutscenePanel.alpha = 0;
             }
             else
             {
+                Debug.Log("3 false");
                 LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
                 .setOnUpdate(val => CutscenePanel.alpha = val);
                 yield return new WaitForSeconds(0.5f);
@@ -162,7 +171,14 @@ public class UIManager : MonoBehaviour
             isCutscenePanelShown = false;
             CutsceneImage.sprite = null;
         }
+        if (suppressPanelClose)
+        {
+            suppressPanelClose = false;
+            ShowDialoguePanelInstant(false);
+            yield break;
+        }
         ShowDialoguePanel(false);
+        Debug.Log("-------------------------------");
     }
 
     public void LoadDialogue(Dialogue[] dialogueData)
@@ -175,7 +191,7 @@ public class UIManager : MonoBehaviour
         ShowDialoguePanel(true);
     }
 
-    public void LoadDialogue(Dialogue[] dialogueData, TextMeshProUGUI textMesh)
+    public void LoadDialogue(Dialogue[] dialogueData, TextMeshProUGUI textMesh, bool skipPanelAnimation = false)
     {
         currentDialogueText = textMesh;
         pendingDialogue.Clear();
@@ -183,10 +199,21 @@ public class UIManager : MonoBehaviour
         {
             pendingDialogue.Enqueue(dialogueData[i]);
         }
-        ShowDialoguePanel(true);
+        if (skipPanelAnimation) suppressPanelClose = true;
+        ShowDialoguePanel(true, skipPanelAnimation);
     }
 
-    public void ShowDialoguePanel(bool show)
+    public void LoadDialogueDirect(Dialogue[] dialogueData, TextMeshProUGUI textMesh)
+    {
+        if (dialogueCoroutine != null) StopCoroutine(dialogueCoroutine);
+        currentDialogueText = textMesh;
+        pendingDialogue.Clear();
+        foreach (var d in dialogueData)
+            pendingDialogue.Enqueue(d);
+        dialogueCoroutine = StartCoroutine(Dialogue());
+    }
+
+    public void ShowDialoguePanel(bool show, bool skipAnimation = false)
     {
         LeanTween.cancel(DialoguePanelTop);
         LeanTween.cancel(DialoguePanelBottom);
@@ -202,12 +229,22 @@ public class UIManager : MonoBehaviour
                 player.anim.SetBool("isRunning", false);
             }
 
-            DialoguePanelTop   .LeanMoveY(Screen.height, animationTime).setEaseOutQuint();
-            DialoguePanelBottom.LeanMoveY(0, animationTime).setEaseOutQuint().setOnComplete(() =>
+            if (skipAnimation)
             {
                 dialogueText.gameObject.SetActive(true);
-                StartCoroutine(Dialogue());
-            });
+                if (dialogueCoroutine != null) StopCoroutine(dialogueCoroutine);
+                dialogueCoroutine = StartCoroutine(Dialogue());
+            }
+            else
+            {
+                DialoguePanelTop   .LeanMoveY(Screen.height, animationTime).setEaseOutQuint();
+                DialoguePanelBottom.LeanMoveY(0, animationTime).setEaseOutQuint().setOnComplete(() =>
+                {
+                    dialogueText.gameObject.SetActive(true);
+                    if (dialogueCoroutine != null) StopCoroutine(dialogueCoroutine);
+                    dialogueCoroutine = StartCoroutine(Dialogue());
+                });
+            }
         }
         else
         {
@@ -221,7 +258,32 @@ public class UIManager : MonoBehaviour
             DialoguePanelBottom.LeanMoveY(-150, animationTime).setEaseOutQuint();
         }
     }
-    
+
+    // Instantly snaps panels on or off screen with no animation
+    public void ShowDialoguePanelInstant(bool show)
+    {
+        LeanTween.cancel(DialoguePanelTop);
+        LeanTween.cancel(DialoguePanelBottom);
+        RectTransform top = DialoguePanelTop.GetComponent<RectTransform>();
+        RectTransform bot = DialoguePanelBottom.GetComponent<RectTransform>();
+        if (show)
+        {
+            top.anchoredPosition = new Vector2(top.anchoredPosition.x, Screen.height);
+            bot.anchoredPosition = new Vector2(bot.anchoredPosition.x, 0);
+            dialogueText.gameObject.SetActive(true);
+        }
+        else
+        {
+            top.anchoredPosition = new Vector2(top.anchoredPosition.x, 150 + Screen.height);
+            bot.anchoredPosition = new Vector2(bot.anchoredPosition.x, -150);
+            dialogueText.gameObject.SetActive(false);
+        }
+    }
+
+    public void SetDialoguePanelsActive(bool active)
+    {
+        ShowDialoguePanelInstant(active);
+    }
 
     // Puzzle Panel
     public void ShowPuzzlePanel(GameObject panel)

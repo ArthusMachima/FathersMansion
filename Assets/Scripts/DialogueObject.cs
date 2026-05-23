@@ -68,10 +68,19 @@ public class Dialogue
         willBeInterupted = interuptable;
     }
 
+    public Dialogue(string msg, Sprite img, bool interuptable, bool noFadeIn)
+    {
+        sentence = msg;
+        cutsceneImage = img;
+        willBeInterupted = interuptable;
+        noFadeInTransition = noFadeIn;
+    }
+
     public string sentence;
     public Sprite cutsceneImage;
     public AudioClip sound;
     public UnityEvent methodCall;
     public bool disableTextSpecificDelays;
     public bool willBeInterupted;
+    public bool noFadeInTransition;
 }

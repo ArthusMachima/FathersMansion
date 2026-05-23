@@ -911,8 +911,8 @@ public class GameManager : MonoBehaviour
         msg = new Dialogue[]
         {
             new("Dammit! it's locked", null),
-            new("It’s one of those elongated padlocks again.", CutsceneImages[7]),
-            new("The keys must be somewhere…", null),
+            new("Itï¿½s one of those elongated padlocks again.", CutsceneImages[7]),
+            new("The keys must be somewhereï¿½", null),
         };
         UIManager.Instance.LoadDialogue(msg);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
@@ -943,9 +943,9 @@ public class GameManager : MonoBehaviour
         //dialogue
         Dialogue[] msg =
         {
-            new("Wait… why is everything going dark?", null),
+            new("Waitï¿½ why is everything going dark?", null),
             new("Did someone mess with the power here?", null),
-            new("Or maybe… I'm not alone in here.", null),
+            new("Or maybeï¿½ I'm not alone in here.", null),
             new("Ughh this gives me the creeps I might need to hide in a closet or something.", null),
         };
         UIManager.Instance.LoadDialogue(msg);
@@ -1131,136 +1131,107 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Scene1stFloorFinalPainting()
     {
-
         //initial setup
         cutsceneMode = true;
         PlayerControls.Instance.doPlayerControls = false;
         PlayerControls.Instance.doPlayerAnimations = false;
 
+        // Normal dialogue: painting falls â€” first call, panel slides in normally
         Dialogue[] msg =
             {
                 new("Something came down the table.", null),
-                new("Huh, it's a painting of a telephon-", CutsceneImages[8], true), //putting cutscene images does not proceed to next convo
+                new("Huh, it's a painting of a telephon-", CutsceneImages[8], true),
             };
         UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
-        Debug.Log("after");
 
-        //sudden flash back dialogue
-        UIManager.Instance.ScreenText.text = "";
-        FloorTransitionBlack.GetComponent<Image>().color = new(1, 1, 1);
+        // White flash in
+        FloorTransitionBlack.GetComponent<Image>().color = new Color(1, 1, 1);
         FloorTransitionBlack.alpha = 1;
+        UIManager.Instance.ScreenText.text = "";
         UIManager.Instance.ScreenText.gameObject.SetActive(true);
+        UIManager.Instance.SetDialoguePanelsActive(false); // hide panels for flashback
+
+        // Flashback dialogue: "Melania" â€” panel already open, skip re-animation
         msg = new Dialogue[]
             {
-            new("\"Melania\"", CutsceneImages[8]),
+            new("\"Melania\"", CutsceneImages[8], false, true),
             };
-        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText, skipPanelAnimation: true);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+        UIManager.Instance.SetDialoguePanelsActive(true); // restore panels
 
-        //dialogue
-        UIManager.Instance.dialogueText.text = "";
+        // Flash out, normal dialogue: "!?"
         FloorTransitionBlack.alpha = 0;
-        msg = new Dialogue[]
-            {
-            new("!?", CutsceneImages[8]),
-            };
-        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
-        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
-
-
-
-
-
-
-        yield break;
-
-        //initial setup
-        cutsceneMode = true;
-        PlayerControls.Instance.doPlayerControls = false;
-        PlayerControls.Instance.doPlayerAnimations = false;
-        /*
-        Dialogue[] msg =
-            {
-                new("Something came down the table.", null),
-                new("Huh, it's a painting of a telephon-", CutsceneImages[8], true), //putting cutscene images does not proceed to next convo
-            };
-        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
-        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
-        Debug.Log("after");
-        */
-        //sudden flash back dialogue
-        UIManager.Instance.ScreenText.text = "";
-        FloorTransitionBlack.GetComponent<Image>().color = new(1, 1, 1);
-        FloorTransitionBlack.alpha = 1;
-        UIManager.Instance.ScreenText.gameObject.SetActive(true);
-        msg = new Dialogue[]
-            {
-            new("\"Melania\"", CutsceneImages[8]),
-            };
-        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
-        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
-
-        //dialogue
         UIManager.Instance.dialogueText.text = "";
-        FloorTransitionBlack.alpha = 0;
+
         msg = new Dialogue[]
             {
-            new("!?", CutsceneImages[8]),
+            new("!?", CutsceneImages[8], false, true),
             };
-        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText, skipPanelAnimation: true);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
 
-        //sudden flash back dialogue
-        UIManager.Instance.ScreenText.text = "";
+        // White flash in
         FloorTransitionBlack.alpha = 1;
+        UIManager.Instance.ScreenText.text = "";
+        UIManager.Instance.SetDialoguePanelsActive(false); // hide panels for flashback
+
+        // Flashback dialogue: phone call memory
         msg = new Dialogue[]
             {
-            new("\"I want you to take over the mansion for me\"", CutsceneImages[8]),
+            new("\"I want you to take over the mansion for me\"", CutsceneImages[8], false, true),
             new("That's what he said on the telephone.", CutsceneImages[8]),
             };
-        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText, skipPanelAnimation: true);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+        UIManager.Instance.SetDialoguePanelsActive(true); // restore panels
 
-        //dialogue
-        UIManager.Instance.dialogueText.text = "";
+        // Flash out, normal dialogue: "Huh...?"
         FloorTransitionBlack.alpha = 0;
+        UIManager.Instance.dialogueText.text = "";
+
         msg = new Dialogue[]
             {
-            new("Huh...? What was-", CutsceneImages[8], true),
+            new("Huh...? What was-", CutsceneImages[8], true, true),
             };
-        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText, skipPanelAnimation: true);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
 
-        //sudden flash back dialogue
-        UIManager.Instance.ScreenText.text = "";
+        // White flash in
         FloorTransitionBlack.alpha = 1;
+        UIManager.Instance.ScreenText.text = "";
+        UIManager.Instance.SetDialoguePanelsActive(false); // hide panels for flashback
+
+        // Flashback dialogue: response to father
         msg = new Dialogue[]
             {
-            new("I don't think you need to.", CutsceneImages[8]),
+            new("I don't think you need to.", CutsceneImages[8], false, true),
             new("Father, I'm already doing well with my job.", CutsceneImages[8]),
             };
-        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText, skipPanelAnimation: true);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+        UIManager.Instance.SetDialoguePanelsActive(true); // restore panels
 
-        //dialogue
-        UIManager.Instance.dialogueText.text = "";
+        // Flash out, normal dialogue: processing
         FloorTransitionBlack.alpha = 0;
+        UIManager.Instance.dialogueText.text = "";
+
         msg = new Dialogue[]
             {
-            new("...", CutsceneImages[8], true),
+            new("...", CutsceneImages[8], true, true),
             new("It's gonna take a long while for me to process what I just remembered.", null),
             };
-        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText, skipPanelAnimation: true);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
 
         //end setup
         cutsceneMode = false;
         PlayerControls.Instance.doPlayerControls = true;
         PlayerControls.Instance.doPlayerAnimations = true;
-        FloorTransitionBlack.GetComponent<Image>().color = new(0, 0, 0);
+        FloorTransitionBlack.GetComponent<Image>().color = new Color(0, 0, 0);
         UIManager.Instance.ScreenText.gameObject.SetActive(false);
-    } // CRITICAL BUG
+    }
 
     public void PlaySpecialRoom()
     {

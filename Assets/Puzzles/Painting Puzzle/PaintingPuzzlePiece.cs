@@ -155,6 +155,7 @@ public class PaintingPuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandle
     }
     private void OnDestroy()
     {
-        parentPuzzle.CheckAnswer();
+        if (parentPuzzle != null)
+            parentPuzzle.CheckAnswer();
     }
 }

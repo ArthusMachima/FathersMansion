@@ -103,12 +103,14 @@ public class InventoryManager : MonoBehaviour
 
     public void TransferItem(ItemClass item, bool isKey)
     {
+        bool isStored = false;
         if (isKey)
         {
             foreach (KeyItemSlot slot in keyItems)
             {
                 if (!slot.HasItem())
                 {
+                    isStored = true;
                     aud.PlaySFX(aud.s_ItemPickUp);
                     slot.InsertItem(item);
                     break;
@@ -121,11 +123,24 @@ public class InventoryManager : MonoBehaviour
             {
                 if (!slot.HasItem())
                 {
+                    isStored = true;
                     SideScreenMessage.Instance.DisplayMessage("Obtained", item.itemName, 0.6f);
                     slot.InsertItem(item);
                     break;
                 }
             }
+        }
+
+        if (!isStored)
+        {
+            Debug.Log("ITEM SPAWNED");
+            GameObject itemGameObj = new("Item");
+            itemGameObj.AddComponent<SpriteRenderer>();
+            itemGameObj.AddComponent<ItemObject>();
+            itemGameObj.GetComponent<ItemObject>().item = item;
+            itemGameObj.AddComponent<BoxCollider2D>().GetComponent<BoxCollider2D>().size = new(1, 1);
+            itemGameObj.transform.position = GameManager.Instance.Player.transform.position;
+            itemGameObj.GetComponent<ItemObject>().RefreshObject();
         }
     }
 

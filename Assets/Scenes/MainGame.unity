@@ -1078,6 +1078,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: There's even a paper that tells me how to make lock picks from paper
       clips.
     cutsceneImage: {fileID: 0}
@@ -1087,6 +1088,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Neat.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -1095,6 +1097,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -3400,6 +3403,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -3905,6 +3909,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: It would be a convenient thing to have while studying
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -3913,6 +3918,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -4469,6 +4475,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -4587,7 +4594,6 @@ GameObject:
   - component: {fileID: 60145076}
   - component: {fileID: 60145075}
   - component: {fileID: 60145077}
-  - component: {fileID: 60145078}
   m_Layer: 0
   m_Name: Collider (16)
   m_TagString: Untagged
@@ -4727,18 +4733,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &60145078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60145073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cecee039444ee7f4b8ff0ec525694270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &62635616
 GameObject:
   m_ObjectHideFlags: 0
@@ -5133,6 +5127,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -5419,22 +5414,25 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...
-    cutsceneImage: {fileID: 21300000, guid: fb4503569e1301145a4b3501bedfbb42, type: 3}
+    cutsceneImage: {fileID: 21300000, guid: 9c57c615255aa274f9f3a89c6b1f08df, type: 3}
     sound: {fileID: 0}
     methodCall:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: This is probably a clue to a puzzle.
-    cutsceneImage: {fileID: 21300000, guid: fb4503569e1301145a4b3501bedfbb42, type: 3}
+    cutsceneImage: {fileID: 21300000, guid: 9c57c615255aa274f9f3a89c6b1f08df, type: 3}
     sound: {fileID: 0}
     methodCall:
       m_PersistentCalls:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -5455,9 +5453,10 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
-  isInteractable: 1
+    noFadeInTransition: 0
+  isInteractable: 0
   isRepeatable: 0
-  onlyShownOnce: 0
+  onlyShownOnce: 1
   isCutscene: 0
   isPuzzleDialogue: 0
 --- !u!114 &85804153
@@ -5473,7 +5472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storedItems:
-  - {fileID: 11400000, guid: 25c5ec5e74e331e48b8974ca8da02500, type: 2}
+  - {fileID: 11400000, guid: 1d49d31fd1bfaa343b7dc80d5a37d5e1, type: 2}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -5884,6 +5883,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Save me...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -5892,6 +5892,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -6068,6 +6069,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: no, perhaps I'm just having a headache.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -6076,6 +6078,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -6172,7 +6175,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -3048133498818739641, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6690,6 +6693,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I want to stab them with a knife.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -6698,6 +6702,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -6938,6 +6943,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Probably research and thesis stuff.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -6946,6 +6952,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -7124,6 +7131,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -7940,6 +7948,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -11938,6 +11947,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -12024,7 +12034,7 @@ Transform:
   m_GameObject: {fileID: 170315244}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.13620846, w: 0.9906802}
-  m_LocalPosition: {x: 36.83, y: -3.01, z: 0}
+  m_LocalPosition: {x: 36.877, y: -2.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12517,6 +12527,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -13142,6 +13153,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -13162,6 +13174,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -13731,6 +13744,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -13952,6 +13966,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Let's see what is in this room that makes them want to put a pin lock
       on.
     cutsceneImage: {fileID: 0}
@@ -13961,6 +13976,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -13981,9 +13997,10 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
-  isInteractable: 1
+    noFadeInTransition: 0
+  isInteractable: 0
   isRepeatable: 0
-  onlyShownOnce: 0
+  onlyShownOnce: 1
   isCutscene: 0
   isPuzzleDialogue: 0
 --- !u!114 &217829212
@@ -14007,6 +14024,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -14027,9 +14045,10 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
-  isInteractable: 1
+    noFadeInTransition: 0
+  isInteractable: 0
   isRepeatable: 0
-  onlyShownOnce: 0
+  onlyShownOnce: 1
   isCutscene: 0
   isPuzzleDialogue: 0
 --- !u!1 &221707023
@@ -15435,114 +15454,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &259937457
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 680131070}
-    m_Modifications:
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.469455
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.0101817
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 799996628746490898, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 799996628746490898, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Name
-      value: Vase (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 259937460}
-  m_SourcePrefab: {fileID: 100100000, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
---- !u!4 &259937458 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-  m_PrefabInstance: {fileID: 259937457}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &259937459 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-  m_PrefabInstance: {fileID: 259937457}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &259937460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259937459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cbc5addb558b0f46ab5a62838de0dd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-  - sentence: Why would anyone arrange their vases like this?
-    cutsceneImage: {fileID: 0}
-    sound: {fileID: 0}
-    methodCall:
-      m_PersistentCalls:
-        m_Calls: []
-    disableTextSpecificDelays: 0
-    willBeInterupted: 0
-  isInteractable: 1
-  isRepeatable: 0
-  onlyShownOnce: 0
-  isCutscene: 0
-  isPuzzleDialogue: 0
 --- !u!1 &266166761
 GameObject:
   m_ObjectHideFlags: 0
@@ -16926,6 +16837,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: no, perhaps I'm just having a headache.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -16934,6 +16846,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -17030,7 +16943,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -3048133498818739641, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17182,6 +17095,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: no, perhaps I'm just having a headache.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -17190,6 +17104,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -17286,7 +17201,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -3048133498818739641, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17453,6 +17368,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -17473,6 +17389,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -17663,6 +17580,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -18197,6 +18115,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -18608,6 +18527,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -18769,6 +18689,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Though I got no time for that.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -18777,6 +18698,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -19355,6 +19277,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 1
+    noFadeInTransition: 0
   - sentence: Oh... what in the world just happened?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -19363,6 +19286,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -19954,6 +19878,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: This is a first time I've seen a washing machine.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -19962,6 +19887,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Well, knowing the things this huge house has, I perhaps it makes sense
       for them to have one.
     cutsceneImage: {fileID: 0}
@@ -19971,6 +19897,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -23292,6 +23219,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -23312,6 +23240,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -23550,6 +23479,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: A paper clip, could use it to make lock picks.
     cutsceneImage: {fileID: -3294014016939171930, guid: ac4d2cdae92a5fd4ca26f04f363d822a, type: 3}
     sound: {fileID: 0}
@@ -23558,6 +23488,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: And...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -23566,6 +23497,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...
     cutsceneImage: {fileID: -1123473351, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -23574,6 +23506,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Wait, this is...
     cutsceneImage: {fileID: -1123473351, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -23582,6 +23515,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: A painting of a younger me... why is it here?
     cutsceneImage: {fileID: -1123473351, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -23590,6 +23524,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: What is the meaning of this?
     cutsceneImage: {fileID: -1123473351, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -23598,6 +23533,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Does this mean I used to live here? Like perhaps this was my auntie's
       place or something?
     cutsceneImage: {fileID: -1123473351, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
@@ -23607,6 +23543,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I can't think hard about this now, I have to focus finding a way out.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -23615,6 +23552,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -23635,6 +23573,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -24193,6 +24132,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"Jon bought five apples, he gave it to Kimberly."'
     cutsceneImage: {fileID: 21300000, guid: 48d72ac4a947b7741ad1305cc3615d81, type: 3}
     sound: {fileID: 0}
@@ -24201,6 +24141,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"Kimberly ate two and gave one to Joana, from which, out of gratitude,
       she exchanged five oranges in return."'
     cutsceneImage: {fileID: 21300000, guid: 48d72ac4a947b7741ad1305cc3615d81, type: 3}
@@ -24210,6 +24151,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"Joana was disapointed to find out that one of her oranges had spoiled."'
     cutsceneImage: {fileID: 21300000, guid: 48d72ac4a947b7741ad1305cc3615d81, type: 3}
     sound: {fileID: 0}
@@ -24218,6 +24160,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"Now, how many fresh fruit does Kimberly currently have?"'
     cutsceneImage: {fileID: 21300000, guid: 48d72ac4a947b7741ad1305cc3615d81, type: 3}
     sound: {fileID: 0}
@@ -24226,6 +24169,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Is this some kind of riddle?
     cutsceneImage: {fileID: 21300000, guid: 48d72ac4a947b7741ad1305cc3615d81, type: 3}
     sound: {fileID: 0}
@@ -24234,6 +24178,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I'll take this just in case...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -24242,6 +24187,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -24262,6 +24208,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -24749,6 +24696,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: "There, I found a painting\u2014wait... this painting..."
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -24757,6 +24705,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Is this the house where I'm currently at?
     cutsceneImage: {fileID: -2039542872, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -24765,6 +24714,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: And this person... Could he be the owner of the mansion perhaps?
     cutsceneImage: {fileID: -2039542872, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -24773,6 +24723,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -24792,7 +24743,8 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     disableTextSpecificDelays: 0
-    willBeInterupted: 0
+    willBeInterupted: 1
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -27483,6 +27435,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Maybe I should go back and recheck the other rooms again.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27491,6 +27444,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -27511,6 +27465,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -29323,93 +29278,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3348402801914496829, guid: db33b02fd521907428b26c730d4db019, type: 3}
   m_PrefabInstance: {fileID: 449653762}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &449983798
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 449983800}
-  - component: {fileID: 449983799}
-  m_Layer: 0
-  m_Name: TILESET FURNITURE 2ntFLoor_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &449983799
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449983798}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1542807105467508383, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &449983800
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449983798}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.76, y: -3.34, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2017404672}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &451483519
 GameObject:
   m_ObjectHideFlags: 0
@@ -30390,6 +30258,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -30951,6 +30820,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"The use of Mind Overclocking can cause various side effects like
       fever and noseble-"'
     cutsceneImage: {fileID: 0}
@@ -30960,6 +30830,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 1
+    noFadeInTransition: 0
   - sentence: Nope, don't have time for that.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -30968,6 +30839,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -31696,6 +31568,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...!
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -31704,6 +31577,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -31724,6 +31598,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -33317,6 +33192,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I don't think I ever wanna go there, not that I need to.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -33325,6 +33201,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -34958,6 +34835,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Let's see here...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -34966,6 +34844,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"Authorities are still on a lookout for five missing people"'
     cutsceneImage: {fileID: 2136133903, guid: 0fe83cc2907d912438f879a894543623, type: 3}
     sound: {fileID: 0}
@@ -34974,6 +34853,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"According to investigators, the last known location of each individual
       is near a forest with a mansion nearby."'
     cutsceneImage: {fileID: 2136133903, guid: 0fe83cc2907d912438f879a894543623, type: 3}
@@ -34983,6 +34863,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"There have been talks of authorities planning to seek a search warrant
       for the mansion."'
     cutsceneImage: {fileID: 2136133903, guid: 0fe83cc2907d912438f879a894543623, type: 3}
@@ -34992,6 +34873,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -35000,6 +34882,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: missing people... forest...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -35008,6 +34891,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '!'
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -35016,6 +34900,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Am I perhaps...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -35024,6 +34909,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: One of the missing people...?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -35032,6 +34918,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Maybe they're searching for me right now?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -35040,6 +34927,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -35478,6 +35366,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -36078,6 +35967,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"My dear old friend, I would like to give you my deepest gratitude
       for being a successor of my passion project."'
     cutsceneImage: {fileID: 0}
@@ -36087,6 +35977,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"As I don''t have any time left because of old age, and further delving
       myself with this project can only stain my name due to it''s ethical concerns."'
     cutsceneImage: {fileID: 0}
@@ -36096,6 +35987,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"I commend you well for your recent progress, and I would like to
       say that you must deliver the subject to me as soon as you done enchancing
       her."'
@@ -36106,6 +35998,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"As always, keep the errand and my gratitude a secret until it''s
       time to present her to the Foundation."'
     cutsceneImage: {fileID: 0}
@@ -36115,6 +36008,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"Burn this paper if you must, and remember your contract." - Mr. Wundt'
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -36123,6 +36017,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -36131,6 +36026,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I have to know what's this about.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -36139,6 +36035,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -37505,6 +37402,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Althought, I have better things to worry about other than that.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -37513,6 +37411,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -37884,6 +37783,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -40820,7 +40720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7250c70f2aa8b642b955979a7264545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 1
+  alpha: 0
   doLog: 0
 --- !u!114 &604439601
 MonoBehaviour:
@@ -42293,7 +42193,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Origin: {x: 0, y: 0, z: 0}
   m_Size: {x: 49, y: 28, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -42519,6 +42419,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -42589,6 +42490,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -43346,7 +43248,7 @@ PrefabInstance:
     - target: {fileID: 4896969194165070530, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: onDoorLocked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 997649022}
+      objectReference: {fileID: 679903286}
     - target: {fileID: 4896969194165070530, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: onDoorLocked.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -43594,106 +43496,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 417085611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &630085670
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 680131070}
-    m_Modifications:
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.469455
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.51018167
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Name
-      value: Vase (5)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 630085673}
-  m_SourcePrefab: {fileID: 100100000, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
---- !u!4 &630085671 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-  m_PrefabInstance: {fileID: 630085670}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &630085672 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-  m_PrefabInstance: {fileID: 630085670}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &630085673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630085672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cbc5addb558b0f46ab5a62838de0dd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-  - sentence: Why would anyone arrange their vases like this?
-    cutsceneImage: {fileID: 0}
-    sound: {fileID: 0}
-    methodCall:
-      m_PersistentCalls:
-        m_Calls: []
-    disableTextSpecificDelays: 0
-    willBeInterupted: 0
-  isInteractable: 1
-  isRepeatable: 0
-  onlyShownOnce: 0
-  isCutscene: 0
-  isPuzzleDialogue: 0
 --- !u!1 &631802989
 GameObject:
   m_ObjectHideFlags: 0
@@ -43943,6 +43745,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I want to throw them out.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -43951,6 +43754,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I need to throw them out.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -43959,6 +43763,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I need.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -43967,6 +43772,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -43987,6 +43793,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 1
@@ -44013,6 +43820,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -44178,7 +43986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedItems:
   - {fileID: 11400000, guid: 4fe6a3157d135f940a19b8c80d9d38ac, type: 2}
-  - {fileID: 11400000, guid: 9fa9f4ae26805b44cb7d3281b76d95c9, type: 2}
+  - {fileID: 11400000, guid: 25c5ec5e74e331e48b8974ca8da02500, type: 2}
   onInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -44724,7 +44532,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -8744664181054483769, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -44815,15 +44623,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.469455
+      value: 13.1
       objectReference: {fileID: 0}
     - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0101817
+      value: 1.83
       objectReference: {fileID: 0}
     - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -44900,6 +44708,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -45385,6 +45194,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: How is that possible?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -45393,6 +45203,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -47119,6 +46930,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I would assume the item had already stolen long ago.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -47127,6 +46939,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Too bad.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -47135,6 +46948,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -48843,7 +48657,7 @@ MonoBehaviour:
   OnPuzzleCompleteMethod:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 417963597}
+      - m_Target: {fileID: 622912983}
         m_TargetAssemblyTypeName: DoorObject, Assembly-CSharp
         m_MethodName: ForceUnlockDoor
         m_Mode: 1
@@ -48913,11 +48727,6 @@ Transform:
   - {fileID: 1480382297}
   - {fileID: 397217990}
   - {fileID: 655029663}
-  - {fileID: 259937458}
-  - {fileID: 1491495140}
-  - {fileID: 2106204487}
-  - {fileID: 1086135357}
-  - {fileID: 630085671}
   m_Father: {fileID: 149442111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &680131071
@@ -50720,6 +50529,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I would assume the item had already stolen long ago.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -50728,6 +50538,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Too bad.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -50736,6 +50547,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -51162,6 +50974,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: no, perhaps I'm just having a headache.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -51170,6 +50983,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -51266,7 +51080,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -3048133498818739641, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -52493,6 +52307,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Why?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -52501,6 +52316,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -52533,7 +52349,7 @@ Transform:
   m_GameObject: {fileID: 725143121}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.969455, y: 2.5101817, z: 0}
+  m_LocalPosition: {x: 12, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52916,6 +52732,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -53326,6 +53143,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -53870,6 +53688,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: It's as if they are keeping me from escaping.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -53878,6 +53697,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -55456,6 +55276,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Why does this room feel...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -55464,6 +55285,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: familiar...?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -55472,6 +55294,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -55708,6 +55531,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -57153,6 +56977,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -57352,6 +57177,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -57727,6 +57553,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -57843,7 +57670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6758302889361811426, guid: 74c87d4439d089948b43c52aa87665e0, type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9094316183355512799, guid: 74c87d4439d089948b43c52aa87665e0, type: 3}
       propertyPath: m_Name
@@ -58549,7 +58376,6 @@ Transform:
   - {fileID: 969675861}
   - {fileID: 141676593}
   - {fileID: 2095578691}
-  - {fileID: 1449381374}
   m_Father: {fileID: 1938434029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &825826129
@@ -59691,6 +59517,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -59717,6 +59544,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -59868,6 +59696,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -60046,6 +59875,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -60316,6 +60146,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: That means a missing piece is lying around somewhere.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -60324,6 +60155,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -60344,6 +60176,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -60381,6 +60214,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Wait... It has my name on it! I used to hang this in my office wall.
     cutsceneImage: {fileID: -1190603179, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -60389,6 +60223,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: How did it end up here??
     cutsceneImage: {fileID: -1190603179, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -60397,6 +60232,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: And also...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -60405,6 +60241,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Who is he?
     cutsceneImage: {fileID: 21300000, guid: 2af6812fa52321949bc20718b1be50ac, type: 3}
     sound: {fileID: 0}
@@ -60413,6 +60250,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -60662,6 +60500,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Reading the paper filled with jargon, the only thing I noticed was
       the highlighted word in all caps...
     cutsceneImage: {fileID: 21300000, guid: 3578548ef6bb1554188c1800d2aa6eb8, type: 3}
@@ -60671,6 +60510,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"MELANE"'
     cutsceneImage: {fileID: 21300000, guid: 3578548ef6bb1554188c1800d2aa6eb8, type: 3}
     sound: {fileID: 0}
@@ -60679,6 +60519,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I wonder what could mean?
     cutsceneImage: {fileID: 21300000, guid: 3578548ef6bb1554188c1800d2aa6eb8, type: 3}
     sound: {fileID: 0}
@@ -60687,6 +60528,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -63700,6 +63542,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: They look kind of faded this time
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -63708,6 +63551,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -63728,6 +63572,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -64264,6 +64109,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Oh wait, something's here.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -64272,6 +64118,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '!!'
     cutsceneImage: {fileID: 216899954, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -64292,6 +64139,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Me... and the man behind the mansion...?
     cutsceneImage: {fileID: 216899954, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -64300,6 +64148,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Why are we on the same picture?
     cutsceneImage: {fileID: 216899954, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -64308,6 +64157,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: If this looks like a family photo... then, does that mean...?
     cutsceneImage: {fileID: 216899954, guid: f27cb743b88a0fe42be121a6396b9728, type: 3}
     sound: {fileID: 0}
@@ -64316,6 +64166,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: No, this place has weirded me out already.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -64324,6 +64175,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I have to prioritize getting out of here.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -64332,9 +64184,10 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
-  onlyShownOnce: 0
+  onlyShownOnce: 1
   isCutscene: 0
   isPuzzleDialogue: 0
 --- !u!114 &947132163
@@ -64352,7 +64205,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   backLayerIndex: 2
   frontLayerIndex: 0
-  pivotOffset: {x: 0, y: 0, z: 0}
+  pivotOffset: {x: 0, y: -0.75, z: 0}
 --- !u!114 &947132164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65485,7 +65338,7 @@ Transform:
   m_GameObject: {fileID: 973469401}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: -3.5, z: 0}
+  m_LocalPosition: {x: 33, y: 31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65857,6 +65710,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -65883,6 +65737,10 @@ PrefabInstance:
       propertyPath: requiredKeys
       value: 
       objectReference: {fileID: 11400000, guid: bef58a1c0993c1d499a48d8e2e191b5e, type: 2}
+    - target: {fileID: 3001102996843002938, guid: b275190174ef5094fbc2b5aa695f2f7b, type: 3}
+      propertyPath: currentLockDirection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3001102996843002938, guid: b275190174ef5094fbc2b5aa695f2f7b, type: 3}
       propertyPath: onDoorLocked.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -65957,7 +65815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4711026678352395197, guid: b275190174ef5094fbc2b5aa695f2f7b, type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -66018,6 +65876,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Maybe I should go back and recheck the other rooms again.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -66026,6 +65885,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -66046,6 +65906,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -69482,6 +69343,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Although... I don't think I have much choice here.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -69490,6 +69352,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I'll go check what's down there.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -69498,6 +69361,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -69530,6 +69394,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -70718,6 +70583,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: hmmm...
     cutsceneImage: {fileID: 7463408916926491946, guid: 1bdaa554aef9dc944a6b9d6f47f44230, type: 3}
     sound: {fileID: 0}
@@ -70726,6 +70592,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I'll take this just in case
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -70734,6 +70601,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -70754,6 +70622,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -72627,6 +72496,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: My stomach feels funny
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -72635,6 +72505,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I don't think I can hold it anymore.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -72643,6 +72514,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 8300000, guid: b8399ef49b86aba46997860cbe455a62, type: 3}
@@ -72651,6 +72523,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I puked
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -72659,6 +72532,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Somehow, I got a key.
     cutsceneImage: {fileID: 21300000, guid: c16f28b7de630174cbc1887795105523, type: 3}
     sound: {fileID: 0}
@@ -72691,6 +72565,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 1
   onlyShownOnce: 1
@@ -72954,6 +72829,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -73963,106 +73839,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1086135356
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 680131070}
-    m_Modifications:
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 12.469455
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.51018167
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Name
-      value: Vase (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1086135359}
-  m_SourcePrefab: {fileID: 100100000, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
---- !u!4 &1086135357 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-  m_PrefabInstance: {fileID: 1086135356}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1086135358 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-  m_PrefabInstance: {fileID: 1086135356}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1086135359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086135358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cbc5addb558b0f46ab5a62838de0dd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-  - sentence: Why would anyone arrange their vases like this?
-    cutsceneImage: {fileID: 0}
-    sound: {fileID: 0}
-    methodCall:
-      m_PersistentCalls:
-        m_Calls: []
-    disableTextSpecificDelays: 0
-    willBeInterupted: 0
-  isInteractable: 1
-  isRepeatable: 0
-  onlyShownOnce: 0
-  isCutscene: 0
-  isPuzzleDialogue: 0
 --- !u!1 &1088566179
 GameObject:
   m_ObjectHideFlags: 0
@@ -76898,6 +76674,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Why does it feel like I've held this camera before?
     cutsceneImage: {fileID: 21300000, guid: 3fe39dea9f7f2a5429df7632624fc10b, type: 3}
     sound: {fileID: 0}
@@ -76906,6 +76683,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -77115,6 +76893,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -77135,6 +76914,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -78166,6 +77946,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Huh, I got another puzzle clue.
     cutsceneImage: {fileID: 21300000, guid: e5e8d576674f67c4db9b6991e3fb086c, type: 3}
     sound: {fileID: 0}
@@ -78174,9 +77955,10 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
-  isInteractable: 1
+    noFadeInTransition: 0
+  isInteractable: 0
   isRepeatable: 0
-  onlyShownOnce: 0
+  onlyShownOnce: 1
   isCutscene: 0
   isPuzzleDialogue: 0
 --- !u!114 &1161407479
@@ -78200,6 +77982,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...A bulletin board? Why is it placed like that?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -78208,6 +77991,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -78228,9 +78012,10 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
-  isInteractable: 1
+    noFadeInTransition: 0
+  isInteractable: 0
   isRepeatable: 0
-  onlyShownOnce: 0
+  onlyShownOnce: 1
   isCutscene: 0
   isPuzzleDialogue: 0
 --- !u!114 &1161407480 stripped
@@ -78467,6 +78252,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -79693,6 +79479,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -80067,7 +79854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4896969194165070530, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: isUnlocked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4896969194165070530, guid: c36d8a0c9963dc946bb90b19186b1dbb, type: 3}
       propertyPath: connectedDoor
@@ -80657,7 +80444,7 @@ Transform:
   m_GameObject: {fileID: 1205771858}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.77413, y: -3.5520337, z: 0}
+  m_LocalPosition: {x: 37.352, y: -3.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81216,6 +81003,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I tried getting it with my right hand.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -81224,6 +81012,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -81232,6 +81021,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Couldn't reach it for some reason.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -81240,6 +81030,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -81990,7 +81781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6758302889361811426, guid: 74c87d4439d089948b43c52aa87665e0, type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9094316183355512799, guid: 74c87d4439d089948b43c52aa87665e0, type: 3}
       propertyPath: m_Name
@@ -82296,6 +82087,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I see dead bugs inside of it.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -82304,6 +82096,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -83782,6 +83575,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...somehow this hat kinda feels familiar.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -83790,6 +83584,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I should take it just incase.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -83798,6 +83593,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -83818,6 +83614,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -84001,6 +83798,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I would assume the item had already stolen long ago.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -84009,6 +83807,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Too bad.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -84017,6 +83816,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -88047,6 +87847,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -88067,6 +87868,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -88718,6 +88520,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -90892,7 +90695,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.375, y: 1.875}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1.375, y: 1.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -90944,7 +90747,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2267702975995657623, guid: b4ae6ef56a32bb848b60bebc1753b963, type: 3}
+  m_Sprite: {fileID: 1354011957, guid: b4ae6ef56a32bb848b60bebc1753b963, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91813,6 +91616,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: It's a yellow-tipped key.
     cutsceneImage: {fileID: 21300000, guid: 10cfea25acd3d0946a3b6250ca31c75c, type: 3}
     sound: {fileID: 0}
@@ -91821,6 +91625,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I'm guesing these puzzles with their keys are all over the place.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -91829,6 +91634,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: It might help me escape this place.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -91837,6 +91643,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -91857,6 +91664,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -91883,6 +91691,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...Oh these are polaroid cards.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -91891,6 +91700,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: And it seems to be missing a piece.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -91899,6 +91709,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: The cards are stuck in this state.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -91907,6 +91718,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -91939,6 +91751,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -95816,6 +95629,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I think one of the keys I carried fell off.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -95824,6 +95638,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Oh...?
     cutsceneImage: {fileID: 21300000, guid: 841a2d43033e7184f8f2499d39c312f4, type: 3}
     sound: {fileID: 0}
@@ -95832,6 +95647,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: The key... broke?
     cutsceneImage: {fileID: 21300000, guid: 841a2d43033e7184f8f2499d39c312f4, type: 3}
     sound: {fileID: 0}
@@ -95840,6 +95656,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Or maybe...
     cutsceneImage: {fileID: 21300000, guid: 841a2d43033e7184f8f2499d39c312f4, type: 3}
     sound: {fileID: 0}
@@ -95848,6 +95665,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I then checked each of the keys I was carrying.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -95856,6 +95674,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Just as I thought, all of the colored tips turned out to be removable.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -95864,6 +95683,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: But why...?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -95872,6 +95692,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '!!'
     cutsceneImage: {fileID: -5895795991965008814, guid: 251e04c764ee44b4fa4f073599c3f6c7, type: 3}
     sound: {fileID: 0}
@@ -95880,6 +95701,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: So that means...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -95888,6 +95710,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...
     cutsceneImage: {fileID: 21300000, guid: 098f9939563dbb04c814c9c43fa318cf, type: 3}
     sound: {fileID: 0}
@@ -95908,6 +95731,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: This should unlock that elongated lock.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -95916,6 +95740,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -96042,6 +95867,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 1
+    noFadeInTransition: 0
   - sentence: ...Why do I feel...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -96062,6 +95888,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...dizzy?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -96082,6 +95909,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 1
   onlyShownOnce: 1
@@ -97871,7 +97699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4711026678352395197, guid: b275190174ef5094fbc2b5aa695f2f7b, type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -98278,6 +98106,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -100089,110 +99918,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1449381373
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1449381374}
-  - component: {fileID: 1449381376}
-  - component: {fileID: 1449381375}
-  m_Layer: 0
-  m_Name: Walkable
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1449381374
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449381373}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 18.749998, z: 0}
-  m_LocalScale: {x: 28.001493, y: 47.502228, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 824954353}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1449381375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449381373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 0
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
---- !u!212 &1449381376
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449381373}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1452992582
 GameObject:
   m_ObjectHideFlags: 0
@@ -100690,6 +100415,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: no, perhaps I'm just having a headache.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -100698,6 +100424,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -100794,7 +100521,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -3048133498818739641, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101081,6 +100808,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Perhaps I can use this to get through those cardboard boxes.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -101089,6 +100817,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -101109,6 +100838,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -101557,114 +101287,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 680131070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1491495139
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 680131070}
-    m_Modifications:
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.469455
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.0101817
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 799996628746490898, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 799996628746490898, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Name
-      value: Vase (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1491495142}
-  m_SourcePrefab: {fileID: 100100000, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
---- !u!4 &1491495140 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-  m_PrefabInstance: {fileID: 1491495139}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1491495141 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-  m_PrefabInstance: {fileID: 1491495139}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1491495142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491495141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cbc5addb558b0f46ab5a62838de0dd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-  - sentence: Why would anyone arrange their vases like this?
-    cutsceneImage: {fileID: 0}
-    sound: {fileID: 0}
-    methodCall:
-      m_PersistentCalls:
-        m_Calls: []
-    disableTextSpecificDelays: 0
-    willBeInterupted: 0
-  isInteractable: 1
-  isRepeatable: 0
-  onlyShownOnce: 0
-  isCutscene: 0
-  isPuzzleDialogue: 0
 --- !u!1 &1491988023
 GameObject:
   m_ObjectHideFlags: 0
@@ -104026,6 +103648,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 1
+    noFadeInTransition: 0
   - sentence: Oh... what in the world just happened?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -104034,6 +103657,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -104494,6 +104118,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -106921,6 +106546,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: It's as if they are keeping me from escaping.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -106929,6 +106555,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -107965,6 +107592,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -108244,6 +107872,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I can't seem to understand the cursives.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -108252,6 +107881,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: There's a sketch under the papers.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -108260,6 +107890,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: And it seems to depict an empty pot placed in a weird position.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -108268,6 +107899,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -108921,6 +108553,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -109192,6 +108825,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: no, perhaps I'm just having a headache.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -109200,6 +108834,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -109296,7 +108931,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -3048133498818739641, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -111363,6 +110998,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: "\u201DA look at the evolution of the Dial Telephone\u201D"
     cutsceneImage: {fileID: 21300000, guid: 3578548ef6bb1554188c1800d2aa6eb8, type: 3}
     sound: {fileID: 0}
@@ -111371,6 +111007,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: "\u201DThe Model 50AL Candlestick was introduced in 1919 as the first
       free-standing dial telephone.\u201D"
     cutsceneImage: {fileID: 21300000, guid: 3578548ef6bb1554188c1800d2aa6eb8, type: 3}
@@ -111380,6 +111017,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: "\u201CThis groundbreaking model kicked off the rotary dial era that
       dominated the rest of the 20th century.\u201D"
     cutsceneImage: {fileID: 21300000, guid: 3578548ef6bb1554188c1800d2aa6eb8, type: 3}
@@ -111389,6 +111027,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: "\u201CIn 1927, Western Electric produced the Model A1, their first
       telephone featuring a convenie-\u201D Okay I don\u2019t think this could help
       my situation."
@@ -111399,6 +111038,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -111729,6 +111369,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -112328,6 +111969,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Too bad I don't know how to play one.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -112336,6 +111978,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -113508,7 +113151,7 @@ Transform:
   m_GameObject: {fileID: 1666178499}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.13620846, w: 0.9906802}
-  m_LocalPosition: {x: 34.040005, y: -3.01, z: 0}
+  m_LocalPosition: {x: 33.777, y: -2.907, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -115454,6 +115097,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: In a room filled with busy looking things.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -115462,6 +115106,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -116178,7 +115823,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -8744664181054483769, guid: 69624e3a2f00b59428cdc814b95a20aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -116465,6 +116110,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I would assume the item had already stolen long ago.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -116473,6 +116119,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Too bad.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -116481,6 +116128,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -117337,6 +116985,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I could hear something inside.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -117345,6 +116994,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -117961,6 +117611,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I want to stab them with a knife.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -117969,6 +117620,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -119809,6 +119461,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I would imagine it having something inside.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -119817,6 +119470,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Well who knows.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -119825,6 +119479,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 1
@@ -119986,6 +119641,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -120871,6 +120527,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I want to stab them with a knife.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -120879,6 +120536,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -121210,6 +120868,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -121651,6 +121310,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I have never seen one with a circular window to the front.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -121659,6 +121319,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Perhaps this makes waiting for clothes a little more fun because you
       can see it from this angle.
     cutsceneImage: {fileID: 0}
@@ -121668,6 +121329,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -122294,6 +121956,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I could now break empty pots with this.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -122302,6 +121965,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -122322,6 +121986,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -122442,6 +122107,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Why would they need this kind of lamp here?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -122450,6 +122116,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -122982,6 +122649,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -124616,6 +124284,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -126816,6 +126485,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -127372,6 +127042,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -127649,6 +127320,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -127766,6 +127438,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -127898,6 +127571,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -129482,7 +129156,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 838179140794839648, guid: 0fe83cc2907d912438f879a894543623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130859,6 +130533,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -130920,6 +130595,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -131546,7 +131222,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Origin: {x: 0, y: 0, z: 0}
   m_Size: {x: 48, y: 26, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -131724,6 +131400,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -131884,6 +131561,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Maybe I should go back and recheck the other rooms again.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -131892,6 +131570,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -131912,6 +131591,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -132056,7 +131736,7 @@ PrefabInstance:
     - target: {fileID: 2408991586722148661, guid: fc1327b84a010674aa41f96f8bc2c3a0, type: 3}
       propertyPath: dialogue.Array.data[2].cutsceneImage
       value: 
-      objectReference: {fileID: 21300000, guid: 48d72ac4a947b7741ad1305cc3615d81, type: 3}
+      objectReference: {fileID: 21300000, guid: fb4503569e1301145a4b3501bedfbb42, type: 3}
     - target: {fileID: 2408991586722148661, guid: fc1327b84a010674aa41f96f8bc2c3a0, type: 3}
       propertyPath: dialogue.Array.data[3].cutsceneImage
       value: 
@@ -132092,7 +131772,11 @@ PrefabInstance:
     - target: {fileID: 5894729562551802905, guid: fc1327b84a010674aa41f96f8bc2c3a0, type: 3}
       propertyPath: rewardItem
       value: 
-      objectReference: {fileID: 11400000, guid: 1d49d31fd1bfaa343b7dc80d5a37d5e1, type: 2}
+      objectReference: {fileID: 11400000, guid: 25c5ec5e74e331e48b8974ca8da02500, type: 2}
+    - target: {fileID: 5894729562551802905, guid: fc1327b84a010674aa41f96f8bc2c3a0, type: 3}
+      propertyPath: isRewardKey
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6752256219715006771, guid: fc1327b84a010674aa41f96f8bc2c3a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22
@@ -132907,7 +132591,6 @@ Transform:
   - {fileID: 1549290989}
   - {fileID: 1027240063}
   - {fileID: 1274349736}
-  - {fileID: 449983800}
   - {fileID: 1773220878}
   - {fileID: 612601405}
   - {fileID: 2136511720}
@@ -136104,6 +135787,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -136124,6 +135808,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 1
   onlyShownOnce: 1
@@ -138052,6 +137737,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Is it one of those puzzles perhaps?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -138060,6 +137746,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I wonder what would happen if I try rearranging theses paintings?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -138068,6 +137755,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -138100,6 +137788,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -138126,6 +137815,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: It's a key
     cutsceneImage: {fileID: 21300000, guid: e5371bda1d6126a49ac298b3fd9cb7af, type: 3}
     sound: {fileID: 0}
@@ -138134,6 +137824,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -138154,6 +137845,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -138210,6 +137902,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -138716,6 +138409,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Somehow the only dying plant I've seen so far.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -138724,6 +138418,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -141302,6 +140997,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I don't feel too good, what is this headache?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -141310,6 +141006,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -141735,7 +141432,7 @@ Transform:
   m_GameObject: {fileID: 2092779585}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.251118, y: -3.000746, z: 0}
+  m_LocalPosition: {x: 37.936, y: -3.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -142430,6 +142127,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Even if I could eat one, I'm not really that hungry.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -142438,6 +142136,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -142458,6 +142157,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -142588,6 +142288,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -142781,106 +142482,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &2106204486
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 680131070}
-    m_Modifications:
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 11.469455
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.51018167
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2239989212254101536, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      propertyPath: m_Name
-      value: Vase (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2106204489}
-  m_SourcePrefab: {fileID: 100100000, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
---- !u!4 &2106204487 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 607892810935707505, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-  m_PrefabInstance: {fileID: 2106204486}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2106204488 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8917880998187439597, guid: 4378d7760f49bf64fa238fa9a6dbbbdb, type: 3}
-  m_PrefabInstance: {fileID: 2106204486}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2106204489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106204488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cbc5addb558b0f46ab5a62838de0dd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-  - sentence: Why would anyone arrange their vases like this?
-    cutsceneImage: {fileID: 0}
-    sound: {fileID: 0}
-    methodCall:
-      m_PersistentCalls:
-        m_Calls: []
-    disableTextSpecificDelays: 0
-    willBeInterupted: 0
-  isInteractable: 1
-  isRepeatable: 0
-  onlyShownOnce: 0
-  isCutscene: 0
-  isPuzzleDialogue: 0
 --- !u!1 &2106376378
 GameObject:
   m_ObjectHideFlags: 0
@@ -143258,6 +142859,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -143419,6 +143021,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Though it's mostly just dried bones and spoiled veggies, thankfully.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -143427,6 +143030,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -143707,6 +143311,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I wonder what's in it...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -143715,6 +143320,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -143735,6 +143341,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -152859,6 +152466,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Why did I end up in a bedroom?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -152867,6 +152475,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -157275,6 +156884,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -161204,6 +160814,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...who am I?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -161212,6 +160823,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -162132,6 +161744,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Nothing happened.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -162140,6 +161753,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -166533,6 +166147,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 'It says the following:'
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -166541,6 +166156,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: '"To whom who may concern, the only way out of your predicament is
       to take the time to know your surroundings like a friend."'
     cutsceneImage: {fileID: 0}
@@ -166550,6 +166166,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I think it's telling me to check every object in a room.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -166558,6 +166175,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -175942,11 +175560,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.5
+      value: 13.44
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -3.71
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.z
@@ -177432,6 +177050,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -179049,6 +178668,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -181549,6 +181169,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: wait... these are biology and psychology topics related to women.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -181557,6 +181178,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I wonder why...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -181565,6 +181187,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -182399,6 +182022,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Let's see here...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -182407,6 +182031,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -182427,6 +182052,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -182767,6 +182393,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -183501,6 +183128,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: and a trench coat behind it with a certain symbol that I don't recognize.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -183509,6 +183137,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -187127,6 +186756,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: A rather dark and witchy one
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -187135,6 +186765,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Not sure if this fits in the room.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -187143,6 +186774,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -190911,6 +190543,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -191393,6 +191026,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -191517,6 +191151,14 @@ PrefabInstance:
     - target: {fileID: 1143487869968482855, guid: c4833853a891b9349bc4d437d8e64fc3, type: 3}
       propertyPath: m_Alpha
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673615830906799112, guid: c4833853a891b9349bc4d437d8e64fc3, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1447365486}
+    - target: {fileID: 1673615830906799112, guid: c4833853a891b9349bc4d437d8e64fc3, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseGame
       objectReference: {fileID: 0}
     - target: {fileID: 1720014886791701667, guid: c4833853a891b9349bc4d437d8e64fc3, type: 3}
       propertyPath: m_IsActive
@@ -192512,6 +192154,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -193050,6 +192693,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I would want to lay down on it, though, too bad it's dusty.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -193058,6 +192702,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -193735,6 +193380,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I could move these one by one if I could, although they're too heavy
       for me.
     cutsceneImage: {fileID: 0}
@@ -193744,6 +193390,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: or... I could just go there from the other side of the door.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -193752,6 +193399,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -193808,6 +193456,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -194390,6 +194039,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -195715,6 +195365,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: All the etiquettes and recipes.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -195723,6 +195374,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: These made me slightly more hungry.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -195731,6 +195383,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -196101,6 +195754,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Aw, what a shame.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -196109,6 +195763,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -196243,6 +195898,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I need to get out of here.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -196251,6 +195907,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -196283,6 +195940,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -196309,6 +195967,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -196317,6 +195976,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Not even all of the keys I currently have would fit there.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -196325,6 +195985,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I don't think even hitting this thing with a hammer would break up
       either.
     cutsceneImage: {fileID: 0}
@@ -196334,6 +195995,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: It's elongated, which means I may need a longer key, I wonder how to
       get one.
     cutsceneImage: {fileID: 0}
@@ -196343,6 +196005,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -196375,6 +196038,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -196623,6 +196287,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -197165,6 +196830,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Makes me wonder about the owner of the room.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -197173,6 +196839,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -197738,6 +197405,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -197770,6 +197438,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -197931,6 +197600,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -18
       objectReference: {fileID: 0}
+    - target: {fileID: 1391758435532931161, guid: 81c75b10469043f4886ecf566f02c4b7, type: 3}
+      propertyPath: storedItem
+      value: 
+      objectReference: {fileID: 11400000, guid: ae00d0144888500418e5a35618b80b78, type: 2}
     - target: {fileID: 1853893878903259578, guid: 81c75b10469043f4886ecf566f02c4b7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -198351,6 +198024,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 1
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: It's missing a piece, it doesn't make sense for this puzzle to have
       two gaps.
     cutsceneImage: {fileID: 0}
@@ -198360,6 +198034,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Can't seem to slide the pieces in this state.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -198368,6 +198043,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -198400,6 +198076,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -198426,6 +198103,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I found a key with a red tip
     cutsceneImage: {fileID: 21300000, guid: 845e172b0e7420f4bb122e75e12b12e9, type: 3}
     sound: {fileID: 0}
@@ -198434,6 +198112,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Perhaps I can use this to open that lock door.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -198442,6 +198121,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -198462,6 +198142,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -199604,6 +199285,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Even then, I try to look around and snuck my hand to see if I find
       something.
     cutsceneImage: {fileID: 0}
@@ -199613,6 +199295,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: ...!
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -199621,6 +199304,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: It's...
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -199629,6 +199313,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -199649,6 +199334,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -199894,6 +199580,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: I guess this provides the hallway with much needed humidity.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -199902,6 +199589,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -199947,6 +199635,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -200132,6 +199821,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: This row specifically is about politics.
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -200140,6 +199830,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -200195,6 +199886,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Let's see if I find anything useful here
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -200203,6 +199895,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -200223,6 +199916,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -200510,6 +200204,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -200530,6 +200225,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -201161,6 +200857,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: What do I do? Does this mean I am trapped here?
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -201169,6 +200866,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 0
@@ -201426,6 +201124,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -201493,6 +201192,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: 
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -201513,6 +201213,7 @@ MonoBehaviour:
           m_CallState: 2
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 0
   isRepeatable: 0
   onlyShownOnce: 1
@@ -201624,6 +201325,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
@@ -201665,6 +201367,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   - sentence: Some of it here could fit me
     cutsceneImage: {fileID: 0}
     sound: {fileID: 0}
@@ -201673,6 +201376,7 @@ MonoBehaviour:
         m_Calls: []
     disableTextSpecificDelays: 0
     willBeInterupted: 0
+    noFadeInTransition: 0
   isInteractable: 1
   isRepeatable: 0
   onlyShownOnce: 0
