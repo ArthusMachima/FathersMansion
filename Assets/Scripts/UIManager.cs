@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject dialogueConfirmSprite;
     private Coroutine dialogueCoroutine;
     private bool suppressPanelClose;
+    private float lastTypingSFXTime;
 
     [Header("Cutscene Panel")]
     [SerializeField] bool isCutscenePanelShown;
@@ -142,7 +143,11 @@ public class UIManager : MonoBehaviour
             foreach (char chars in pendingDialogue.Peek().sentence)
             {
                 currentDialogueText.text += chars;
-                AudioManager.Instance.PlaySFX(AudioManager.Instance.s_DialogueTyping);
+                if (chars != ' ' && Time.time - lastTypingSFXTime >= 0.05f)
+                {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.s_DialogueTyping);
+                    lastTypingSFXTime = Time.time;
+                }
                 if (pendingDialogue.Peek().sentence == "") yield return null;
                 else if (Input.GetKey(PlayerControls.Instance.Run)) yield return null;
                 else if (chars == ',' || chars == '.' || chars == '?' || chars == '!' || chars == ':' || chars == '-')
@@ -179,7 +184,7 @@ public class UIManager : MonoBehaviour
         {
             if (nofade)
             {
-                Debug.Log("3 false");
+                Debug.Log("3 true");
                 CutscenePanel.alpha = 0;
             }
             else
