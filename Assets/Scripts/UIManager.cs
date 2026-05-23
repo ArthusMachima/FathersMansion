@@ -81,6 +81,7 @@ public class UIManager : MonoBehaviour
             {
                 if (!isCutscenePanelShown)
                 {
+                    // No image was showing — fade in (or instant)
                     isCutscenePanelShown = true;
                     CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
 
@@ -91,10 +92,32 @@ public class UIManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("2 false");
+                        Debug.Log("1 false");
                         LeanTween.value(CutscenePanel.gameObject, 0, 1, 0.5f)
-                        .setOnUpdate(val => CutscenePanel.alpha = val);
+                            .setOnUpdate(val => CutscenePanel.alpha = val);
                         yield return new WaitForSeconds(0.5f);
+                    }
+                }
+                else
+                {
+                    // An image was already showing — swap to new one
+                    if (pendingDialogue.Peek().noFadeInTransition)
+                    {
+                        // Instant swap
+                        CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
+                        Debug.Log("swap instant");
+                    }
+                    else
+                    {
+                        // Fade out, swap sprite, fade in
+                        LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
+                            .setOnUpdate(val => CutscenePanel.alpha = val);
+                        yield return new WaitForSeconds(0.5f);
+                        CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
+                        LeanTween.value(CutscenePanel.gameObject, 0, 1, 0.5f)
+                            .setOnUpdate(val => CutscenePanel.alpha = val);
+                        yield return new WaitForSeconds(0.5f);
+                        Debug.Log("swap fade");
                     }
                 }
             }
@@ -103,13 +126,13 @@ public class UIManager : MonoBehaviour
                 if (pendingDialogue.Peek().noFadeInTransition) 
                 { 
                     CutscenePanel.alpha = 0;
-                    Debug.Log("2 true");
+                    Debug.Log("hide instant");
                 }
                 else
                 {
-                    Debug.Log("2 false");
+                    Debug.Log("hide fade");
                     LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
-                    .setOnUpdate(val => CutscenePanel.alpha = val);
+                        .setOnUpdate(val => CutscenePanel.alpha = val);
                     yield return new WaitForSeconds(0.5f);
                 }
                 isCutscenePanelShown = false;

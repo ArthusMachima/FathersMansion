@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int prevDistance;
     [SerializeField] bool doCutscene=true;
     [SerializeField] bool doMonsterSpawn=true;
+    [SerializeField] bool isSwitchingFloor;
 
     [Header("2nd Floor")]
     [SerializeField] ItemClass LongKey;
@@ -115,7 +116,10 @@ public class GameManager : MonoBehaviour
                 LeanTween.cancel(PlayerControls.Instance.gameObject);
                 LeanTween.value(MonsterDarkness.gameObject, MonsterDarkness.alpha, o, 0.5f)
                        .setOnUpdate(val => MonsterDarkness.alpha = val);
-                AudioManager.Instance.SetBGMVolume(PlayerControls.Instance.MonsterDistance - 1f / 5f, 0.5f);
+                float ratio = (PlayerControls.Instance.MonsterDistance - 1f) / 5f;
+                float targetVolume = AudioManager.Instance.bgmSlider.value * ratio;
+                AudioManager.Instance.SetBGMVolume(targetVolume, 0.5f);
+                prevDistance = PlayerControls.Instance.MonsterDistance;
                 prevDistance = PlayerControls.Instance.MonsterDistance;
             }
         }
@@ -427,8 +431,9 @@ public class GameManager : MonoBehaviour
 
     public void SwitchFloors(int floor)
     {
+        if (isSwitchingFloor) return;
         floorIndex = floor;
-
+        isSwitchingFloor = true;
         LeanTween.value(FloorTransitionBlack.gameObject, 0, 1, 0.5f)
                     .setOnUpdate(val => FloorTransitionBlack.alpha = val).setOnComplete(() =>
                     {
@@ -447,7 +452,11 @@ public class GameManager : MonoBehaviour
                         else
                             MonsterDarkness.gameObject.SetActive(true);
                         LeanTween.value(FloorTransitionBlack.gameObject, 1, 0, 0.5f)
-                    .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+                    .setOnUpdate(val => FloorTransitionBlack.alpha = val).setOnComplete(() =>
+                    {
+
+                        isSwitchingFloor = false;
+                    });
                         
                     });
 
@@ -456,8 +465,10 @@ public class GameManager : MonoBehaviour
 
     public void SwitchFloors(int floor, bool doTransition)
     {
+        if (isSwitchingFloor) return;
         if (doTransition)
         {
+            isSwitchingFloor = true;
             floorIndex = floor;
             LeanTween.value(FloorTransitionBlack.gameObject, 0, 1, 0.5f)
                         .setOnUpdate(val => FloorTransitionBlack.alpha = val).setOnComplete(() =>
@@ -465,7 +476,10 @@ public class GameManager : MonoBehaviour
                             foreach (var f in Floors) f.SetActive(false);
                             Floors[floor].SetActive(true);
                             LeanTween.value(FloorTransitionBlack.gameObject, 1, 0, 0.5f)
-                        .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+                        .setOnUpdate(val => FloorTransitionBlack.alpha = val).setOnComplete(() =>
+                        {
+                            isSwitchingFloor = false;
+                        });
                             if (floor == 2)
                                 MonsterDarkness.gameObject.SetActive(false);
                             else
@@ -512,11 +526,11 @@ public class GameManager : MonoBehaviour
                 }
         }
         isJumpscared = true;
+        Monster.gameObject.SetActive(false);
         LeanTween.delayedCall(Random.Range(1f,2f), () =>
         {
             AudioManager.Instance.StopBGM();
             Monster.transform.position = Vector3.zero;
-            Monster.gameObject.SetActive(false);
             JumpscarePanel.SetActive(false);
             GameOver();
             isJumpscared = false;
@@ -1129,7 +1143,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Scene1stFloorFinalPainting());
     }
 
-    IEnumerator Scene1stFloorFinalPainting()
+    IEnumerator Scene1stFloorFinalPainting() // visual bug
     {
         //initial setup
         cutsceneMode = true;
@@ -1155,7 +1169,7 @@ public class GameManager : MonoBehaviour
         // Flashback dialogue: "Melania" — panel already open, skip re-animation
         msg = new Dialogue[]
             {
-            new("\"Melania\"", CutsceneImages[8], false, true),
+            new("\"Melania\"", null, false, true),
             };
         UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText, skipPanelAnimation: true);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
@@ -1180,8 +1194,8 @@ public class GameManager : MonoBehaviour
         // Flashback dialogue: phone call memory
         msg = new Dialogue[]
             {
-            new("\"I want you to take over the mansion for me\"", CutsceneImages[8], false, true),
-            new("That's what he said on the telephone.", CutsceneImages[8]),
+            new("\"I want you to take over the mansion for me\"", null, false, true),
+            new("That's what he said on the telephone.", null),
             };
         UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText, skipPanelAnimation: true);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
@@ -1206,8 +1220,8 @@ public class GameManager : MonoBehaviour
         // Flashback dialogue: response to father
         msg = new Dialogue[]
             {
-            new("I don't think you need to.", CutsceneImages[8], false, true),
-            new("Father, I'm already doing well with my job.", CutsceneImages[8]),
+            new("I don't think you need to.", null, false, true),
+            new("Father, I'm already doing well with my job.", null),
             };
         UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText, skipPanelAnimation: true);
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);

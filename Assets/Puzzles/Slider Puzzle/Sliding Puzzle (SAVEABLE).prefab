@@ -2455,7 +2455,7 @@ GameObject:
   - component: {fileID: 7453696735320225102}
   - component: {fileID: 7220500093316463908}
   m_Layer: 5
-  m_Name: Sliding Puzzle
+  m_Name: Sliding Puzzle (SAVEABLE)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2538,4 +2538,4 @@ MonoBehaviour:
   Slots: {fileID: 2314466946701376705}
   PuzzlePieces: []
   EmptySpace: 8
-  useSaveData: 0
+  useSaveData: 1

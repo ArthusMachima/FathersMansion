@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource bgmIntroSource;
     [SerializeField] AudioSource bgmLoopSource;
     [SerializeField] AudioSource bgmCrossfadeSource;
-    [SerializeField] Slider bgmSlider;
+    public Slider bgmSlider;
 
     [Header("SFX")]
     [SerializeField] AudioSource sfxSource;

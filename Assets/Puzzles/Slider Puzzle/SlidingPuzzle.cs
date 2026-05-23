@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.U2D;
 
 public class SlidingPuzzle : PuzzleClass, IPointerEnterHandler
 {
@@ -13,10 +12,13 @@ public class SlidingPuzzle : PuzzleClass, IPointerEnterHandler
     [SerializeField] Transform[] PiecePosition;
 
     [SerializeField] CanvasGroup Slots;
-    [SerializeField] SlidingPuzzlePiece[] PuzzlePieces; // should be about the length of 9 (8)
+    [SerializeField] SlidingPuzzlePiece[] PuzzlePieces;
 
-    [SerializeField] int EmptySpace=8;
+    [SerializeField] int EmptySpace = 8;
 
+    [SerializeField] bool useSaveData = true; // Toggle saving/loading in Inspector
+
+    private const string SaveKey = "slidingPuzzle";
 
     private void Start()
     {
@@ -36,12 +38,15 @@ public class SlidingPuzzle : PuzzleClass, IPointerEnterHandler
     public void CheckAnswer()
     {
         bool correct = PuzzlePieces.All(p => p.pieceCodeNumber == p.assignedPosIndex);
-        if (correct) puzzleObject.OnPuzzleComplete();
+        if (correct)
+        {
+            puzzleObject.OnPuzzleComplete();
+            PlayerPrefs.DeleteKey(SaveKey);
+        }
     }
 
     public void ScramblePieces()
     {
-        //Apply sliced texture
         SlicedPuzzlePicture = null;
         SlicedPuzzlePicture = Resources.LoadAll<Sprite>(puzzleObject.PuzzleTexture.name);
 
@@ -57,7 +62,7 @@ public class SlidingPuzzle : PuzzleClass, IPointerEnterHandler
                 PuzzlePieces[i].pieceCodeNumber = i;
             }
         }
-        EmptySpace = PuzzlePieces.Length - 1; // = 8
+        EmptySpace = PuzzlePieces.Length - 1;
 
         if (puzzleObject.isPuzzleFinished)
         {
@@ -66,7 +71,11 @@ public class SlidingPuzzle : PuzzleClass, IPointerEnterHandler
             return;
         }
 
+        // Try loading saved data first
+        if (useSaveData && TryLoadPuzzleState())
+            return;
 
+        // No save data found — do normal scramble
         int grid = 3;
         int[] firstColumn = new int[grid];
         int[] lastColumn = new int[grid];
@@ -105,6 +114,66 @@ public class SlidingPuzzle : PuzzleClass, IPointerEnterHandler
             }
         }
 
+        ApplyPositionsAndVisibility();
+    }
+
+    // Saves each piece as "pieceCodeNumber:assignedPosIndex", joined by commas,
+    // with the EmptySpace index appended at the end (e.g. "0:4,1:2,...,8")
+    public void SavePuzzleState()
+    {
+        if (!useSaveData) return;
+
+        var parts = PuzzlePieces.Select(p => $"{p.pieceCodeNumber}:{p.assignedPosIndex}").ToList();
+        parts.Add(EmptySpace.ToString());
+        PlayerPrefs.SetString(SaveKey, string.Join(",", parts));
+        PlayerPrefs.Save();
+    }
+
+    // Returns true and applies state if valid save data exists, false otherwise
+    private bool TryLoadPuzzleState()
+    {
+        if (!PlayerPrefs.HasKey(SaveKey)) return false;
+
+        string data = PlayerPrefs.GetString(SaveKey);
+        string[] parts = data.Split(',');
+
+        // Last entry is EmptySpace; all others are pieceCode:assignedPos pairs
+        if (parts.Length != PuzzlePieces.Length + 1)
+        {
+            Debug.LogWarning("SlidingPuzzle: Save data length mismatch, scrambling instead.");
+            return false;
+        }
+
+        if (!int.TryParse(parts[^1], out int savedEmptySpace))
+        {
+            Debug.LogWarning("SlidingPuzzle: Could not parse EmptySpace from save data.");
+            return false;
+        }
+
+        EmptySpace = savedEmptySpace;
+
+        for (int i = 0; i < PuzzlePieces.Length; i++)
+        {
+            string[] pair = parts[i].Split(':');
+            if (pair.Length != 2 ||
+                !int.TryParse(pair[0], out int pieceCode) ||
+                !int.TryParse(pair[1], out int assignedPos))
+            {
+                Debug.LogWarning($"SlidingPuzzle: Could not parse piece data at index {i}, scrambling instead.");
+                return false;
+            }
+
+            PuzzlePieces[i].pieceCodeNumber = pieceCode;
+            PuzzlePieces[i].assignedPosIndex = assignedPos;
+        }
+
+        ApplyPositionsAndVisibility();
+        return true;
+    }
+
+    // Shared logic for positioning and visibility after scramble or load
+    private void ApplyPositionsAndVisibility()
+    {
         foreach (var piece in PuzzlePieces)
         {
             piece.gameObject.transform.position = PiecePosition[piece.assignedPosIndex].position;
@@ -120,35 +189,31 @@ public class SlidingPuzzle : PuzzleClass, IPointerEnterHandler
                 piece.gameObject.SetActive(false);
             }
         }
-
     }
 
     public void MovePiece(SlidingPuzzlePiece piece)
     {
-        // Set up constraints
         int grid = 3;
         int[] firstColumn = new int[grid];
         int[] lastColumn = new int[grid];
         for (int i = 0; i < grid; i++)
         {
-            firstColumn[i] = grid * i;           // 0, 3, 6
-             lastColumn[i] = grid * (i + 1) - 1; // 2, 5, 8
+            firstColumn[i] = grid * i;
+            lastColumn[i] = grid * (i + 1) - 1;
         }
 
-        // Check pieces
-        bool found = false; 
-        if (piece.assignedPosIndex -    1 == EmptySpace && !firstColumn.Any(i => piece.assignedPosIndex == i)) found = true; // check left
-        if (piece.assignedPosIndex +    1 == EmptySpace && !lastColumn.Any(i => piece.assignedPosIndex == i))  found = true; // check right
-        if (piece.assignedPosIndex - grid == EmptySpace && piece.assignedPosIndex - grid >= 0)                 found = true; // check down
-        if (piece.assignedPosIndex + grid == EmptySpace && piece.assignedPosIndex + grid <= grid * grid - 1)   found = true; // check up
+        bool found = false;
+        if (piece.assignedPosIndex - 1 == EmptySpace && !firstColumn.Any(i => piece.assignedPosIndex == i)) found = true;
+        if (piece.assignedPosIndex + 1 == EmptySpace && !lastColumn.Any(i => piece.assignedPosIndex == i)) found = true;
+        if (piece.assignedPosIndex - grid == EmptySpace && piece.assignedPosIndex - grid >= 0) found = true;
+        if (piece.assignedPosIndex + grid == EmptySpace && piece.assignedPosIndex + grid <= grid * grid - 1) found = true;
         if (!found) return;
 
-        //Move piece
         piece.gameObject.LeanMove(PiecePosition[EmptySpace].position, 0.3f).setEaseInOutQuint().setOnComplete(() =>
         {
             CheckAnswer();
         });
-        (piece.assignedPosIndex, EmptySpace) = (EmptySpace, piece.assignedPosIndex); // Tupple
+        (piece.assignedPosIndex, EmptySpace) = (EmptySpace, piece.assignedPosIndex);
     }
 
     public void InsertLostPiece()
@@ -159,7 +224,7 @@ public class SlidingPuzzle : PuzzleClass, IPointerEnterHandler
             foreach (var piece in PuzzlePieces) piece.interactable = true;
             puzzleObject.isPuzzlePieceFound = true;
         }
-    } 
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -180,22 +245,12 @@ public class SlidingPuzzle : PuzzleClass, IPointerEnterHandler
         UIManager.Instance.LoadDialogue(msg);
     }
 
-
-
-
-
-
-    public override void OnPuzzleEnter()
-    {
-
-    }
+    public override void OnPuzzleEnter() { }
 
     public override void OnPuzzleExit()
     {
-
+        SavePuzzleState();
     }
 
-    public override void OnDialogueEnd()
-    {
-    }
+    public override void OnDialogueEnd() { }
 }
