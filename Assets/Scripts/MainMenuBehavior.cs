@@ -1,10 +1,13 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class MainMenuBehavior : MonoBehaviour
 {
     [Header("Panels")]
+    [SerializeField] CanvasGroup WarningText;
     [SerializeField] CanvasGroup MainMenuPanel;
     [SerializeField] CanvasGroup SettingsPanel;
     [SerializeField] bool colorblindMode;
@@ -14,12 +17,30 @@ public class MainMenuBehavior : MonoBehaviour
 
     private void Start()
     {
-        ShowMainMenu();
+        StartCoroutine(DelayedStart());
     }
+
+    IEnumerator DelayedStart()
+    {
+        ShowPanel(WarningText, true, 1);
+        yield return new WaitForSeconds(2f);
+        ShowPanel(WarningText, false, 1f);
+        yield return new WaitForSeconds(1f);
+        ShowMainMenu();
+        AudioManager.Instance.PlayBGM(AudioManager.Instance.m_MainMenu);
+    }
+
 
     void ShowPanel(CanvasGroup panel, bool show)
     {
         LeanTween.value(panel.gameObject, show ?0:1, show ?1:0, 0.5f).setOnUpdate(val => panel.alpha = val);
+        panel.interactable = show;
+        panel.blocksRaycasts = show;
+    }
+
+    void ShowPanel(CanvasGroup panel, bool show, float dur)
+    {
+        LeanTween.value(panel.gameObject, show ? 0 : 1, show ? 1 : 0, dur).setOnUpdate(val => panel.alpha = val);
         panel.interactable = show;
         panel.blocksRaycasts = show;
     }
@@ -32,7 +53,6 @@ public class MainMenuBehavior : MonoBehaviour
 
     public void ShowMainMenu()
     {
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.s_UIConfirm);
         HideAllPanel();
         LeanTween.delayedCall(0.5f, () =>
         {
@@ -42,7 +62,6 @@ public class MainMenuBehavior : MonoBehaviour
 
     public void ShowSettings()
     {
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.s_UICancel);
         HideAllPanel();
         LeanTween.delayedCall(0.5f, () =>
         {
