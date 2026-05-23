@@ -21,7 +21,7 @@ public class ObjectEnabler : MonoBehaviour
 
     public void EnableObject()
     {
-        obj.SetActive(true);
+        if (obj!=null) obj.SetActive(true);
         if (objToDisable != null ) objToDisable.SetActive(false);
         if (groupToEnable.Length>0) foreach (GameObject group in groupToEnable) group.SetActive(true);
         if(groupToDisable.Length>0) foreach (GameObject group in groupToDisable) group.SetActive(false);

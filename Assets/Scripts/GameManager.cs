@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -42,8 +43,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Cutscene Elements")]
     public bool cutsceneMode;
-    [SerializeField] GameObject Player;
-    [SerializeField] Transform[] TransPoints;
+    public GameObject Player;
+    public Transform[] TransPoints;
     [SerializeField] Sprite[] CutsceneImages;
     [SerializeField] GameObject[] CutsceneObjects;
 
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
     public bool FoundAllSecretItemsInSecondFloor;
 
     [Header("Basement")]
+    [SerializeField] Transform crossroadReturnPoint;
     [SerializeField] ShaderEffect_BleedingColors ScreenEffectsHazing;
     [SerializeField] ShaderEffect_Tint ScreenEffectsHue;
     [SerializeField] ShaderEffect_CorruptedVram ScreenEffectsWipe;
@@ -166,6 +168,34 @@ public class GameManager : MonoBehaviour
 
 
     //Function
+    public void doReturnCrossroad()
+    {
+        StartCoroutine(ReturnCrossroad());
+    }
+
+    IEnumerator ReturnCrossroad()
+    {
+        //black fade out
+        PlayerControls.Instance.StopPlayer();
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+        FloorTransitionBlack.gameObject.GetComponent<Image>().color = new(0, 0, 0);
+        LeanTween.value(FloorTransitionBlack.gameObject, 0, 1, 0.2f)
+                    .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+        yield return new WaitForSeconds(0.3f);
+
+        //moving player
+        Player.transform.position = crossroadReturnPoint.position;
+
+        //black fade in
+        LeanTween.value(FloorTransitionBlack.gameObject, 1, 0, 0.5f)
+                    .setOnUpdate(val => FloorTransitionBlack.alpha = val);
+        yield return new WaitForSeconds(0.2f);
+
+        PlayerControls.Instance.doPlayerControls = true;
+        PlayerControls.Instance.doPlayerAnimations = true;
+    }
+
     public void DoBasementScreenEffects(bool activate)
     {
         LeanTween.cancel(Camera.main.gameObject);
@@ -493,6 +523,39 @@ public class GameManager : MonoBehaviour
         });
     } //TODO bug fix player can still move while jumpscare and gameover
 
+    public void JumpscareEnd()
+    {
+        PlayerControls.Instance.StopPlayer();
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+
+        if (isJumpscared) return;
+        JumpscarePanel.SetActive(true);
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                {
+                    AudioManager.Instance.PlayBGM(AudioManager.Instance.s_jumpscare1);
+                    break;
+                }
+            case 1:
+                {
+                    AudioManager.Instance.PlayBGM(AudioManager.Instance.s_jumpscare2);
+                    break;
+                }
+            case 2:
+                {
+                    AudioManager.Instance.PlayBGM(AudioManager.Instance.s_jumpscare3);
+                    break;
+                }
+        }
+        isJumpscared = true;
+        LeanTween.delayedCall(Random.Range(1f, 2f), () =>
+        {
+            Application.Quit();
+        });
+    }
+
     void GameOver()
     {
         GameOverUI.SetActive(true);
@@ -514,6 +577,7 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        DoBasementScreenEffects(false, false);
         GameOverUI.SetActive(false);
         cutsceneMode = false;
         doMonsterSpawn = true;
@@ -894,12 +958,50 @@ public class GameManager : MonoBehaviour
         doMonsterSpawn = true;
     }
 
-    public void PlayEscapeScenes()
+    public void EndingCondition()
     {
         if (FoundAllSecretItemsInSecondFloor)
-            PlayRealEscape();
+            CutsceneObjects[6].SetActive(true);
         else
             PlayNormalEscape();
+    }
+
+    public void FinalJumpscare()
+    {
+        PlayerControls.Instance.StopPlayer();
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+
+        if (isJumpscared) return;
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                {
+                    AudioManager.Instance.PlayBGM(AudioManager.Instance.s_jumpscare1);
+                    break;
+                }
+            case 1:
+                {
+                    AudioManager.Instance.PlayBGM(AudioManager.Instance.s_jumpscare2);
+                    break;
+                }
+            case 2:
+                {
+                    AudioManager.Instance.PlayBGM(AudioManager.Instance.s_jumpscare3);
+                    break;
+                }
+        }
+        isJumpscared = true;
+        float time = Random.Range(1f, 2f);
+        ScreenEffectsWipe.enabled = true;
+        LeanTween.value(ScreenEffectsWipe.gameObject, 0, 40, time)
+                    .setOnUpdate(val => ScreenEffectsWipe.shift = val).setOnComplete(() =>
+                    {
+                        ScreenEffectsWipe.enabled = false;
+                        AudioManager.Instance.StopBGM();
+                        PlayRealEscape();
+                        isJumpscared = false;
+                    });
     }
 
     public void PlayNormalEscape()
@@ -984,10 +1086,43 @@ public class GameManager : MonoBehaviour
         cutsceneMode = true;
         PlayerControls.Instance.doPlayerControls = false;
         PlayerControls.Instance.doPlayerAnimations = false;
+        yield return null;
 
-        yield return new WaitForSeconds(1);
+        //fade out game
+        FloorTransitionBlack.alpha = 1;
+        AudioManager.Instance.StopBGM();
+        yield return new WaitForSeconds(1f);
+
+        //dialogue
+        Dialogue[] msg =
+        {
+            new("I woke up.", null),
+        };
+        UIManager.Instance.LoadDialogue(msg);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //play music
+        AudioManager.Instance.PlayBGM(AudioManager.Instance.m_BasementEnd);
+
+        //dialogue
+        msg = new Dialogue[]
+            {
+                new("...", CutsceneImages[4]),
+                new("...ohh", null),
+                new("...", CutsceneImages[5]),
+                new("I see now... I almost forgot.", null),
+                new("...no wonder I forgot all about it.", CutsceneImages[6]),
+                new("about who I am and all.", CutsceneImages[6]),
+                new("It's the last thing I'd want to remember, honestly.", null),
+            };
+        UIManager.Instance.LoadDialogue(msg);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //fade music and charcter sprite
+        AudioManager.Instance.SetBGMVolume(0, 2);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("MainMenu");
-    } //not finished
+    }
 
     public void Play1stFloorFinalPainting()
     {
@@ -996,6 +1131,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Scene1stFloorFinalPainting()
     {
+
         //initial setup
         cutsceneMode = true;
         PlayerControls.Instance.doPlayerControls = false;
@@ -1010,6 +1146,49 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
         Debug.Log("after");
 
+        //sudden flash back dialogue
+        UIManager.Instance.ScreenText.text = "";
+        FloorTransitionBlack.GetComponent<Image>().color = new(1, 1, 1);
+        FloorTransitionBlack.alpha = 1;
+        UIManager.Instance.ScreenText.gameObject.SetActive(true);
+        msg = new Dialogue[]
+            {
+            new("\"Melania\"", CutsceneImages[8]),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.ScreenText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+        //dialogue
+        UIManager.Instance.dialogueText.text = "";
+        FloorTransitionBlack.alpha = 0;
+        msg = new Dialogue[]
+            {
+            new("!?", CutsceneImages[8]),
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+
+
+
+
+
+
+        yield break;
+
+        //initial setup
+        cutsceneMode = true;
+        PlayerControls.Instance.doPlayerControls = false;
+        PlayerControls.Instance.doPlayerAnimations = false;
+        /*
+        Dialogue[] msg =
+            {
+                new("Something came down the table.", null),
+                new("Huh, it's a painting of a telephon-", CutsceneImages[8], true), //putting cutscene images does not proceed to next convo
+            };
+        UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+        Debug.Log("after");
+        */
         //sudden flash back dialogue
         UIManager.Instance.ScreenText.text = "";
         FloorTransitionBlack.GetComponent<Image>().color = new(1, 1, 1);
@@ -1094,6 +1273,8 @@ public class GameManager : MonoBehaviour
         cutsceneMode = true;
         PlayerControls.Instance.doPlayerControls = false;
         PlayerControls.Instance.doPlayerAnimations = false;
+        PlayerControls.Instance.StopPlayer();
+        AudioManager.Instance.FadeStopBGM(0.5f);
 
         //black fade out
         FloorTransitionBlack.gameObject.GetComponent<Image>().color = new(0, 0, 0);
@@ -1155,12 +1336,17 @@ public class GameManager : MonoBehaviour
         //dialogue
         msg = new Dialogue[]
             {
+            new("no...", null),
             new("Ow, my head hurts.", null),
             };
         UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
+        
+        //insanity filter
+        DoBasementScreenEffects(true);
 
         //player move
-        Player.LeanMove(TransPoints[6].position - TransPoints[5].position, 2f).setOnComplete(() =>
+        Player.LeanMove((TransPoints[5].position+TransPoints[6].position)/2, 2f).setOnComplete(() =>
         {
             PlayerControls.Instance.anim.SetBool("isMoving", false);
         });
@@ -1169,21 +1355,26 @@ public class GameManager : MonoBehaviour
         PlayerControls.Instance.anim.SetBool("isMoving", true);
         yield return new WaitForSeconds(2f);
 
-        //insanity filter
-        DoBasementScreenEffects(true);
-
         //dialogue
         msg = new Dialogue[]
             {
             new("Oh no, I'm going insane again.", null),
             };
         UIManager.Instance.LoadDialogue(msg, UIManager.Instance.dialogueText);
+        yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
 
+        //move cam to bed
+        CutsceneObjects[5].SetActive(true);
+        Camera.main.gameObject.LeanMove((Vector2)CutsceneObjects[5].transform.position, 1f);
+        yield return new WaitForSeconds(2);
 
-        
-
+        //move it back to player
+        Camera.main.gameObject.LeanMove((Vector2)Player.transform.position, 0.5f);
+        yield return new WaitForSeconds(0.5f);
 
         //end setup
+        CutsceneObjects[5].GetComponent<NavMeshAgent>().enabled = true;
+        Destroy(CutsceneObjects[5], 2f);
         cutsceneMode = false;
         PlayerControls.Instance.doPlayerControls = true;
         PlayerControls.Instance.doPlayerAnimations = true;

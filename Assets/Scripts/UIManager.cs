@@ -78,8 +78,8 @@ public class UIManager : MonoBehaviour
                     isCutscenePanelShown = true;
                     CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
 
-
-                    if (pendingDialogue.Peek().willBeInterupted)
+                    Debug.Log("A");
+                    if (!pendingDialogue.Peek().willBeInterupted)
                     {
                         CutscenePanel.alpha = 1;
                     }
@@ -93,6 +93,9 @@ public class UIManager : MonoBehaviour
             }
             else if (isCutscenePanelShown)
             {
+
+
+                Debug.Log("B");
                 if (pendingDialogue.Peek().willBeInterupted)
                 {
                     CutscenePanel.alpha = 0;
@@ -121,6 +124,8 @@ public class UIManager : MonoBehaviour
                 else yield return new WaitForSeconds(textSpeed);
             }
 
+
+            Debug.Log("C");
             if (!pendingDialogue.Peek().willBeInterupted)
             {
                 dialogueConfirmSprite.SetActive(true);
@@ -140,6 +145,8 @@ public class UIManager : MonoBehaviour
 
         if (isCutscenePanelShown)
         {
+
+            Debug.Log("D");
             if (pendingDialogue.Count>0 && !pendingDialogue.Peek().willBeInterupted)
             {
                 CutscenePanel.alpha = 0;

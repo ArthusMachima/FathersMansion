@@ -13,15 +13,17 @@ public class FakeMonsterBehavior : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        if (agent == null) return;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
 
-
+    
 
     private void Update()
     {
-        agent.isStopped = GameManager.Instance.gamePaused ||
+        if (agent == null) return; 
+        agent.isStopped = GameManager.Instance.gamePaused || 
             PlayerControls.Instance.isPlayerHiddenInCloset || 
             UIManager.Instance.pendingDialogue.Count>0; 
         if (target != null) agent.SetDestination(target.position);
