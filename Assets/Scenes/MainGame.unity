@@ -4417,7 +4417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   backLayerIndex: 3
-  frontLayerIndex: 0
+  frontLayerIndex: 1
   pivotOffset: {x: 0, y: -0.5, z: 0}
 --- !u!1 &56465438
 GameObject:
@@ -35253,7 +35253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   backLayerIndex: 3
-  frontLayerIndex: 0
+  frontLayerIndex: 1
   pivotOffset: {x: 0, y: -0.5, z: 0}
 --- !u!1 &519188365
 GameObject:
@@ -43986,7 +43986,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedItems:
   - {fileID: 11400000, guid: 4fe6a3157d135f940a19b8c80d9d38ac, type: 2}
-  - {fileID: 11400000, guid: 25c5ec5e74e331e48b8974ca8da02500, type: 2}
   onInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -65317,6 +65316,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &972050672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8275074617340000794, guid: f564a43f782e3094eb41f44808cbbfba, type: 3}
+  m_PrefabInstance: {fileID: 5149124772435949601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &973469401
 GameObject:
   m_ObjectHideFlags: 0
@@ -77867,6 +77871,10 @@ PrefabInstance:
     - target: {fileID: 5102559102550990112, guid: 23c72c7e49bc60c48afbe5258cdcfad2, type: 3}
       propertyPath: m_Name
       value: PuzzlePainting
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102559102550990112, guid: 23c72c7e49bc60c48afbe5258cdcfad2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7072399322652403699, guid: 23c72c7e49bc60c48afbe5258cdcfad2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -99760,6 +99768,7 @@ MonoBehaviour:
   isJumpscared: 0
   isMonsterSpawned: 0
   FloorTransitionBlack: {fileID: 6897082599701623902}
+  DialoguePanel: {fileID: 972050672}
   MonsterDarkness: {fileID: 1847934734538043962}
   GameUI: {fileID: 6319171511427770360}
   Monster: {fileID: 607931755810035131}
@@ -122496,7 +122505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  backLayerIndex: 4
+  backLayerIndex: 5
   frontLayerIndex: 0
   pivotOffset: {x: 0, y: -0.3, z: 0}
 --- !u!1 &1867549130
@@ -175568,11 +175577,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4513709815185000817, guid: ea96587c0266f84418079da8091d2c99, type: 3}
       propertyPath: m_LocalPosition.z
@@ -199215,8 +199224,8 @@ RectTransform:
   - {fileID: 4255171344990793146}
   - {fileID: 4360453995922509957}
   - {fileID: 1340919400205998009}
-  - {fileID: 2866860242163270052}
   - {fileID: 8478389322700764288}
+  - {fileID: 2866860242163270052}
   - {fileID: 9097396341862376909}
   - {fileID: 2939434164409741124}
   - {fileID: 5180606149861147840}

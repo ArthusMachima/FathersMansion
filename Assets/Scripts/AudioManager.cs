@@ -198,13 +198,22 @@ public class AudioManager : MonoBehaviour
             .setOnUpdate(vol => bgmCrossfadeSource.volume = vol)
             .setOnComplete(() =>
             {
+                // Sync loop source to crossfade source's exact position before handing off
+                bgmLoopSource.clip = loop;
+                bgmLoopSource.volume = targetVolume;
+                bgmLoopSource.loop = true;
+                bgmLoopSource.timeSamples = bgmCrossfadeSource.timeSamples;
+                bgmLoopSource.Play();
+
                 bgmCrossfadeSource.Stop();
                 bgmCrossfadeSource.clip = null;
 
-                // Hand off to the normal intro+loop sources
-                bgmIntroSource.volume = targetVolume;
-                bgmLoopSource.volume = targetVolume;
-                bgmCoroutine = StartCoroutine(PlayBGMSequence(intro, loop));
+                // Only handle intro separately if one was provided; loop source is already running
+                if (intro != null)
+                {
+                    bgmIntroSource.volume = targetVolume;
+                    bgmCoroutine = StartCoroutine(PlayBGMSequence(intro, loop));
+                }
             });
     }
 

@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public bool isJumpscared;
     [SerializeField] bool isMonsterSpawned;
     [SerializeField] CanvasGroup FloorTransitionBlack;
+    [SerializeField] GameObject DialoguePanel;
     [SerializeField] CanvasGroup MonsterDarkness;
     [SerializeField] GameObject GameUI;
     public MonsterBehavior Monster;
@@ -1030,6 +1031,10 @@ public class GameManager : MonoBehaviour
         PlayerControls.Instance.doPlayerControls = false;
         PlayerControls.Instance.doPlayerAnimations = false;
 
+        // Bring dialogue panel on top of FloorTransitionBlack
+        int normalEscapeDialogueIndex = DialoguePanel.transform.GetSiblingIndex();
+        DialoguePanel.transform.SetAsLastSibling();
+
         yield return null;
 
         //fade out game
@@ -1085,6 +1090,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
 
         //go to menu
+        // Restore dialogue panel order
+        DialoguePanel.transform.SetSiblingIndex(normalEscapeDialogueIndex);
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("MainMenu");
     }
@@ -1100,6 +1107,11 @@ public class GameManager : MonoBehaviour
         cutsceneMode = true;
         PlayerControls.Instance.doPlayerControls = false;
         PlayerControls.Instance.doPlayerAnimations = false;
+
+        // Bring dialogue panel on top of FloorTransitionBlack
+        int realEscapeDialogueIndex = DialoguePanel.transform.GetSiblingIndex();
+        DialoguePanel.transform.SetAsLastSibling();
+
         yield return null;
 
         //fade out game
@@ -1133,6 +1145,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(() => UIManager.Instance.pendingDialogue.Count == 0);
 
         //fade music and charcter sprite
+        // Restore dialogue panel order
+        DialoguePanel.transform.SetSiblingIndex(realEscapeDialogueIndex);
         AudioManager.Instance.SetBGMVolume(0, 2);
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("MainMenu");

@@ -99,28 +99,6 @@ public class UIManager : MonoBehaviour
                         yield return new WaitForSeconds(0.5f);
                     }
                 }
-                else
-                {
-                    // An image was already showing — swap to new one
-                    if (pendingDialogue.Peek().noFadeInTransition)
-                    {
-                        // Instant swap
-                        CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
-                        Debug.Log("swap instant");
-                    }
-                    else
-                    {
-                        // Fade out, swap sprite, fade in
-                        LeanTween.value(CutscenePanel.gameObject, 1, 0, 0.5f)
-                            .setOnUpdate(val => CutscenePanel.alpha = val);
-                        yield return new WaitForSeconds(0.5f);
-                        CutsceneImage.sprite = pendingDialogue.Peek().cutsceneImage;
-                        LeanTween.value(CutscenePanel.gameObject, 0, 1, 0.5f)
-                            .setOnUpdate(val => CutscenePanel.alpha = val);
-                        yield return new WaitForSeconds(0.5f);
-                        Debug.Log("swap fade");
-                    }
-                }
             }
             else if (isCutscenePanelShown)
             {
